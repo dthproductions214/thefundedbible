@@ -83,7 +83,7 @@
         </nav>
     </div>
 
-    <!-- 2. HERO WITH AUTO-LOOPING 4K TRENDING TRADING STOCK VIDEO -->
+    <!-- 2. HERO -->
     <header class="relative overflow-hidden border-b border-slate-800/80">
         <div class="absolute inset-0 z-0">
             <video id="hero-bg-video" autoplay loop muted playsinline poster="https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1600" class="w-full h-full object-cover opacity-20 scale-105 filter contrast-125">
@@ -127,7 +127,7 @@
         </div>
     </header>
 
-    <!-- 3. LIVE PROP FIRM LEADERBOARD (WITH WORKING FILTER TABS) -->
+    <!-- 3. LIVE LEADERBOARD -->
     <section id="leaderboard-section" class="max-w-6xl mx-auto px-6 py-14 border-t border-slate-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
@@ -137,7 +137,6 @@
                 </div>
                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase">LIVE PROP FIRM LEADERBOARD</h2>
             </div>
-            <!-- WORKING LEADERBOARD FILTER TABS -->
             <div class="flex flex-wrap gap-2">
                 <button onclick="filterLeaderboard('all')" id="lb-tab-all" class="lb-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer">All Firms (6)</button>
                 <button onclick="filterLeaderboard('Futures')" id="lb-tab-Futures" class="lb-tab bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Futures Only</button>
@@ -165,7 +164,7 @@
         <p class="text-xs text-slate-500 mono mt-3 text-right">LAST SYNC: <span id="sync-time" class="text-emerald-400">LIVE TELEMETRY ACTIVE</span></p>
     </section>
 
-    <!-- 4. PROPRIETARY INSTITUTIONAL INTEL WIRE (STEALTH BRANDED - NO REDDIT MENTIONS) -->
+    <!-- 4. LIVE INTEL WIRE -->
     <section id="live-intel" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
@@ -176,7 +175,6 @@
                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase">LIVE PROP INTEL, PAYOUT REPORTS & DOCTRINE</h2>
                 <p class="text-sm text-slate-400 mt-1">Select any desk category or intelligence briefing below to inspect full mechanical risk breakdowns.</p>
             </div>
-            <!-- STEALTH PROPRIETARY DESK TABS -->
             <div class="flex flex-wrap gap-2">
                 <button id="tab-all" onclick="switchIntelTab('all')" class="intel-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer">
                     ⚡ Featured Doctrine
@@ -196,7 +194,7 @@
         <div id="blog-grid" class="grid md:grid-cols-3 gap-6"></div>
     </section>
 
-    <!-- 5. INTERACTIVE BUFFER & RISK CALCULATOR -->
+    <!-- 5. RISK CALCULATOR -->
     <section id="calculator-section" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/80">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -205,7 +203,6 @@
                 <p class="text-slate-400 mb-6">
                     If you buy a $100,000 combine with a $3,000 trailing drawdown, <strong>you do not have $100,000.</strong> You have a $3,000 account with high leverage. Drag the sliders or click a preset below to see your exact Funded Bible mechanical limits.
                 </p>
-                <!-- QUICK ACCOUNT PRESET TABS -->
                 <div class="flex flex-wrap gap-2 mb-5">
                     <button onclick="setCalcPreset(50000, 2500)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$50k Eval ($2.5k Buffer)</button>
                     <button onclick="setCalcPreset(100000, 3000)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$100k Eval ($3k Buffer)</button>
@@ -257,7 +254,7 @@
         </div>
     </section>
 
-    <!-- 6. THE 3-TIER PRICING MATRIX ($39 / $97mo or $197 / $397) -->
+    <!-- 6. PRICING MATRIX -->
     <section id="pricing" class="max-w-6xl mx-auto px-6 py-20 border-t border-slate-800/80">
         <div class="text-center mb-14">
             <div class="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mono text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase">
@@ -268,7 +265,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 items-stretch">
-            <!-- TIER 1: $39 ONE-TIME -->
+            <!-- TIER 1: $39 -->
             <div class="bg-slate-900/70 border border-slate-800 hover:border-slate-600 rounded-2xl p-8 flex flex-col justify-between transition">
                 <div>
                     <div class="flex justify-between items-center">
@@ -299,7 +296,7 @@
                 </a>
             </div>
 
-            <!-- TIER 2: $97/MO OR $197 SWEET SPOT -->
+            <!-- TIER 2: $97/MO OR $197 -->
             <div class="bg-slate-900 border-2 border-emerald-500 rounded-2xl p-8 glow-green flex flex-col justify-between relative transform md:-translate-y-4">
                 <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-black mono text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
                     🔥 82% OF TRADERS PICK THIS
@@ -324,16 +321,13 @@
                     </ul>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <a id="tier2-monthly-btn" href="#pricing" onclick="openCheckoutModal('Standard Scripture (Monthly)', '$97/mo')" class="w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3.5 rounded-xl transition uppercase mono text-sm shadow-lg block cursor-pointer">
-                        Get Monthly Access ($97/mo) →
-                    </a>
-                    <a id="tier2-lifetime-btn" href="#pricing" onclick="openCheckoutModal('Standard Scripture (Lifetime)', '$197 Lifetime')" class="w-full text-center bg-slate-800 hover:bg-slate-700 text-emerald-300 font-bold py-2.5 rounded-lg transition uppercase mono text-xs block border border-emerald-500/30 cursor-pointer">
-                        Or Lock In Lifetime ($197) →
+                    <a id="tier2-btn" href="https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05" target="_blank" rel="noopener" class="w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg block cursor-pointer">
+                        Lock In Standard Scripture ($197 / $97mo) →
                     </a>
                 </div>
             </div>
 
-            <!-- TIER 3: $397 WHALE TIER -->
+            <!-- TIER 3: $397 -->
             <div class="bg-slate-900/70 border border-slate-800 hover:border-slate-600 rounded-2xl p-8 flex flex-col justify-between transition">
                 <div>
                     <span class="mono text-xs uppercase text-purple-400 font-bold">Institutional Whale</span>
@@ -356,7 +350,7 @@
         </div>
     </section>
 
-    <!-- 7. BUILT-IN DOCTRINE BRIEFING READER MODAL (100% INTERNAL FUNNEL) -->
+    <!-- 7. ARTICLE MODAL -->
     <div id="article-modal" onclick="if(event.target === this) closeArticleModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
         <div class="max-w-2xl w-full bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
             <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-slate-300 hover:text-white mono text-xs bg-slate-800 hover:bg-red-500/80 px-3 py-1.5 rounded cursor-pointer">[X] CLOSE</button>
@@ -380,7 +374,7 @@
         </div>
     </div>
 
-    <!-- 8. INSTANT CHECKOUT RESERVATION MODAL (FALLBACK / LEAD CAPTURE) -->
+    <!-- 8. CHECKOUT RESERVATION MODAL (FALLBACK) -->
     <div id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
         <div class="max-w-md w-full bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 md:p-8 relative glow-green text-left">
             <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs bg-slate-800 px-2.5 py-1 rounded cursor-pointer">[X]</button>
@@ -399,7 +393,7 @@
         </div>
     </div>
 
-    <!-- 9. EXIT-INTENT 15-MINUTE ONE-TIME OFFER GUILLOTINE -->
+    <!-- 9. EXIT-INTENT 15-MINUTE BAILOUT -->
     <div id="exit-popup" onclick="if(event.target === this) closeBailout()" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
         <div class="max-w-lg w-full bg-slate-950 border-2 border-red-500 rounded-2xl p-6 md:p-8 glow-red relative text-center shadow-2xl">
             <button onclick="closeBailout()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs cursor-pointer">[X] PASS</button>
@@ -425,15 +419,14 @@
                 <a href="https://buy.stripe.com/6oUfZh5YJdbigKj8Rt3gk04" target="_blank" rel="noopener" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg text-center">
                     🔥 Claim Trench Starter For ~$27 With BAILOUT30 <span class="line-through text-xs opacity-70">($39)</span> →
                 </a>
-                <button onclick="closeBailout(); openCheckoutModal('Lifetime Standard Scripture (30% OFF BAILOUT30)', '$137');" class="block w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-white font-bold py-3.5 rounded-xl transition uppercase mono text-xs cursor-pointer">
-                    ⚡ Or Grab Lifetime Standard Scripture For $137 <span class="line-through opacity-60">($197)</span> →
-                </button>
+                <a href="https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05" target="_blank" rel="noopener" class="block w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-white font-bold py-3.5 rounded-xl transition uppercase mono text-xs text-center">
+                    ⚡ Or Grab Lifetime Standard Scripture For $137 With BAILOUT30 <span class="line-through opacity-60">($197)</span> →
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // INSTANT CSV GENERATOR FOR LEAD MAGNET & FREE OPT-IN
         function downloadRiskCSV() {
             const csvContent = [
                 "THE FUNDED BIBLE - UNBREAKABLE RISK MITIGATION SUITE",
@@ -473,7 +466,6 @@
             }).catch(() => {});
         }
 
-        // 1. $19 ORDER BUMP TOGGLE
         const bumpCheckbox = document.getElementById('bump-checkbox');
         const starterPriceDisplay = document.getElementById('starter-price-display');
         const starterCheckoutBtn = document.getElementById('starter-checkout-btn');
@@ -487,7 +479,6 @@
             }
         });
 
-        // 2. INTERACTIVE RISK CALCULATOR + PRESET BUTTONS
         const acctSlider = document.getElementById('acct-slider');
         const ddSlider = document.getElementById('dd-slider');
         function updateCalc() {
@@ -511,7 +502,6 @@
         acctSlider.addEventListener('input', updateCalc);
         ddSlider.addEventListener('input', updateCalc);
 
-        // 3. LIVE LEADERBOARD + WORKING FILTER TABS
         let allFirms = [
             { rank: "#1", name: "TopStep", market: "Futures", total_paid: "$1,400,000,000+", top_trader_24h: "$38,450 (Trader_K.M.)", dd_type: "End-of-Day Trailing", pass_rate: "94.2%" },
             { rank: "#2", name: "Apex Trader Funding", market: "Futures", total_paid: "$835,180,000+", top_trader_24h: "$44,120 (Trader_D.H.)", dd_type: "Intraday Trailing (Trap)", pass_rate: "89.5%" },
@@ -554,7 +544,6 @@
             filterLeaderboard('all');
         }
 
-        // 4. STEALTH INSTITUTIONAL DESK TABS (ZERO FRONT-END REDDIT BRANDING)
         let currentArticles = [];
         const stockVisuals = [
             "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -672,4 +661,170 @@
                     tag: "SESSION DISCIPLINE • 11:00 AM CUTOFF",
                     title: "The 11:00 AM Walk-Away Rule: Protecting Morning Gains From Afternoon Chop",
                     summary: "How logging off after 90 minutes doubled funded account survival rates across 60 consecutive trading sessions...",
-                    full_text: "Giving back a +
+                    full_text: "Giving back a +$450 morning green session between 12:00 PM and 2:00 PM destroys both your drawdown buffer and your mental capital.\n\nExecute inside the 9:30–11:00 AM EST institutional window, hit your 1–2 setups, and shut the charts down.",
+                    image: stockVisuals[3],
+                    date: "RISK TELEMETRY BRIEFING"
+                }
+            ]
+        };
+
+        function renderBlogs(articles) {
+            currentArticles = articles;
+            const grid = document.getElementById('blog-grid');
+            grid.innerHTML = articles.map((a, idx) => {
+                const imgUrl = a.image || stockVisuals[idx % stockVisuals.length];
+                const cleanTag = (a.tag || "DOCTRINE BRIEFING").replace(/r\/\w+/gi, "VERIFIED DESK");
+                const cleanDate = (a.date || "VERIFIED DOCTRINE").replace(/r\/\w+/gi, "INSTITUTIONAL WIRE");
+                return `
+                <article onclick="openArticleModal(${idx})" class="cursor-pointer bg-slate-900/90 border border-slate-800 hover:border-emerald-500 rounded-xl overflow-hidden flex flex-col justify-between transition group shadow-lg">
+                    <div>
+                        <div class="relative h-44 overflow-hidden bg-black">
+                            <img src="${imgUrl}" alt="${a.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100">
+                            <div class="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-emerald-500/40 text-emerald-400 mono text-[10px] font-bold px-2.5 py-1 rounded uppercase">
+                                ${cleanTag}
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-[11px] mono text-slate-500 mb-2 uppercase">${cleanDate} • CLICK TO INSPECT</div>
+                            <h3 class="text-lg font-extrabold text-white mb-3 line-clamp-2 group-hover:text-emerald-400 transition">${a.title}</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">${a.summary}</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-5 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs mono font-bold text-cyan-400 group-hover:text-emerald-400 uppercase tracking-wider">
+                            Read Full Intel + Verdict →
+                        </span>
+                    </div>
+                </article>
+            `}).join('');
+        }
+
+        async function switchIntelTab(tabName) {
+            document.querySelectorAll('.intel-tab').forEach(btn => {
+                btn.className = "intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            });
+            const activeTab = document.getElementById('tab-' + tabName);
+            if (activeTab) {
+                activeTab.className = "intel-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            }
+
+            const label = deskLabels[tabName] || "INSTITUTIONAL INTEL WIRE";
+            const statusLabel = document.getElementById('feed-status-label');
+            statusLabel.textContent = `VERIFIED DOCTRINE FEED ACTIVE • ${label}`;
+
+            renderBlogs(feedPools[tabName] || feedPools.all);
+
+            if (tabName !== 'all') {
+                try {
+                    const target = encodeURIComponent(`https://www.reddit.com/r/${tabName}/hot.json?limit=8`);
+                    const res = await fetch(`https://api.allorigins.win/raw?url=${target}`);
+                    if (res.ok) {
+                        const json = await res.json();
+                        const posts = json.data.children
+                            .map(c => c.data)
+                            .filter(p => !p.stickied && p.selftext && p.selftext.length > 80)
+                            .slice(0, 3)
+                            .map((p, i) => ({
+                                tag: `${label}`,
+                                title: p.title,
+                                summary: p.selftext.substring(0, 180) + '...',
+                                full_text: p.selftext,
+                                image: stockVisuals[(i + 2) % stockVisuals.length],
+                                date: "LIVE DESK TELEMETRY • " + new Date(p.created_utc * 1000).toLocaleDateString()
+                            }));
+                        if (posts.length === 3) {
+                            renderBlogs(posts);
+                        }
+                    }
+                } catch (e) {}
+            }
+        }
+
+        function openArticleModal(idx) {
+            const art = currentArticles[idx];
+            if (!art) return;
+            document.getElementById('modal-tag').textContent = (art.tag || "DOCTRINE BRIEFING").replace(/r\/\w+/gi, "VERIFIED DESK");
+            document.getElementById('modal-title').textContent = art.title;
+            document.getElementById('modal-body').textContent = art.full_text || art.summary;
+            const modal = document.getElementById('article-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openCheckoutModal(title, price) {
+            document.getElementById('checkout-tier-title').textContent = title;
+            document.getElementById('checkout-tier-price').textContent = price;
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function completeInstantCheckout(e) {
+            e.preventDefault();
+            downloadRiskCSV();
+            closeCheckoutModal();
+            alert("⚡ DOCTRINE UNLOCKED: Your Unbreakable Risk Mitigation Suite (.CSV) has just been downloaded to your device!");
+        }
+
+        const popup = document.getElementById('exit-popup');
+        const timerDisplay = document.getElementById('countdown-timer');
+        const TIMER_KEY = 'tfb_oto_expiry_timestamp';
+        const SHOWN_KEY = 'tfb_oto_already_triggered';
+        const DURATION_MS = 15 * 60 * 1000;
+        let timerInterval = null;
+
+        function startTimer() {
+            let expiry = localStorage.getItem(TIMER_KEY);
+            const now = Date.now();
+            if (!expiry || now >= parseInt(expiry, 10)) {
+                expiry = now + DURATION_MS;
+                localStorage.setItem(TIMER_KEY, expiry);
+            } else {
+                expiry = parseInt(expiry, 10);
+            }
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
+                    const rem = Math.max(0, Math.floor((expiry - Date.now()) / 1000));
+                    const m = String(Math.floor(rem / 60)).padStart(2, '0');
+                    const s = String(rem % 60).padStart(2, '0');
+                    timerDisplay.textContent = rem > 0 ? `${m}:${s}` : "00:00 - EXPIRED";
+                }, 1000);
+            }
+            return true;
+        }
+
+        function forceOpenBailout() {
+            startTimer();
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+        }
+
+        function closeBailout() {
+            popup.classList.add('hidden');
+            popup.classList.remove('flex');
+        }
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY <= 5 && !sessionStorage.getItem(SHOWN_KEY)) {
+                sessionStorage.setItem(SHOWN_KEY, 'true');
+                forceOpenBailout();
+            }
+        });
+
+        loadLeaderboard();
+        switchIntelTab('all');
+    </script>
+</body>
+</html>
