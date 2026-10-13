@@ -2,12 +2,10 @@ import os
 import re
 import json
 import urllib.request
-import xml.etree.ElementTree as ET
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
-# Optional: Free Pexels API key from https://www.pexels.com/api/
 PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 SITE_URL = "https://thefundedbible.com"
 INDEXNOW_KEY = "tfb8849201948indexnowkey"
@@ -25,6 +23,12 @@ CURATED_VIDEOS = [
     "https://videos.pexels.com/video-files/7579955/7579955-uhd_2560_1440_25fps.mp4",
     "https://videos.pexels.com/video-files/6774633/6774633-uhd_2560_1440_30fps.mp4"
 ]
+
+DESK_MAP = {
+    "proptrading": "PROP EVALUATION AUDIT DESK",
+    "FuturesTrading": "NQ & ES ORDERFLOW DESK",
+    "DayTrading": "RISK & DRAWDOWN TELEMETRY DESK"
+}
 
 def update_leaderboards():
     print("🚀 [1/4] Syncing Live Prop Firm Leaderboards...")
@@ -142,7 +146,7 @@ def build_seo_article_page(article):
                 <a href="../index.html#pricing" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-6 py-3.5 rounded-xl text-sm uppercase">
                     Unlock The $37 Trench Starter →
                 </a>
-                <a href="../index.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm">
+                <a href="../index.html#calculator-section" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm">
                     Test The Free Drawdown Calculator
                 </a>
             </div>
@@ -156,12 +160,86 @@ def build_seo_article_page(article):
     return filepath, page_url
 
 def harvest_blogs_and_build_seo(images):
-    print("🚀 [3/4] Harvesting Prop Blogs & Building Standalone Page-1 SEO Files...")
+    print("🚀 [3/4] Harvesting Prop Intel & Building Standalone Page-1 SEO Files...")
     articles = []
     seo_urls = [f"{SITE_URL}/", f"{SITE_URL}/index.html"]
     headers = {"User-Agent": "Mozilla/5.0 (TheFundedBibleSEO/2.0)"}
 
     idx = 0
-    for sub in ["proptrading", "FuturesTrading", "DayTrading"]:
+    for sub, desk_title in DESK_MAP.items():
         try:
-            req = urllib.request.Request(f"
+            req = urllib.request.Request(f"https://www.reddit.com/r/{sub}/hot.json?limit=5", headers=headers)
+            with urllib.request.urlopen(req, timeout=15) as response:
+                data = json.loads(response.read().decode("utf-8"))
+                for item in data["data"]["children"]:
+                    post = item["data"]
+                    if not post.get("stickied") and len(post.get("selftext", "")) > 90:
+                        clean_text = post["selftext"].strip()
+                        img_url = images[idx % len(images)]
+                        idx += 1
+                        art = {
+                            "tag": f"INSTITUTIONAL TELEMETRY • {desk_title}",
+                            "title": post["title"],
+                            "summary": clean_text[:175] + "...",
+                            "full_text": clean_text + "\n\n---\n⚡ THE FUNDED BIBLE MECHANICAL VERDICT:\nNever size off the nominal combine balance. Risk 6% max of your remaining trailing drawdown buffer on MNQ/MES Micros inside the first 90 minutes of the NY Open (9:30–11:00 AM EST), and enforce a hard 2-loss daily kill-switch.",
+                            "image": img_url,
+                            "seo_alt": f"{post['title']} - Prop Firm Trailing Drawdown Risk Calculator",
+                            "date": datetime.utcfromtimestamp(post["created_utc"]).strftime("%Y-%m-%d")
+                        }
+                        rel_path, full_url = build_seo_article_page(art)
+                        art["seo_url"] = rel_path
+                        seo_urls.append(full_url)
+                        articles.append(art)
+        except Exception as e:
+            print(f"⚠️ Desk feed {sub} note: {e}")
+
+    if articles:
+        with open("live_blogs.json", "w", encoding="utf-8") as f:
+            json.dump({"last_updated": datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"), "articles": articles[:6]}, f, indent=2)
+
+    return seo_urls
+
+def generate_sitemap_and_ping_search_engines(seo_urls):
+    print("🌐 [4/4] Generating XML Sitemap & Pinging Google / Bing / DuckDuckGo (IndexNow)...")
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    sitemap_items = "\n".join([
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>{'1.0' if u.endswith('/') else '0.8'}</priority>\n  </url>"
+        for u in seo_urls
+    ])
+    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_items}
+</urlset>"""
+    with open("sitemap.xml", "w", encoding="utf-8") as f:
+        f.write(sitemap_xml)
+
+    robots_txt = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n"
+    with open("robots.txt", "w", encoding="utf-8") as f:
+        f.write(robots_txt)
+
+    with open(f"{INDEXNOW_KEY}.txt", "w", encoding="utf-8") as f:
+        f.write(INDEXNOW_KEY)
+
+    try:
+        payload = json.dumps({
+            "host": "thefundedbible.com",
+            "key": INDEXNOW_KEY,
+            "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+            "urlList": seo_urls[:20]
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.indexnow.org/indexnow",
+            data=payload,
+            headers={"Content-Type": "application/json; charset=utf-8"},
+            method="POST"
+        )
+        urllib.request.urlopen(req, timeout=10)
+    except Exception as e:
+        print(f"ℹ️ IndexNow queued: {e}")
+
+if __name__ == "__main__":
+    update_leaderboards()
+    imgs, vids = fetch_trending_media()
+    urls = harvest_blogs_and_build_seo(imgs)
+    generate_sitemap_and_ping_search_engines(urls)
+    print("🔥 ALL LEADERBOARDS, VISUALS, SEO PAGES & SEARCH PINGS COMPLETE.")
