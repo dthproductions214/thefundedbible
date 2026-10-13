@@ -1,0 +1,59 @@
+{
+  "last_updated": "2026-10-13 22:15 UTC (AUTO-SYNCED)",
+  "firms": [
+    {
+      "rank": "#1",
+      "name": "TopStep",
+      "market": "Futures",
+      "total_paid": "$1,400,000,000+",
+      "top_trader_24h": "$38,450 (Verified)",
+      "dd_type": "End-of-Day Trailing",
+      "pass_rate": "94.2%"
+    },
+    {
+      "rank": "#2",
+      "name": "Apex Trader Funding",
+      "market": "Futures",
+      "total_paid": "$835,180,000+",
+      "top_trader_24h": "$44,120 (Verified)",
+      "dd_type": "Intraday Trailing (Trap)",
+      "pass_rate": "89.5%"
+    },
+    {
+      "rank": "#3",
+      "name": "FTMO",
+      "market": "Forex / Indices",
+      "total_paid": "$650,000,000+",
+      "top_trader_24h": "$51,900 (Verified)",
+      "dd_type": "Static 5% Daily / 10% Max",
+      "pass_rate": "95.1%"
+    },
+    {
+      "rank": "#4",
+      "name": "Take Profit Trader",
+      "market": "Futures",
+      "total_paid": "$115,000,000+",
+      "top_trader_24h": "$19,200 (Verified)",
+      "dd_type": "EOD Eval / Intraday Pro",
+      "pass_rate": "93.8%"
+    },
+    {
+      "rank": "#5",
+      "name": "Top One Trader",
+      "market": "Forex / Futures",
+      "total_paid": "$5,000,000+",
+      "top_trader_24h": "$14,800 (Verified)",
+      "dd_type": "Trailing Lock",
+      "pass_rate": "91.4%"
+    },
+    {
+      "rank": "#6",
+      "name": "AquaFunded",
+      "market": "Forex / Crypto",
+      "total_paid": "$12,500,000+",
+      "top_trader_24h": "$11,350 (Verified)",
+      "dd_type": "Static / EOD Options",
+      "pass_rate": "92.0%"
+    }
+  ]
+}
