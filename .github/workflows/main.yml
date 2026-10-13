@@ -1,0 +1,36 @@
+name: Automated Leaderboard & Blog Harvester
+
+on:
+  schedule:
+    - cron: '0 11 * * *' # Runs every morning at 6:00 AM CST (11:00 UTC)
+  workflow_dispatch:     # Manual 1-click trigger button inside GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  run-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Website Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Scraper Dependencies
+        run: |
+          pip install playwright beautifulsoup4
+          playwright install chromium --with-deps
+
+      - name: Run Leaderboard & Blog Auto-Engine
+        run: python auto_engine.py
+
+      - name: Commit & Publish Live Updates, Visuals & SEO Pages to Website
+        run: |
+          git config --global user.name "FundedBible AutoBot"
+          git config --global user.email "bot@thefundedbible.com"
+          git add leaderboard.json live_blogs.json media_feed.json sitemap.xml robots.txt intel/ *.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-publish trending visuals, SEO pages, and sitemap" && git push)
