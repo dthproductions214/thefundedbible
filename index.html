@@ -30,7 +30,7 @@
           "description": "Mechanical risk mitigation calculator and 90-minute NY Session execution doctrine engineered to beat intraday and EOD trailing drawdowns on TopStep, Apex, Take Profit Trader, and AquaFunded.",
           "offers": {
             "@type": "AggregateOffer",
-            "lowPrice": "37.00",
+            "lowPrice": "39.00",
             "highPrice": "397.00",
             "priceCurrency": "USD",
             "offerCount": "3"
@@ -257,18 +257,18 @@
         </div>
     </section>
 
-    <!-- 6. THE 3-TIER SLEEP-MONEY PRICING MATRIX + $19 ORDER BUMP -->
+    <!-- 6. THE 3-TIER PRICING MATRIX ($39 / $97mo or $197 / $397) -->
     <section id="pricing" class="max-w-6xl mx-auto px-6 py-20 border-t border-slate-800/80">
         <div class="text-center mb-14">
             <div class="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mono text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase">
-                Cost of 1 Blown Combine Reset = $80+ • Cost to Fix Your Math = $37
+                Cost of 1 Blown Combine Reset = $80+ • Cost to Fix Your Math = $39
             </div>
             <h2 class="text-4xl md:text-5xl font-black text-white uppercase">CHOOSE YOUR EXECUTION TIER</h2>
             <p class="text-slate-400 mt-2 max-w-2xl mx-auto">Instant automated digital delivery the second your payment clears.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 items-stretch">
-            <!-- TIER 1: $37 IMPULSE ENTRY -->
+            <!-- TIER 1: $39 ONE-TIME -->
             <div class="bg-slate-900/70 border border-slate-800 hover:border-slate-600 rounded-2xl p-8 flex flex-col justify-between transition">
                 <div>
                     <div class="flex justify-between items-center">
@@ -278,7 +278,7 @@
                     <h3 class="text-2xl font-black text-white mt-2">THE TRENCH STARTER</h3>
                     <div class="my-6">
                         <span class="text-sm text-slate-500 line-through mono">$99</span>
-                        <div id="starter-price-display" class="text-4xl font-black text-white mono">$37 <span class="text-xs text-slate-500 font-normal">/ one-time</span></div>
+                        <div id="starter-price-display" class="text-4xl font-black text-white mono">$39 <span class="text-xs text-slate-500 font-normal">/ one-time</span></div>
                     </div>
                     <ul class="space-y-3 text-sm text-slate-300 mb-6 border-t border-slate-800 pt-6">
                         <li>✔️ <strong>Unbreakable Risk Mitigation Sheet</strong> (.CSV / Excel)</li>
@@ -294,9 +294,9 @@
                         </div>
                     </label>
                 </div>
-                <button id="starter-checkout-btn" onclick="openCheckoutModal('The Trench Starter Risk Suite', '$37')" class="w-full text-center bg-slate-800 hover:bg-cyan-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer">
-                    Grab The Starter Sheet ($37) →
-                </button>
+                <a id="starter-checkout-btn" href="https://buy.stripe.com/6oUfZh5YJdbigKj8Rt3gk04" target="_blank" rel="noopener" class="w-full text-center bg-slate-800 hover:bg-cyan-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer block">
+                    Grab The Starter Sheet ($39) →
+                </a>
             </div>
 
             <!-- TIER 2: $97/MO OR $197 SWEET SPOT -->
@@ -309,7 +309,11 @@
                     <h3 class="text-2xl font-black text-white mt-2">STANDARD SCRIPTURE</h3>
                     <div class="my-6">
                         <span class="text-sm text-slate-500 line-through mono">$299</span>
-                        <div class="text-4xl font-black text-emerald-400 mono">$97<span class="text-lg text-white">/mo</span> <span class="text-xs text-slate-400 font-normal">or $197 lifetime</span></div>
+                        <div class="text-3xl lg:text-4xl font-black text-emerald-400 mono">
+                            $97<span class="text-sm text-white font-normal">/mo</span> 
+                            <span class="text-slate-400 text-lg font-light">or</span> 
+                            $197 <span class="text-xs text-slate-400 font-normal">lifetime</span>
+                        </div>
                     </div>
                     <ul class="space-y-3 text-sm text-slate-200 mb-8 border-t border-slate-800 pt-6">
                         <li>✔️ <strong>Everything in The Trench Starter</strong></li>
@@ -319,9 +323,14 @@
                         <li>✔️ <strong>Private Discord Community Access</strong></li>
                     </ul>
                 </div>
-                <button onclick="openCheckoutModal('Standard Scripture (Core Doctrine)', '$97/mo or $197 Lifetime')" class="w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg cursor-pointer">
-                    Lock In Standard Scripture →
-                </button>
+                <div class="flex flex-col gap-2">
+                    <a id="tier2-monthly-btn" href="#pricing" onclick="openCheckoutModal('Standard Scripture (Monthly)', '$97/mo')" class="w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3.5 rounded-xl transition uppercase mono text-sm shadow-lg block cursor-pointer">
+                        Get Monthly Access ($97/mo) →
+                    </a>
+                    <a id="tier2-lifetime-btn" href="#pricing" onclick="openCheckoutModal('Standard Scripture (Lifetime)', '$197 Lifetime')" class="w-full text-center bg-slate-800 hover:bg-slate-700 text-emerald-300 font-bold py-2.5 rounded-lg transition uppercase mono text-xs block border border-emerald-500/30 cursor-pointer">
+                        Or Lock In Lifetime ($197) →
+                    </a>
+                </div>
             </div>
 
             <!-- TIER 3: $397 WHALE TIER -->
@@ -330,7 +339,7 @@
                     <span class="mono text-xs uppercase text-purple-400 font-bold">Institutional Whale</span>
                     <h3 class="text-2xl font-black text-white mt-2">SCALE MASTERMIND</h3>
                     <div class="my-6">
-                        <span class="text-sm text-slate-500 line-through mono">$499</span>
+                        <span class="text-sm text-slate-500 line-through mono">$599</span>
                         <div class="text-4xl font-black text-white mono">$397 <span class="text-xs text-slate-500 font-normal">/ lifetime</span></div>
                     </div>
                     <ul class="space-y-3 text-sm text-slate-300 mb-8 border-t border-slate-800 pt-6">
@@ -340,9 +349,9 @@
                         <li>✔️ <strong>Custom Bot & Execution Parameter Templates</strong></li>
                     </ul>
                 </div>
-                <button onclick="openCheckoutModal('Scale Mastermind (Whale Tier)', '$397 Lifetime')" class="w-full text-center bg-slate-800 hover:bg-purple-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer">
+                <a id="tier3-btn" href="#pricing" onclick="openCheckoutModal('Scale Mastermind (Whale Tier)', '$397 Lifetime')" class="w-full text-center bg-slate-800 hover:bg-purple-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer block">
                     Join Scale Mastermind ($397) →
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -360,9 +369,9 @@
                     91% of prop traders reading this will still blow their combine because they size off the nominal balance instead of the trailing drawdown buffer. Lock in our <strong>6% Buffer Rule & 2-Loss Daily Kill-Switch</strong> before your next NY session.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                    <button onclick="closeArticleModal(); openCheckoutModal('The Trench Starter Risk Suite', '$37');" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-5 py-3 rounded-lg text-xs mono uppercase cursor-pointer">
-                        Grab The $37 Trench Starter Sheet →
-                    </button>
+                    <a href="https://buy.stripe.com/6oUfZh5YJdbigKj8Rt3gk04" target="_blank" rel="noopener" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-5 py-3 rounded-lg text-xs mono uppercase inline-block">
+                        Grab The $39 Trench Starter Sheet →
+                    </a>
                     <button onclick="closeArticleModal(); document.getElementById('calculator-section').scrollIntoView({behavior: 'smooth'});" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-3 rounded-lg text-xs mono cursor-pointer">
                         Test Your Buffer In The Risk Calculator →
                     </button>
@@ -371,18 +380,18 @@
         </div>
     </div>
 
-    <!-- 8. INSTANT CHECKOUT RESERVATION MODAL -->
+    <!-- 8. INSTANT CHECKOUT RESERVATION MODAL (FALLBACK / LEAD CAPTURE) -->
     <div id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
         <div class="max-w-md w-full bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 md:p-8 relative glow-green text-left">
             <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs bg-slate-800 px-2.5 py-1 rounded cursor-pointer">[X]</button>
             <div class="text-xs mono text-emerald-400 font-bold uppercase mb-1">🔒 INSTANT DIGITAL DISPATCH</div>
             <h3 id="checkout-tier-title" class="text-2xl font-black text-white mb-1">The Trench Starter</h3>
-            <div id="checkout-tier-price" class="text-3xl font-black text-emerald-400 mono mb-4">$37</div>
+            <div id="checkout-tier-price" class="text-3xl font-black text-emerald-400 mono mb-4">$39</div>
             <p class="text-xs text-slate-300 mb-5">
-                Enter your email below to lock in your order and immediately download the <strong>Unbreakable Risk Mitigation Suite (.CSV)</strong> while your member portal access is provisioned:
+                Enter your email below to reserve access and download the <strong>Unbreakable Risk Mitigation Suite (.CSV)</strong>:
             </p>
             <form onsubmit="completeInstantCheckout(event)" class="space-y-3">
-                <input type="email" id="checkout-email" required placeholder="Enter your best email for instant delivery..." class="w-full bg-black border border-slate-700 rounded-lg px-4 py-3 text-white mono text-sm focus:border-emerald-400 focus:outline-none">
+                <input type="email" id="checkout-email" required placeholder="Enter your best email..." class="w-full bg-black border border-slate-700 rounded-lg px-4 py-3 text-white mono text-sm focus:border-emerald-400 focus:outline-none">
                 <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3.5 rounded-xl uppercase mono text-sm cursor-pointer">
                     Unlock & Download Risk Suite Now →
                 </button>
@@ -413,9 +422,9 @@
                 <span class="mono text-sm font-black text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded">BAILOUT30</span>
             </div>
             <div class="space-y-3">
-                <button onclick="closeBailout(); openCheckoutModal('Trench Starter (30% OFF BAILOUT30)', '$25');" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg cursor-pointer">
-                    🔥 Claim Trench Starter For $25 <span class="line-through text-xs opacity-70">($37)</span> →
-                </button>
+                <a href="https://buy.stripe.com/6oUfZh5YJdbigKj8Rt3gk04" target="_blank" rel="noopener" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg text-center">
+                    🔥 Claim Trench Starter For ~$27 With BAILOUT30 <span class="line-through text-xs opacity-70">($39)</span> →
+                </a>
                 <button onclick="closeBailout(); openCheckoutModal('Lifetime Standard Scripture (30% OFF BAILOUT30)', '$137');" class="block w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-white font-bold py-3.5 rounded-xl transition uppercase mono text-xs cursor-pointer">
                     ⚡ Or Grab Lifetime Standard Scripture For $137 <span class="line-through opacity-60">($197)</span> →
                 </button>
@@ -424,7 +433,7 @@
     </div>
 
     <script>
-        // INSTANT CSV GENERATOR FOR LEAD MAGNET & STARTER DOWNLOAD
+        // INSTANT CSV GENERATOR FOR LEAD MAGNET & FREE OPT-IN
         function downloadRiskCSV() {
             const csvContent = [
                 "THE FUNDED BIBLE - UNBREAKABLE RISK MITIGATION SUITE",
@@ -470,13 +479,11 @@
         const starterCheckoutBtn = document.getElementById('starter-checkout-btn');
         bumpCheckbox.addEventListener('change', () => {
             if (bumpCheckbox.checked) {
-                starterPriceDisplay.innerHTML = '$56 <span class="text-xs text-emerald-400 font-normal">/ includes $19 Cheat-Sheet Pack</span>';
-                starterCheckoutBtn.textContent = 'Grab Starter + Cheat Sheets ($56) →';
-                starterCheckoutBtn.setAttribute('onclick', "openCheckoutModal('Trench Starter + 5-Firm Cheat Sheet Bump', '$56')");
+                starterPriceDisplay.innerHTML = '$58 <span class="text-xs text-emerald-400 font-normal">/ includes $19 Cheat-Sheet Pack</span>';
+                starterCheckoutBtn.textContent = 'Grab Starter + Cheat Sheets ($58) →';
             } else {
-                starterPriceDisplay.innerHTML = '$37 <span class="text-xs text-slate-500 font-normal">/ one-time</span>';
-                starterCheckoutBtn.textContent = 'Grab The Starter Sheet ($37) →';
-                starterCheckoutBtn.setAttribute('onclick', "openCheckoutModal('The Trench Starter Risk Suite', '$37')");
+                starterPriceDisplay.innerHTML = '$39 <span class="text-xs text-slate-500 font-normal">/ one-time</span>';
+                starterCheckoutBtn.textContent = 'Grab The Starter Sheet ($39) →';
             }
         });
 
@@ -665,173 +672,4 @@
                     tag: "SESSION DISCIPLINE • 11:00 AM CUTOFF",
                     title: "The 11:00 AM Walk-Away Rule: Protecting Morning Gains From Afternoon Chop",
                     summary: "How logging off after 90 minutes doubled funded account survival rates across 60 consecutive trading sessions...",
-                    full_text: "Giving back a +$450 morning green session between 12:00 PM and 2:00 PM destroys both your drawdown buffer and your mental capital.\n\nExecute inside the 9:30–11:00 AM EST institutional window, hit your 1–2 setups, and shut the charts down.",
-                    image: stockVisuals[3],
-                    date: "RISK TELEMETRY BRIEFING"
-                }
-            ]
-        };
-
-        function renderBlogs(articles) {
-            currentArticles = articles;
-            const grid = document.getElementById('blog-grid');
-            grid.innerHTML = articles.map((a, idx) => {
-                const imgUrl = a.image || stockVisuals[idx % stockVisuals.length];
-                const cleanTag = (a.tag || "DOCTRINE BRIEFING").replace(/r\/\w+/gi, "VERIFIED DESK");
-                const cleanDate = (a.date || "VERIFIED DOCTRINE").replace(/r\/\w+/gi, "INSTITUTIONAL WIRE");
-                return `
-                <article onclick="openArticleModal(${idx})" class="cursor-pointer bg-slate-900/90 border border-slate-800 hover:border-emerald-500 rounded-xl overflow-hidden flex flex-col justify-between transition group shadow-lg">
-                    <div>
-                        <div class="relative h-44 overflow-hidden bg-black">
-                            <img src="${imgUrl}" alt="${a.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100">
-                            <div class="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-emerald-500/40 text-emerald-400 mono text-[10px] font-bold px-2.5 py-1 rounded uppercase">
-                                ${cleanTag}
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="text-[11px] mono text-slate-500 mb-2 uppercase">${cleanDate} • CLICK TO INSPECT</div>
-                            <h3 class="text-lg font-extrabold text-white mb-3 line-clamp-2 group-hover:text-emerald-400 transition">${a.title}</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">${a.summary}</p>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-5 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-                        <span class="text-xs mono font-bold text-cyan-400 group-hover:text-emerald-400 uppercase tracking-wider">
-                            Read Full Intel + Verdict →
-                        </span>
-                    </div>
-                </article>
-            `}).join('');
-        }
-
-        async function switchIntelTab(tabName) {
-            document.querySelectorAll('.intel-tab').forEach(btn => {
-                btn.className = "intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer";
-            });
-            const activeTab = document.getElementById('tab-' + tabName);
-            if (activeTab) {
-                activeTab.className = "intel-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer";
-            }
-
-            const label = deskLabels[tabName] || "INSTITUTIONAL INTEL WIRE";
-            const statusLabel = document.getElementById('feed-status-label');
-            statusLabel.textContent = `VERIFIED DOCTRINE FEED ACTIVE • ${label}`;
-
-            renderBlogs(feedPools[tabName] || feedPools.all);
-
-            // Silently harvest fresh discussions in the background but rebrand all tags to Institutional Telemetry
-            if (tabName !== 'all') {
-                try {
-                    const target = encodeURIComponent(`https://www.reddit.com/r/${tabName}/hot.json?limit=8`);
-                    const res = await fetch(`https://api.allorigins.win/raw?url=${target}`);
-                    if (res.ok) {
-                        const json = await res.json();
-                        const posts = json.data.children
-                            .map(c => c.data)
-                            .filter(p => !p.stickied && p.selftext && p.selftext.length > 80)
-                            .slice(0, 3)
-                            .map((p, i) => ({
-                                tag: `${label}`,
-                                title: p.title,
-                                summary: p.selftext.substring(0, 180) + '...',
-                                full_text: p.selftext,
-                                image: stockVisuals[(i + 2) % stockVisuals.length],
-                                date: "LIVE DESK TELEMETRY • " + new Date(p.created_utc * 1000).toLocaleDateString()
-                            }));
-                        if (posts.length === 3) {
-                            renderBlogs(posts);
-                        }
-                    }
-                } catch (e) {}
-            }
-        }
-
-        function openArticleModal(idx) {
-            const art = currentArticles[idx];
-            if (!art) return;
-            document.getElementById('modal-tag').textContent = (art.tag || "DOCTRINE BRIEFING").replace(/r\/\w+/gi, "VERIFIED DESK");
-            document.getElementById('modal-title').textContent = art.title;
-            document.getElementById('modal-body').textContent = art.full_text || art.summary;
-            const modal = document.getElementById('article-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeArticleModal() {
-            const modal = document.getElementById('article-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        // CHECKOUT MODAL HANDLERS
-        function openCheckoutModal(title, price) {
-            document.getElementById('checkout-tier-title').textContent = title;
-            document.getElementById('checkout-tier-price').textContent = price;
-            const modal = document.getElementById('checkout-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeCheckoutModal() {
-            const modal = document.getElementById('checkout-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function completeInstantCheckout(e) {
-            e.preventDefault();
-            downloadRiskCSV();
-            closeCheckoutModal();
-            alert("⚡ DOCTRINE UNLOCKED: Your Unbreakable Risk Mitigation Suite (.CSV) has just been downloaded to your device!");
-        }
-
-        // 5. EXIT-INTENT 15-MINUTE GUILLOTINE + MANUAL TRIGGER BUTTON
-        const popup = document.getElementById('exit-popup');
-        const timerDisplay = document.getElementById('countdown-timer');
-        const TIMER_KEY = 'tfb_oto_expiry_timestamp';
-        const SHOWN_KEY = 'tfb_oto_already_triggered';
-        const DURATION_MS = 15 * 60 * 1000;
-        let timerInterval = null;
-
-        function startTimer() {
-            let expiry = localStorage.getItem(TIMER_KEY);
-            const now = Date.now();
-            if (!expiry || now >= parseInt(expiry, 10)) {
-                expiry = now + DURATION_MS;
-                localStorage.setItem(TIMER_KEY, expiry);
-            } else {
-                expiry = parseInt(expiry, 10);
-            }
-            if (!timerInterval) {
-                timerInterval = setInterval(() => {
-                    const rem = Math.max(0, Math.floor((expiry - Date.now()) / 1000));
-                    const m = String(Math.floor(rem / 60)).padStart(2, '0');
-                    const s = String(rem % 60).padStart(2, '0');
-                    timerDisplay.textContent = rem > 0 ? `${m}:${s}` : "00:00 - EXPIRED";
-                }, 1000);
-            }
-            return true;
-        }
-
-        function forceOpenBailout() {
-            startTimer();
-            popup.classList.remove('hidden');
-            popup.classList.add('flex');
-        }
-
-        function closeBailout() {
-            popup.classList.add('hidden');
-            popup.classList.remove('flex');
-        }
-
-        document.addEventListener('mouseout', (e) => {
-            if (e.clientY <= 5 && !sessionStorage.getItem(SHOWN_KEY)) {
-                sessionStorage.setItem(SHOWN_KEY, 'true');
-                forceOpenBailout();
-            }
-        });
-
-        loadLeaderboard();
-        switchIntelTab('all');
-    </script>
-</body>
-</html>
+                    full_text: "Giving back a +
