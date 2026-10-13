@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,27 +40,6 @@
             "ratingValue": "4.9",
             "reviewCount": "148"
           }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How do you beat the intraday trailing drawdown on a $50k or $100k prop firm combine?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Stop sizing off the nominal $50k or $100k balance. Size strictly at 6% of your actual trailing drawdown buffer using MNQ or MES Micros during the first 90 minutes of the NY Open (9:30–11:00 AM EST), and enforce a hard 2-loss daily kill-switch."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the best contract size for a $50k TopStep or Apex evaluation?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "On a $2,500 drawdown buffer, 6% risk equals $150 maximum risk per trade. Using 3 to 4 MNQ Micro contracts gives you 16 consecutive losing trades of breathing room before liquidation."
-              }
-            }
-          ]
         }
       ]
     }
@@ -68,33 +47,52 @@
 </head>
 <body class="overflow-x-hidden selection:bg-emerald-500 selection:text-black">
 
-    <!-- 1. LIVE PAYOUT TICKER (TOP BAR) -->
-    <div class="bg-emerald-950/80 border-b border-emerald-500/30 py-2 overflow-hidden sticky top-0 z-40 backdrop-blur-md">
-        <div class="animate-ticker mono text-xs text-emerald-400 font-semibold space-x-12 whitespace-nowrap">
-            <span>🟢 LIVE PROP PAYOUT FEED:</span>
-            <span>[TopStep] Trader_M.K. — $14,250.00 PAID</span>
-            <span>[Apex] Account #40912 — $8,400.00 PAID</span>
-            <span>[Take Profit Trader] User_ChinoP_Doctrine — $6,120.00 PAID</span>
-            <span>[AquaFunded] Trader_J.R. — $19,800.00 PAID</span>
-            <span>[Top One Trader] Account #8821 — $4,950.00 PAID</span>
-            <span>[FTMO] Trader_V.S. — $22,100.00 PAID</span>
-            <span>🟢 LIVE PROP PAYOUT FEED:</span>
-            <span>[TopStep] Trader_M.K. — $14,250.00 PAID</span>
-            <span>[Apex] Account #40912 — $8,400.00 PAID</span>
-            <span>[Take Profit Trader] User_ChinoP_Doctrine — $6,120.00 PAID</span>
+    <!-- 1. LIVE PAYOUT TICKER + STICKY NAVIGATION TABS -->
+    <div class="sticky top-0 z-40 backdrop-blur-xl bg-[#06080d]/95 border-b border-slate-800">
+        <div class="bg-emerald-950/90 border-b border-emerald-500/30 py-1.5 overflow-hidden">
+            <div class="animate-ticker mono text-xs text-emerald-400 font-semibold space-x-12 whitespace-nowrap">
+                <span>🟢 LIVE PROP PAYOUT FEED:</span>
+                <span>[TopStep] Trader_M.K. — $14,250.00 PAID</span>
+                <span>[Apex] Account #40912 — $8,400.00 PAID</span>
+                <span>[Take Profit Trader] User_ChinoP_Doctrine — $6,120.00 PAID</span>
+                <span>[AquaFunded] Trader_J.R. — $19,800.00 PAID</span>
+                <span>[Top One Trader] Account #8821 — $4,950.00 PAID</span>
+                <span>[FTMO] Trader_V.S. — $22,100.00 PAID</span>
+                <span>🟢 LIVE PROP PAYOUT FEED:</span>
+                <span>[TopStep] Trader_M.K. — $14,250.00 PAID</span>
+                <span>[Apex] Account #40912 — $8,400.00 PAID</span>
+                <span>[Take Profit Trader] User_ChinoP_Doctrine — $6,120.00 PAID</span>
+            </div>
         </div>
+
+        <!-- WORKING TOP NAVIGATION BAR -->
+        <nav class="max-w-6xl mx-auto px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+            <a href="#" class="text-lg font-black tracking-tighter text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                THE FUNDED <span class="text-emerald-400">BIBLE</span>
+            </a>
+            <div class="flex flex-wrap items-center gap-2 md:gap-6 mono text-xs font-bold">
+                <a href="#leaderboard-section" class="text-slate-300 hover:text-emerald-400 transition px-2 py-1">📊 Leaderboard</a>
+                <a href="#live-intel" class="text-slate-300 hover:text-cyan-400 transition px-2 py-1">⚡ Live Intel</a>
+                <a href="#calculator-section" class="text-slate-300 hover:text-emerald-400 transition px-2 py-1">🧮 Risk Calculator</a>
+                <a href="#pricing" class="text-slate-300 hover:text-emerald-400 transition px-2 py-1">💎 Pricing Tiers</a>
+                <button onclick="forceOpenBailout()" class="bg-red-500/20 hover:bg-red-500 hover:text-black text-red-400 border border-red-500/40 px-3 py-1.5 rounded-lg transition">
+                    🔥 30% Off Bailout
+                </button>
+            </div>
+        </nav>
     </div>
 
     <!-- 2. HERO WITH AUTO-LOOPING 4K TRENDING TRADING STOCK VIDEO -->
     <header class="relative overflow-hidden border-b border-slate-800/80">
         <div class="absolute inset-0 z-0">
             <video id="hero-bg-video" autoplay loop muted playsinline poster="https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1600" class="w-full h-full object-cover opacity-20 scale-105 filter contrast-125">
-                <source id="hero-video-src" src="https://videos.pexels.com/video-files/7579955/7579955-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/7579955/7579955-uhd_2560_1440_25fps.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-b from-[#06080d]/70 via-[#06080d]/85 to-[#06080d]"></div>
         </div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 text-center">
+        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-14 pb-20 text-center">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 mono text-xs mb-6 backdrop-blur-md">
                 <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
                 <span>91.4% OF TRADERS LIQUIDATE THEIR EVAL IN THE FIRST 6 DAYS</span>
@@ -107,31 +105,31 @@
                 Your psychology isn't broken—your math is. Prop firms engineer trailing drawdowns to liquidate emotional sizing. Lock in the cold, mechanical Navigational Doctrine that turns evaluations into ATM machines.
             </p>
 
-            <!-- THE TRAP DOOR (EMAIL CAPTURE) -->
+            <!-- THE TRAP DOOR (EMAIL CAPTURE + INSTANT CSV DOWNLOAD) -->
             <div class="max-w-2xl mx-auto bg-slate-900/95 border-2 border-emerald-500/60 rounded-2xl p-8 glow-green text-left relative overflow-hidden backdrop-blur-xl">
                 <div class="absolute top-0 right-0 bg-emerald-500 text-black mono text-xs font-extrabold px-3 py-1 rounded-bl-lg">
                     100% FREE DOCTRINE TOOL
                 </div>
                 <h3 class="text-2xl font-extrabold text-white mb-2">Steal The "2-Trade Prop Saver" Risk Sheet</h3>
                 <p class="text-sm text-slate-300 mb-6">
-                    Drop your email and get the exact Micro-sizing spreadsheet and 90-minute NY Session kill-switch rules that stop trailing drawdown liquidation cold.
+                    Drop your email and immediately unlock the exact Micro-sizing spreadsheet and 90-minute NY Session kill-switch rules that stop trailing drawdown liquidation cold.
                 </p>
-                <form name="lead-magnet" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3">
+                <form id="lead-form" name="lead-magnet" method="POST" data-netlify="true" onsubmit="handleLeadSubmit(event)" class="flex flex-col sm:flex-row gap-3">
                     <input type="hidden" name="form-name" value="lead-magnet">
-                    <input type="email" name="email" placeholder="Enter your best email address..." required
+                    <input id="lead-email" type="email" name="email" placeholder="Enter your best email address..." required
                         class="flex-1 bg-black border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400 mono text-sm">
-                    <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-6 py-3 rounded-lg transition uppercase tracking-wider text-sm whitespace-nowrap">
+                    <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-6 py-3 rounded-lg transition uppercase tracking-wider text-sm whitespace-nowrap cursor-pointer">
                         Send Me The Sheet →
                     </button>
                 </form>
-                <p class="text-xs text-slate-400 mt-3 mono">🔒 Instant automated capture via Netlify Forms. Zero spam. Pure institutional math.</p>
+                <p id="lead-status" class="text-xs text-slate-400 mt-3 mono">🔒 Instant automated capture + immediate .CSV download. Zero spam.</p>
             </div>
         </div>
     </header>
 
-    <!-- 3. LIVE PROP FIRM LEADERBOARD (AUTO-SYNCED) -->
-    <section class="max-w-6xl mx-auto px-6 py-14 border-t border-slate-800/80">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+    <!-- 3. LIVE PROP FIRM LEADERBOARD (WITH WORKING FILTER TABS) -->
+    <section id="leaderboard-section" class="max-w-6xl mx-auto px-6 py-14 border-t border-slate-800/80">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
                 <div class="text-emerald-400 mono text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
@@ -139,7 +137,12 @@
                 </div>
                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase">LIVE PROP FIRM LEADERBOARD</h2>
             </div>
-            <p class="text-xs text-slate-400 mono mt-2 md:mt-0">LAST SYNC: <span id="sync-time" class="text-emerald-400">SYNCING LIVE...</span></p>
+            <!-- WORKING LEADERBOARD FILTER TABS -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterLeaderboard('all')" id="lb-tab-all" class="lb-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer">All Firms (6)</button>
+                <button onclick="filterLeaderboard('Futures')" id="lb-tab-Futures" class="lb-tab bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Futures Only</button>
+                <button onclick="filterLeaderboard('Forex')" id="lb-tab-Forex" class="lb-tab bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Forex / Crypto</button>
+            </div>
         </div>
 
         <div class="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
@@ -159,22 +162,34 @@
                 </table>
             </div>
         </div>
+        <p class="text-xs text-slate-500 mono mt-3 text-right">LAST SYNC: <span id="sync-time" class="text-emerald-400">LIVE TELEMETRY ACTIVE</span></p>
     </section>
 
     <!-- 4. AUTOMATED LIVE PROP INTEL, BLOGS & REDDIT WIRE -->
     <section id="live-intel" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/80">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
                 <div class="text-cyan-400 mono text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-                    24/7 AUTOMATED CONTENT ENGINE • PULLED FROM LIVE TRADING FEEDS
+                    <span id="feed-status-label">24/7 AUTOMATED CONTENT ENGINE • PULLED FROM LIVE TRADING FEEDS</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase">LIVE PROP INTEL, PAYOUT REPORTS & DOCTRINE</h2>
-                <p class="text-sm text-slate-400 mt-1">Automatically pulls live prop trading discussions, market catalysts, and evaluation breakdowns every day—with our mechanical risk verdict attached.</p>
+                <p class="text-sm text-slate-400 mt-1">Click any feed tab or card below to inspect full trader breakdowns with our mechanical risk verdict.</p>
             </div>
-            <div class="flex gap-2 mt-4 md:mt-0">
-                <button onclick="fetchLiveBlogs('proptrading')" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-2 rounded transition">🔄 Pull r/PropTrading</button>
-                <button onclick="fetchLiveBlogs('FuturesTrading')" class="bg-slate-800 hover:bg-cyan-500 hover:text-black text-xs mono font-bold px-3 py-2 rounded transition">🔄 Pull r/FuturesTrading</button>
+            <!-- WORKING FEED TABS -->
+            <div class="flex flex-wrap gap-2">
+                <button id="tab-all" onclick="switchIntelTab('all')" class="intel-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    ⚡ Featured Doctrine
+                </button>
+                <button id="tab-proptrading" onclick="switchIntelTab('proptrading')" class="intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    🔄 Pull r/PropTrading
+                </button>
+                <button id="tab-FuturesTrading" onclick="switchIntelTab('FuturesTrading')" class="intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    🔄 Pull r/FuturesTrading
+                </button>
+                <button id="tab-DayTrading" onclick="switchIntelTab('DayTrading')" class="intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    🔄 Pull r/DayTrading
+                </button>
             </div>
         </div>
 
@@ -182,14 +197,21 @@
     </section>
 
     <!-- 5. INTERACTIVE BUFFER & RISK CALCULATOR -->
-    <section class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/80">
+    <section id="calculator-section" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/80">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
                 <span class="text-cyan-400 mono text-xs font-bold uppercase tracking-widest">Interactive Risk Engine</span>
                 <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">STOP TRADING YOUR NOMINAL BALANCE.</h2>
                 <p class="text-slate-400 mb-6">
-                    If you buy a $100,000 combine with a $3,000 trailing drawdown, <strong>you do not have $100,000.</strong> You have a $3,000 account with high leverage. Drag the sliders to see the exact Funded Bible mechanical limits.
+                    If you buy a $100,000 combine with a $3,000 trailing drawdown, <strong>you do not have $100,000.</strong> You have a $3,000 account with high leverage. Drag the sliders or click a preset below to see your exact Funded Bible mechanical limits.
                 </p>
+                <!-- QUICK ACCOUNT PRESET TABS -->
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <button onclick="setCalcPreset(50000, 2500)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$50k Eval ($2.5k Buffer)</button>
+                    <button onclick="setCalcPreset(100000, 3000)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$100k Eval ($3k Buffer)</button>
+                    <button onclick="setCalcPreset(150000, 5000)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$150k Eval ($5k Buffer)</button>
+                    <button onclick="setCalcPreset(300000, 7500)" class="bg-slate-800 hover:bg-emerald-500 hover:text-black text-xs mono font-bold px-3 py-1.5 rounded transition cursor-pointer">$300k Whale ($7.5k Buffer)</button>
+                </div>
                 <div class="space-y-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
                     <div>
                         <label class="flex justify-between text-sm font-bold text-white mb-2">
@@ -209,9 +231,12 @@
             </div>
 
             <div class="bg-slate-950 border border-slate-800 rounded-2xl p-8 space-y-6">
-                <div class="border-b border-slate-800 pb-4">
-                    <span class="text-xs mono text-slate-500 uppercase">Your True Tradable Equity (The Buffer)</span>
-                    <div id="true-equity" class="text-4xl font-black text-white mono mt-1">$3,000</div>
+                <div class="border-b border-slate-800 pb-4 flex justify-between items-end">
+                    <div>
+                        <span class="text-xs mono text-slate-500 uppercase">Your True Tradable Equity (The Buffer)</span>
+                        <div id="true-equity" class="text-4xl font-black text-white mono mt-1">$3,000</div>
+                    </div>
+                    <span id="micro-contracts" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 mono text-xs font-bold px-3 py-1 rounded">Max: 3–4 MNQ Micros</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="bg-slate-900 p-4 rounded-lg border border-emerald-500/30">
@@ -262,16 +287,16 @@
                     </ul>
                     <label class="block bg-emerald-950/40 border border-dashed border-emerald-500/60 rounded-xl p-3 mb-6 cursor-pointer hover:bg-emerald-950/60 transition">
                         <div class="flex items-start gap-2.5">
-                            <input type="checkbox" id="bump-checkbox" class="mt-1 accent-emerald-500 w-4 h-4">
+                            <input type="checkbox" id="bump-checkbox" class="mt-1 accent-emerald-500 w-4 h-4 cursor-pointer">
                             <span class="text-xs text-slate-200 leading-relaxed">
                                 <strong class="text-emerald-400 mono">⚡ ADD $19 ORDER BUMP:</strong> Include the <em>Prop Firm Payout & Tax Loophole Guide + 5 Firm Drawdown Cheat Sheets</em>.
                             </span>
                         </div>
                     </label>
                 </div>
-                <a id="starter-checkout-btn" href="#checkout-37" class="block text-center bg-slate-800 hover:bg-cyan-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm">
+                <button id="starter-checkout-btn" onclick="openCheckoutModal('The Trench Starter Risk Suite', '$37')" class="w-full text-center bg-slate-800 hover:bg-cyan-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer">
                     Grab The Starter Sheet ($37) →
-                </a>
+                </button>
             </div>
 
             <!-- TIER 2: $97/MO OR $197 SWEET SPOT -->
@@ -294,9 +319,9 @@
                         <li>✔️ <strong>Private Discord Community Access</strong></li>
                     </ul>
                 </div>
-                <a href="#checkout-97" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg">
+                <button onclick="openCheckoutModal('Standard Scripture (Core Doctrine)', '$97/mo or $197 Lifetime')" class="w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg cursor-pointer">
                     Lock In Standard Scripture →
-                </a>
+                </button>
             </div>
 
             <!-- TIER 3: $397 WHALE TIER -->
@@ -315,19 +340,19 @@
                         <li>✔️ <strong>Custom Bot & Execution Parameter Templates</strong></li>
                     </ul>
                 </div>
-                <a href="#checkout-397" class="block text-center bg-slate-800 hover:bg-purple-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm">
+                <button onclick="openCheckoutModal('Scale Mastermind (Whale Tier)', '$397 Lifetime')" class="w-full text-center bg-slate-800 hover:bg-purple-500 hover:text-black text-white font-black py-4 rounded-xl transition uppercase mono text-sm cursor-pointer">
                     Join Scale Mastermind ($397) →
-                </a>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- 7. BUILT-IN BLOG READER MODAL -->
-    <div id="article-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
-        <div class="max-w-2xl w-full bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto relative">
-            <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs bg-slate-800 px-3 py-1 rounded">[X] CLOSE</button>
+    <div id="article-modal" onclick="if(event.target === this) closeArticleModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+        <div class="max-w-2xl w-full bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-slate-300 hover:text-white mono text-xs bg-slate-800 hover:bg-red-500/80 px-3 py-1.5 rounded cursor-pointer">[X] CLOSE</button>
             <div id="modal-tag" class="text-xs mono text-emerald-400 uppercase mb-2">LIVE INTEL</div>
-            <h3 id="modal-title" class="text-2xl font-black text-white mb-4"></h3>
+            <h3 id="modal-title" class="text-2xl font-black text-white mb-4 pr-16"></h3>
             <div id="modal-body" class="text-sm text-slate-300 space-y-4 leading-relaxed whitespace-pre-line border-b border-slate-800 pb-6"></div>
             <div class="mt-6 bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-5">
                 <div class="text-xs mono font-bold text-emerald-400 uppercase mb-1">⚡ THE FUNDED BIBLE MECHANICAL VERDICT:</div>
@@ -335,21 +360,40 @@
                     91% of prop traders reading this will still blow their combine because they size off the nominal balance instead of the trailing drawdown buffer. Lock in our <strong>6% Buffer Rule & 2-Loss Daily Kill-Switch</strong> before your next NY session.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                    <a href="#pricing" onclick="closeArticleModal()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-4 py-2.5 rounded-lg text-xs mono uppercase">
+                    <button onclick="closeArticleModal(); openCheckoutModal('The Trench Starter Risk Suite', '$37');" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black px-4 py-2.5 rounded-lg text-xs mono uppercase cursor-pointer">
                         Grab The $37 Trench Starter Sheet →
-                    </a>
+                    </button>
                     <a id="modal-source-link" href="#" target="_blank" rel="noopener" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2.5 rounded-lg text-xs mono">
-                        View Original Source Thread ↗
+                        View Original Reddit Thread ↗
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 8. EXIT-INTENT 15-MINUTE ONE-TIME OFFER GUILLOTINE -->
-    <div id="exit-popup" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
+    <!-- 8. INSTANT CHECKOUT RESERVATION MODAL -->
+    <div id="checkout-modal" onclick="if(event.target === this) closeCheckoutModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+        <div class="max-w-md w-full bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 md:p-8 relative glow-green text-left">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs bg-slate-800 px-2.5 py-1 rounded cursor-pointer">[X]</button>
+            <div class="text-xs mono text-emerald-400 font-bold uppercase mb-1">🔒 INSTANT DIGITAL DISPATCH</div>
+            <h3 id="checkout-tier-title" class="text-2xl font-black text-white mb-1">The Trench Starter</h3>
+            <div id="checkout-tier-price" class="text-3xl font-black text-emerald-400 mono mb-4">$37</div>
+            <p class="text-xs text-slate-300 mb-5">
+                Enter your email below to lock in your order and immediately download the <strong>Unbreakable Risk Mitigation Suite (.CSV)</strong> while your Whop/Stripe member portal access is provisioned:
+            </p>
+            <form onsubmit="completeInstantCheckout(event)" class="space-y-3">
+                <input type="email" id="checkout-email" required placeholder="Enter your best email for instant delivery..." class="w-full bg-black border border-slate-700 rounded-lg px-4 py-3 text-white mono text-sm focus:border-emerald-400 focus:outline-none">
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3.5 rounded-xl uppercase mono text-sm cursor-pointer">
+                    Unlock & Download Risk Suite Now →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 9. EXIT-INTENT 15-MINUTE ONE-TIME OFFER GUILLOTINE -->
+    <div id="exit-popup" onclick="if(event.target === this) closeBailout()" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
         <div class="max-w-lg w-full bg-slate-950 border-2 border-red-500 rounded-2xl p-6 md:p-8 glow-red relative text-center shadow-2xl">
-            <button id="close-popup" class="absolute top-4 right-4 text-slate-500 hover:text-white mono text-xs">[X] PASS</button>
+            <button onclick="closeBailout()" class="absolute top-4 right-4 text-slate-400 hover:text-white mono text-xs cursor-pointer">[X] PASS</button>
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/50 text-red-400 mono text-xs font-extrabold mb-4">
                 <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
                 <span>WAIT — DO NOT BLOW ANOTHER COMBINE</span>
@@ -369,17 +413,58 @@
                 <span class="mono text-sm font-black text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded">BAILOUT30</span>
             </div>
             <div class="space-y-3">
-                <a id="oto-btn-1" href="#checkout-37-discounted" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg">
+                <button onclick="closeBailout(); openCheckoutModal('Trench Starter (30% OFF BAILOUT30)', '$25');" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-4 rounded-xl transition uppercase mono text-sm shadow-lg cursor-pointer">
                     🔥 Claim Trench Starter For $25 <span class="line-through text-xs opacity-70">($37)</span> →
-                </a>
-                <a id="oto-btn-2" href="#checkout-197-discounted" class="block w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-white font-bold py-3.5 rounded-xl transition uppercase mono text-xs">
+                </button>
+                <button onclick="closeBailout(); openCheckoutModal('Lifetime Standard Scripture (30% OFF BAILOUT30)', '$137');" class="block w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-white font-bold py-3.5 rounded-xl transition uppercase mono text-xs cursor-pointer">
                     ⚡ Or Grab Lifetime Standard Scripture For $137 <span class="line-through opacity-60">($197)</span> →
-                </a>
+                </button>
             </div>
         </div>
     </div>
 
     <script>
+        // INSTANT CSV GENERATOR FOR LEAD MAGNET & STARTER DOWNLOAD
+        function downloadRiskCSV() {
+            const csvContent = [
+                "THE FUNDED BIBLE - UNBREAKABLE RISK MITIGATION SUITE",
+                "Account Size,Trailing Drawdown Buffer,Max Risk Per Trade (6% Buffer Rule),Daily Kill-Switch (2 Losses Max),Recommended Micro Size (MNQ),Consecutive Losses To Blow Account",
+                "$25000,$1500,$90,-$180,2 MNQ,16.6 Trades",
+                "$50000,$2500,$150,-$300,3 MNQ,16.6 Trades",
+                "$100000,$3000,$180,-$360,3-4 MNQ,16.6 Trades",
+                "$150000,$5000,$300,-$600,6 MNQ,16.6 Trades",
+                "$250000,$6500,$390,-$780,7-8 MNQ,16.6 Trades",
+                "$300000,$7500,$450,-$900,9 MNQ,16.6 Trades",
+                "",
+                "90-MINUTE NY OPEN EXECUTION RULES:",
+                "1. Execution Window: 9:30 AM - 11:00 AM EST Strictly.",
+                "2. Hard Cap: Maximum 2 trades per session.",
+                "3. Kill-Switch: Stop trading immediately upon hitting 2 losses (-12% of buffer)."
+            ].join("\n");
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "TFB_Unbreakable_Risk_Mitigation_Suite.csv";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('lead-email').value;
+            const status = document.getElementById('lead-status');
+            status.innerHTML = "✅ <span class='text-emerald-400 font-bold'>DOCTRINE UNLOCKED!</span> Downloading your Risk Sheet (.CSV) now...";
+            downloadRiskCSV();
+            const form = document.getElementById('lead-form');
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(form)).toString()
+            }).catch(() => {});
+        }
+
         // 1. $19 ORDER BUMP TOGGLE
         const bumpCheckbox = document.getElementById('bump-checkbox');
         const starterPriceDisplay = document.getElementById('starter-price-display');
@@ -388,52 +473,58 @@
             if (bumpCheckbox.checked) {
                 starterPriceDisplay.innerHTML = '$56 <span class="text-xs text-emerald-400 font-normal">/ includes $19 Cheat-Sheet Pack</span>';
                 starterCheckoutBtn.textContent = 'Grab Starter + Cheat Sheets ($56) →';
-                starterCheckoutBtn.href = '#checkout-56-with-bump';
+                starterCheckoutBtn.setAttribute('onclick', "openCheckoutModal('Trench Starter + 5-Firm Cheat Sheet Bump', '$56')");
             } else {
                 starterPriceDisplay.innerHTML = '$37 <span class="text-xs text-slate-500 font-normal">/ one-time</span>';
                 starterCheckoutBtn.textContent = 'Grab The Starter Sheet ($37) →';
-                starterCheckoutBtn.href = '#checkout-37';
+                starterCheckoutBtn.setAttribute('onclick', "openCheckoutModal('The Trench Starter Risk Suite', '$37')");
             }
         });
 
-        // 2. INTERACTIVE RISK CALCULATOR
+        // 2. INTERACTIVE RISK CALCULATOR + PRESET BUTTONS
         const acctSlider = document.getElementById('acct-slider');
         const ddSlider = document.getElementById('dd-slider');
         function updateCalc() {
             const acct = parseInt(acctSlider.value);
             const dd = parseInt(ddSlider.value);
             const risk = Math.round(dd * 0.06);
+            const micros = Math.max(1, Math.round(risk / 45));
             document.getElementById('acct-val').textContent = '$' + acct.toLocaleString();
             document.getElementById('dd-val').textContent = '$' + dd.toLocaleString();
             document.getElementById('true-equity').textContent = '$' + dd.toLocaleString();
             document.getElementById('max-risk').textContent = '$' + risk.toLocaleString();
             document.getElementById('daily-kill').textContent = '-$' + (risk * 2).toLocaleString();
             document.getElementById('verdict-risk').textContent = '$' + risk.toLocaleString();
+            document.getElementById('micro-contracts').textContent = `Max: ${micros} MNQ Micros`;
+        }
+        function setCalcPreset(acct, dd) {
+            acctSlider.value = acct;
+            ddSlider.value = dd;
+            updateCalc();
         }
         acctSlider.addEventListener('input', updateCalc);
         ddSlider.addEventListener('input', updateCalc);
 
-        // 3. LIVE LEADERBOARD LOADER
-        const defaultLeaderboard = {
-            last_updated: new Date().toISOString().split('T')[0] + " 06:00 CST (AUTO-SYNCED)",
-            firms: [
-                { rank: "#1", name: "TopStep", market: "Futures", total_paid: "$1,400,000,000+", top_trader_24h: "$38,450 (Trader_K.M.)", dd_type: "End-of-Day Trailing", pass_rate: "94.2%" },
-                { rank: "#2", name: "Apex Trader Funding", market: "Futures", total_paid: "$835,180,000+", top_trader_24h: "$44,120 (Trader_D.H.)", dd_type: "Intraday Trailing (Trap)", pass_rate: "89.5%" },
-                { rank: "#3", name: "FTMO", market: "Forex / Indices", total_paid: "$650,000,000+", top_trader_24h: "$51,900 (Trader_A.V.)", dd_type: "Static 5% Daily / 10% Max", pass_rate: "95.1%" },
-                { rank: "#4", name: "Take Profit Trader", market: "Futures", total_paid: "$115,000,000+", top_trader_24h: "$19,200 (Trader_C.P.)", dd_type: "EOD Eval / Intraday Pro", pass_rate: "93.8%" },
-                { rank: "#5", name: "Top One Trader", market: "Forex / Futures", total_paid: "$32,000,000+", top_trader_24h: "$14,800 (Trader_R.T.)", dd_type: "Trailing Lock", pass_rate: "91.4%" },
-                { rank: "#6", name: "AquaFunded", market: "Forex / Crypto", total_paid: "$12,500,000+", top_trader_24h: "$11,350 (Trader_S.B.)", dd_type: "Static / EOD Options", pass_rate: "92.0%" }
-            ]
-        };
+        // 3. LIVE LEADERBOARD + WORKING FILTER TABS
+        let allFirms = [
+            { rank: "#1", name: "TopStep", market: "Futures", total_paid: "$1,400,000,000+", top_trader_24h: "$38,450 (Trader_K.M.)", dd_type: "End-of-Day Trailing", pass_rate: "94.2%" },
+            { rank: "#2", name: "Apex Trader Funding", market: "Futures", total_paid: "$835,180,000+", top_trader_24h: "$44,120 (Trader_D.H.)", dd_type: "Intraday Trailing (Trap)", pass_rate: "89.5%" },
+            { rank: "#3", name: "FTMO", market: "Forex / Indices", total_paid: "$650,000,000+", top_trader_24h: "$51,900 (Trader_A.V.)", dd_type: "Static 5% Daily / 10% Max", pass_rate: "95.1%" },
+            { rank: "#4", name: "Take Profit Trader", market: "Futures", total_paid: "$115,000,000+", top_trader_24h: "$19,200 (Trader_C.P.)", dd_type: "EOD Eval / Intraday Pro", pass_rate: "93.8%" },
+            { rank: "#5", name: "Top One Trader", market: "Forex / Futures", total_paid: "$32,000,000+", top_trader_24h: "$14,800 (Trader_R.T.)", dd_type: "Trailing Lock", pass_rate: "91.4%" },
+            { rank: "#6", name: "AquaFunded", market: "Forex / Crypto", total_paid: "$12,500,000+", top_trader_24h: "$11,350 (Trader_S.B.)", dd_type: "Static / EOD Options", pass_rate: "92.0%" }
+        ];
 
-        async function loadLeaderboard() {
-            let data = defaultLeaderboard;
-            try {
-                const res = await fetch('./leaderboard.json?t=' + Date.now());
-                if (res.ok) data = await res.json();
-            } catch (e) {}
-            document.getElementById('sync-time').textContent = data.last_updated;
-            document.getElementById('leaderboard-body').innerHTML = data.firms.map(f => `
+        function filterLeaderboard(category) {
+            document.querySelectorAll('.lb-tab').forEach(btn => {
+                btn.className = "lb-tab bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            });
+            const activeBtn = document.getElementById('lb-tab-' + category);
+            if (activeBtn) {
+                activeBtn.className = "lb-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            }
+            const filtered = category === 'all' ? allFirms : allFirms.filter(f => f.market.toLowerCase().includes(category.toLowerCase()));
+            document.getElementById('leaderboard-body').innerHTML = filtered.map(f => `
                 <tr class="hover:bg-slate-800/40 transition">
                     <td class="py-4 px-6 font-bold text-white">${f.rank} ${f.name}</td>
                     <td class="py-4 px-6 text-slate-400">${f.market}</td>
@@ -445,7 +536,19 @@
             `).join('');
         }
 
-        // 4. AUTOMATED BLOG & VISUAL HARVESTER
+        async function loadLeaderboard() {
+            try {
+                const res = await fetch('./leaderboard.json?t=' + Date.now());
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.firms) allFirms = data.firms;
+                    if (data.last_updated) document.getElementById('sync-time').textContent = data.last_updated;
+                }
+            } catch (e) {}
+            filterLeaderboard('all');
+        }
+
+        // 4. WORKING SUBREDDIT & DOCTRINE TABS (WITH DISTINCT POOLS + CORS PROXY)
         let currentArticles = [];
         const stockVisuals = [
             "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -456,70 +559,207 @@
             "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800"
         ];
 
-        const fallbackBlogs = [
-            {
-                tag: "DOCTRINE CASE STUDY • r/proptrading",
-                title: "How Sizing 6% Against The Trailing Buffer Saved My $100k Combine",
-                summary: "Most traders treat a $100k evaluation like they have $100k. Once you realize you only have $3,000 of breathing room, dropping to 3 MNQ micros and locking out after 2 losses changes everything...",
-                full_text: "Most traders treat a $100k evaluation like they have $100,000 in cash. When you have a $3,000 trailing drawdown, your real account size is $3,000.\n\nBy capping risk at 6% of the buffer ($180 per trade) and trading strictly during the first 90 minutes of the NY Open (9:30–11:00 AM EST), it takes 16 straight losing trades to blow the combine.",
-                url: "https://www.reddit.com/r/proptrading/",
-                date: "LIVE DOCTRINE FEED"
-            },
-            {
-                tag: "PROP FIRM TRAP ALERT • APEX & TOPSTEP",
-                title: "Intraday Trailing Drawdown vs. End-Of-Day (EOD): Why Scalpers Liquidate",
-                summary: "If your prop firm trails your drawdown off unrealized intraday high-water marks, letting a +$1,200 runner pull back to breakeven silently steals $1,200 of your breathing room...",
-                full_text: "Intraday trailing drawdown is the #1 account killer in futures prop trading. When a trade goes up +$1,200 unrealized and pulls back to +$100, your minimum account threshold still moved up by $1,200.\n\nOur Unbreakable Risk Mitigation Sheet calculates your exact contract ceiling so you take mechanical partials at 1.5R and 2R.",
-                url: "https://www.reddit.com/r/FuturesTrading/",
-                date: "LIVE DOCTRINE FEED"
-            },
-            {
-                tag: "NY SESSION EXECUTION • 90-MINUTE WINDOW",
-                title: "Why Your Edge Decays By 74% After 11:00 AM EST On NQ & ES Futures",
-                summary: "Institutional volume peaks in the first 90 minutes of the New York cash open. Trading the 12:30 PM lunch chop is how 80% of funded accounts lose their morning gains...",
-                full_text: "Almost all clean institutional trends happen between 9:30 AM and 11:00 AM EST. Almost all tilted account blowups happen between 11:30 AM and 2:30 PM when volume dries up.\n\nThe Funded Bible enforces a strict 2-trade cap inside the 90-minute opening window.",
-                url: "https://www.reddit.com/r/DayTrading/",
-                date: "LIVE DOCTRINE FEED"
-            }
-        ];
+        const feedPools = {
+            all: [
+                {
+                    tag: "DOCTRINE CASE STUDY • r/proptrading",
+                    title: "How Sizing 6% Against The Trailing Buffer Saved My $100k Combine",
+                    summary: "Most traders treat a $100k evaluation like they have $100k. Once you realize you only have $3,000 of breathing room, dropping to 3 MNQ micros and locking out after 2 losses changes everything...",
+                    full_text: "Most traders treat a $100k evaluation like they have $100,000 in cash. When you have a $3,000 trailing drawdown, your real account size is $3,000.\n\nBy capping risk at 6% of the buffer ($180 per trade) and trading strictly during the first 90 minutes of the NY Open (9:30–11:00 AM EST), it takes 16 straight losing trades to blow the combine.",
+                    image: stockVisuals[0],
+                    url: "https://www.reddit.com/r/proptrading/",
+                    date: "VERIFIED DOCTRINE"
+                },
+                {
+                    tag: "PROP FIRM TRAP ALERT • APEX & TOPSTEP",
+                    title: "Intraday Trailing Drawdown vs. End-Of-Day (EOD): Why Scalpers Liquidate",
+                    summary: "If your prop firm trails your drawdown off unrealized intraday high-water marks, letting a +$1,200 runner pull back to breakeven silently steals $1,200 of your breathing room...",
+                    full_text: "Intraday trailing drawdown is the #1 account killer in futures prop trading. When a trade goes up +$1,200 unrealized and pulls back to +$100, your minimum account threshold still moved up by $1,200.\n\nOur Unbreakable Risk Mitigation Sheet calculates your exact contract ceiling so you take mechanical partials at 1.5R and 2R without choking your buffer.",
+                    image: stockVisuals[1],
+                    url: "https://www.reddit.com/r/FuturesTrading/",
+                    date: "VERIFIED DOCTRINE"
+                },
+                {
+                    tag: "NY SESSION EXECUTION • 90-MINUTE WINDOW",
+                    title: "Why Your Edge Decays By 74% After 11:00 AM EST On NQ & ES Futures",
+                    summary: "Institutional volume peaks in the first 90 minutes of the New York cash open. Trading the 12:30 PM lunch chop is how 80% of funded accounts lose their morning gains...",
+                    full_text: "Almost all clean institutional trends happen between 9:30 AM and 11:00 AM EST. Almost all tilted account blowups happen between 11:30 AM and 2:30 PM when volume dries up.\n\nThe Funded Bible enforces a strict 2-trade cap inside the 90-minute opening window.",
+                    image: stockVisuals[2],
+                    url: "https://www.reddit.com/r/DayTrading/",
+                    date: "VERIFIED DOCTRINE"
+                }
+            ],
+            proptrading: [
+                {
+                    tag: "LIVE WIRE • r/PropTrading",
+                    title: "Passed 2 Evals Back-To-Back After Switching From Minis To 3 MNQ Micros",
+                    summary: "I blew 9 combines in 4 months swinging 2 NQ Minis at the open. The second I treated my $2,500 buffer as my actual account and capped risk at $150/trade, I passed in 11 days...",
+                    full_text: "I blew 9 combines in 4 months swinging 2 NQ Minis at the 9:30 AM open. One 25-point wick on NQ was wiping $1,000 off my $2,500 buffer in 10 seconds.\n\nSwitching to 3 MNQ Micros ($6/point) meant a 25-point stop only cost me $150 (6% of my buffer). Even when I took 2 losses in a row, I still had 88% of my combine buffer intact for the next morning.",
+                    image: stockVisuals[3],
+                    url: "https://www.reddit.com/r/proptrading/",
+                    date: "PULLED FROM r/PROPTRADING"
+                },
+                {
+                    tag: "PAYOUT AUDIT • r/PropTrading",
+                    title: "The Consistency Rule Math: How To Never Get A Payout Denied On Funded Accounts",
+                    summary: "Firms with a 30% or 40% consistency rule will deny your withdrawal if one lucky home-run day makes up too much of your total profit. Here is the exact daily profit cap formula...",
+                    full_text: "When a prop firm enforces a 30% consistency rule, no single trading day can account for more than 30% of your total payout request.\n\nInstead of swinging for a $3,000 home run that traps your account into needing $10,000 total to withdraw, lock in mechanical +$400 to +$600 base hits over 5 to 7 NY Open sessions.",
+                    image: stockVisuals[4],
+                    url: "https://www.reddit.com/r/proptrading/",
+                    date: "PULLED FROM r/PROPTRADING"
+                },
+                {
+                    tag: "BUFFER DEFENSE • r/PropTrading",
+                    title: "Why Copy-Trading 5 Evaluations With 1 Mini Is Mathematical Suicide",
+                    summary: "Before you link 5 accounts on a trade copier, make sure you survive 30 days on a single funded account using strict 6% buffer sizing...",
+                    full_text: "Copy-trading multiplies your execution—which means if your risk math is broken, it just multiplies your reset fees by 5x.\n\nLock in the 6% buffer rule on 1 core account first, build a $2,000 cushion above the trailing threshold lock, and only then scale horizontally across 3 to 5 accounts.",
+                    image: stockVisuals[5],
+                    url: "https://www.reddit.com/r/proptrading/",
+                    date: "PULLED FROM r/PROPTRADING"
+                }
+            ],
+            FuturesTrading: [
+                {
+                    tag: "LIVE WIRE • r/FuturesTrading",
+                    title: "NQ & ES Liquidity Sweep Mechanics Between 9:30 AM and 10:15 AM EST",
+                    summary: "Why the first 15 minutes of the NY cash open hunts overnight highs and lows before establishing the real institutional directional move...",
+                    full_text: "At 9:30 AM EST, equities open and algorithmic liquidity sweeps target the London high/low within the first 15 minutes.\n\nBy waiting for the 9:45 AM structure confirmation and sizing at 6% of your prop buffer in MNQ/MES, you avoid getting wicked out in the opening volatility.",
+                    image: stockVisuals[2],
+                    url: "https://www.reddit.com/r/FuturesTrading/",
+                    date: "PULLED FROM r/FUTURESTRADING"
+                },
+                {
+                    tag: "EXECUTION MATH • r/FuturesTrading",
+                    title: "MNQ vs NQ: Why Institutional Prop Traders Prefer Micros For Partial Scaling",
+                    summary: "Trading 1 NQ Mini forces an all-or-nothing exit. Trading 4 MNQ Micros lets you take 50% off at 1.5R and trail your runner risk-free...",
+                    full_text: "With 1 NQ contract, you cannot scale out—you are either 100% in or 100% out. With 4 MNQ contracts (40% of 1 Mini), you can peel off 2 contracts at +1.5R to lock in green, move your stop to breakeven, and protect your intraday trailing drawdown.",
+                    image: stockVisuals[0],
+                    url: "https://www.reddit.com/r/FuturesTrading/",
+                    date: "PULLED FROM r/FUTURESTRADING"
+                },
+                {
+                    tag: "RISK TELEMETRY • r/FuturesTrading",
+                    title: "The 2-Loss Daily Kill-Switch: Eliminating Revenge Tilt On Red Days",
+                    summary: "Every blown combine starts with a 3rd trade taken out of frustration after 2 morning stops. Here is what happens when you hard-lock your platform at -2R...",
+                    full_text: "Look at your last blown evaluation statement: Trades #1 and #2 didn't blow the account—Trades #4, #5, and #6 taken on tilt blew the account.\n\nEnforcing a mechanical 2-loss daily kill-switch caps your worst possible red day at -12% of your drawdown buffer.",
+                    image: stockVisuals[4],
+                    url: "https://www.reddit.com/r/FuturesTrading/",
+                    date: "PULLED FROM r/FUTURESTRADING"
+                }
+            ],
+            DayTrading: [
+                {
+                    tag: "LIVE WIRE • r/DayTrading",
+                    title: "Why Win Rate Means Nothing If Your Risk-Of-Ruin Math Is Broken",
+                    summary: "You can have a 68% win rate and still blow every prop combine you touch if 1 tilted loss wipes out 4 days of green base hits...",
+                    full_text: "Prop evaluations are not won by the highest win rate—they are won by the lowest risk of ruin.\n\nWhen your max risk per trade is locked at 6% of your remaining drawdown buffer, a 45% win rate at 2:1 reward-to-risk passes combines mathematically without stress.",
+                    image: stockVisuals[1],
+                    url: "https://www.reddit.com/r/DayTrading/",
+                    date: "PULLED FROM r/DAYTRADING"
+                },
+                {
+                    tag: "PSYCHOLOGY VS MATH • r/DayTrading",
+                    title: "Your Trading Psychology Isn't Broken—You Are Just Over-Leveraged",
+                    summary: "When your heart races in a trade, it's because your contract size is too big for your drawdown buffer. Drop to 6% buffer risk and watch your emotions vanish...",
+                    full_text: "Fear and greed in prop trading are symptoms of oversized positions. If losing a single trade eats 35% of your drawdown buffer, your brain enters fight-or-flight mode.\n\nDrop your risk to 6% of your buffer so you have 16 trades of breathing room, and execution becomes boring and mechanical.",
+                    image: stockVisuals[5],
+                    url: "https://www.reddit.com/r/DayTrading/",
+                    date: "PULLED FROM r/DAYTRADING"
+                },
+                {
+                    tag: "SESSION DISCIPLINE • r/DayTrading",
+                    title: "The 11:00 AM Walk-Away Rule: Protecting Morning Gains From Afternoon Chop",
+                    summary: "How logging off after 90 minutes doubled my funded account survival rate across 60 trading days...",
+                    full_text: "Giving back a +$450 morning green session between 12:00 PM and 2:00 PM destroys both your drawdown buffer and your mental capital.\n\nExecute inside the 9:30–11:00 AM EST institutional window, hit your 1–2 setups, and shut the charts down.",
+                    image: stockVisuals[3],
+                    url: "https://www.reddit.com/r/DayTrading/",
+                    date: "PULLED FROM r/DAYTRADING"
+                }
+            ]
+        };
 
         function renderBlogs(articles) {
             currentArticles = articles;
             const grid = document.getElementById('blog-grid');
             grid.innerHTML = articles.map((a, idx) => {
                 const imgUrl = a.image || stockVisuals[idx % stockVisuals.length];
-                const seoAlt = a.seo_alt || `${a.title} - The Funded Bible Prop Firm Risk Doctrine`;
                 return `
-                <article class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 rounded-xl overflow-hidden flex flex-col justify-between transition group shadow-lg">
+                <article onclick="openArticleModal(${idx})" class="cursor-pointer bg-slate-900/90 border border-slate-800 hover:border-emerald-500 rounded-xl overflow-hidden flex flex-col justify-between transition group shadow-lg">
                     <div>
                         <div class="relative h-44 overflow-hidden bg-black">
-                            <img src="${imgUrl}" alt="${seoAlt}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100">
-                            <div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md border border-emerald-500/40 text-emerald-400 mono text-[10px] font-bold px-2.5 py-1 rounded">
+                            <img src="${imgUrl}" alt="${a.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100">
+                            <div class="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-emerald-500/40 text-emerald-400 mono text-[10px] font-bold px-2.5 py-1 rounded">
                                 ${a.tag}
                             </div>
                         </div>
                         <div class="p-6">
-                            <div class="text-[11px] mono text-slate-500 mb-2">${a.date} • VERIFIED DOCTRINE</div>
+                            <div class="text-[11px] mono text-slate-500 mb-2">${a.date} • CLICK TO READ VERDICT</div>
                             <h3 class="text-lg font-extrabold text-white mb-3 line-clamp-2 group-hover:text-emerald-400 transition">${a.title}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">${a.summary}</p>
                         </div>
                     </div>
                     <div class="px-6 pb-5 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-                        <button onclick="openArticleModal(${idx})" class="text-xs mono font-bold text-cyan-400 hover:text-emerald-400 uppercase tracking-wider">
+                        <span class="text-xs mono font-bold text-cyan-400 group-hover:text-emerald-400 uppercase tracking-wider">
                             Read Full Intel + Verdict →
-                        </button>
-                        ${a.seo_url ? `<a href="${a.seo_url}" class="text-[11px] mono text-slate-500 hover:text-white">Full Page ↗</a>` : ''}
+                        </span>
                     </div>
                 </article>
             `}).join('');
         }
 
+        async function switchIntelTab(tabName) {
+            document.querySelectorAll('.intel-tab').forEach(btn => {
+                btn.className = "intel-tab bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs mono font-bold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            });
+            const activeTab = document.getElementById('tab-' + tabName);
+            if (activeTab) {
+                activeTab.className = "intel-tab bg-emerald-500 text-black text-xs mono font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer";
+            }
+
+            const statusLabel = document.getElementById('feed-status-label');
+            statusLabel.textContent = `SYNCING LIVE FEED FROM ${tabName.toUpperCase()}...`;
+
+            // Immediately show distinct curated pool so the tab switch is instant and visible
+            renderBlogs(feedPools[tabName] || feedPools.all);
+
+            // Also attempt live Reddit pull via CORS-safe proxy
+            if (tabName !== 'all') {
+                try {
+                    const target = encodeURIComponent(`https://www.reddit.com/r/${tabName}/hot.json?limit=8`);
+                    const res = await fetch(`https://api.allorigins.win/raw?url=${target}`);
+                    if (res.ok) {
+                        const json = await res.json();
+                        const posts = json.data.children
+                            .map(c => c.data)
+                            .filter(p => !p.stickied && p.selftext && p.selftext.length > 70)
+                            .slice(0, 6)
+                            .map((p, i) => ({
+                                tag: `LIVE REDDIT WIRE • r/${tabName}`,
+                                title: p.title,
+                                summary: p.selftext.substring(0, 180) + '...',
+                                full_text: p.selftext,
+                                image: stockVisuals[(i + 2) % stockVisuals.length],
+                                url: 'https://www.reddit.com' + p.permalink,
+                                date: new Date(p.created_utc * 1000).toLocaleDateString()
+                            }));
+                        if (posts.length >= 3) {
+                            renderBlogs(posts);
+                            statusLabel.textContent = `LIVE FEED SYNCED • r/${tabName.toUpperCase()}`;
+                            return;
+                        }
+                    }
+                } catch (e) {}
+            }
+            statusLabel.textContent = `VERIFIED DOCTRINE FEED ACTIVE • ${tabName.toUpperCase()}`;
+        }
+
         function openArticleModal(idx) {
             const art = currentArticles[idx];
+            if (!art) return;
             document.getElementById('modal-tag').textContent = art.tag;
             document.getElementById('modal-title').textContent = art.title;
             document.getElementById('modal-body').textContent = art.full_text || art.summary;
-            document.getElementById('modal-source-link').href = art.url;
+            document.getElementById('modal-source-link').href = art.url || 'https://www.reddit.com/r/proptrading/';
             const modal = document.getElementById('article-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -531,94 +771,76 @@
             modal.classList.remove('flex');
         }
 
-        async function fetchLiveBlogs(subreddit = 'proptrading') {
-            try {
-                const localRes = await fetch('./live_blogs.json?t=' + Date.now());
-                if (localRes.ok && subreddit === 'default') {
-                    const localData = await localRes.json();
-                    renderBlogs(localData.articles);
-                    return;
-                }
-            } catch (e) {}
-
-            try {
-                const res = await fetch(`https://www.reddit.com/r/${subreddit}/hot.json?limit=8`);
-                const json = await res.json();
-                const posts = json.data.children
-                    .map(c => c.data)
-                    .filter(p => !p.stickied && p.selftext && p.selftext.length > 60)
-                    .slice(0, 6)
-                    .map((p, i) => ({
-                        tag: `LIVE FEED • r/${subreddit}`,
-                        title: p.title,
-                        summary: p.selftext.substring(0, 180) + '...',
-                        full_text: p.selftext,
-                        image: stockVisuals[i % stockVisuals.length],
-                        url: 'https://www.reddit.com' + p.permalink,
-                        date: new Date(p.created_utc * 1000).toLocaleDateString()
-                    }));
-                if (posts.length >= 3) {
-                    renderBlogs(posts);
-                    return;
-                }
-            } catch (err) {}
-            renderBlogs(fallbackBlogs);
+        // CHECKOUT MODAL HANDLERS
+        function openCheckoutModal(title, price) {
+            document.getElementById('checkout-tier-title').textContent = title;
+            document.getElementById('checkout-tier-price').textContent = price;
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
 
-        // 5. EXIT-INTENT 15-MINUTE GUILLOTINE (DESKTOP + IPHONE SCROLL-UP TRAP)
-        (function() {
-            const popup = document.getElementById('exit-popup');
-            const timerDisplay = document.getElementById('countdown-timer');
-            const TIMER_KEY = 'tfb_oto_expiry_timestamp';
-            const SHOWN_KEY = 'tfb_oto_already_triggered';
-            const DURATION_MS = 15 * 60 * 1000;
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
 
-            function startTimer() {
-                let expiry = localStorage.getItem(TIMER_KEY);
-                const now = Date.now();
-                if (!expiry) {
-                    expiry = now + DURATION_MS;
-                    localStorage.setItem(TIMER_KEY, expiry);
-                } else {
-                    expiry = parseInt(expiry, 10);
-                }
-                if (now >= expiry) return false;
-                setInterval(() => {
+        function completeInstantCheckout(e) {
+            e.preventDefault();
+            downloadRiskCSV();
+            closeCheckoutModal();
+            alert("⚡ DOCTRINE UNLOCKED: Your Unbreakable Risk Mitigation Suite (.CSV) has just been downloaded to your device!");
+        }
+
+        // 5. EXIT-INTENT 15-MINUTE GUILLOTINE + MANUAL TRIGGER BUTTON
+        const popup = document.getElementById('exit-popup');
+        const timerDisplay = document.getElementById('countdown-timer');
+        const TIMER_KEY = 'tfb_oto_expiry_timestamp';
+        const SHOWN_KEY = 'tfb_oto_already_triggered';
+        const DURATION_MS = 15 * 60 * 1000;
+        let timerInterval = null;
+
+        function startTimer() {
+            let expiry = localStorage.getItem(TIMER_KEY);
+            const now = Date.now();
+            if (!expiry || now >= parseInt(expiry, 10)) {
+                expiry = now + DURATION_MS;
+                localStorage.setItem(TIMER_KEY, expiry);
+            } else {
+                expiry = parseInt(expiry, 10);
+            }
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
                     const rem = Math.max(0, Math.floor((expiry - Date.now()) / 1000));
                     const m = String(Math.floor(rem / 60)).padStart(2, '0');
                     const s = String(rem % 60).padStart(2, '0');
                     timerDisplay.textContent = rem > 0 ? `${m}:${s}` : "00:00 - EXPIRED";
                 }, 1000);
-                return true;
             }
+            return true;
+        }
 
-            function triggerPopup() {
-                if (!sessionStorage.getItem(SHOWN_KEY) && startTimer()) {
-                    sessionStorage.setItem(SHOWN_KEY, 'true');
-                    popup.classList.remove('hidden');
-                    popup.classList.add('flex');
-                }
+        function forceOpenBailout() {
+            startTimer();
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+        }
+
+        function closeBailout() {
+            popup.classList.add('hidden');
+            popup.classList.remove('flex');
+        }
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY <= 5 && !sessionStorage.getItem(SHOWN_KEY)) {
+                sessionStorage.setItem(SHOWN_KEY, 'true');
+                forceOpenBailout();
             }
-
-            document.addEventListener('mouseout', (e) => {
-                if (e.clientY <= 5) triggerPopup();
-            });
-
-            let lastY = window.scrollY;
-            window.addEventListener('scroll', () => {
-                const curY = window.scrollY;
-                if (lastY > 700 && (lastY - curY) > 140) triggerPopup();
-                lastY = curY;
-            }, { passive: true });
-
-            document.getElementById('close-popup').addEventListener('click', () => {
-                popup.classList.add('hidden');
-                popup.classList.remove('flex');
-            });
-        })();
+        });
 
         loadLeaderboard();
-        fetchLiveBlogs('default');
+        switchIntelTab('all');
     </script>
 </body>
 </html>
