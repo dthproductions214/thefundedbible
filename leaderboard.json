@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-10-19 11:21 UTC (AUTO-SYNCED)",
+  "last_updated": "2026-10-20 11:20 UTC (AUTO-SYNCED)",
   "firms": [
     {
       "rank": "#1",
       "name": "TopStep",
       "market": "Futures",
-      "total_paid": "$1,400,000,000+",
+      "total_paid": "$1,500,000,000+",
       "top_trader_24h": "$38,450 (Verified)",
       "dd_type": "End-of-Day Trailing",
       "pass_rate": "94.2%"
@@ -14,7 +14,7 @@
       "rank": "#2",
       "name": "Apex Trader Funding",
       "market": "Futures",
-      "total_paid": "$835,180,000+",
+      "total_paid": "$886,860,000+",
       "top_trader_24h": "$44,120 (Verified)",
       "dd_type": "Intraday Trailing (Trap)",
       "pass_rate": "89.5%"
