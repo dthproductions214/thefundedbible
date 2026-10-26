@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-25 11:16 UTC (AUTO-SYNCED)",
+  "last_updated": "2026-10-26 11:30 UTC (AUTO-SYNCED)",
   "firms": [
     {
       "rank": "#1",
@@ -14,7 +14,7 @@
       "rank": "#2",
       "name": "Apex Trader Funding",
       "market": "Futures",
-      "total_paid": "$887,870,000+",
+      "total_paid": "$890,960,000+",
       "top_trader_24h": "$44,120 (Verified)",
       "dd_type": "Intraday Trailing (Trap)",
       "pass_rate": "89.5%"
