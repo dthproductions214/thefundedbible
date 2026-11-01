@@ -1,1 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Funded Bible | #1 Prop Firm Match Directory, Consistency & Drawdown Calculator</title>
+    <meta name="description" content="Compare 12 verified futures prop firms side-by-side, grab 80% off promo codes, fix 20%-55% consistency rules, and calculate your exact MNQ, NQ, MES, and ES lot size for free.">
+    <link rel="canonical" href="https://thefundedbible.com/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #090a0f;
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(234, 179, 8, 0.10) 0%, transparent 55%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            color: #f1f5f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .glass {
+            background: rgba(18, 21, 30, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gold-glow {
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.15);
+            border-color: rgba(234, 179, 8, 0.45);
+        }
+        select, input {
+            background-color: #111522;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        select:focus, input:focus {
+            outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 12px rgba(234, 179, 8, 0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between pb-16">
 
+    <!-- TOP PROP FIRM MATCH LOYALTY BANNER -->
+    <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-amber-500 text-black text-center py-2.5 px-4 font-extrabold text-xs md:text-sm tracking-tight">
+        🔥 LOYALTY MATCH REWARDS: Every challenge purchased via our verified links below earns Match Points toward a 100% FREE $50K Funded Account!
+    </div>
+
+    <!-- STICKY HEADER -->
+    <header class="border-b border-white/10 bg-[#090a0f]/95 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-black font-black text-xl shadow-[0_0_20px_rgba(234,179,8,0.4)]">
+                    ₿
+                </div>
+                <div>
+                    <span class="text-xl md:text-2xl font-black tracking-tighter text-white block leading-none">
+                        THE FUNDED <span class="text-yellow-500">BIBLE</span>
+                    </span>
+                    <span class="text-[10px] text-yellow-400 font-bold tracking-widest uppercase">100% Free Prop Firm Match & Risk OS</span>
+                </div>
+            </a>
+            <nav class="flex flex-wrap items-center gap-5 text-xs md:text-sm font-bold text-slate-300">
+                <a href="#compare" class="hover:text-yellow-400 transition">Compare 12 Firms</a>
+                <a href="#super-terminal" onclick="switchTab('tab-lot')" class="hover:text-yellow-400 transition">Lot Calculator</a>
+                <a href="#super-terminal" onclick="switchTab('tab-cons')" class="text-yellow-400 hover:underline">Consistency Fixer 🔥</a>
+                <a href="#super-terminal" onclick="switchTab('tab-copy')" class="text-emerald-400 hover:underline">20-Acct Multiplier 💰</a>
+                <a href="#news" class="hover:text-yellow-400 transition">News Shield</a>
+                <a id="topDealBtn" href="https://myfundedfutures.com" target="_blank" class="bg-yellow-500 hover:bg-yellow-400 text-black font-black px-4 py-2 rounded-xl text-xs shadow-lg transition">
+                    🚀 #1 Verified Deal
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 mt-10 w-full">
+
+        <!-- HERO SECTION -->
+        <div class="text-center max-w-4xl mx-auto mb-8">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-yellow-400 bg-yellow-500/10 border border-yellow-500/30 px-4 py-1.5 rounded-full">
+                All-in-One Futures Prop Firm Terminal • 100% Free Tools
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mt-5 mb-4 tracking-tight">
+                Compare Prop Firms, Fix Consistency & <span class="text-yellow-500">Never Blow Drawdown.</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+                Click any prop firm logo below to load its exact EOD or Intraday trailing rules into the calculator, or compare verified daily discount codes side-by-side.
+            </p>
+        </div>
+
+        <!-- INTERACTIVE CLICKABLE PROP FIRM LOGO BAR -->
+        <div id="logoStrip" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 mb-12">
+            <!-- Populated automatically by JS with real firm logos & neon fallbacks -->
+        </div>
+
+        <!-- 4-IN-1 SUPER TERMINAL -->
+        <section id="super-terminal" class="mb-16">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-5">
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('tab-lot')" id="btn-tab-lot" class="px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-yellow-500 text-black shadow-lg transition">
+                        1. Drawdown & Lot Sizer
+                    </button>
+                    <button onclick="switchTab('tab-cons')" id="btn-tab-cons" class="px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-white/10 text-white hover:bg-white/20 transition">
+                        2. Consistency Rule Fixer 🔥
+                    </button>
+                    <button onclick="switchTab('tab-copy')" id="btn-tab-copy" class="px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-white/10 text-emerald-400 hover:bg-white/20 transition">
+                        3. 20-Account Copy Multiplier 💰
+                    </button>
+                    <button onclick="switchTab('tab-payout')" id="btn-tab-payout" class="px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-white/10 text-cyan-400 hover:bg-white/20 transition">
+                        4. Safe Withdrawal Buffer Checker 🛡️
+                    </button>
+                </div>
+                <span id="selectedFirmIndicator" class="text-xs font-extrabold uppercase bg-yellow-500/15 text-yellow-400 border border-yellow-500/30 px-3 py-1.5 rounded-lg">
+                    Preset Loaded: MyFundedFutures ($50K)
+                </span>
+            </div>
+
+            <!-- TAB 1: DRAWDOWN & LOT SIZER -->
+            <div id="tab-lot" class="grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 glass rounded-2xl p-6">
+                    <h2 class="text-base font-black uppercase text-yellow-400 mb-4 flex items-center gap-2">
+                        <span>⚡</span> 1. Configure Your Evaluation
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Select Prop Firm Preset</label>
+                            <select id="firmPresetSelect" class="w-full rounded-xl p-3 text-sm font-bold" onchange="applyFirmPreset(this.value)">
+                                <!-- Populated via JS -->
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Max Drawdown ($)</label>
+                                <input type="number" id="maxDrawdown" value="2000" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcLot()">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Profit Target ($)</label>
+                                <input type="number" id="profitTarget" value="3000" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcLot()">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Futures Ticker</label>
+                                <select id="instrument" class="w-full rounded-xl p-3 text-sm font-bold" onchange="calcLot()">
+                                    <option value="2">MNQ ($2/pt - Micro Nasdaq)</option>
+                                    <option value="20">NQ ($20/pt - E-Mini Nasdaq)</option>
+                                    <option value="5">MES ($5/pt - Micro S&P 500)</option>
+                                    <option value="50">ES ($50/pt - E-Mini S&P 500)</option>
+                                    <option value="10">MGC ($10/pt - Micro Gold)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Stop Loss (Points)</label>
+                                <input type="number" id="stopPoints" value="20" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcLot()">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span class="text-slate-400">Consecutive Loss Survival Buffer</span>
+                                <span id="bufVal" class="text-yellow-400">10 Full Stops</span>
+                            </div>
+                            <input type="range" id="lossBuffer" min="4" max="20" value="10" class="w-full accent-yellow-500 cursor-pointer" oninput="calcLot()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 glass gold-glow rounded-2xl p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-base font-black uppercase text-white">📊 2. Visual Drawdown & Survival Telemetry</h3>
+                        <span id="lotStatusBadge" class="text-[11px] font-black uppercase px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            INSTITUTIONAL BUFFER
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase font-semibold">Max Contracts</div>
+                            <div id="outLots" class="text-3xl font-black text-yellow-400 mt-1">5</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase font-semibold">Risk / Trade</div>
+                            <div id="outRisk" class="text-3xl font-black text-white mt-1">$200</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase font-semibold">Losses to Blow</div>
+                            <div id="outBreach" class="text-3xl font-black text-emerald-400 mt-1">10</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase font-semibold">Wins to Pass (1:2)</div>
+                            <div id="outWins" class="text-3xl font-black text-cyan-400 mt-1">8</div>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-4 rounded-xl border border-white/10 mb-6">
+                        <div class="flex justify-between text-xs font-bold mb-2">
+                            <span class="text-slate-300">Drawdown Burn Per Losing Trade</span>
+                            <span id="burnPctText" class="text-emerald-400">10.0% of Total Drawdown</span>
+                        </div>
+                        <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                            <div id="burnBar" class="h-full bg-gradient-to-r from-emerald-400 to-yellow-400 transition-all duration-300" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <a id="mainCtaBtn" href="https://myfundedfutures.com" target="_blank" class="bg-yellow-500 hover:bg-yellow-400 text-black font-black text-sm py-4 px-4 rounded-xl text-center shadow-lg transition">
+                            🚀 Claim Verified Discount on This Account →
+                        </a>
+                        <a href="#compare" class="bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-4 px-4 rounded-xl text-center border border-white/20 transition">
+                            🎁 Compare All 12 Deals + Match Points
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: CONSISTENCY RULE FIXER -->
+            <div id="tab-cons" class="hidden grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 glass rounded-2xl p-6">
+                    <h3 class="text-base font-black uppercase text-yellow-400 mb-2">🔥 Exact Program Consistency Unlocker</h3>
+                    <p class="text-xs text-slate-400 mb-4">Made too much money in a single day? See the exact extra profit required to unlock your payout, plus your Max Safe Win Cap for tomorrow.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Firm & Specific Program Rule</label>
+                            <select id="consPct" class="w-full rounded-xl p-3 text-xs font-bold" onchange="calcCons()">
+                                <option value="20">20% — Tradeify Lightning (1st Payout) / Alpha Direct / Bulenox Fast</option>
+                                <option value="25">25% — Tradeify Lightning (2nd Approved Payout)</option>
+                                <option value="30" selected>30% — Apex PA / MFFU Rapid EOD / Tradeify Lightning 3+ / TradeDay</option>
+                                <option value="35">35% — Tradeify Growth Sim Funded</option>
+                                <option value="40">40% — MFFU Sim / Alpha Adv / Lucid / FundedNext / Topstep Path</option>
+                                <option value="50">50% — Take Profit Trader Test / MFFU Pro Eval / Alpha Standard</option>
+                                <option value="55">55% — Topstep Trading Combine Official Cap</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Largest Single Day Profit ($)</label>
+                                <input type="number" id="bestDay" value="1200" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcCons()">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Current Total Profit ($)</label>
+                                <input type="number" id="totalProf" value="2500" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcCons()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 glass gold-glow rounded-2xl p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-base font-black uppercase text-white">Payout & Next-Day Cap Telemetry</h4>
+                        <span id="consBadge" class="text-xs font-black px-3 py-1 rounded-full bg-red-500/20 text-red-400">PAYOUT LOCKED</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Current Ratio</div>
+                            <div id="outCurrCons" class="text-2xl font-black text-yellow-400 mt-1">48.0%</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Required Total</div>
+                            <div id="outReqTotal" class="text-2xl font-black text-white mt-1">$4,000</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Still Needed</div>
+                            <div id="outExtraNeed" class="text-2xl font-black text-emerald-400 mt-1">$1,500</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-cyan-500/30">
+                            <div class="text-[11px] text-cyan-400 uppercase font-bold">Max Next Day Cap</div>
+                            <div id="outMaxNextDay" class="text-2xl font-black text-cyan-400 mt-1">$1,071</div>
+                        </div>
+                    </div>
+                    <p id="consAdvice" class="text-xs text-slate-300 bg-black/50 p-4 rounded-xl border border-white/10 mb-5 leading-relaxed"></p>
+                    <a id="consCtaBtn" href="https://myfundedfutures.com" target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black text-sm py-4 rounded-xl text-center shadow-lg transition">
+                        🚀 Need a Fresh No-Consistency Evaluation? Claim Best Deal →
+                    </a>
+                </div>
+            </div>
+
+            <!-- TAB 3: 20-ACCOUNT COPY TRADING MULTIPLIER -->
+            <div id="tab-copy" class="hidden grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 glass rounded-2xl p-6">
+                    <h3 class="text-base font-black uppercase text-emerald-400 mb-2">💰 20-Account Copy-Trading Multiplier</h3>
+                    <p class="text-xs text-slate-400 mb-4">See how a tiny $200/day base scalp multiplies when copied across 5 to 20 funded accounts simultaneously.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Linked Funded Accounts: <span id="acctCountLabel" class="text-yellow-400">5 Accounts</span></label>
+                            <input type="range" id="copyAccts" min="1" max="20" value="5" class="w-full accent-emerald-400 cursor-pointer" oninput="calcCopy()">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Daily Profit / Acct ($)</label>
+                                <input type="number" id="dailyPerAcct" value="200" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcCopy()">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Profit Split (%)</label>
+                                <input type="number" id="copySplit" value="90" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcCopy()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 glass gold-glow rounded-2xl p-6">
+                    <div class="grid sm:grid-cols-3 gap-3 mb-5">
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Combined Daily</div>
+                            <div id="outCopyDaily" class="text-3xl font-black text-white mt-1">$1,000</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">20-Day Monthly Gross</div>
+                            <div id="outCopyMonthly" class="text-3xl font-black text-yellow-400 mt-1">$20,000</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Net Take-Home</div>
+                            <div id="outCopyNet" class="text-3xl font-black text-emerald-400 mt-1">$18,000</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 bg-black/50 p-4 rounded-xl border border-white/10 mb-5">
+                        💡 <strong>Whale Copy-Trading Strategy:</strong> Instead of over-leveraging 5 NQ contracts on a single account and blowing trailing drawdown, pros risk 2 MNQ ($200/day target) copied across 5 to 20 discounted evaluations.
+                    </p>
+                    <a id="copyCtaBtn" href="https://myfundedfutures.com" target="_blank" class="block w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black text-sm py-4 rounded-xl text-center shadow-lg transition">
+                        🚀 Stack Your Discounted Evaluation Accounts Now →
+                    </a>
+                </div>
+            </div>
+
+            <!-- TAB 4: SAFE WITHDRAWAL BUFFER CHECKER -->
+            <div id="tab-payout" class="hidden grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 glass rounded-2xl p-6">
+                    <h3 class="text-base font-black uppercase text-cyan-400 mb-2">🛡️ True Withdrawable Cash & Buffer Checker</h3>
+                    <p class="text-xs text-slate-400 mb-4">Don't accidentally liquidate your funded account by withdrawing into your safety net buffer lock.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Current Balance ($)</label>
+                            <input type="number" id="currBal" value="54200" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcPayout()">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-400 mb-1">Buffer Lock ($)</label>
+                            <input type="number" id="reqBufBal" value="52100" class="w-full rounded-xl p-3 text-sm font-bold" oninput="calcPayout()">
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 glass gold-glow rounded-2xl p-6">
+                    <div class="grid sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Safe Withdrawal Request</div>
+                            <div id="outSafeReq" class="text-3xl font-black text-emerald-400 mt-1">$2,100</div>
+                        </div>
+                        <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+                            <div class="text-[11px] text-slate-400 uppercase">Hits Your Bank (90% Split)</div>
+                            <div id="outBankNet" class="text-3xl font-black text-yellow-400 mt-1">$1,890</div>
+                        </div>
+                    </div>
+                    <a id="payoutCtaBtn" href="https://myfundedfutures.com" target="_blank" class="block w-full bg-cyan-400 hover:bg-cyan-300 text-black font-black text-sm py-4 rounded-xl text-center shadow-lg transition">
+                        🚀 Compare Day-1 Payout Prop Firms →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROP FIRM MATCH FILTERABLE COMPARISON MATRIX -->
+        <section id="compare" class="my-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+                <div>
+                    <h2 class="text-3xl font-black text-white">Verified Prop Firm Matrix, Rules & Promo Codes</h2>
+                    <p class="text-slate-400 text-sm mt-1">Filter by drawdown type, consistency rules, or max copy-trading accounts. Click any firm to load its preset.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="renderMatrix('all')" id="filter-all" class="px-4 py-2 rounded-xl text-xs font-black bg-yellow-500 text-black">All Firms (12)</button>
+                    <button onclick="renderMatrix('EOD')" id="filter-eod" class="px-4 py-2 rounded-xl text-xs font-bold bg-white/10 text-white hover:bg-white/20">EOD Drawdown Only</button>
+                    <button onclick="renderMatrix('Intraday')" id="filter-intra" class="px-4 py-2 rounded-xl text-xs font-bold bg-white/10 text-white hover:bg-white/20">Intraday Trailing</button>
+                </div>
+            </div>
+
+            <div class="glass rounded-3xl overflow-x-auto shadow-2xl">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-black/60 text-xs uppercase text-slate-400 border-b border-white/10">
+                        <tr>
+                            <th class="p-4">Prop Firm</th>
+                            <th class="p-4">Account & Buffer</th>
+                            <th class="p-4">Drawdown Rule</th>
+                            <th class="p-4">Consistency Tool</th>
+                            <th class="p-4">Split & Loyalty Points</th>
+                            <th class="p-4 text-center">Best Promo Code</th>
+                            <th class="p-4 text-right">Official Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="firmTableBody" class="divide-y divide-white/5">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HIGH-IMPACT RED FOLDER NEWS LOCKOUT SHIELD -->
+        <section id="news" class="my-16 glass rounded-3xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <h3 class="text-xl font-black text-white flex items-center gap-2">
+                        <span>⚠️</span> High-Impact Economic News Lockout Shield
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">Rule reminders for FOMC, CPI, and NFP releases so you never fail a funded account on a 2-minute news restriction.</p>
+                </div>
+                <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl font-bold">LIVE RULE VERIFICATION</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-4">
+                <div class="bg-black/50 p-5 rounded-2xl border border-white/10">
+                    <div class="text-xs font-bold text-emerald-400 uppercase">Topstep & Tradeify</div>
+                    <div class="text-base font-extrabold text-white mt-1">News Trading Allowed</div>
+                    <p class="text-xs text-slate-400 mt-2">Permitted on TopstepX and Tradeify accounts without automatic breach, though slippage during CPI/FOMC can exceed stop limits.</p>
+                </div>
+                <div class="bg-black/50 p-5 rounded-2xl border border-white/10">
+                    <div class="text-xs font-bold text-blue-400 uppercase">Apex Trader Funding</div>
+                    <div class="text-base font-extrabold text-white mt-1">Allowed (No Straddles)</div>
+                    <p class="text-xs text-slate-400 mt-2">Can trade through news events in one direction, but two-way bracket straddles or 5:1 risk-reward violations during news void payouts.</p>
+                </div>
+                <div class="bg-black/50 p-5 rounded-2xl border border-white/10">
+                    <div class="text-xs font-bold text-purple-400 uppercase">MyFundedFutures & TPT</div>
+                    <div class="text-base font-extrabold text-white mt-1">Tier-Specific Lockout</div>
+                    <p class="text-xs text-slate-400 mt-2">MFFU Starter allows news; MFFU Expert & Take Profit Trader PRO require flat positions 2 minutes before and after Red Folder releases.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10 mt-16 py-12 bg-[#05060a] text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="text-base font-black text-white">THE FUNDED <span class="text-yellow-500">BIBLE</span></span>
+                <p class="mt-1">100% Free Futures Prop Firm Comparison Directory, Consistency Unlocker & Drawdown Survival Calculator.</p>
+            </div>
+            <div class="text-emerald-400 font-bold">● Live Prop Firm Deal Engine Active</div>
+        </div>
+    </footer>
+
+    <script>
+        // 👉 PASTE YOUR #1 PAYING AFFILIATE LINK HERE!
+        // Every button on the site automatically uses this link until you replace individual firm links below.
+        const MY_MAIN_AFFILIATE_LINK = "https://myfundedfutures.com";
+
+        const FIRMS = [
+            { id: "mff", slug: "myfundedfutures", name: "MyFundedFutures", short: "MFFU", domain: "myfundedfutures.com", accent: "#8b5cf6", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 40, buffer_lock: 52100, max_accounts: 3, price: "$77/mo", discount: "NO ACTIVATION FEE", code: "BIBLE", split: "100% first $10K, then 90%", points: "+250 Match Pts", trust: "96/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "topstep", slug: "topstep", name: "Topstep", short: "TOPSTEP", domain: "topstep.com", accent: "#10b981", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 50, buffer_lock: 52000, max_accounts: 5, price: "$49/mo", discount: "BEST VALUE", code: "BIBLE", split: "100% first $10K, then 90%", points: "+200 Match Pts", trust: "98/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "apex", slug: "apex-trader-funding", name: "Apex Trader Funding", short: "APEX", domain: "apextraderfunding.com", accent: "#3b82f6", size: "$50K", dd: 2500, target: 3000, dd_type: "Intraday Trailing", consistency: 30, buffer_lock: 52600, max_accounts: 20, price: "$37/mo", discount: "80% OFF", code: "BIBLE80", split: "100% first $25K, then 90%", points: "+150 Match Pts", trust: "92/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "tradeify", slug: "tradeify", name: "Tradeify", short: "TRADEIFY", domain: "tradeify.co", accent: "#06b6d4", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 20, buffer_lock: 52100, max_accounts: 5, price: "$99/mo", discount: "LIGHTNING FUNDED", code: "BIBLE", split: "90% Profit Split", points: "+300 Match Pts", trust: "94/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "tpt", slug: "take-profit-trader", name: "Take Profit Trader", short: "TPT", domain: "takeprofittrader.com", accent: "#22c55e", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 50, buffer_lock: 52000, max_accounts: 5, price: "$102/mo", discount: "40% OFF + PRO", code: "BIBLE", split: "80% / 90% PRO+", points: "+300 Match Pts", trust: "95/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "alpha", slug: "alpha-futures", name: "Alpha Futures", short: "ALPHA", domain: "alpha-futures.com", accent: "#f43f5e", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 40, buffer_lock: 52000, max_accounts: 3, price: "$79/mo", discount: "NEW FIRM DEAL", code: "BIBLE", split: "90% Profit Split", points: "+250 Match Pts", trust: "91/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "lucid", slug: "lucid-trading", name: "Lucid Trading", short: "LUCID", domain: "lucidtrading.com", accent: "#a855f7", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 40, buffer_lock: 52100, max_accounts: 5, price: "$45/mo", discount: "50% OFF", code: "BIBLE", split: "90% Profit Split", points: "+200 Match Pts", trust: "90/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "topone", slug: "top-one-futures", name: "Top One Futures", short: "TOPONE", domain: "toponefutures.com", accent: "#14b8a6", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 30, buffer_lock: 52000, max_accounts: 5, price: "$65/mo", discount: "55% OFF", code: "BIBLE", split: "90% Profit Split", points: "+250 Match Pts", trust: "91/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "bulenox", slug: "bulenox", name: "Bulenox", short: "BULENOX", domain: "bulenox.com", accent: "#f59e0b", size: "$50K", dd: 2500, target: 3000, dd_type: "Intraday Trailing", consistency: 40, buffer_lock: 52600, max_accounts: 11, price: "$38/mo", discount: "75% OFF", code: "BIBLE75", split: "100% first $10K, then 90%", points: "+150 Match Pts", trust: "89/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "fundednext", slug: "fundednext-futures", name: "FundedNext Futures", short: "FNEXT", domain: "fundednext.com", accent: "#6366f1", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 40, buffer_lock: 52000, max_accounts: 5, price: "$79/mo", discount: "20% OFF", code: "BIBLE", split: "90% Split + 15% Bonus", points: "+250 Match Pts", trust: "93/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "tradeday", slug: "tradeday", name: "TradeDay", short: "TRADEDAY", domain: "tradeday.com", accent: "#ec4899", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 30, buffer_lock: 52000, max_accounts: 3, price: "$99/mo", discount: "20% OFF", code: "BIBLE", split: "80% to 95% Split", points: "+250 Match Pts", trust: "95/100", url: MY_MAIN_AFFILIATE_LINK },
+            { id: "blusky", slug: "blusky-trading", name: "BluSky Trading", short: "BLUSKY", domain: "blusky.pro", accent: "#0ea5e9", size: "$50K", dd: 2000, target: 3000, dd_type: "EOD Trailing", consistency: 30, buffer_lock: 52000, max_accounts: 4, price: "$95/mo", discount: "30% OFF", code: "BIBLE", split: "90% Real Brokerage", points: "+250 Match Pts", trust: "93/100", url: MY_MAIN_AFFILIATE_LINK }
+        ];
+
+        function getLogoBadge(f, sizeCls = "w-10 h-10") {
+            const logoUrl = `https://www.google.com/s2/favicons?domain=${f.domain}&sz=128`;
+            return `
+                <div class="relative ${sizeCls} rounded-xl bg-[#141824] border border-white/15 flex items-center justify-center overflow-hidden shrink-0 shadow-lg" style="box-shadow: 0 0 15px ${f.accent}30;">
+                    <img src="${logoUrl}" alt="${f.name}" class="w-6 h-6 object-contain z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <span class="hidden absolute inset-0 items-center justify-center font-black text-[10px] tracking-tighter text-white" style="background: ${f.accent}40;">${f.short}</span>
+                </div>
+            `;
+        }
+
+        function initApp() {
+            const strip = document.getElementById('logoStrip');
+            const select = document.getElementById('firmPresetSelect');
+            strip.innerHTML = '';
+            select.innerHTML = '';
+
+            FIRMS.forEach((f, idx) => {
+                strip.innerHTML += `
+                    <button onclick="applyFirmPreset('${f.id}')" class="glass px-3.5 py-2.5 rounded-2xl border border-white/10 hover:border-yellow-500 flex items-center gap-2.5 transition text-left">
+                        ${getLogoBadge(f, "w-8 h-8")}
+                        <div>
+                            <div class="text-xs font-black text-white">${f.short}</div>
+                            <div class="text-[10px] text-emerald-400 font-bold">${f.discount}</div>
+                        </div>
+                    </button>
+                `;
+                select.innerHTML += `<option value="${f.id}">${f.name} — ${f.size} ($${f.dd} ${f.dd_type} / ${f.consistency}% Rule)</option>`;
+            });
+
+            renderMatrix('all');
+            applyFirmPreset('mff');
+        }
+
+        function applyFirmPreset(firmId) {
+            const f = FIRMS.find(item => item.id === firmId) || FIRMS[0];
+            document.getElementById('firmPresetSelect').value = f.id;
+            document.getElementById('maxDrawdown').value = f.dd;
+            document.getElementById('profitTarget').value = f.target;
+            document.getElementById('consPct').value = f.consistency;
+            document.getElementById('copyAccts').value = f.max_accounts;
+            document.getElementById('reqBufBal').value = f.buffer_lock;
+            document.getElementById('selectedFirmIndicator').innerText = `Preset Loaded: ${f.name} (${f.size} • ${f.dd_type})`;
+
+            const ctaText = `🚀 Claim ${f.discount} at ${f.name} (Code: ${f.code}) →`;
+            ['mainCtaBtn', 'consCtaBtn', 'copyCtaBtn', 'payoutCtaBtn'].forEach(btnId => {
+                const el = document.getElementById(btnId);
+                if (el) {
+                    el.href = f.url;
+                    el.innerText = ctaText;
+                }
+            });
+
+            calcLot();
+            calcCons();
+            calcCopy();
+            calcPayout();
+        }
+
+        function renderMatrix(filterType) {
+            ['all', 'EOD', 'Intraday'].forEach(t => {
+                const btn = document.getElementById('filter-' + (t === 'Intraday' ? 'intra' : t.toLowerCase()));
+                if (btn) {
+                    btn.className = (t === filterType)
+                        ? "px-4 py-2 rounded-xl text-xs font-black bg-yellow-500 text-black"
+                        : "px-4 py-2 rounded-xl text-xs font-bold bg-white/10 text-white hover:bg-white/20";
+                }
+            });
+
+            const tbody = document.getElementById('firmTableBody');
+            tbody.innerHTML = '';
+            FIRMS.forEach(f => {
+                if (filterType !== 'all' && !f.dd_type.includes(filterType)) return;
+                const badgeCls = f.dd_type.includes('EOD')
+                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                    : 'bg-amber-500/10 text-amber-400 border-amber-500/30';
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-white/[0.04] transition cursor-pointer" onclick="applyFirmPreset('${f.id}')">
+                        <td class="p-4">
+                            <div class="flex items-center gap-3">
+                                ${getLogoBadge(f)}
+                                <div>
+                                    <div class="font-black text-white text-base hover:text-yellow-400">${f.name}</div>
+                                    <span class="text-xs text-emerald-400 font-bold">🛡️ Trust: ${f.trust} • Max ${f.max_accounts} Accts</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4 font-bold text-slate-200">${f.size} <span class="block text-xs text-slate-400">$${f.dd.toLocaleString()} Max Loss</span></td>
+                        <td class="p-4"><span class="text-xs px-3 py-1 rounded-full border font-bold ${badgeCls}">${f.dd_type}</span></td>
+                        <td class="p-4">
+                            <button onclick="event.stopPropagation(); applyFirmPreset('${f.id}'); switchTab('tab-cons');" class="text-xs px-3 py-1 rounded-full bg-white/10 text-yellow-400 font-bold hover:bg-yellow-500 hover:text-black transition">
+                                ${f.consistency}% Rule Calc →
+                            </button>
+                        </td>
+                        <td class="p-4 text-slate-300 text-xs font-semibold">${f.split}<br><span class="text-emerald-400 font-bold">${f.points}</span></td>
+                        <td class="p-4 text-center">
+                            <span class="bg-black border border-dashed border-yellow-500 text-yellow-400 font-mono font-bold text-xs px-3 py-1.5 rounded-lg inline-block">${f.code}</span>
+                            <span class="text-[10px] text-emerald-400 font-bold block mt-1">${f.discount} (${f.price})</span>
+                        </td>
+                        <td class="p-4 text-right">
+                            <a href="${f.url}" target="_blank" onclick="event.stopPropagation();" class="bg-yellow-500 hover:bg-yellow-400 text-black font-black text-xs px-4 py-2.5 rounded-xl inline-block shadow-lg transition">
+                                Get Deal →
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function switchTab(tabId) {
+            ['tab-lot', 'tab-cons', 'tab-copy', 'tab-payout'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+                document.getElementById('btn-' + id).className = 'px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-white/10 text-white hover:bg-white/20 transition';
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).className = 'px-4 py-2.5 rounded-xl font-black text-xs uppercase bg-yellow-500 text-black shadow-lg transition';
+        }
+
+        function calcLot() {
+            const dd = parseFloat(document.getElementById('maxDrawdown').value) || 2000;
+            const target = parseFloat(document.getElementById('profitTarget').value) || 3000;
+            const pt = parseFloat(document.getElementById('instrument').value) || 2;
+            const sl = parseFloat(document.getElementById('stopPoints').value) || 20;
+            const buf = parseInt(document.getElementById('lossBuffer').value) || 10;
+            document.getElementById('bufVal').innerText = buf + ' Full Stops';
+            const maxRisk = dd / buf;
+            const singleRisk = pt * sl;
+            let lots = Math.floor(maxRisk / singleRisk);
+            if (lots < 1) lots = 1;
+            const actualRisk = lots * singleRisk;
+            const breachCount = Math.floor(dd / actualRisk);
+            const burnPct = Math.min(100, ((actualRisk / dd) * 100)).toFixed(1);
+
+            document.getElementById('outLots').innerText = lots;
+            document.getElementById('outRisk').innerText = '$' + actualRisk.toLocaleString();
+            document.getElementById('outBreach').innerText = breachCount;
+            document.getElementById('outWins').innerText = Math.ceil(target / (actualRisk * 2));
+            document.getElementById('burnPctText').innerText = burnPct + '% of Total Drawdown';
+            document.getElementById('burnBar').style.width = Math.min(100, burnPct * 3) + '%';
+        }
+
+        function calcCons() {
+            const rule = (parseFloat(document.getElementById('consPct').value) || 30) / 100;
+            const best = parseFloat(document.getElementById('bestDay').value) || 1200;
+            const tot = parseFloat(document.getElementById('totalProf').value) || 2500;
+            const currPct = tot > 0 ? ((best / tot) * 100).toFixed(1) : 100;
+            const reqTot = Math.ceil(best / rule);
+            const extra = Math.max(0, reqTot - tot);
+            const maxNext = Math.floor((rule * tot) / (1 - rule));
+
+            document.getElementById('outCurrCons').innerText = currPct + '%';
+            document.getElementById('outReqTotal').innerText = '$' + reqTot.toLocaleString();
+            document.getElementById('outExtraNeed').innerText = '$' + extra.toLocaleString();
+            document.getElementById('outMaxNextDay').innerText = '$' + maxNext.toLocaleString();
+
+            const badge = document.getElementById('consBadge');
+            if (extra <= 0) {
+                badge.className = 'text-xs font-black px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400';
+                badge.innerText = '✅ PAYOUT ELIGIBLE';
+                document.getElementById('consAdvice').innerText = 'You are within the ' + (rule*100) + '% consistency limit! The largest single day you can add tomorrow without breaking the rule is $' + maxNext.toLocaleString() + '.';
+            } else {
+                badge.className = 'text-xs font-black px-3 py-1 rounded-full bg-red-500/20 text-red-400';
+                badge.innerText = '⚠️ NEED $' + extra.toLocaleString() + ' MORE PROFIT';
+                document.getElementById('consAdvice').innerText = 'Formula: $' + best.toLocaleString() + ' Best Day ÷ ' + rule + ' = $' + reqTot.toLocaleString() + ' Required Total Profit. Add $' + extra.toLocaleString() + ' across controlled days smaller than $' + best.toLocaleString() + ' before requesting payout.';
+            }
+        }
+
+        function calcCopy() {
+            const accts = parseInt(document.getElementById('copyAccts').value) || 5;
+            const daily = parseFloat(document.getElementById('dailyPerAcct').value) || 200;
+            const split = (parseFloat(document.getElementById('copySplit').value) || 90) / 100;
+            document.getElementById('acctCountLabel').innerText = accts + ' Accounts';
+            const combDaily = accts * daily;
+            const monthlyGross = combDaily * 20;
+            document.getElementById('outCopyDaily').innerText = '$' + combDaily.toLocaleString();
+            document.getElementById('outCopyMonthly').innerText = '$' + monthlyGross.toLocaleString();
+            document.getElementById('outCopyNet').innerText = '$' + Math.round(monthlyGross * split).toLocaleString();
+        }
+
+        function calcPayout() {
+            const bal = parseFloat(document.getElementById('currBal').value) || 54200;
+            const buf = parseFloat(document.getElementById('reqBufBal').value) || 52100;
+            const safe = Math.max(0, bal - buf);
+            document.getElementById('outSafeReq').innerText = '$' + safe.toLocaleString();
+            document.getElementById('outBankNet').innerText = '$' + Math.round(safe * 0.9).toLocaleString();
+        }
+
+        initApp();
+    </script>
+</body>
+</html>
