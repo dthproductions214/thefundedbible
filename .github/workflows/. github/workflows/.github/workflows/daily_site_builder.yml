@@ -1,0 +1,31 @@
+name: Autonomous PropFirmMatch Site Builder Bot
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Runs automatically every day at 6:00 AM UTC
+  workflow_dispatch: # Lets you trigger a 35-page batch anytime with 1 click
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run 1,000-Page Drip Site Builder Bot
+        run: python site_builder_bot.py
+
+      - name: Commit and Push New Batch of Pages to Live Site
+        run: |
+          git config --global user.name "FundedBible AutoBot"
+          git config --global user.email "bot@thefundedbible.com"
+          git add *.html sitemap.xml robots.txt drip_state.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "AutoBot: Unlocked next 35 SEO pages & synced sitemap" && git push)
