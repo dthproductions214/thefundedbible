@@ -15,27 +15,55 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
 
-  <!-- Top Alert / Flash Deals Banner -->
-  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 py-2 px-4 text-center text-xs font-black uppercase tracking-widest sticky top-0 z-50 shadow-md">
-    <span>⚡ FLASH SALE ALERT: Use Promo Code <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE</span> or <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE80</span> for up to 80% OFF All Evaluations</span>
-  </div>
-
-  <!-- Navigation Bar -->
-  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-8 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="h-9 w-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">†</div>
-        <a href="/" class="text-xl font-black tracking-wider text-slate-100 hover:text-amber-400 transition">THE FUNDED <span class="text-amber-400">BIBLE</span></a>
-      </div>
-      <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-300">
-        <a href="#directory" class="hover:text-amber-400 transition">Prop Directory</a>
-        <a href="#matrix" class="hover:text-amber-400 transition">Drawdown Matrix</a>
-        <a href="#videos" class="hover:text-amber-400 transition">Video Masterclass</a>
-        <a href="#vault" class="hover:text-amber-400 transition">Terminal & Tools</a>
-        <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-bold transition shadow">Get Risk Terminal ($39)</a>
-      </nav>
+  <!-- Unified Sticky Top Header (Flash Banner + Multi-Page Nav) -->
+  <div class="sticky top-0 z-50">
+    <!-- Top Alert / Flash Deals Banner -->
+    <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 py-2 px-4 text-center text-xs font-black uppercase tracking-widest shadow-md">
+      <span>⚡ FLASH SALE ALERT: Use Promo Code <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE</span> or <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE80</span> for up to 80% OFF All Evaluations</span>
     </div>
-  </header>
+
+    <!-- Main Multi-Page Navigation Bar -->
+    <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="h-9 w-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">†</div>
+          <a href="index.html" class="text-xl font-black tracking-wider text-slate-100 hover:text-amber-400 transition">
+            THE FUNDED <span class="text-amber-400">BIBLE</span>
+          </a>
+          <span class="hidden sm:inline-block bg-amber-500/10 border border-amber-500/40 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Pro Desk</span>
+        </div>
+
+        <!-- Desktop Links (Multi-Page + On-Page) -->
+        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300" aria-label="Main Navigation">
+          <a href="index.html" class="text-amber-400 transition">Home</a>
+          <a href="firms.html" class="hover:text-amber-400 transition">Prop Firm Versus</a>
+          <a href="calculator.html" class="hover:text-amber-400 transition flex items-center gap-1.5">
+            Drawdown Sizer
+            <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Free Tool</span>
+          </a>
+          <a href="briefings.html" class="hover:text-amber-400 transition">Kill-Zone Briefings</a>
+          <a href="vault.html" class="hover:text-amber-400 transition">Inside the Vault</a>
+          <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-black transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider">Get Risk Terminal ($39)</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="lg:hidden border border-slate-800 bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg text-sm font-bold" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950 px-4 pt-3 pb-5 space-y-2 text-sm font-semibold">
+        <a href="index.html" class="block py-2 text-amber-400">Home</a>
+        <a href="firms.html" class="block py-2 text-slate-300 hover:text-amber-400">Prop Firm Versus Matrix</a>
+        <a href="calculator.html" class="block py-2 text-slate-300 hover:text-amber-400">Live Drawdown & Lot Sizer <span class="ml-1 bg-emerald-500/20 text-emerald-400 text-[10px] px-1.5 py-0.5 rounded">FREE</span></a>
+        <a href="briefings.html" class="block py-2 text-slate-300 hover:text-amber-400">Kill-Zone Briefings</a>
+        <a href="vault.html" class="block py-2 text-slate-300 hover:text-amber-400">Inside the Vault Syllabus</a>
+        <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg mt-2 uppercase text-xs tracking-wider">Get Risk Terminal ($39)</a>
+      </div>
+    </header>
+  </div>
 
   <!-- Hero Section with Visual Backdrop -->
   <section class="relative py-20 overflow-hidden border-b border-slate-800">
@@ -55,10 +83,115 @@
         The unfiltered directory comparing end-of-day drawdowns, intraday peak traps, payout frequencies, and hidden consistency rules across all premier futures prop firms.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#directory" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-7 py-3 rounded-xl transition shadow-lg shadow-amber-500/20 text-sm">Explore Firm Directory</a>
-        <a href="#videos" class="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-7 py-3 rounded-xl transition text-sm flex items-center gap-2">
-          <i class="fa-solid fa-play text-amber-400 text-xs"></i> Watch Strategy Hub
+        <a href="calculator.html" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-7 py-3 rounded-xl transition shadow-lg shadow-amber-500/20 text-sm">Launch Free Drawdown Sizer →</a>
+        <a href="firms.html" class="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-7 py-3 rounded-xl transition text-sm flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-amber-400 text-xs"></i> Compare Prop Firms
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Multi-Page Command Ecosystem Hub -->
+  <section id="command-hub" class="py-20 border-b border-slate-800 bg-slate-950 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">Institutional Trading Architecture</span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-100">Explore the Funded Bible Ecosystem</h2>
+      <p class="text-slate-400 mt-3 text-sm sm:text-base">
+        Don't blow another evaluation guessing your contract size or hidden trailing rules. Use our live desk tools, rule comparisons, and daily briefings before you place your next trade.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Card 1: Prop Firm Versus Hub -->
+      <a href="firms.html" class="group bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 flex flex-col justify-between transition duration-200 shadow-lg">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-xl">⚔️</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/80 border border-slate-700 px-3 py-1 rounded-full">Updated for 2026 Rules</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-100 group-hover:text-amber-400 transition">Prop Firm Versus Matrix</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 mb-5 leading-relaxed">
+            Side-by-side audits of Apex, Topstep, MyFundedFutures, and Tradeify. Compare real EOD vs. intraday trailing drawdowns, consistency rules, and payout buffer requirements.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Apex vs Topstep</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Intraday vs EOD</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Verified Promo Codes</span>
+          </div>
+        </div>
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">Inspect Firm Rules <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+      </a>
+
+      <!-- Card 2: Interactive Drawdown Calculator -->
+      <a href="calculator.html" class="group bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 flex flex-col justify-between transition duration-200 shadow-lg">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-xl">🧮</span>
+            <span class="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">Interactive Utility</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-100 group-hover:text-amber-400 transition">Live Drawdown & Lot Sizer</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 mb-5 leading-relaxed">
+            Select your prop firm and account size ($50K, $100K, $150K) to calculate your exact daily loss limit, max micro/mini NQ & ES contract size, and survival buffer in ticks.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">NQ / MNQ Lot Math</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Blowout Protection</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Tick Risk Engine</span>
+          </div>
+        </div>
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">Launch Calculator <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+      </a>
+
+      <!-- Card 3: Daily Kill-Zone Briefings -->
+      <a href="briefings.html" class="group bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 flex flex-col justify-between transition duration-200 shadow-lg">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xl">📡</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/80 border border-slate-700 px-3 py-1 rounded-full">Automated Desk Feed</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-100 group-hover:text-amber-400 transition">Daily Kill-Zone Briefings & Playbooks</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 mb-5 leading-relaxed">
+            Read our archive of NY Session liquidity maps, high-impact CPI/FOMC survival protocols, and step-by-step evaluation passing logs.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">9:30 AM NY Open</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Liquidity Sweeps</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Payout Case Studies</span>
+          </div>
+        </div>
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">Read Desk Briefings <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+      </a>
+
+      <!-- Card 4: Inside the Vault Preview -->
+      <a href="vault.html" class="group bg-slate-900/90 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 flex flex-col justify-between transition duration-200 shadow-lg">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl">🔐</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/80 border border-slate-700 px-3 py-1 rounded-full">Curriculum Syllabus</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-100 group-hover:text-amber-400 transition">Inside the Vault: Curriculum & Whale Spec</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 mb-5 leading-relaxed">
+            Preview the exact modules, NinjaTrader 8 ATM templates, and multi-account copy-trading blueprints included in the Risk Terminal ($39), Standard Scripture ($197), and Whale Suite ($397).
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Chapter Breakdown</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">20-Account Scaling</span>
+            <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">Sample Risk Tables</span>
+          </div>
+        </div>
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">Preview the Vault <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+      </a>
+    </div>
+
+    <!-- Quick SEO Deep-Link Drawer -->
+    <div class="mt-6 bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 text-xs">
+      <span class="font-bold text-slate-200 uppercase tracking-wider">Popular Desk Audits:</span>
+      <div class="flex flex-wrap gap-4 text-slate-400">
+        <a href="firms.html#apex-vs-topstep" class="hover:text-amber-400 underline decoration-slate-700 underline-offset-4">Apex vs Topstep 50K</a>
+        <a href="firms.html#mffu-eod" class="hover:text-amber-400 underline decoration-slate-700 underline-offset-4">MyFundedFutures EOD Rules</a>
+        <a href="firms.html#tradeify-straight" class="hover:text-amber-400 underline decoration-slate-700 underline-offset-4">Tradeify Straight-to-Funded</a>
+        <a href="calculator.html#mnq-sizing" class="hover:text-amber-400 underline decoration-slate-700 underline-offset-4">50K Eval MNQ Contract Sizer</a>
+        <a href="vault.html#whale-copier" class="hover:text-amber-400 underline decoration-slate-700 underline-offset-4">20-Account Replikanto Setup</a>
       </div>
     </div>
   </section>
@@ -252,7 +385,6 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      
       <!-- Video Card 1 -->
       <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
         <div class="aspect-video w-full bg-slate-950">
@@ -276,7 +408,6 @@
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">The mathematical difference between intraday trailing stops and End of Day (EOD) calculation models explained with live chart examples.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -289,7 +420,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
         <!-- Tier 1: Risk Terminal ($39) -->
         <div class="bg-slate-900 rounded-2xl border border-amber-500/40 p-6 flex flex-col justify-between glow-amber">
           <div>
@@ -337,7 +467,6 @@
           </div>
           <a href="https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-3 rounded-xl text-center text-xs transition uppercase tracking-wider">Unlock Whale Suite ($397)</a>
         </div>
-
       </div>
     </div>
   </section>
