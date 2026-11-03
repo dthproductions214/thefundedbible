@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prop Firm Drawdown & Contract Size Calculator | The Funded Bible</title>
+  <meta name="description" content="Free interactive futures prop firm calculator. Calculate exact NQ, MNQ, ES, and MES lot sizes, trailing drawdown buffers, consistency rule caps, and survival streaks for Apex, Topstep, Tradeify, and MFFU.">
+  <link rel="canonical" href="https://thefundedbible.com/calculator.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .glow-amber { box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3); }
+    .glow-emerald { box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25); }
+    input[type="range"] { accent-color: #f59e0b; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- Unified Sticky Top Header (Flash Banner + Multi-Page Nav) -->
+  <div class="sticky top-0 z-50">
+    <!-- Top Alert / Flash Deals Banner -->
+    <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 py-2 px-4 text-center text-xs font-black uppercase tracking-widest shadow-md">
+      <span>⚡ FLASH SALE ALERT: Use Promo Code <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE</span> or <span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded ml-1 mr-1">BIBLE80</span> for up to 80% OFF All Evaluations</span>
+    </div>
+
+    <!-- Main Multi-Page Navigation Bar -->
+    <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="h-9 w-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">†</div>
+          <a href="index.html" class="text-xl font-black tracking-wider text-slate-100 hover:text-amber-400 transition">
+            THE FUNDED <span class="text-amber-400">BIBLE</span>
+          </a>
+          <span class="hidden sm:inline-block bg-amber-500/10 border border-amber-500/40 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Pro Desk</span>
+        </div>
+
+        <!-- Desktop Links -->
+        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300" aria-label="Main Navigation">
+          <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+          <a href="firms.html" class="hover:text-amber-400 transition">Prop Firm Versus</a>
+          <a href="calculator.html" class="text-amber-400 transition flex items-center gap-1.5">
+            Drawdown Sizer
+            <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Free Tool</span>
+          </a>
+          <a href="briefings.html" class="hover:text-amber-400 transition">Kill-Zone Briefings</a>
+          <a href="vault.html" class="hover:text-amber-400 transition">Inside the Vault</a>
+          <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-black transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider">Get Risk Terminal ($39)</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="lg:hidden border border-slate-800 bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg text-sm font-bold" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950 px-4 pt-3 pb-5 space-y-2 text-sm font-semibold">
+        <a href="index.html" class="block py-2 text-slate-300 hover:text-amber-400">Home</a>
+        <a href="firms.html" class="block py-2 text-slate-300 hover:text-amber-400">Prop Firm Versus Matrix</a>
+        <a href="calculator.html" class="block py-2 text-amber-400">Live Drawdown & Lot Sizer <span class="ml-1 bg-emerald-500/20 text-emerald-400 text-[10px] px-1.5 py-0.5 rounded">ACTIVE</span></a>
+        <a href="briefings.html" class="block py-2 text-slate-300 hover:text-amber-400">Kill-Zone Briefings</a>
+        <a href="vault.html" class="block py-2 text-slate-300 hover:text-amber-400">Inside the Vault Syllabus</a>
+        <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg mt-2 uppercase text-xs tracking-wider">Get Risk Terminal ($39)</a>
+      </div>
+    </header>
+  </div>
+
+  <!-- Page Header -->
+  <section class="py-12 border-b border-slate-800 bg-gradient-to-b from-slate-900/50 to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center space-x-2 bg-slate-900 border border-emerald-500/40 px-3.5 py-1 rounded-full text-xs font-semibold text-emerald-400 mb-4">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Live CME Tick & Drawdown Risk Engine</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-slate-100">
+        Prop Firm <span class="text-amber-400">Drawdown & Lot Sizer</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base mt-3">
+        Calculate your exact contract size, survival streak buffer, and daily consistency cap before entering a single trade. Built specifically for NQ, MNQ, ES, MES, GC, and CL futures.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Interactive Calculator Grid -->
+  <section id="mnq-sizing" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Left Column: Input Parameters (5 Cols) -->
+      <div class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h2 class="text-lg font-black text-slate-100 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-amber-400"></i> 1. Desk Parameters
+          </h2>
+          <span class="text-xs font-mono text-slate-400">Auto-Sync Active</span>
+        </div>
+
+        <!-- Select Prop Firm -->
+        <div>
+          <label for="firmSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Select Prop Firm</label>
+          <select id="firmSelect" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-xl px-4 py-3 text-sm font-bold text-slate-100 outline-none transition">
+            <option value="apex">Apex Trader Funding (Unrealized Trailing)</option>
+            <option value="topstep">Topstep (End-of-Day EOD)</option>
+            <option value="mffu">MyFundedFutures Starter (EOD / Zero Activation)</option>
+            <option value="tradeify">Tradeify Growth / Lightning (Intraday Trailing)</option>
+            <option value="tpt">Take Profit Trader (Intraday + Strict Daily Cap)</option>
+            <option value="fundednext">FundedNext Futures (Balance-Based)</option>
+          </select>
+        </div>
+
+        <!-- Select Account Size -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Evaluation Account Size</label>
+          <div class="grid grid-cols-3 gap-3" id="sizeButtons">
+            <button type="button" data-size="50000" class="size-btn bg-amber-500 text-slate-950 font-black py-2.5 rounded-xl text-sm border border-amber-400 transition">$50,000</button>
+            <button type="button" data-size="100000" class="size-btn bg-slate-950 text-slate-300 hover:border-slate-600 font-bold py-2.5 rounded-xl text-sm border border-slate-800 transition">$100,000</button>
+            <button type="button" data-size="150000" class="size-btn bg-slate-950 text-slate-300 hover:border-slate-600 font-bold py-2.5 rounded-xl text-sm border border-slate-800 transition">$150,000</button>
+          </div>
+        </div>
+
+        <!-- Current Drawdown Cushion Remaining -->
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1.5">
+            <label for="cushionInput" class="uppercase tracking-wider text-slate-300">Remaining Drawdown Buffer ($)</label>
+            <span id="defaultBufferNote" class="text-amber-400 font-mono">Default: $2,500</span>
+          </div>
+          <input type="number" id="cushionInput" value="2500" step="100" min="100" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-xl px-4 py-2.5 text-sm font-mono font-bold text-slate-100 outline-none">
+          <p class="text-[11px] text-slate-500 mt-1">Adjust if your account is already in drawdown or has built a profit buffer.</p>
+        </div>
+
+        <!-- Select CME Instrument -->
+        <div>
+          <label for="instrumentSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">CME Futures Instrument</label>
+          <select id="instrumentSelect" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-xl px-4 py-3 text-sm font-bold text-slate-100 outline-none transition">
+            <option value="MNQ" data-point="2" data-tick="0.50" data-pair="NQ">MNQ — Micro E-mini Nasdaq ($2.00 / pt)</option>
+            <option value="NQ" data-point="20" data-tick="5.00" data-pair="MNQ">NQ — E-mini Nasdaq 100 ($20.00 / pt)</option>
+            <option value="MES" data-point="5" data-tick="1.25" data-pair="ES">MES — Micro E-mini S&P 500 ($5.00 / pt)</option>
+            <option value="ES" data-point="50" data-tick="12.50" data-pair="MES">ES — E-mini S&P 500 ($50.00 / pt)</option>
+            <option value="MGC" data-point="10" data-tick="1.00" data-pair="GC">MGC — Micro Gold ($10.00 / pt)</option>
+            <option value="GC" data-point="100" data-tick="10.00" data-pair="MGC">GC — Full Gold Futures ($100.00 / pt)</option>
+            <option value="MCL" data-point="100" data-tick="1.00" data-pair="CL">MCL — Micro Crude Oil ($1.00 / tick)</option>
+          </select>
+        </div>
+
+        <!-- Stop Loss in Points -->
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1.5">
+            <label for="stopSlider" class="uppercase tracking-wider text-slate-300">Stop-Loss Distance (Points / Handles)</label>
+            <span class="text-amber-400 font-mono text-sm"><span id="stopValDisplay">20</span> pts (<span id="ticksValDisplay">80</span> ticks)</span>
+          </div>
+          <input type="range" id="stopSlider" min="5" max="80" value="20" step="1" class="w-full cursor-pointer">
+          <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+            <span>5 pts (Tight Scalp)</span>
+            <span>25 pts (NY Sweep)</span>
+            <span>80 pts (Wide Swing)</span>
+          </div>
+        </div>
+
+        <!-- Risk Mode (% of Remaining Buffer per Trade) -->
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1.5">
+            <label for="riskSlider" class="uppercase tracking-wider text-slate-300">Risk Per Trade (% of Drawdown Buffer)</label>
+            <span id="riskPctDisplay" class="text-emerald-400 font-mono text-sm">10% ($250)</span>
+          </div>
+          <input type="range" id="riskSlider" min="4" max="25" value="10" step="1" class="w-full cursor-pointer">
+          <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+            <span>5% (Institutional Safe)</span>
+            <span>10% (Standard Eval)</span>
+            <span>25% (Aggressive Tilt)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Live Output Terminal (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Top Highlight: Recommended Contract Size & Survival Meter -->
+        <div class="bg-slate-900 border border-amber-500/40 rounded-2xl p-6 sm:p-8 glow-amber">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4 mb-6">
+            <div>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-amber-400 block">Live Position Sizer Output</span>
+              <h2 id="outputTitle" class="text-xl sm:text-2xl font-black text-slate-100">Apex $50K Evaluation — MNQ Setup</h2>
+            </div>
+            <span id="survivalBadge" class="bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-black px-3 py-1 rounded-full uppercase">
+              Safe Survival Zone
+            </span>
+          </div>
+
+          <!-- 3 Primary Output Boxes -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+              <span class="text-xs text-slate-400 font-semibold block mb-1">Max Recommended Size</span>
+              <div id="outContracts" class="text-3xl sm:text-4xl font-black text-amber-400 font-mono">6 MNQ</div>
+              <span id="outAltContracts" class="text-[11px] text-slate-500 font-mono block mt-1">or 0 Mini NQ</span>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+              <span class="text-xs text-slate-400 font-semibold block mb-1">Exact Dollar Risk / Trade</span>
+              <div id="outDollarRisk" class="text-3xl sm:text-4xl font-black text-slate-100 font-mono">$240</div>
+              <span id="outCostPerContract" class="text-[11px] text-slate-500 font-mono block mt-1">$40.00 risk per lot</span>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+              <span class="text-xs text-slate-400 font-semibold block mb-1">Consecutive Losses to Blow</span>
+              <div id="outStreak" class="text-3xl sm:text-4xl font-black text-emerald-400 font-mono">10.4</div>
+              <span class="text-[11px] text-slate-500 font-mono block mt-1">Full stops before breach</span>
+            </div>
+          </div>
+
+          <!-- Firm-Specific Rule Breakdown Grid -->
+          <div class="bg-slate-950/90 border border-slate-800/90 rounded-xl p-5 space-y-3 text-xs sm:text-sm">
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+              <span class="text-slate-400">Drawdown Mechanics:</span>
+              <strong id="outDrawdownType" class="text-amber-400 font-mono">Live Unrealized Intraday Trailing</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+              <span class="text-slate-400">Evaluation Profit Target:</span>
+              <strong id="outProfitTarget" class="text-slate-100 font-mono">$3,000</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+              <span class="text-slate-400">Firm Daily Loss Limit (DLL):</span>
+              <strong id="outDailyLimit" class="text-emerald-400 font-mono">None (Recommended Desk Cap: $500)</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+              <span class="text-slate-400">Consistency Rule Cap (Max Single Day Profit):</span>
+              <strong id="outConsistency" class="text-slate-100 font-mono">30% on PA ($900 Max Best Day)</strong>
+            </div>
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-slate-400">1:2 R:R Target With This Size:</span>
+              <strong id="outRewardTarget" class="text-emerald-400 font-mono">+$480 (+40 pts)</strong>
+            </div>
+          </div>
+
+          <!-- Dynamic Desk Warning / Tactical Note -->
+          <div id="deskWarningBox" class="mt-5 bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-xs text-slate-300 leading-relaxed">
+            <strong class="text-amber-400 uppercase tracking-wider block mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Desk Execution Protocol:</strong>
+            <span id="deskWarningText">Apex trails your unrealized open peak in real time. Never let a +$600 open runner reverse to breakeven, or your trailing threshold moves up $600 without banking a dime. Lock 75% at 1.5R.</span>
+          </div>
+
+          <!-- Dynamic Affiliate & Promo Action Bar -->
+          <div class="mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-slate-400">
+              Active Verified Discount Code: <span id="outPromoCode" class="bg-slate-950 border border-amber-500/40 text-amber-400 font-mono font-bold px-2.5 py-1 rounded ml-1">BIBLE80</span>
+            </div>
+            <a id="outAffiliateBtn" href="https://apextraderfunding.com/?ref=BIBLE" target="_blank" rel="noopener" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl text-xs uppercase tracking-wider text-center transition shadow-lg shadow-amber-500/20">
+              Launch Apex Evaluation (Code BIBLE80) →
+            </a>
+          </div>
+        </div>
+
+        <!-- Secondary Card: Consistency Rule Pass Calculator -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 block">Bonus Utility</span>
+              <h3 class="text-lg font-black text-slate-100">Consistency Rule Fixer (30% / 50% Rule Calculator)</h3>
+            </div>
+            <i class="fa-solid fa-scale-unbalanced-flip text-amber-400 text-xl"></i>
+          </div>
+          <p class="text-xs text-slate-400 mb-5">
+            Did you hit a huge home-run day and violate your firm's 30% or 50% consistency rule? Enter your biggest single-day profit below to see the exact total account profit required to unlock your payout.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+            <div>
+              <label for="bestDayInput" class="block text-xs font-bold text-slate-300 mb-1.5">Your Biggest Single Day ($)</label>
+              <input type="number" id="bestDayInput" value="1400" step="50" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-100 outline-none">
+            </div>
+            <div>
+              <label for="consistencyRulePct" class="block text-xs font-bold text-slate-300 mb-1.5">Firm Consistency Rule</label>
+              <select id="consistencyRulePct" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-100 outline-none">
+                <option value="0.30">30% Rule (Apex PA / Tradeify Sim)</option>
+                <option value="0.50">50% Rule (Topstep / TakeProfit)</option>
+                <option value="0.40">40% Rule (Standard Tier)</option>
+              </select>
+            </div>
+            <div class="bg-slate-950 border border-emerald-500/30 rounded-xl p-3 text-center">
+              <span class="text-[11px] text-slate-400 block">Required Total Profit to Pass</span>
+              <strong id="consistencyRequiredOut" class="text-xl font-black text-emerald-400 font-mono">$4,667</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Reference Table: CME Tick & Point Cheat Sheet -->
+  <section class="py-12 border-t border-slate-800 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-1">CME Contract Specifications</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-100">Micro vs. Mini Lot Value Reference</h2>
+        </div>
+        <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="text-xs font-black uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+          Download Full Automated Sheet ($39) <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-800">
+        <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+          <thead class="bg-slate-900 text-slate-400 uppercase font-mono text-xs border-b border-slate-800">
+            <tr>
+              <th class="p-4">Ticker</th>
+              <th class="p-4">Contract Name</th>
+              <th class="p-4">Tick Value</th>
+              <th class="p-4">1 Point (Handle)</th>
+              <th class="p-4">20-Point Stop Risk (1 Lot)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 font-mono">
+            <tr class="hover:bg-slate-800/30">
+              <td class="p-4 font-bold text-amber-400">MNQ</td>
+              <td class="p-4 font-sans">Micro E-mini Nasdaq-100</td>
+              <td class="p-4">$0.50</td>
+              <td class="p-4 text-slate-100 font-bold">$2.00</td>
+              <td class="p-4 text-emerald-400">$40.00</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30">
+              <td class="p-4 font-bold text-amber-400">NQ</td>
+              <td class="p-4 font-sans">E-mini Nasdaq-100 (Mini)</td>
+              <td class="p-4">$5.00</td>
+              <td class="p-4 text-slate-100 font-bold">$20.00</td>
+              <td class="p-4 text-red-400">$400.00</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30">
+              <td class="p-4 font-bold text-emerald-400">MES</td>
+              <td class="p-4 font-sans">Micro E-mini S&P 500</td>
+              <td class="p-4">$1.25</td>
+              <td class="p-4 text-slate-100 font-bold">$5.00</td>
+              <td class="p-4 text-emerald-400">$100.00</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30">
+              <td class="p-4 font-bold text-emerald-400">ES</td>
+              <td class="p-4 font-sans">E-mini S&P 500 (Mini)</td>
+              <td class="p-4">$12.50</td>
+              <td class="p-4 text-slate-100 font-bold">$50.00</td>
+              <td class="p-4 text-red-400">$1,000.00</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30">
+              <td class="p-4 font-bold text-blue-400">MGC</td>
+              <td class="p-4 font-sans">Micro Gold Futures</td>
+              <td class="p-4">$1.00</td>
+              <td class="p-4 text-slate-100 font-bold">$10.00</td>
+              <td class="p-4 text-amber-400">$200.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Bottom High-Converting Cash Bar -->
+  <div class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-amber-500/40 p-4 shadow-2xl z-50">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-center sm:text-left">
+        <p class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Upgrade to Automated Multi-Account Tracking
+        </p>
+        <p class="text-xs text-slate-300 font-medium">Get the $39 Risk Terminal — Tracks 20 simultaneous PA accounts, trailing threshold freeze points & payout buffers.</p>
+      </div>
+      <a href="https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider transition whitespace-nowrap shadow-md">Get Risk Terminal ($39)</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-12 text-center text-xs text-slate-500 mb-16">
+    <div class="max-w-4xl mx-auto px-4 space-y-4">
+      <p class="font-bold text-slate-400">THE FUNDED BIBLE LLC</p>
+      <p>Disclaimer: Futures trading involves substantial risk of loss and is not suitable for all investors. The Funded Bible provides independent research, software tools, and education. We may receive affiliate compensation from links featured on this site.</p>
+      <p>© 2026 The Funded Bible. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Live Prop Firm Risk Calculator Engine -->
+  <script>
+    const firmDatabase = {
+      apex: {
+        name: "Apex",
+        drawdownType: "Live Unrealized Intraday Trailing",
+        code: "BIBLE80",
+        url: "https://apextraderfunding.com/?ref=BIBLE",
+        warning: "Apex trails your unrealized open peak in real time. Never let an open +$600 runner reverse to breakeven, or your trailing floor rises $600 without banking a dime. Lock 75% at 1.5R.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2500, dll: "None (Desk Cap: $500)", consistency: "30% on PA ($900 Max Day)" },
+          100000: { target: 6000, maxdd: 3000, dll: "None (Desk Cap: $600)", consistency: "30% on PA ($1,800 Max Day)" },
+          150000: { target: 9000, maxdd: 5000, dll: "None (Desk Cap: $1,000)", consistency: "30% on PA ($2,700 Max Day)" }
+        }
+      },
+      topstep: {
+        name: "Topstep",
+        drawdownType: "End-of-Day (EOD) Trailing",
+        code: "BIBLE",
+        url: "https://topstep.com/?coupon=BIBLE",
+        warning: "Topstep only updates your trailing drawdown at 4:00 PM CST market close. Intraday runners that pull back do not penalize your floor, but keep your best day below 50% of the profit target.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2000, dll: "$1,000 Soft Daily Pause", consistency: "50% Eval Rule ($1,500 Max Day)" },
+          100000: { target: 6000, maxdd: 3000, dll: "$2,000 Soft Daily Pause", consistency: "50% Eval Rule ($3,000 Max Day)" },
+          150000: { target: 9000, maxdd: 4500, dll: "$3,000 Soft Daily Pause", consistency: "50% Eval Rule ($4,500 Max Day)" }
+        }
+      },
+      mffu: {
+        name: "MyFundedFutures",
+        drawdownType: "End-of-Day (EOD) Trailing",
+        code: "BIBLE",
+        url: "https://myfundedfutures.com/?ref=BIBLE",
+        warning: "MFFU Starter and Expert plans use clean EOD drawdown with zero activation fees. On Starter Sim Funded accounts, respect the 40% consistency rule to ensure immediate payout approval.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2000, dll: "None on Starter ($1,200 Soft)", consistency: "None on Eval / 40% Sim Funded" },
+          100000: { target: 6000, maxdd: 3000, dll: "None on Starter ($2,400 Soft)", consistency: "None on Eval / 40% Sim Funded" },
+          150000: { target: 9000, maxdd: 4500, dll: "None on Starter ($3,600 Soft)", consistency: "None on Eval / 40% Sim Funded" }
+        }
+      },
+      tradeify: {
+        name: "Tradeify",
+        drawdownType: "Intraday Trailing (Locks at Starting Balance)",
+        code: "BIBLE",
+        url: "https://tradeify.co/?ref=BIBLE",
+        warning: "Tradeify offers Straight-to-Sim-Funded Lightning accounts and Growth evaluations with no daily loss pause. Once your trailing drawdown reaches your starting balance + $100, it permanently locks.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2000, dll: "None", consistency: "0% on Growth / 30% on Lightning" },
+          100000: { target: 6000, maxdd: 3500, dll: "None", consistency: "0% on Growth / 30% on Lightning" },
+          150000: { target: 9000, maxdd: 5000, dll: "None", consistency: "0% on Growth / 30% on Lightning" }
+        }
+      },
+      tpt: {
+        name: "Take Profit Trader",
+        drawdownType: "EOD on Eval / Intraday on Pro",
+        code: "BIBLE",
+        url: "https://takeprofittrader.com/?coupon=BIBLE",
+        warning: "Take Profit Trader enforces a strict Daily Loss Limit that will liquidate your account if breached intraday. Keep your per-trade risk under 20% of the daily cap to avoid sudden violation.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2000, dll: "$1,100 Strict Hard Breach", consistency: "50% Eval Rule ($1,500 Max Day)" },
+          100000: { target: 6000, maxdd: 3000, dll: "$2,200 Strict Hard Breach", consistency: "50% Eval Rule ($3,000 Max Day)" },
+          150000: { target: 9000, maxdd: 4500, dll: "$3,300 Strict Hard Breach", consistency: "50% Eval Rule ($4,500 Max Day)" }
+        }
+      },
+      fundednext: {
+        name: "FundedNext Futures",
+        drawdownType: "Static / Balance-Based Drawdown",
+        code: "BIBLE",
+        url: "https://fundednext.com/?ref=BIBLE",
+        warning: "FundedNext calculates drawdown off closed account balance rather than open equity spikes, giving swing setups more breathing room during NY session volatility.",
+        accounts: {
+          50000:  { target: 3000, maxdd: 2500, dll: "$1,250 Daily Cap", consistency: "None on Challenge" },
+          100000: { target: 6000, maxdd: 3500, dll: "$2,500 Daily Cap", consistency: "None on Challenge" },
+          150000: { target: 9000, maxdd: 5000, dll: "$3,750 Daily Cap", consistency: "None on Challenge" }
+        }
+      }
+    };
+
+    let currentSize = 50000;
+
+    const firmSelect = document.getElementById('firmSelect');
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    const cushionInput = document.getElementById('cushionInput');
+    const instrumentSelect = document.getElementById('instrumentSelect');
+    const stopSlider = document.getElementById('stopSlider');
+    const riskSlider = document.getElementById('riskSlider');
+
+    function syncDefaultCushion() {
+      const firmKey = firmSelect.value;
+      const acct = firmDatabase[firmKey].accounts[currentSize];
+      cushionInput.value = acct.maxdd;
+      document.getElementById('defaultBufferNote').textContent = `Default: $${acct.maxdd.toLocaleString()}`;
+    }
+
+    function calculateDeskMath() {
+      const firmKey = firmSelect.value;
+      const firm = firmDatabase[firmKey];
+      const acct = firm.accounts[currentSize];
+
+      const cushion = Math.max(100, parseFloat(cushionInput.value) || acct.maxdd);
+      const selectedOpt = instrumentSelect.options[instrumentSelect.selectedIndex];
+      const ticker = selectedOpt.value;
+      const pointVal = parseFloat(selectedOpt.dataset.point);
+      const stopPts = parseInt(stopSlider.value, 10);
+      const riskPct = parseInt(riskSlider.value, 10);
+
+      // Update slider labels
+      document.getElementById('stopValDisplay').textContent = stopPts;
+      document.getElementById('ticksValDisplay').textContent = stopPts * 4;
+
+      const maxRiskDollars = Math.round(cushion * (riskPct / 100));
+      document.getElementById('riskPctDisplay').textContent = `${riskPct}% ($${maxRiskDollars.toLocaleString()})`;
+
+      // Risk per 1 contract
+      const riskPerLot = stopPts * pointVal;
+      let recommendedLots = Math.floor(maxRiskDollars / riskPerLot);
+      if (recommendedLots < 1) recommendedLots = 1;
+
+      const actualDollarRisk = recommendedLots * riskPerLot;
+      const streak = (cushion / actualDollarRisk).toFixed(1);
+
+      // Update Main Headers & Outputs
+      document.getElementById('outputTitle').textContent = `${firm.name} $${(currentSize/1000)}K Evaluation — ${ticker} Setup`;
+      document.getElementById('outContracts').textContent = `${recommendedLots} ${ticker}`;
+
+      // Calculate Mini/Micro equivalent note
+      if (ticker.startsWith('M')) {
+        const miniEq = (recommendedLots / 10).toFixed(1);
+        document.getElementById('outAltContracts').textContent = `Equivalent to ${miniEq} Full ${selectedOpt.dataset.pair}`;
+      } else {
+        const microEq = recommendedLots * 10;
+        document.getElementById('outAltContracts').textContent = `Or scale with ${microEq} Micro ${selectedOpt.dataset.pair}`;
+      }
+
+      document.getElementById('outDollarRisk').textContent = `$${actualDollarRisk.toLocaleString()}`;
+      document.getElementById('outCostPerContract').textContent = `$${riskPerLot.toFixed(2)} risk per lot`;
+      document.getElementById('outStreak').textContent = streak;
+
+      // Survival Badge Color
+      const badge = document.getElementById('survivalBadge');
+      const streakEl = document.getElementById('outStreak');
+      if (parseFloat(streak) >= 8) {
+        badge.textContent = "Institutional Safe Zone";
+        badge.className = "bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-black px-3 py-1 rounded-full uppercase";
+        streakEl.className = "text-3xl sm:text-4xl font-black text-emerald-400 font-mono";
+      } else if (parseFloat(streak) >= 5) {
+        badge.textContent = "Moderate Eval Risk";
+        badge.className = "bg-amber-500/15 border border-amber-500/40 text-amber-400 text-xs font-black px-3 py-1 rounded-full uppercase";
+        streakEl.className = "text-3xl sm:text-4xl font-black text-amber-400 font-mono";
+      } else {
+        badge.textContent = "High Blowout Hazard";
+        badge.className = "bg-red-500/15 border border-red-500/40 text-red-400 text-xs font-black px-3 py-1 rounded-full uppercase";
+        streakEl.className = "text-3xl sm:text-4xl font-black text-red-400 font-mono";
+      }
+
+      // Firm Breakdown Rows
+      document.getElementById('outDrawdownType').textContent = firm.drawdownType;
+      document.getElementById('outProfitTarget').textContent = `$${acct.target.toLocaleString()}`;
+      document.getElementById('outDailyLimit').textContent = acct.dll;
+      document.getElementById('outConsistency').textContent = acct.consistency;
+      document.getElementById('outRewardTarget').textContent = `+$${(actualDollarRisk * 2).toLocaleString()} (+${stopPts * 2} pts)`;
+
+      // Warning & Affiliate CTA
+      document.getElementById('deskWarningText').textContent = firm.warning;
+      document.getElementById('outPromoCode').textContent = firm.code;
+      const btn = document.getElementById('outAffiliateBtn');
+      btn.href = firm.url;
+      btn.textContent = `Launch ${firm.name} (Use Code ${firm.code}) →`;
+    }
+
+    // Event Listeners
+    firmSelect.addEventListener('change', () => {
+      syncDefaultCushion();
+      calculateDeskMath();
+    });
+
+    sizeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSize = parseInt(btn.dataset.size, 10);
+        sizeButtons.forEach(b => {
+          b.className = "size-btn bg-slate-950 text-slate-300 hover:border-slate-600 font-bold py-2.5 rounded-xl text-sm border border-slate-800 transition";
+        });
+        btn.className = "size-btn bg-amber-500 text-slate-950 font-black py-2.5 rounded-xl text-sm border border-amber-400 transition";
+        syncDefaultCushion();
+        calculateDeskMath();
+      });
+    });
+
+    [cushionInput, instrumentSelect, stopSlider, riskSlider].forEach(el => {
+      el.addEventListener('input', calculateDeskMath);
+    });
+
+    // Consistency Fixer Logic
+    const bestDayInput = document.getElementById('bestDayInput');
+    const consistencyRulePct = document.getElementById('consistencyRulePct');
+    const consistencyRequiredOut = document.getElementById('consistencyRequiredOut');
+
+    function updateConsistencyMath() {
+      const bestDay = Math.max(0, parseFloat(bestDayInput.value) || 0);
+      const rule = parseFloat(consistencyRulePct.value);
+      const req = Math.ceil(bestDay / rule);
+      consistencyRequiredOut.textContent = `$${req.toLocaleString()}`;
+    }
+
+    bestDayInput.addEventListener('input', updateConsistencyMath);
+    consistencyRulePct.addEventListener('change', updateConsistencyMath);
+
+    // Initialize on load
+    syncDefaultCushion();
+    calculateDeskMath();
+    updateConsistencyMath();
+  </script>
+</body>
+</html>
