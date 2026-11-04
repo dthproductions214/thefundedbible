@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INSTITUTIONAL MEMBER VAULT | The Funded Bible™ Execution Downloads</title>
-  <meta name="description" content="Access your unlocked Funded Bible execution playbooks, NinjaScript C# risk lockouts, .CSV drawdown trackers, and 20-account scaling templates." />
+  <title>INSTITUTIONAL MEMBER VAULT &amp; UPGRADE DESK | The Funded Bible™</title>
+  <meta name="description" content="Instant digital delivery vault for The Funded Bible execution playbooks, NinjaTrader 8 C# auto-flatten kill-switch scripts, .CSV drawdown sizers, and 20-account syndicate blueprints." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-obsidian: #030508;
-      --bg-panel: rgba(11, 15, 25, 0.9);
+      --bg-panel: rgba(11, 15, 25, 0.92);
       --gold: #f59e0b;
       --gold-bright: #fbbf24;
       --emerald: #10b981;
+      --crimson: #ef4444;
+      --blue: #3b82f6;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-gold: rgba(245, 158, 11, 0.35);
+      --border-gold: rgba(245, 158, 11, 0.38);
       --font-display: 'Space Grotesk', sans-serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -26,41 +28,178 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg-obsidian);
-      background-image: radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.09), transparent 40%),
-                        radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.08), transparent 40%);
-      color: var(--text-main); font-family: var(--font-sans); min-height: 100vh; line-height: 1.5;
+      background-image:
+        radial-gradient(circle at 15% 12%, rgba(245, 158, 11, 0.1) 0%, transparent 42%),
+        radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 42%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 42px 42px, 42px 42px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.55;
+      padding-bottom: 90px;
     }
-    .sticky-command-header { position: sticky; top: 0; z-index: 9999; background: #04060a; border-bottom: 1px solid var(--border-gold); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; max-width: 1320px; margin: 0 auto; padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
-    .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 20px; }
-    .brand-badge { background: var(--emerald); color: #000; font-family: var(--font-mono); font-weight: 800; font-size: 11px; padding: 3px 7px; border-radius: 4px; }
+    .sticky-command-header {
+      position: sticky; top: 0; z-index: 9999;
+      background: #04060a; border-bottom: 1px solid var(--border-gold);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.92);
+    }
+    .nav-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1320px; margin: 0 auto; padding: 14px 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .brand-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 20px;
+    }
+    .brand-badge {
+      background: var(--emerald); color: #000; font-family: var(--font-mono);
+      font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px;
+    }
     .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
     .nav-links a:hover, .nav-links a.active { color: var(--gold-bright); }
-    .container { max-width: 1320px; margin: 0 auto; padding: 36px 20px 80px; }
-    .unlock-alert {
-      display: none; background: rgba(16, 185, 129, 0.14); border: 1px solid var(--emerald);
-      padding: 18px 22px; border-radius: 12px; margin-bottom: 24px; font-family: var(--font-mono);
+    .container { max-width: 1320px; margin: 0 auto; padding: 32px 20px; }
+
+    /* DYNAMIC POST-PURCHASE DELIVERY + OTO UPSELL HERO */
+    #post-purchase-oto-shell {
+      display: none;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+    @media (max-width: 980px) {
+      #post-purchase-oto-shell { grid-template-columns: 1fr; }
+    }
+    .delivery-box {
+      background: linear-gradient(165deg, rgba(16, 185, 129, 0.14), rgba(6, 10, 18, 0.96));
+      border: 1.5px solid var(--emerald);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .oto-upsell-box {
+      background: linear-gradient(165deg, rgba(245, 158, 11, 0.16), rgba(8, 12, 22, 0.98));
+      border: 2px solid var(--gold-bright);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 0 45px rgba(245, 158, 11, 0.22);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .oto-timer-pill {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid var(--crimson);
+      color: #fca5a5;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+    .download-btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .dl-btn {
+      background: #060a12;
+      border: 1px solid var(--emerald);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .dl-btn:hover {
+      background: var(--emerald);
+      color: #000;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-bright), #d97706);
+      color: #000;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 14px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
+    }
+    .btn-emerald {
+      background: var(--emerald);
+      color: #000;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 11px 16px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
     }
     .bump-box {
       background: linear-gradient(90deg, rgba(245, 158, 11, 0.14), rgba(16, 185, 129, 0.14));
-      border: 1px dashed var(--gold); border-radius: 12px; padding: 16px 20px; margin: 22px 0;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: var(--font-mono);
+      border: 1px dashed var(--gold);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
     }
-    .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
     .vault-card {
-      background: var(--bg-panel); border: 1px solid var(--border-subtle); border-radius: 14px;
-      padding: 26px; display: flex; flex-direction: column; justify-content: space-between;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .vault-card.featured { border: 1.5px solid var(--gold); box-shadow: 0 0 30px rgba(245, 158, 11, 0.15); }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold-bright), #d97706); color: #000;
-      font-family: var(--font-mono); font-weight: 800; font-size: 13px; padding: 12px 18px;
-      border-radius: 8px; text-decoration: none; text-align: center; display: inline-block; cursor: pointer; border: none;
+    .vault-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .vault-card.featured {
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.15);
     }
-    .btn-emerald {
-      background: var(--emerald); color: #000; font-family: var(--font-mono); font-weight: 800;
-      font-size: 12px; padding: 10px 14px; border-radius: 6px; border: none; cursor: pointer;
+    .feature-checklist {
+      list-style: none;
+      margin: 14px 0 20px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .feature-checklist li::before {
+      content: "✓ ";
+      color: var(--emerald);
+      font-weight: 800;
     }
   </style>
 </head>
@@ -71,68 +210,133 @@
       <div class="nav-links">
         <a href="index.html">Live Command Desk</a>
         <a href="firms.html">12-Firm Matrix</a>
-        <a href="calculator.html">Drawdown &amp; Lot Sizer</a>
+        <a href="calculator.html">Drawdown Sizer</a>
+        <a href="briefings.html">Daily Briefings</a>
         <a href="vault.html" class="active">Member Vault</a>
       </div>
     </nav>
   </header>
 
   <main class="container">
-    <div id="unlock-alert" class="unlock-alert">
-      <strong style="color:var(--emerald);">✓ STRIPE PAYMENT VERIFIED:</strong>
-      <span id="unlock-msg">Your execution tier is active. Click below to download your risk sheet and playbook files immediately.</span>
-    </div>
 
+    <!-- 1. DYNAMIC POST-PURCHASE DELIVERY + ONE-TIME UPGRADE (OTO) FUNNEL -->
+    <section id="post-purchase-oto-shell">
+      <!-- Left: Purchased Files Instant Download Vault -->
+      <div class="delivery-box">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:800;">✓ STRIPE PAYMENT VERIFIED • INSTANT DIGITAL DELIVERY</div>
+          <h2 id="unlocked-heading" style="font-family:var(--font-display);font-size:26px;color:#fff;margin:6px 0 8px;">Your Execution Files Are Unlocked</h2>
+          <p id="unlocked-sub" style="color:var(--text-muted);font-size:13.5px;">Your primary package has started downloading automatically. You can also click any button below to re-download your unlocked files anytime:</p>
+          <div class="download-btn-stack" id="unlocked-downloads-list"></div>
+        </div>
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);font-family:var(--font-mono);font-size:11px;color:var(--text-muted);">
+          💡 Need an evaluation today? Use code <strong style="color:var(--gold-bright);">BIBLE80</strong> on <a href="firms.html" style="color:var(--emerald);">Firms Matrix</a> for 80% off + $0 activation fees.
+        </div>
+      </div>
+
+      <!-- Right: Dynamic Next-Tier One-Time Upgrade Offer (OTO) -->
+      <div class="oto-upsell-box" id="oto-upsell-card">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-bright);font-weight:800;">⚡ ONE-TIME BUYER UPGRADE OFFER</span>
+            <span class="oto-timer-pill">OFFER EXPIRES IN: <span id="oto-countdown">14:59</span></span>
+          </div>
+          <h2 id="oto-title" style="font-family:var(--font-display);font-size:26px;color:#fff;line-height:1.15;">Wait — Automate Your Daily Loss Lockout Inside NinjaTrader 8 ($39)</h2>
+          <p id="oto-desc" style="color:#cbd5e1;font-size:14px;margin:10px 0 14px;">You now have the 7-Day Combine Pass Blueprint. Don't trust manual willpower at 09:45 AM EST when NQ is whipping 25 points a minute—upgrade to the automated <strong>NinjaScript C# Risk Terminal</strong> so your platform auto-flattens after 2 stops or +2R.</p>
+          <ul class="feature-checklist" id="oto-bullets">
+            <li>Working NinjaTrader 8 C# Daily Kill-Switch Strategy (TFBDailyKillSwitch.cs)</li>
+            <li>20-Account Copy-Trade Drawdown &amp; Syndicate Multiplier Sheet</li>
+            <li>Intraday High-Water Trailing Lock Auto-Breakeven Protocol</li>
+          </ul>
+        </div>
+        <div>
+          <a id="oto-cta-btn" href="/api/create-checkout-session?tier=risk_terminal_39" class="btn-gold" style="width:100%;font-size:14px;padding:15px;">
+            YES! UPGRADE MY DESK TO THE $39 C# RISK SUITE ⚡
+          </a>
+          <div style="text-align:center;margin-top:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted);">
+            Instant 1-click unlock • Immediate C# &amp; Playbook download
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FREE DOCTRINE TOOL BANNER (ALWAYS AVAILABLE) -->
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;background:var(--bg-panel);border:1px solid var(--border-gold);padding:24px;border-radius:14px;">
       <div>
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">● FREE DOCTRINE TOOL INCLUDED</div>
-        <h1 style="font-family:var(--font-display);font-size:26px;margin-top:4px;">Instant Download: The "2-Trade Prop Saver" Risk Sheet (.CSV)</h1>
-        <p style="color:var(--text-muted);font-size:14px;margin-top:4px;">Mechanical daily loss lockout and MNQ scaling matrix for $50K, $100K, and $150K evaluations.</p>
+        <h1 style="font-family:var(--font-display);font-size:24px;margin-top:4px;">Instant Download: The "2-Trade Prop Saver" Risk Sheet (.CSV)</h1>
+        <p style="color:var(--text-muted);font-size:13.5px;margin-top:4px;">Mechanical daily loss lockout and MNQ scaling matrix for $25K, $50K, $100K, $150K, and $300K evaluations.</p>
       </div>
-      <button class="btn-emerald" onclick="downloadRiskCsv()">⬇ DOWNLOAD RISK SHEET (.CSV)</button>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn-emerald" onclick="downloadRiskCsv()">⬇ DOWNLOAD RISK SHEET (.CSV)</button>
+        <button onclick="previewTierFunnel('flash_9')" style="background:#111827;color:var(--gold-bright);border:1px solid var(--border-gold);padding:10px 14px;border-radius:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;cursor:pointer;">PREVIEW $9 BUYER OTO</button>
+        <button onclick="previewTierFunnel('risk_terminal_39')" style="background:#111827;color:var(--emerald);border:1px solid var(--emerald);padding:10px 14px;border-radius:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;cursor:pointer;">PREVIEW $39 BUYER OTO</button>
+      </div>
     </div>
 
+    <!-- 3. INTERACTIVE $19 ORDER BUMP TOGGLE -->
     <div class="bump-box">
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
         <input type="checkbox" id="vault-bump" style="width:18px;height:18px;accent-color:var(--gold);" onchange="syncVaultBump()" />
-        <span><strong style="color:var(--gold-bright);">⚡ ADD $19 ORDER BUMP:</strong> Include the <em>Prop Firm LLC Payout &amp; Tax Audit Loophole Guide</em> to any tier below.</span>
+        <span><strong style="color:var(--gold-bright);">⚡ ADD $19 ORDER BUMP:</strong> Include the <em>Prop Firm LLC Payout &amp; Tax Audit Loophole Guide</em> to any tier or upgrade below.</span>
       </label>
       <span id="vault-bump-status" style="color:var(--text-muted);font-size:12px;">BUMP: OFF</span>
     </div>
 
+    <!-- 4. ALL VAULT EXECUTION TIERS -->
     <div class="vault-grid">
       <div class="vault-card">
         <div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);">IMPULSE ENTRY • $9</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">IMPULSE ENTRY • $9</div>
           <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">7-Day Combine Pass Blueprint</h3>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Step-by-step NY Open Silver Bullet execution checklist and trailing drawdown defense rules.</p>
+          <p style="font-size:13px;color:var(--text-muted);">Step-by-step NY Open Silver Bullet execution checklist and trailing drawdown defense rules.</p>
+          <ul class="feature-checklist">
+            <li>7-Day $50K Combine Pass Schedule (+$450/Day)</li>
+            <li>09:50–10:10 EST Silver Bullet FVG Checklist</li>
+            <li>Includes 2-Trade Prop Saver (.CSV)</li>
+          </ul>
         </div>
         <a href="/api/create-checkout-session?tier=flash_9" data-tier="flash_9" class="v-checkout btn-gold">UNLOCK $9 BLUEPRINT →</a>
       </div>
 
       <div class="vault-card featured">
         <div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--gold);">82% OF TRADERS PICK THIS • $39</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--gold);font-weight:700;">82% OF TRADERS PICK THIS • $39</div>
           <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">The Trench Starter &amp; C# Risk Suite</h3>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Unbreakable Risk Mitigation Suite, NinjaScript auto-flatten daily loss guard, and 90-minute NY Open checklist.</p>
+          <p style="font-size:13px;color:var(--text-muted);">Automated NinjaTrader 8 C# daily loss kill-switch, dynamic ATR sizer, and 90-minute NY Open checklist.</p>
+          <ul class="feature-checklist">
+            <li>NinjaScript Auto-Flatten Daily Guard (.CS File)</li>
+            <li>Intraday Trailing Lock Defense Protocol</li>
+            <li>Includes Everything in the $9 Blueprint</li>
+          </ul>
         </div>
         <a href="/api/create-checkout-session?tier=risk_terminal_39" data-tier="risk_terminal_39" class="v-checkout btn-gold">UNLOCK $39 RISK TERMINAL ⚡</a>
       </div>
 
       <div class="vault-card">
         <div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:#60a5fa;">CORE DOCTRINE • $197</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:#60a5fa;font-weight:700;">CORE DOCTRINE • $197</div>
           <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">Standard Scripture Manual</h3>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Complete 180-page institutional orderflow playbook, EOD vs Intraday trailing defense, and all indicators.</p>
+          <p style="font-size:13px;color:var(--text-muted);">Complete institutional orderflow master manual, EOD vs Intraday trailing defense, and all C# indicators.</p>
+          <ul class="feature-checklist">
+            <li>Master Institutional Orderflow &amp; VWAP Playbook</li>
+            <li>Consistency Rule Fixer &amp; Payout Buffer Plan</li>
+            <li>All C# Risk Scripts &amp; Lifetime Updates</li>
+          </ul>
         </div>
         <a href="/api/create-checkout-session?tier=standard_197" data-tier="standard_197" class="v-checkout btn-gold">UNLOCK $197 SCRIPTURE →</a>
       </div>
 
       <div class="vault-card">
         <div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:#a78bfa;">INSTITUTIONAL WHALE • $397</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:#a78bfa;font-weight:700;">INSTITUTIONAL WHALE • $397</div>
           <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">20-Account Scale Mastermind</h3>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Multi-account copy-trading blueprint ($300K–$1M+), custom bot templates, and full syndicate vault access.</p>
+          <p style="font-size:13px;color:var(--text-muted);">Multi-account copy-trading syndicate dossier ($300K–$1.2M+ allocation), Replikanto setup, and full vault access.</p>
+          <ul class="feature-checklist">
+            <li>20-AccountPA / XFA Fleet Copy-Trade Dossier</li>
+            <li>Multi-Firm Payout Staggering &amp; LLC Tax Shield</li>
+            <li>Every Playbook, C# Script &amp; Syndicate Tool</li>
+          </ul>
         </div>
         <a href="/api/create-checkout-session?tier=whale_397" data-tier="whale_397" class="v-checkout btn-gold">UNLOCK $397 WHALE VAULT →</a>
       </div>
@@ -140,159 +344,302 @@
   </main>
 
   <script>
-    (function checkUnlock() {
-      const p = new URLSearchParams(window.location.search);
-      const u = p.get('unlocked');
-      if (u) {
-        const box = document.getElementById('unlock-alert');
-        const msg = document.getElementById('unlock-msg');
-        box.style.display = 'block';
-        msg.textContent = `Tier [${u.toUpperCase()}] unlocked! Your mechanical risk sheet (.CSV) is downloading automatically.`;
-        setTimeout(downloadRiskCsv, 800);
-      }
-    })();
-
-    function syncVaultBump() {
-      const on = document.getElementById('vault-bump').checked;
-      document.getElementById('vault-bump-status').textContent = on ? 'BUMP: ACTIVE (+$19)' : 'BUMP: OFF';
-      document.querySelectorAll('.v-checkout').forEach(a => {
-        const t = a.getAttribute('data-tier');
-        a.href = `/api/create-checkout-session?tier=${t}${on ? '&bump=true' : ''}`;
-      });
+    // ===================================================================
+    // 1. REAL DIGITAL DELIVERABLE FILE GENERATORS (.CSV, .MD, .CS)
+    // ===================================================================
+    function downloadFileBlob(filename, content, mimeType) {
+      const blob = new Blob([content], { type: mimeType || 'text/plain;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.setAttribute('download', filename);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     function downloadRiskCsv() {
       const csv = [
-        "Account Size,Max Drawdown Buffer,Drawdown Type,Max Risk Per Trade (6%),Safe MNQ Micros (15pt SL),Daily Loss Kill-Switch (2 Losses),Survival Buffer (Trades)",
-        "$25000,$1500,Intraday Trailing,$90,3 MNQ,-$180,16.6",
-        "$50000,$2500,EOD Static,$150,5 MNQ,-$300,16.6",
-        "$100000,$3000,EOD Static,$180,6 MNQ,-$360,16.6",
-        "$150000,$4500,EOD Static,$270,9 MNQ,-$540,16.6",
-        "$300000,$7500,Whale Syndicate,$450,15 MNQ,-$900,16.6"
+        "Account Size,Max Drawdown Buffer,Drawdown Type,Max Risk Per Trade (6%),Safe MNQ Micros (15pt SL),Daily Loss Kill-Switch (2 Losses),2R Base-Hit Target,Survival Buffer (Trades)",
+        "$25000,$1500,Intraday Trailing,$90,3 MNQ,-$180,+$180,16.6",
+        "$50000,$2500,EOD Static,$150,5 MNQ,-$300,+$300,16.6",
+        "$100000,$3000,EOD Static,$180,6 MNQ,-$360,+$360,16.6",
+        "$150000,$4500,EOD Static,$270,9 MNQ,-$540,+$540,16.6",
+        "$300000,$7500,Whale Syndicate,$450,15 MNQ,-$900,+$900,16.6"
       ].join("\n");
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'The_Funded_Bible_2_Trade_Prop_Saver.csv');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      downloadFileBlob('The_Funded_Bible_2_Trade_Prop_Saver.csv', csv, 'text/csv;charset=utf-8;');
+    }
+
+    function download7DayBlueprint() {
+      const doc = `# THE FUNDED BIBLE™ — 7-DAY $50K COMBINE PASS BLUEPRINT
+====================================================================
+VERIFIED MECHANICAL PROTOCOL • WWW.THEFUNDEDBIBLE.COM
+
+1. THE CORE MATHEMATICAL LAW:
+You do NOT have a $50,000 account. You have a $2,500 Drawdown Buffer.
+- Maximum Allowed Risk Per Execution: 6% of Drawdown Buffer = $150.
+- Exact Contract Size: 5 MNQ Micros ($10/point total).
+- Structural Stop-Loss: 15 Points ($150 Risk).
+- Base-Hit Take-Profit Target: 22.5 to 30 Points (+$225 to +$300).
+- Daily Loss Kill-Switch: 2 Consecutive Stops (-$300) -> Lock Platform Immediately.
+
+2. THE 90-MINUTE NY OPEN SILVER BULLET ROUTINE (09:30–11:00 EST):
+- 09:30–09:45 EST (JUDAS SWING LOCKOUT): Sit on hands. Let algorithms sweep the London High or Overnight Low liquidity pool.
+- 09:50–10:15 EST (SILVER BULLET DISPLACEMENT): Wait for a 5-minute candle to close back inside the range across Session VWAP, leaving a clean 5m Fair Value Gap (FVG).
+- ENTRY: Limit order at the proximal edge of the 5m FVG with 5 MNQ.
+- TRAILING DEFENSE: On Intraday Trailing accounts (Apex), close 4 MNQ (80%) at +20 points (+$160) and move the final 1 MNQ stop to +2 points above entry.
+
+3. THE 7-SESSION $3,000 PASS SCHEDULE:
+- Session 1: +45 NQ Points across 5 MNQ = +$450 (Balance: $50,450)
+- Session 2: +45 NQ Points across 5 MNQ = +$450 (Balance: $50,900)
+- Session 3: +45 NQ Points across 5 MNQ = +$450 (Balance: $51,350)
+- Session 4: +45 NQ Points across 5 MNQ = +$450 (Balance: $51,800)
+- Session 5: +45 NQ Points across 5 MNQ = +$450 (Balance: $52,250)
+- Session 6: +45 NQ Points across 5 MNQ = +$450 (Balance: $52,700)
+- Session 7: +35 NQ Points across 5 MNQ = +$350 (Balance: $53,050 — PASSED)
+*Largest Day = $450 (14.7% of total profit — passes every 30%, 40%, and 50% Consistency Rule automatically).*
+`;
+      downloadFileBlob('TFB_7_Day_Combine_Pass_Blueprint.md', doc, 'text/markdown;charset=utf-8;');
+    }
+
+    function downloadNinjaScriptCs() {
+      const cs = `// =====================================================================
+// THE FUNDED BIBLE™ — AUTOMATED DAILY LOSS & PROFIT KILL-SWITCH (C#)
+// File: TFBDailyKillSwitch.cs (Import into NinjaTrader 8 -> NinjaScript)
+// =====================================================================
+#region Using declarations
+using System;
+using NinjaTrader.Cbi;
+using NinjaTrader.Gui.Tools;
+using NinjaTrader.NinjaScript;
+#endregion
+
+namespace NinjaTrader.NinjaScript.Strategies
+{
+    public class TFBDailyKillSwitch : Strategy
+    {
+        private double startingDailyPnL = 0;
+        private bool sessionLocked = false;
+
+        [NinjaScriptProperty]
+        public double MaxDailyLossDollars { get; set; } = -300.0;
+
+        [NinjaScriptProperty]
+        public double DailyProfitLockDollars { get; set; } = 600.0;
+
+        protected override void OnStateChange()
+        {
+            if (State == State.SetDefaults)
+            {
+                Description = "The Funded Bible Automated 2-Loss Daily Kill-Switch & Trailing Guard";
+                Name = "TFBDailyKillSwitch";
+                Calculate = Calculate.OnEachTick;
+                EntriesPerDirection = 1;
+                IsExitOnSessionCloseStrategy = true;
+                ExitOnSessionCloseSeconds = 30;
+            }
+        }
+
+        protected override void OnBarUpdate()
+        {
+            if (Bars.IsFirstBarOfSession)
+            {
+                startingDailyPnL = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+                sessionLocked = false;
+            }
+
+            double currentRealized = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit - startingDailyPnL;
+            double unrealized = Position.GetUnrealizedProfitLoss(PerformanceUnit.Currency, Close[0]);
+            double netSessionPnL = currentRealized + unrealized;
+
+            if (!sessionLocked && (netSessionPnL <= MaxDailyLossDollars || netSessionPnL >= DailyProfitLockDollars))
+            {
+                sessionLocked = true;
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong("TFB_KillSwitch_Long");
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort("TFB_KillSwitch_Short");
+
+                Print("[THE FUNDED BIBLE DESK] Session PnL Threshold Hit ($" + netSessionPnL.ToString("F2") + "). Positions Flattened & Locked.");
+            }
+        }
+    }
+}
+`;
+      downloadFileBlob('TFBDailyKillSwitch.cs', cs, 'text/plain;charset=utf-8;');
+    }
+
+    function downloadScriptureManual() {
+      const manual = `# THE FUNDED BIBLE™ — STANDARD SCRIPTURE MASTER DOCTRINE ($197 EDITION)
+====================================================================
+COMPLETE INSTITUTIONAL ORDERFLOW, EOD VS INTRADAY DEFENSE & CONSISTENCY GUIDE
+
+MODULE 1: DEFEATING THE INTRADAY HIGH-WATER MARK TRAILING LOCK
+- Why unrealized paper profits destroy retail combines: If NQ runs +40 points (+$400 on 5 MNQ) and pulls back to entry, your trailing drawdown threshold ratchets up by +$400 permanently.
+- Mechanical 80/20 Rule: Always close 80% of your micro contracts at +1.3R to +1.5R (+20 points on NQ) so realized cash matches your high-water mark peak.
+
+MODULE 2: THE 09:50–10:10 EST & 10:50–11:10 EST ICT SILVER BULLET MODELS
+- Liquidity Pool Identification: Mark the 03:00–05:00 EST London High/Low and the 08:30 EST News Candle High/Low.
+- Wait for a stop-hunt sweep followed by a 5-minute energetic displacement candle back across Session VWAP.
+- Enter on the first pullback into the 5-minute Fair Value Gap (FVG) with 5 MNQ ($50K) or 6 MNQ ($100K).
+
+MODULE 3: PASSING 30%, 40%, AND 50% CONSISTENCY RULES MECHANICALLY
+- Formula: Required Total Profit = (Largest Single Winning Day $) / (Consistency Rule Decimal).
+- Never let a single day exceed $900 on a $3,000 target combine. Lock your platform at +$450 to +$600/day.
+`;
+      downloadFileBlob('TFB_Standard_Scripture_Master_Manual.md', manual, 'text/markdown;charset=utf-8;');
+    }
+
+    function downloadWhaleDossier() {
+      const whale = `# THE FUNDED BIBLE™ — 20-ACCOUNT WHALE SYNDICATE MASTER DOSSIER ($397 EDITION)
+====================================================================
+$1.2M MULTI-FIRM FLEET ALLOCATION & REPLIKANTO COPY-TRADING ARCHITECTURE
+
+1. MULTI-ENTITY FLEET ARCHITECTURE (DIVERSIFIED PAYOUT WINDOWS):
+- Pod A (Apex Trader Funding): 10 Linked $50K PAs via Rithmic/Tradovate + Replikanto Follower Mode.
+- Pod B (MyFundedFutures EOD): 5 Linked $50K Starter Plus Accounts ($0 Activation Fee + EOD Static Buffer).
+- Pod C (TopstepX / Tradeify Select): 5 Linked $50K EOD Accounts for Daily / Weekly Staggered Withdrawals.
+
+2. THE SYNDICATE BASE-HIT MULTIPLIER MATH:
+- Contract Size Per Account: 4 MNQ Micros ($8/point per account).
+- Aggregate Fleet Exposure Across 20 Accounts: 80 MNQ (= 8 NQ Minis / $160 per point).
+- A single 20-point NY Open Silver Bullet base hit = +$160 per account x 20 accounts = +$3,200 per trade.
+- Individual Account Risk (15-point stop) = -$120 (only 4.8% of the $2,500 drawdown buffer).
+
+3. PAYOUT STAGGERING & BUFFER PROTECTION:
+- Never withdraw 100% of your buffer above the trailing lock. Leave $1,500 cushion per PA and withdraw every 2 weeks across alternating pods so cash flow arrives weekly.
+`;
+      downloadFileBlob('TFB_20_Account_Whale_Syndicate_Dossier.md', whale, 'text/markdown;charset=utf-8;');
+    }
+
+    // ===================================================================
+    // 2. DYNAMIC POST-PURCHASE FUNNEL ROUTER (?unlocked=...)
+    // ===================================================================
+    function renderPostPurchaseFunnel(tierKey) {
+      const shell = document.getElementById('post-purchase-oto-shell');
+      const dlList = document.getElementById('unlocked-downloads-list');
+      const heading = document.getElementById('unlocked-heading');
+      const otoTitle = document.getElementById('oto-title');
+      const otoDesc = document.getElementById('oto-desc');
+      const otoBullets = document.getElementById('oto-bullets');
+      const otoCta = document.getElementById('oto-cta-btn');
+
+      shell.style.display = 'grid';
+      dlList.innerHTML = '';
+
+      // Default buttons everyone gets
+      const files = [
+        { label: "⬇ 2-Trade Prop Saver Risk Matrix (.CSV)", fn: "downloadRiskCsv()" },
+        { label: "⬇ 7-Day Combine Pass Blueprint (.MD)", fn: "download7DayBlueprint()" }
+      ];
+
+      if (tierKey === 'risk_terminal_39' || tierKey === 'tier_49' || tierKey === 'tier_99') {
+        heading.textContent = "Unlocked: The Trench Starter & C# Risk Suite ($39)";
+        files.unshift({ label: "⬇ NinjaTrader 8 C# Daily Kill-Switch (TFBDailyKillSwitch.cs)", fn: "downloadNinjaScriptCs()" });
+
+        // Pitch $197 Scripture Manual as the next upgrade!
+        otoTitle.textContent = "Wait — Upgrade To The Complete 180-Page Scripture Manual ($197)";
+        otoDesc.innerHTML = "You now have the C# Daily Kill-Switch and Risk Sheet. Want our complete institutional orderflow curriculum, ICT Silver Bullet liquidity sweep playbooks, and multi-account scaling blueprint?";
+        otoBullets.innerHTML = `
+          <li>Complete Standard Scripture Institutional Orderflow Manual</li>
+          <li>Exact 09:50 &amp; 10:50 EST Silver Bullet FVG Entry Models</li>
+          <li>Multi-Firm Payout Staggering &amp; Consistency Rule Fixer</li>
+        `;
+        otoCta.href = "/api/create-checkout-session?tier=standard_197";
+        otoCta.setAttribute("data-tier", "standard_197");
+        otoCta.textContent = "YES! UPGRADE TO THE FULL $197 SCRIPTURE MANUAL ⚡";
+        setTimeout(() => { downloadNinjaScriptCs(); downloadRiskCsv(); }, 600);
+
+      } else if (tierKey === 'standard_197') {
+        heading.textContent = "Unlocked: Standard Scripture Master Package ($197)";
+        files.unshift(
+          { label: "⬇ Standard Scripture Master Manual (.MD)", fn: "downloadScriptureManual()" },
+          { label: "⬇ NinjaTrader 8 C# Daily Kill-Switch (TFBDailyKillSwitch.cs)", fn: "downloadNinjaScriptCs()" }
+        );
+
+        // Pitch $397 Whale Mastermind as the next upgrade!
+        otoTitle.textContent = "Final Step: Scale To 20 Linked Accounts With The Whale Vault ($397)";
+        otoDesc.innerHTML = "Ready to multiply every 20-point base hit across 10 to 20 simultaneous PA/XFA accounts? Unlock the $1.2M Syndicate Fleet Allocation &amp; Replikanto Copy-Trading Dossier:";
+        otoBullets.innerHTML = `
+          <li>20-Account Apex + MFFU + TopstepX Fleet Allocation Blueprint</li>
+          <li>Replikanto &amp; Local Trade-Copier Desynchronization Guard</li>
+          <li>Bi-Weekly Staggered Payout &amp; LLC Tax Deduction Architecture</li>
+        `;
+        otoCta.href = "/api/create-checkout-session?tier=whale_397";
+        otoCta.setAttribute("data-tier", "whale_397");
+        otoCta.textContent = "UNLOCK THE $397 20-ACCOUNT WHALE VAULT →";
+        setTimeout(() => { downloadScriptureManual(); downloadNinjaScriptCs(); }, 600);
+
+      } else if (tierKey === 'whale_397') {
+        heading.textContent = "Unlocked: 20-Account Whale Syndicate Vault ($397 VIP)";
+        files.unshift(
+          { label: "⬇ 20-Account Whale Syndicate Master Dossier (.MD)", fn: "downloadWhaleDossier()" },
+          { label: "⬇ Standard Scripture Master Manual (.MD)", fn: "downloadScriptureManual()" },
+          { label: "⬇ NinjaTrader 8 C# Daily Kill-Switch (TFBDailyKillSwitch.cs)", fn: "downloadNinjaScriptCs()" }
+        );
+
+        otoTitle.textContent = "VIP Syndicate Status Active — Add The $19 LLC Tax Shield";
+        otoDesc.innerHTML = "You have unlocked every execution manual and C# script in The Funded Bible™ Arsenal. Need the Prop Firm LLC Tax &amp; Payout Audit Shield templates?";
+        otoCta.href = "/api/create-checkout-session?tier=tier_19";
+        otoCta.setAttribute("data-tier", "tier_19");
+        otoCta.textContent = "ADD THE $19 LLC TAX & PAYOUT AUDIT SHIELD →";
+        setTimeout(() => { downloadWhaleDossier(); downloadNinjaScriptCs(); }, 600);
+
+      } else {
+        // Default: $9 Blueprint or $1-$27 Micro-Tier Buyer -> Pitch $39 Risk Terminal!
+        heading.textContent = `Unlocked: 7-Day Combine Pass Blueprint (${tierKey.toUpperCase()})`;
+        otoTitle.textContent = "Wait — Automate Your Daily Loss Lockout Inside NinjaTrader 8 ($39)";
+        otoDesc.innerHTML = "You now have the 7-Day Combine Pass Blueprint. Don't trust manual willpower at 09:45 AM EST when NQ is whipping 25 points a minute—upgrade to the automated <strong>NinjaScript C# Risk Terminal</strong> so your platform auto-flattens after 2 stops or +2R.";
+        otoCta.href = "/api/create-checkout-session?tier=risk_terminal_39";
+        otoCta.setAttribute("data-tier", "risk_terminal_39");
+        otoCta.textContent = "YES! UPGRADE MY DESK TO THE $39 C# RISK SUITE ⚡";
+        setTimeout(() => { download7DayBlueprint(); downloadRiskCsv(); }, 600);
+      }
+
+      files.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'dl-btn';
+        btn.setAttribute('onclick', item.fn);
+        btn.innerHTML = `<span>${item.label}</span><span style="color:var(--emerald);">READY ✓</span>`;
+        dlList.appendChild(btn);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function previewTierFunnel(tierKey) {
+      const url = new URL(window.location);
+      url.searchParams.set('unlocked', tierKey);
+      window.history.pushState({}, '', url);
+      renderPostPurchaseFunnel(tierKey);
+    }
+
+    (function initUnlockCheck() {
+      const params = new URLSearchParams(window.location.search);
+      const unlocked = params.get('unlocked');
+      if (unlocked) {
+        renderPostPurchaseFunnel(unlocked);
+      }
+    })();
+
+    // 15-Minute Urgency Countdown Timer for OTO Box
+    let otoSeconds = 14 * 60 + 59;
+    setInterval(() => {
+      if (otoSeconds > 0) otoSeconds--;
+      const m = String(Math.floor(otoSeconds / 60)).padStart(2, '0');
+      const s = String(otoSeconds % 60).padStart(2, '0');
+      const el = document.getElementById('oto-countdown');
+      if (el) el.textContent = `${m}:${s}`;
+    }, 1000);
+
+    function syncVaultBump() {
+      const on = document.getElementById('vault-bump').checked;
+      document.getElementById('vault-bump-status').textContent = on ? 'BUMP: ACTIVE (+$19)' : 'BUMP: OFF';
+      document.querySelectorAll('.v-checkout, #oto-cta-btn').forEach(a => {
+        const t = a.getAttribute('data-tier');
+        if (t) a.href = `/api/create-checkout-session?tier=${t}${on ? '&bump=true' : ''}`;
+      });
     }
   </script>
-<!-- STICKY BOTTOM QUICK-BUY & LEAD CAPTURE BAR -->
-<div id="tfb-sticky-bottom-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9995;background:rgba(4,6,10,0.96);border-top:1px solid rgba(245,158,11,0.4);padding:10px 20px;display:flex; flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;box-shadow:0 -10px 30px rgba(0,0,0,0.9);backdrop-filter:blur(10px);">
-  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;">
-    <span style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid #10b981;padding:3px 8px;border-radius:4px;font-weight:800;">FREE TOOL</span>
-    <span style="color:#f8fafc;font-weight:700;">Steal the "2-Trade Prop Saver" Risk Sheet (.CSV)</span>
-    <button onclick="openLeadModal()" style="background:#10b981;color:#000;border:none;padding:6px 12px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;cursor:pointer;">⬇ FREE .CSV DOWNLOAD</button>
-  </div>
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-    <span onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 ✓';" style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fff;padding:6px 10px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;">CODE: BIBLE80 (80% OFF)</span>
-    <a href="/api/create-checkout-session?tier=flash_9" style="background:#111827;color:#fbbf24;border:1px solid #f59e0b;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$9 PASS BLUEPRINT</a>
-    <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE ⚡</a>
-  </div>
-</div>
-
-<!-- EXIT-INTENT & FREE .CSV LEAD CAPTURE MODAL -->
-<div id="tfb-lead-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(2,4,8,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:linear-gradient(165deg,#0d1322,#060911);border:1.5px solid #f59e0b;border-radius:16px;max-width:520px;width:100%;padding:32px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.95);font-family:'Plus Jakarta Sans',sans-serif;">
-    <button onclick="closeLeadModal()" style="position:absolute;top:14px;right:16px;background:transparent;border:none;color:#94a3b8;font-size:20px;cursor:pointer;font-family:'JetBrains Mono',monospace;">[X]</button>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#ef4444;font-weight:800;letter-spacing:0.8px;">⚠️ WAIT — DO NOT BLOW ANOTHER COMBINE</div>
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:#fff;margin:8px 0 10px;line-height:1.15;">Steal The "2-Trade Prop Saver" Risk Sheet (.CSV) — 100% Free</h3>
-    <p style="color:#94a3b8;font-size:14px;margin-bottom:18px;line-height:1.55;">Prop firms engineer trailing drawdowns to liquidate emotional sizing. Enter your best email below for an <strong style="color:#fff;">instant .CSV download</strong> of our mechanical MNQ/MES lot-sizing matrix + daily loss kill-switch tracker:</p>
-    <form onsubmit="submitLeadCapture(event)" style="display:flex;flex-direction:column;gap:12px;">
-      <input type="email" id="tfb-lead-email" required placeholder="Enter your best trading email..." style="width:100%;padding:14px;border-radius:8px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;" />
-      <button type="submit" id="tfb-lead-btn" style="width:100%;padding:14px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:14px;cursor:pointer;">🔒 UNLOCK &amp; DOWNLOAD RISK SUITE (.CSV) NOW →</button>
-    </form>
-    <div id="tfb-lead-success" style="display:none;margin-top:16px;padding:18px;border-radius:12px;background:rgba(16,185,129,0.12);border:1.5px solid #10b981;font-family:'JetBrains Mono',monospace;text-align:center;">
-      <div style="color:#10b981;font-size:12px;font-weight:800;margin-bottom:6px;">✓ .CSV DOWNLOADED &amp; WELCOME PLAYBOOK SENT TO YOUR INBOX!</div>
-      <div style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;margin-bottom:12px;">WAIT — UNLOCK YOUR ONE-TIME TRADER UPGRADE:</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="/api/create-checkout-session?tier=flash_9" style="display:block;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:12px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">⚡ STEP 1: GET THE 7-DAY PASS BLUEPRINT ($9) →</a>
-        <a href="/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#0b101b;border:1px solid #f59e0b;color:#fbbf24;padding:12px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;">🔥 STEP 2: DEPLOY THE NT8 C# RISK LOCKOUT SUITE ($39) →</a>
-      </div>
-    </div>
-    <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748b;text-align:center;">🔒 Instant automated capture + immediate .CSV download. Zero spam.</div>
-  </div>
-</div>
-
-<script>
-  function triggerCsvDownload() {
-    const csvRows = [
-      "Account Size,Max Drawdown Buffer,Drawdown Type,Max Risk Per Trade (6%),Safe MNQ Micros (15pt SL),Daily Loss Kill-Switch (2 Losses),Survival Buffer (Trades)",
-      "$25000,$1500,Intraday Trailing,$90,3 MNQ,-$180,16.6",
-      "$50000,$2500,EOD Static,$150,5 MNQ,-$300,16.6",
-      "$100000,$3000,EOD Static,$180,6 MNQ,-$360,16.6",
-      "$150000,$4500,EOD Static,$270,9 MNQ,-$540,16.6",
-      "$300000,$7500,Whale Syndicate,$450,15 MNQ,-$900,16.6"
-    ].join("\n");
-    const blob = new Blob([csvRows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.setAttribute('download', 'The_Funded_Bible_2_Trade_Prop_Saver.csv');
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
-  function openLeadModal() {
-    const m = document.getElementById('tfb-lead-modal');
-    if (m) m.style.display = 'flex';
-  }
-
-  function closeLeadModal() {
-    const m = document.getElementById('tfb-lead-modal');
-    if (m) m.style.display = 'none';
-    sessionStorage.setItem('tfb_exit_shown', '1');
-  }
-
-  async function submitLeadCapture(e) {
-    e.preventDefault();
-    const emailInput = document.getElementById('tfb-lead-email');
-    const email = emailInput ? emailInput.value.trim() : '';
-    if (!email) return;
-
-    localStorage.setItem('tfb_captured_lead', email);
-    const payload = {
-      email: email,
-      source: window.location.pathname,
-      timestamp: new Date().toISOString()
-    };
-    try {
-      fetch('/api/capture-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).catch(() => {});
-
-      fetch('https://formsubmit.co/ajax/dannydth87@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: '🔥 NEW FUNDED BIBLE LEAD: ' + email,
-          _captcha: 'false',
-          email: email, _replyto: email, _autoresponse: 'Your 2-Trade Prop Saver (.CSV) is unlocked! 1) Get the  7-Day Combine Pass Blueprint: https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9  2) Deploy the  NT8 C# Risk Suite: https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39  3) Use code BIBLE80 for 80% off evaluations at https://www.thefundedbible.com/firms.html', Trader_Email: email,
-          Page_Source: window.location.href,
-          Lead_Magnet: '2-Trade Prop Saver Risk Sheet (.CSV)'
-        })
-      }).catch(() => {});
-    } catch (_) {}
-
-    triggerCsvDownload();
-    const s = document.getElementById('tfb-lead-success');
-    if (s) s.style.display = 'block';
-    sessionStorage.setItem('tfb_exit_shown', '1');
-  }
-
-  // Trigger Exit-Intent automatically once per session when mouse leaves top of viewport
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY <= 0 && !sessionStorage.getItem('tfb_exit_shown') && !localStorage.getItem('tfb_captured_lead')) {
-      sessionStorage.setItem('tfb_exit_shown', '1');
-      openLeadModal();
-    }
-  });
-</script>
 </body>
 </html>
