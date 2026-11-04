@@ -504,6 +504,88 @@
     <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2">Grab the exact checklist, trailing drawdown survival guide, or C# risk guardrail you need right now. Instant Stripe checkout & vault unlock.</p>
   </div>
 
+  
+  <!-- TFB $19 ORDER BUMP TOGGLE START -->
+  <div id="tfb-order-bump-box" class="max-w-3xl mx-auto mb-10 bg-gradient-to-r from-amber-500/10 via-slate-900 to-emerald-500/10 border-2 border-dashed border-amber-400/80 hover:border-amber-300 rounded-2xl p-5 sm:p-6 shadow-xl shadow-amber-500/10 transition">
+    <label for="tfb-bump-checkbox" class="flex items-start sm:items-center gap-4 cursor-pointer select-none">
+      <input id="tfb-bump-checkbox" type="checkbox" class="mt-1 sm:mt-0 w-6 h-6 rounded accent-amber-400 cursor-pointer shrink-0" />
+      <div class="flex-1">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded bg-amber-400 text-slate-950">⚡ One-Click Order Bump • Add For $19</span>
+          <span class="text-xs font-bold text-emerald-400 line-through opacity-75">$67 Value</span>
+          <span id="tfb-bump-status" class="text-[11px] font-mono uppercase text-slate-400">(Click to Add to Any Tier Below)</span>
+        </div>
+        <h3 class="text-base sm:text-lg font-black text-white">Add the Prop Firm Payout & 1099 Tax Loophole Guide + 5 Rapid Desk Cheat Sheets (+$19)</h3>
+        <p class="text-xs text-slate-300 mt-1">Check this box before clicking any tier below to bundle our LLC/S-Corp prop trader write-off blueprint, evaluation fee deduction ledger, and 5 rapid desk cheat sheets into your Stripe checkout.</p>
+      </div>
+    </label>
+  </div>
+
+  <script>
+  (function() {
+    const checkbox = document.getElementById('tfb-bump-checkbox');
+    const statusText = document.getElementById('tfb-bump-status');
+    const bumpBox = document.getElementById('tfb-order-bump-box');
+    if (!checkbox) return;
+
+    function syncCheckoutLinks() {
+      const enabled = checkbox.checked;
+      try { sessionStorage.setItem('tfb_order_bump', enabled ? '1' : '0'); } catch(e) {}
+
+      if (statusText) {
+        statusText.textContent = enabled ? '✓ ADDED TO ALL CHECKOUT LINKS (+$19)' : '(Click to Add to Any Tier Below)';
+        statusText.className = enabled
+          ? 'text-[11px] font-mono font-black uppercase text-emerald-400'
+          : 'text-[11px] font-mono uppercase text-slate-400';
+      }
+      if (bumpBox) {
+        bumpBox.style.borderColor = enabled ? '#10b981' : '';
+      }
+
+      const links = document.querySelectorAll('a[href*="/api/create-checkout-session"]');
+      links.forEach(function(a) {
+        const rawHref = a.getAttribute('href');
+        if (!rawHref) return;
+        try {
+          const url = new URL(rawHref, window.location.origin);
+          if (enabled) {
+            url.searchParams.set('bump', 'true');
+          } else {
+            url.searchParams.delete('bump');
+          }
+          a.setAttribute('href', url.pathname + url.search);
+        } catch(err) {
+          let cleaned = rawHref.replace(/([?&])bump=(true|1|false|0)(&|$)/gi, '$1').replace(/[?&]$/, '');
+          if (enabled) {
+            cleaned += (cleaned.indexOf('?') === -1 ? '?bump=true' : '&bump=true');
+          }
+          a.setAttribute('href', cleaned);
+        }
+
+        if (a.closest('#micro-arsenal')) {
+          if (!a.dataset.origText) {
+            a.dataset.origText = a.textContent.trim();
+          }
+          a.textContent = enabled
+            ? a.dataset.origText.replace('→', '+ $19 Bump →')
+            : a.dataset.origText;
+        }
+      });
+    }
+
+    checkbox.addEventListener('change', syncCheckoutLinks);
+
+    const params = new URLSearchParams(window.location.search);
+    let saved = false;
+    try { saved = sessionStorage.getItem('tfb_order_bump') === '1'; } catch(e) {}
+    if (params.get('bump') === '1' || params.get('bump') === 'true' || saved) {
+      checkbox.checked = true;
+      syncCheckoutLinks();
+    }
+  })();
+  </script>
+  <!-- TFB $19 ORDER BUMP TOGGLE END -->
+
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
     <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
       <div>

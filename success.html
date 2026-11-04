@@ -14,6 +14,164 @@
     </style>
 </head>
 <body>
+
+<!-- TFB UNLOCKED DELIVERY BANNER START -->
+<div id="tfb-unlocked-banner" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-6"></div>
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  let raw = (params.get('unlocked') || params.get('tier') || params.get('plan') || '').toLowerCase().trim();
+  const hasBump = (params.get('bump') === '1' || params.get('bump') === 'true');
+  const hasSession = !!params.get('session_id');
+
+  const ALIAS = {
+    'genesis-pass': 'genesis_pass', '1': 'genesis_pass',
+    'trap-sheet': 'trap_sheet', '5': 'trap_sheet',
+    'drawdown-survival': 'drawdown_survival', '9': 'drawdown_survival',
+    'killzone-checklist': 'killzone_checklist', '11': 'killzone_checklist',
+    'eval-blueprint': 'eval_blueprint', '17': 'eval_blueprint',
+    'payout-protocol': 'payout_protocol', '24': 'payout_protocol',
+    'scaling-matrix': 'scaling_matrix', '29': 'scaling_matrix',
+    'risk-terminal': 'starter', '39': 'starter',
+    'copy-sync': 'copy_sync', '49': 'copy_sync',
+    'payout-vault': 'payout_vault', '67': 'payout_vault',
+    'algo-guardrails': 'algo_guardrails', '79': 'algo_guardrails',
+    'core-operator': 'core_operator', '99': 'core_operator',
+    '27': 'starter_bailout', '137': 'standard_bailout', '97': 'standard_monthly', '197': 'standard', '397': 'whale'
+  };
+
+  const FILES = {
+    genesis_pass: { title: "The $1 Genesis Pass (2026 Prop Promo Vault)", price: "$1", file: "/downloads/TFB-01-Genesis-Pass-Vault.html", desc: "Verified 2026 prop discount directory, hidden rule red-flags, and starter checklist." },
+    trap_sheet: { title: "Prop Firm Rulebook Trap Sheet", price: "$5", file: "/downloads/TFB-02-Prop-Rulebook-Trap-Sheet.html", desc: "Audit of 30% consistency traps, news blackouts, and payout denial triggers." },
+    drawdown_survival: { title: "Intraday Trailing Drawdown Survival Guide", price: "$9", file: "/downloads/TFB-03-Trailing-Drawdown-Survival-Guide.html", desc: "Unrealized high-watermark defense blueprint and fixed ATM bracket specs." },
+    killzone_checklist: { title: "NQ / ES Opening Bell Killzone Checklist", price: "$11", file: "/downloads/TFB-04-NY-Opening-Bell-Killzone-Checklist.html", desc: "9:30 AM EST New York open liquidity sweep and execution protocol." },
+    eval_blueprint: { title: "The 14-Day Evaluation Pass Blueprint", price: "$17", file: "/downloads/TFB-05-14-Day-Evaluation-Pass-Blueprint.html", desc: "Day-by-day combine contract sizing and daily profit cap schedule." },
+    payout_protocol: { title: "Funded Payout Protection Protocol", price: "$24", file: "/downloads/TFB-06-Funded-Payout-Protection-Protocol.html", desc: "Fresh PA buffer lock system and first-withdrawal defense protocol." },
+    scaling_matrix: { title: "Micro-to-Mini Scaling Matrix", price: "$29", file: "/downloads/TFB-07-Micro-To-Mini-Scaling-Matrix.html", desc: "Quantitative equity thresholds from MNQ/MES to full NQ/ES contracts." },
+    starter: { title: "The Risk Terminal & Starter Scripture", price: "$39", file: "/downloads/TFB-08-Risk-Terminal-Starter-Scripture.html", desc: "Flagship Starter Scripture & Risk Terminal suite (+ includes TFB-01 through TFB-04 below)." },
+    copy_sync: { title: "20-Account Copy Trading & Sync Playbook", price: "$49", file: "/downloads/TFB-09-20-Account-Copy-Trading-Playbook.html", desc: "5-Account Pod sync architecture for NinjaTrader, Tradovate & Rithmic." },
+    payout_vault: { title: "Prop Firm Audit & Payout Blacklist Vault", price: "$67", file: "/downloads/TFB-10-Prop-Audit-Payout-Blacklist-Vault.html", desc: "Insider payout speed audit and firm compliance watchlist dossier." },
+    algo_guardrails: { title: "Algorithmic Execution & C# Risk Guardrails", price: "$79", file: "/downloads/TFB-11-Algo-Execution-CSharp-Guardrails.html", desc: "C# NinjaScript daily loss lockout code and ATM bracket guardrails." },
+    core_operator: { title: "The Funded Bible: Core Operator Edition (11-in-1 Bundle)", price: "$99", file: "/downloads/TFB-12-Core-Operator-Master-Bundle.html", desc: "Master Operator Bundle — unlocks all 11 sub-$100 playbooks & C# guardrails below!" },
+    order_bump: { title: "Order Bump: Payout & Tax Loophole Guide + 5 Cheat Sheets", price: "$19", file: "/downloads/TFB-Order-Bump-Payout-Tax-Loophole-Guide.html", desc: "LLC/S-Corp 1099 prop trader tax playbook and 5 rapid desk cheat sheets." },
+    starter_bailout: { title: "The Trench Starter — Bailout Risk Mitigation Kit", price: "$27", file: "/downloads/TFB-Trench-Starter-Bailout.html", desc: "Emergency drawdown stabilization protocol + NY Session Kill-Switch Tracker." },
+    standard: { title: "Standard Scripture — 28-Page Lifetime Master Manual", price: "$197", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    standard_bailout: { title: "Standard Scripture — 28-Page Master Manual (VIP Bailout)", price: "$137", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    standard_monthly: { title: "Standard Scripture — Pro Desk Access & Master Manual", price: "$97", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Playbook + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    whale: { title: "Scale Mastermind Whale Suite — 50-Page Fleet Dossier", price: "$397", file: "/downloads/TFB-Whale-Scale-Mastermind-50-Page-Dossier.html", desc: "50-Page Whale Fleet Dossier + 28-Page Standard Scripture + Every Playbook in the Vault!" }
+  };
+
+  if (raw) {
+    const resolved = FILES[raw] ? raw : (ALIAS[raw] || 'starter');
+    try {
+      localStorage.setItem('tfb_last_unlocked', resolved);
+      if (hasBump) localStorage.setItem('tfb_bump_unlocked', '1');
+    } catch (e) {}
+    raw = resolved;
+  } else if (hasSession) {
+    raw = 'starter';
+  } else {
+    try { raw = localStorage.getItem('tfb_last_unlocked') || ''; } catch (e) {}
+  }
+
+  if (!raw || !FILES[raw]) return;
+  const primary = FILES[raw];
+  const bumpUnlocked = hasBump || (function(){ try { return localStorage.getItem('tfb_bump_unlocked') === '1'; } catch(e){ return false; } })();
+
+  let includedKeys = [];
+  if (raw === 'starter') {
+    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist'];
+  } else if (raw === 'core_operator') {
+    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails'];
+  } else if (raw === 'standard' || raw === 'standard_bailout' || raw === 'standard_monthly') {
+    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails', 'core_operator'];
+  } else if (raw === 'whale') {
+    includedKeys = ['standard', 'core_operator', 'genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails', 'order_bump'];
+  }
+  if (bumpUnlocked && !includedKeys.includes('order_bump')) {
+    includedKeys.unshift('order_bump');
+  }
+
+  let includedGridHtml = '';
+  if (includedKeys.length > 0) {
+    const cards = includedKeys.map(function(k) {
+      const sub = FILES[k];
+      if (!sub) return '';
+      return `
+        <div class="bg-slate-950/90 border border-white/10 hover:border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between gap-3 transition">
+          <div>
+            <span class="text-[10px] font-mono uppercase text-emerald-400">✓ Included (${sub.price} Value)</span>
+            <h5 class="text-sm font-black text-white mt-0.5">${sub.title}</h5>
+            <p class="text-[11px] text-slate-400 mt-1">${sub.desc}</p>
+          </div>
+          <div class="flex gap-2">
+            <a href="${sub.file}" download class="flex-1 bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-300 border border-emerald-500/40 font-black py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">⬇ Download</a>
+            <a href="${sub.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">Open ↗</a>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    includedGridHtml = `
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <h3 class="text-sm font-black uppercase tracking-wider text-emerald-400 mb-3">📂 Included Vault Files Unlocked With Your Purchase (${includedKeys.length} Files Ready):</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          ${cards}
+        </div>
+      </div>
+    `;
+  }
+
+  const isTopTier = (raw === 'standard' || raw === 'standard_bailout' || raw === 'whale');
+  const upgradeHtml = isTopTier ? (raw === 'whale' ? '' : `
+    <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-5">
+      <div>
+        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500 text-slate-950">Next Level Fleet Scaling</span>
+        <h4 class="text-lg font-black text-white mt-2">Ready for the 50-Page Whale Scale Mastermind ($397)?</h4>
+        <p class="text-xs text-slate-300 mt-1">Unlock the $1.2M Multi-Firm Fleet Allocation Dossier, 20-Account Copy Blueprint & Direct 1-on-1 Audit.</p>
+      </div>
+      <a href="/api/create-checkout-session?tier=whale" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Upgrade to Whale Suite ($397) →</a>
+    </div>
+  `) : `
+    <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-amber-500/10 border border-amber-400/40 rounded-xl p-5">
+      <div>
+        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-amber-400 text-slate-950">One-Time Buyer Upgrade • Save $60</span>
+        <h4 class="text-lg font-black text-white mt-2">Upgrade to the 28-Page Standard Scripture Master Manual</h4>
+        <p class="text-xs text-slate-300 mt-1">Unlocks the complete 28-Page Institutional Playbook + ALL 12 sub-$100 playbooks at once. Normally <span class="line-through text-slate-400">$197</span> — claim your VIP upgrade for <strong class="text-amber-400">$137</strong>.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2.5 shrink-0 w-full sm:w-auto">
+        <a href="/api/create-checkout-session?tier=standard_bailout" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition shadow-lg">1-Click Upgrade ($137 VIP) →</a>
+        <a href="/api/create-checkout-session?tier=standard" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-black px-4 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition">Standard ($197)</a>
+      </div>
+    </div>
+  `;
+
+  const banner = document.getElementById('tfb-unlocked-banner');
+  banner.classList.remove('hidden');
+  banner.innerHTML = `
+    <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-2 border-emerald-500 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-emerald-500/15">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-black uppercase tracking-widest mb-3">
+            <span>✓ Payment Verified • Instant Digital Download Ready</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">${primary.title}</h2>
+          <p class="text-sm text-slate-300 mt-1">${primary.desc}</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <a href="${primary.file}" download class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/25">⬇ Download Master File (${primary.price})</a>
+          <a href="${primary.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-bold px-5 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition">Open in Browser ↗</a>
+        </div>
+      </div>
+      ${includedGridHtml}
+      ${upgradeHtml}
+    </div>
+  `;
+  banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+})();
+</script>
+<!-- TFB UNLOCKED DELIVERY BANNER END -->
+
     <div class="card">
         <h1>Payment Successful!</h1>
         <p>Thank you for purchasing The Funded Bible Playbook. You now have full access to the playbook and resources.</p>

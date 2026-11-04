@@ -179,7 +179,7 @@ module.exports = async (req, res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: lineItems,
-      success_url: `${origin}/vault.html?unlocked=${selectedKey}&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/vault.html?unlocked=${selectedKey}&bump=${includeBump ? '1' : '0'}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/vault.html`
     });
 
