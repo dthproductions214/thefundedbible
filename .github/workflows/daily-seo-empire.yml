@@ -40,3 +40,5 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
+      - name: Ping IndexNow Search Engines With All Live Sitemap URLs
+        run: python ping_indexnow.py
