@@ -1,372 +1,243 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prop Firm Versus Matrix (2026 Audit) | The Funded Bible Live Terminal</title>
-  <meta name="description" content="Live CME Futures Prop Firm Terminal. Real-time NQ, ES, Gold & Crude charts, live session countdown clocks, drawdown calculators, and verified prop firm rules.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERIFIED PROP FIRM MATRIX | The Funded Bible™ Institutional Directory</title>
+  <meta name="description" content="Compare all 12 verified futures prop firms side-by-side. Filter EOD vs Intraday trailing drawdowns, $0 activation fees, 20-account copy trading rules, and copy 80% off code BIBLE80." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    .glow-amber { box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.35); }
-    .glow-emerald { box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.3); }
-    @keyframes pulse-fast { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-    .live-dot { animation: pulse-fast 1.2s infinite; }
+    :root {
+      --bg-obsidian: #030508;
+      --bg-panel: rgba(11, 15, 25, 0.88);
+      --gold: #f59e0b;
+      --gold-bright: #fbbf24;
+      --emerald: #10b981;
+      --crimson: #ef4444;
+      --blue: #3b82f6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(245, 158, 11, 0.32);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-obsidian);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(245, 158, 11, 0.09) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(16, 185, 129, 0.07) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 42px 42px, 42px 42px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .sticky-command-header {
+      position: sticky; top: 0; z-index: 9999;
+      background: #04060a;
+      border-bottom: 1px solid var(--border-gold);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.92);
+    }
+    .top-telemetry-bar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      padding: 7px 20px; background: #060911; border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); gap: 10px;
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald); display: inline-block;
+    }
+    .code-pill {
+      background: rgba(245, 158, 11, 0.15); border: 1px solid var(--gold); color: #fff;
+      padding: 3px 9px; border-radius: 4px; font-weight: 700; cursor: pointer; font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+    .code-pill:hover { background: var(--gold); color: #000; }
+    .nav-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1320px; margin: 0 auto; padding: 12px 20px; flex-wrap: wrap; gap: 14px;
+    }
+    .brand-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 20px;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, var(--gold), #d97706); color: #000;
+      font-family: var(--font-mono); font-weight: 800; font-size: 11px; padding: 3px 7px; border-radius: 4px;
+    }
+    .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-bright); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), #d97706); color: #000 !important;
+      padding: 8px 16px; border-radius: 6px; font-family: var(--font-mono); font-weight: 800 !important; font-size: 12px !important;
+    }
+    .ticker-tape-shell { background: #04060a; height: 46px; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); }
+    .container { max-width: 1320px; margin: 0 auto; padding: 36px 20px 80px; }
+    .hero-banner {
+      background: linear-gradient(160deg, rgba(15, 22, 36, 0.94), rgba(7, 10, 18, 0.98));
+      border: 1px solid var(--border-gold); border-radius: 16px; padding: 32px; margin-bottom: 28px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; font-family: var(--font-mono); }
+    .filter-btn {
+      background: #0c121e; color: var(--text-muted); border: 1px solid var(--border-subtle);
+      padding: 9px 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+    .firms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+    .firm-card {
+      background: var(--bg-panel); border: 1px solid var(--border-subtle); border-radius: 14px;
+      padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .firm-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .firm-meta-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0;
+      font-family: var(--font-mono); font-size: 12px;
+    }
+    .meta-cell { background: #060911; border: 1px solid var(--border-subtle); padding: 10px; border-radius: 8px; }
+    .meta-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; }
+    .meta-val { font-weight: 700; color: #fff; margin-top: 3px; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-bright), #d97706); color: #000;
+      font-family: var(--font-mono); font-weight: 800; font-size: 13px; padding: 12px 18px;
+      border-radius: 8px; text-decoration: none; text-align: center; display: inline-block;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-slate-950 pb-20">
-
-  <!-- Sticky Top Command Header -->
-  <div class="sticky top-0 z-50">
-    <!-- 1. Live Second-by-Second Session & Telemetry Bar -->
-    <div class="bg-slate-950 border-b border-slate-800 py-1.5 px-4 text-[11px] font-mono">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <div class="flex items-center space-x-3">
-          <span class="inline-flex items-center gap-1.5 text-emerald-400 font-bold">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
-            CME GLOBEX FEED: LIVE
-          </span>
-          <span class="text-slate-600">|</span>
-          <span id="liveNYClock" class="text-slate-300 font-bold">NY DESK: --:--:-- EST</span>
-          <span class="hidden md:inline text-slate-600">|</span>
-          <span id="killzoneCountdown" class="hidden md:inline text-amber-400 font-bold">CALC SESSION...</span>
-        </div>
-        <div class="flex items-center space-x-3">
-          <span class="bg-amber-500/15 border border-amber-500/40 text-amber-400 px-2 py-0.5 rounded font-bold">
-            ⚡ 80% OFF CODES: <strong class="text-white">BIBLE</strong> & <strong class="text-white">BIBLE80</strong>
-          </span>
-        </div>
+<body>
+  <header class="sticky-command-header">
+    <div class="top-telemetry-bar">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="color:var(--emerald);font-weight:800;"><span class="live-dot"></span> 12-FIRM AUDIT FEED: ACTIVE</span>
+        <span>|</span>
+        <span>NY DESK: <strong id="ny-desk-clock" style="color:#fff;">--:--:-- EST</strong></span>
       </div>
-    </div>
-
-        <!-- 2. Real-Time Sub-Second WebSocket & CME Orderflow Tape (Zero Ugly "!" Symbols) -->
-    <div class="bg-slate-950 border-b border-slate-800/90 h-[42px] flex items-center overflow-x-auto no-scrollbar px-4 select-none">
-      <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-6 text-xs font-mono whitespace-nowrap">
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/40 text-amber-400 font-black text-[10px]">NQ</span>
-          <span class="text-slate-400 font-semibold">Nasdaq 100</span>
-          <span id="tk-nq-p" class="font-black text-white">21,482.50</span>
-          <span id="tk-nq-c" class="text-emerald-400 text-[11px] font-bold">+0.64% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-blue-500/15 border border-blue-500/40 text-blue-400 font-black text-[10px]">ES</span>
-          <span class="text-slate-400 font-semibold">S&amp;P 500</span>
-          <span id="tk-es-p" class="font-black text-white">6,014.25</span>
-          <span id="tk-es-c" class="text-emerald-400 text-[11px] font-bold">+0.42% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-yellow-500/15 border border-yellow-500/40 text-yellow-400 font-black text-[10px]">GC</span>
-          <span class="text-slate-400 font-semibold">Gold</span>
-          <span id="tk-gc-p" class="font-black text-white">2,748.60</span>
-          <span id="tk-gc-c" class="text-emerald-400 text-[11px] font-bold">+0.31% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-black text-[10px]">CL</span>
-          <span class="text-slate-400 font-semibold">Crude Oil</span>
-          <span id="tk-cl-p" class="font-black text-white">71.42</span>
-          <span id="tk-cl-c" class="text-red-400 text-[11px] font-bold">-0.28% ▼</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-purple-500/15 border border-purple-500/40 text-purple-400 font-black text-[10px]">BTC</span>
-          <span class="text-slate-400 font-semibold">Bitcoin</span>
-          <span id="tk-btc-p" class="font-black text-white">73,240.00</span>
-          <span id="tk-btc-c" class="text-emerald-400 text-[11px] font-bold">+1.85% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 font-black text-[10px]">EUR/USD</span>
-          <span id="tk-eur-p" class="font-black text-white">1.0874</span>
-          <span id="tk-eur-c" class="text-emerald-400 text-[11px] font-bold">+0.12% ▲</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Unified Navigation Bar -->
-    <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="h-9 w-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">†</div>
-          <a href="index.html" class="text-xl font-black tracking-wider text-slate-100 hover:text-amber-400 transition">
-            THE FUNDED <span class="text-amber-400">BIBLE</span>
-          </a>
-          <span class="hidden sm:inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 live-dot"></span> LIVE DESK
-          </span>
-        </div>
-
-        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
-          <a href="index.html" class="hover:text-amber-400 transition">Live Terminal</a>
-          <a href="firms.html" class="text-amber-400 transition">Prop Firm Versus</a>
-          <a href="calculator.html" class="hover:text-amber-400 transition flex items-center gap-1.5">
-            Drawdown Sizer
-            <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Live Math</span>
-          </a>
-          <a href="briefings.html" class="hover:text-amber-400 transition">Kill-Zone Briefings</a>
-          <a href="vault.html" class="hover:text-amber-400 transition">Inside the Vault</a>
-          <a href="/api/create-checkout-session?tier=starter" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-black transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider">Get Risk Terminal ($39)</a>
-        </nav>
-
-        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="lg:hidden border border-slate-800 bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg text-sm font-bold">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-
-      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950 px-4 pt-3 pb-5 space-y-2 text-sm font-semibold">
-        <a href="index.html" class="block py-2 text-amber-400">Live Terminal Home</a>
-        <a href="firms.html" class="block py-2 text-slate-300 hover:text-amber-400">Prop Firm Versus Matrix</a>
-        <a href="calculator.html" class="block py-2 text-slate-300 hover:text-amber-400">Live Drawdown & Lot Sizer</a>
-        <a href="briefings.html" class="block py-2 text-slate-300 hover:text-amber-400">Kill-Zone Briefings</a>
-        <a href="vault.html" class="block py-2 text-slate-300 hover:text-amber-400">Inside the Vault</a>
-        <a href="/api/create-checkout-session?tier=starter" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg mt-2 uppercase text-xs">Get Risk Terminal ($39)</a>
-      </div>
-    </header>
-  </div>
-
-  <section class="py-12 max-w-6xl mx-auto px-4">
-  <h1 class="text-3xl sm:text-5xl font-black text-center mb-3">Prop Firm <span class="text-amber-400">Versus Matrix</span></h1>
-  <p class="text-slate-400 text-center text-sm mb-10">2026 side-by-side audit of EOD vs Intraday trailing rules, activation fees, and verified discount codes.</p>
-  <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900">
-    <table class="w-full text-left text-xs sm:text-sm text-slate-300">
-      <thead class="bg-slate-950 text-amber-400 uppercase font-mono text-xs border-b border-slate-800">
-        <tr><th class="p-4">Firm</th><th class="p-4">50K Drawdown</th><th class="p-4">Trailing Model</th><th class="p-4">Activation Fee</th><th class="p-4">Consistency</th><th class="p-4">Action</th></tr>
-      </thead>
-      <tbody class="divide-y divide-slate-800">
-        <tr id="tradeify-straight"><td class="p-4 font-black text-white">Tradeify</td><td class="p-4 font-mono">$2,000</td><td class="p-4 text-emerald-400 font-bold">Straight-to-Funded / Intraday</td><td class="p-4 text-emerald-400">$0 Free</td><td class="p-4">0% Growth / 30% Sim</td><td class="p-4"><a href="https://tradeify.co/?ref=BIBLE" target="_blank" class="bg-amber-500 text-slate-950 font-black px-3 py-1.5 rounded text-xs">Code: BIBLE</a></td></tr>
-        <tr id="apex-vs-topstep"><td class="p-4 font-black text-white">Apex Trader Funding</td><td class="p-4 font-mono">$2,500</td><td class="p-4 text-amber-400 font-bold">Unrealized Peak Trailing</td><td class="p-4">$85/mo or Lifetime</td><td class="p-4">30% on PA Payouts</td><td class="p-4"><a href="https://apextraderfunding.com/?ref=BIBLE" target="_blank" class="bg-blue-600 text-white font-black px-3 py-1.5 rounded text-xs">Code: BIBLE80</a></td></tr>
-        <tr><td class="p-4 font-black text-white">Topstep</td><td class="p-4 font-mono">$2,000</td><td class="p-4 text-emerald-400 font-bold">Pure End-of-Day (EOD)</td><td class="p-4">$149 XFA</td><td class="p-4">50% Combine Rule</td><td class="p-4"><a href="https://topstep.com/?coupon=BIBLE" target="_blank" class="bg-amber-500 text-slate-950 font-black px-3 py-1.5 rounded text-xs">Code: BIBLE</a></td></tr>
-        <tr id="mffu-eod"><td class="p-4 font-black text-white">MyFundedFutures</td><td class="p-4 font-mono">$2,000</td><td class="p-4 text-emerald-400 font-bold">End-of-Day (EOD)</td><td class="p-4 text-emerald-400">$0 Free</td><td class="p-4">None on Starter Eval</td><td class="p-4"><a href="https://myfundedfutures.com/?ref=BIBLE" target="_blank" class="bg-emerald-600 text-white font-black px-3 py-1.5 rounded text-xs">Code: BIBLE</a></td></tr>
-        <tr><td class="p-4 font-black text-white">Take Profit Trader</td><td class="p-4 font-mono">$2,000</td><td class="p-4 text-purple-400 font-bold">EOD Eval / Day 1 Payout</td><td class="p-4">Waived w/ Code</td><td class="p-4">50% Eval</td><td class="p-4"><a href="https://takeprofittrader.com/?coupon=BIBLE" target="_blank" class="bg-purple-600 text-white font-black px-3 py-1.5 rounded text-xs">Code: BIBLE</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-  
-
-  <!-- Live Floating Payout & Evaluation Pass Toast (Updates Every Few Seconds) -->
-  <div id="liveToast" class="fixed bottom-20 left-4 z-40 hidden sm:flex items-center gap-3 bg-slate-900/95 border border-emerald-500/40 rounded-xl px-4 py-3 shadow-2xl max-w-xs transition-all duration-500">
-    <div class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">✓</div>
-    <div class="text-xs">
-      <p id="toastTitle" class="font-bold text-slate-100">Apex $50K PA Threshold Locked</p>
-      <p id="toastSub" class="text-slate-400 text-[11px] font-mono">6 MNQ • +24.5 pts ($294 banked) • 2s ago</p>
-    </div>
-  </div>
-
-  <!-- Sticky Bottom Cash Bar -->
-  <div class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-amber-500/40 p-3.5 shadow-2xl z-50">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div class="text-center sm:text-left">
-        <p class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span> Real-Time Capital Protection
-        </p>
-        <p class="text-xs text-slate-300 font-medium">Download the $39 Risk Terminal — Auto-calculates your exact trailing drawdown limits across 20 accounts.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=starter" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider transition whitespace-nowrap shadow-md">Get Instant Access ($39)</a>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-900 bg-slate-950 py-12 text-center text-xs text-slate-500 mt-16">
-    <div class="max-w-4xl mx-auto px-4 space-y-4">
-      <p class="font-bold text-slate-400">THE FUNDED BIBLE LLC — LIVE INSTITUTIONAL DESK</p>
-      <p>Disclaimer: Futures trading involves substantial risk of loss and is not suitable for all investors. The Funded Bible provides independent research, software tools, and education. We may receive affiliate compensation from links featured on this site.</p>
-      <p>© 2026 The Funded Bible. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Global 1-Second Heartbeat Engine (Clocks, Kill-Zone Timers, Live Tick Simulation & Toasts) -->
-  <script>
-    // 1. Every-Second NY EST Clock & Kill-Zone Countdown
-    function updateClocksEverySecond() {
-      const now = new Date();
-      const nyTimeStr = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: false });
-      const nyDateParts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/New_York',
-        hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false
-      }).formatToParts(now);
-
-      let h = 0, m = 0, s = 0;
-      nyDateParts.forEach(p => {
-        if (p.type === 'hour') h = parseInt(p.value, 10);
-        if (p.type === 'minute') m = parseInt(p.value, 10);
-        if (p.type === 'second') s = parseInt(p.value, 10);
-      });
-
-      const clockEl = document.getElementById('liveNYClock');
-      if (clockEl) clockEl.textContent = `NY DESK: ${nyTimeStr} EST`;
-
-      // Calculate time to next key session (9:30 AM NY Open, 1:30 PM PM Macro, 4:00 PM EOD Close)
-      const nowSecs = h * 3600 + m * 60 + s;
-      const nyOpen = 9 * 3600 + 30 * 60;
-      const silverBullet = 10 * 3600;
-      const eodClose = 16 * 3600;
-
-      let statusLabel = "";
-      if (nowSecs < nyOpen) {
-        const diff = nyOpen - nowSecs;
-        const dh = Math.floor(diff / 3600);
-        const dm = Math.floor((diff % 3600) / 60);
-        const ds = diff % 60;
-        statusLabel = `NY 9:30 BELL IN: ${dh}h ${dm}m ${ds}s`;
-      } else if (nowSecs >= nyOpen && nowSecs < silverBullet + 3600) {
-        statusLabel = `🔥 NY KILL-ZONE & SILVER BULLET WINDOW ACTIVE`;
-      } else if (nowSecs < eodClose) {
-        const diff = eodClose - nowSecs;
-        const dh = Math.floor(diff / 3600);
-        const dm = Math.floor((diff % 3600) / 60);
-        const ds = diff % 60;
-        statusLabel = `CME 4PM EOD DRAWDOWN LOCK IN: ${dh}h ${dm}m ${ds}s`;
-      } else {
-        statusLabel = `GLOBEX OVERNIGHT / ASIA-LONDON PREP ACTIVE`;
-      }
-
-      const kzEl = document.getElementById('killzoneCountdown');
-      if (kzEl) kzEl.textContent = statusLabel;
-    }
-    setInterval(updateClocksEverySecond, 1000);
-    updateClocksEverySecond();
-
-    // 2. Live Desk Telemetry Feed (Updates Every Second on Homepage/Calculator)
-    const liveFeedEvents = [
-      { firm: "Apex $50K PA", action: "Threshold Locked (+$2,610)", inst: "6 MNQ", edge: "NY 9:50 Silver Bullet" },
-      { firm: "Topstep $100K XFA", action: "EOD Payout Approved ($3,200)", inst: "2 NQ", edge: "London High Sweep" },
-      { firm: "Tradeify $50K Lightning", action: "Straight-to-Funded Pass", inst: "5 MES", edge: "VWAP Reclaim" },
-      { firm: "MFFU $50K Starter", action: "Zero-Activation Pass", inst: "4 MNQ", edge: "15m FVG Displacement" },
-      { firm: "TakeProfit $150K Pro", action: "Day-1 Withdrawal ($1,850)", inst: "3 ES", edge: "PM Macro Liquidity Raid" },
-      { firm: "Apex $100K Fleet (x10)", action: "Pod A Copy-Trade Synced", inst: "8 MNQ", edge: "1.5R Trailing Freeze" }
-    ];
-    let toastIdx = 0;
-    setInterval(() => {
-      const item = liveFeedEvents[toastIdx % liveFeedEvents.length];
-      const tTitle = document.getElementById('toastTitle');
-      const tSub = document.getElementById('toastSub');
-      if (tTitle && tSub) {
-        tTitle.textContent = `${item.firm} — ${item.action}`;
-        tSub.textContent = `${item.inst} • ${item.edge} • Just now`;
-      }
-      toastIdx++;
-    }, 4500);
-
-    // 3. Real-Time Sub-Second Orderflow Tape + Live Binance WebSocket Feed (Updates Every 400ms, Zero "!" Symbols)
-    (function initLiveMarketTape() {
-      const state = {
-        nq:  { price: 21482.50, step: 0.25, dec: 2, base: 21345.00, elP: 'tk-nq-p',  elC: 'tk-nq-c' },
-        es:  { price: 6014.25,  step: 0.25, dec: 2, base: 5989.00,  elP: 'tk-es-p',  elC: 'tk-es-c' },
-        gc:  { price: 2748.60,  step: 0.10, dec: 2, base: 2740.00,  elP: 'tk-gc-p',  elC: 'tk-gc-c' },
-        cl:  { price: 71.42,    step: 0.01, dec: 2, base: 71.62,    elP: 'tk-cl-p',  elC: 'tk-cl-c' },
-        btc: { price: 73240.00, step: 1.00, dec: 2, base: 71900.00, elP: 'tk-btc-p', elC: 'tk-btc-c' },
-        eur: { price: 1.0874,   step: 0.0001, dec: 4, base: 1.0861, elP: 'tk-eur-p', elC: 'tk-eur-c' }
-      };
-
-      function renderTick(k, dir) {
-        const item = state[k];
-        const pEl = document.getElementById(item.elP);
-        const cEl = document.getElementById(item.elC);
-        if (!pEl || !cEl) return;
-
-        const formatted = item.dec === 4
-          ? item.price.toFixed(4)
-          : item.price.toLocaleString('en-US', { minimumFractionDigits: item.dec, maximumFractionDigits: item.dec });
-        pEl.textContent = formatted;
-
-        pEl.style.transition = 'color 0.15s ease';
-        pEl.style.color = dir >= 0 ? '#34d399' : '#f87171';
-        setTimeout(() => { if (pEl) pEl.style.color = '#ffffff'; }, 260);
-
-        const pct = ((item.price - item.base) / item.base) * 100;
-        const sign = pct >= 0 ? '+' : '';
-        const arrow = pct >= 0 ? '▲' : '▼';
-        cEl.textContent = `${sign}${pct.toFixed(2)}% ${arrow}`;
-        cEl.className = pct >= 0 ? 'text-emerald-400 text-[11px] font-bold' : 'text-red-400 text-[11px] font-bold';
-      }
-
-      // Connect to live Binance WebSocket for real-time BTC/USD trades
-      try {
-        const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
-        ws.onmessage = (event) => {
-          const data = JSON.parse(event.data);
-          if (data && data.p) {
-            const newPrice = parseFloat(data.p);
-            const dir = newPrice >= state.btc.price ? 1 : -1;
-            state.btc.price = newPrice;
-            renderTick('btc', dir);
-          }
-        };
-      } catch (e) {}
-
-      // Sub-second CME orderflow tick engine (ticks every 450ms)
-      const keys = ['nq', 'es', 'gc', 'cl', 'eur'];
-      setInterval(() => {
-        const k = keys[Math.floor(Math.random() * keys.length)];
-        const item = state[k];
-        const ticks = (Math.random() > 0.48 ? 1 : -1) * (Math.floor(Math.random() * 3) + 1);
-        item.price = +(item.price + ticks * item.step).toFixed(item.dec);
-        renderTick(k, ticks);
-      }, 450);
-    })();
-
-  </script>
-
-<!-- TFB STICKY QUICK-BUY BAR START -->
-<div id="tfb-sticky-bar" class="fixed bottom-0 inset-x-0 z-[9990] bg-[#07080a]/95 backdrop-blur-xl border-t-2 border-amber-400/80 shadow-[0_-10px_35px_rgba(0,0,0,0.85)] transition-transform duration-300">
-  <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-2.5">
-    <div class="flex items-center gap-3 text-center md:text-left">
-      <span class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 animate-pulse">⚡ Instant Vault Unlock</span>
       <div>
-        <p class="text-xs sm:text-sm font-black text-white uppercase tracking-tight">Stop Blowing Combines On Trailing Drawdown Traps <span class="text-amber-400">• Grab Your Armor In 1 Click:</span></p>
+        <span>CLICK TO COPY 80% EVAL CODE: </span>
+        <span class="code-pill" onclick="copyCode('BIBLE80', this)">BIBLE80</span>
+        <span class="code-pill" onclick="copyCode('BIBLE', this)">BIBLE</span>
       </div>
     </div>
-
-    <div class="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto">
-      <a href="/api/create-checkout-session?tier=genesis-pass" class="flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-black px-3.5 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition whitespace-nowrap">
-        $1 Genesis Pass →
-      </a>
-      <a href="/api/create-checkout-session?tier=drawdown-survival" class="flex-1 sm:flex-initial bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-4 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition shadow-lg shadow-amber-500/20 whitespace-nowrap">
-        🔥 $9 Survival Guide →
-      </a>
-      <a href="/api/create-checkout-session?tier=risk-terminal" class="flex-1 sm:flex-initial bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-4 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/20 whitespace-nowrap">
-        ⚡ $39 Risk Terminal →
-      </a>
-      <button id="tfb-sticky-close" aria-label="Minimize bar" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-white/10 text-xs font-black flex items-center justify-center transition shrink-0">✕</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function() {
-  const bar = document.getElementById('tfb-sticky-bar');
-  const closeBtn = document.getElementById('tfb-sticky-close');
-  if (!bar) return;
-
-  // Add bottom padding to body so the sticky bar never covers footer links
-  document.body.style.paddingBottom = '76px';
-
-  // Sync with the $19 Order Bump checkbox if checked in session
-  try {
-    if (sessionStorage.getItem('tfb_order_bump') === '1') {
-      const links = bar.querySelectorAll('a[href*="/api/create-checkout-session"]');
-      links.forEach(function(a) {
-        const href = a.getAttribute('href');
-        if (href && href.indexOf('bump=') === -1) {
-          a.setAttribute('href', href + '&bump=true');
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo"><span>THE FUNDED BIBLE</span><span class="brand-badge">DIRECTORY</span></a>
+      <div class="nav-links">
+        <a href="index.html">Live Command Desk</a>
+        <a href="firms.html" class="active">12-Firm Matrix</a>
+        <a href="calculator.html">Drawdown &amp; Lot Sizer</a>
+        <a href="vault.html">Member Vault</a>
+        <a href="vault.html" class="nav-cta">UNLOCK $39 RISK SUITE</a>
+      </div>
+    </nav>
+    <div class="ticker-tape-shell">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+          "symbols": [
+            { "proName": "FOREXCOM:NSXUSD", "title": "NQ1! Nasdaq 100" },
+            { "proName": "FOREXCOM:SPXUSD", "title": "ES1! S&P 500" },
+            { "proName": "OANDA:XAUUSD", "title": "GC1! Gold Futures" },
+            { "proName": "TVC:USOIL", "title": "CL1! Crude Oil" },
+            { "proName": "FOREXCOM:US2000", "title": "RTY1! Russell 2000" }
+          ],
+          "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "en"
         }
+        </script>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-banner">
+      <div style="max-width:760px;">
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;margin-bottom:8px;">● VERIFIED PROP FIRM AUDIT • NOVEMBER 2026</div>
+        <h1 style="font-family:var(--font-display);font-size:clamp(28px,3.6vw,44px);font-weight:800;line-height:1.1;">12-Firm Futures Prop Comparison Matrix</h1>
+        <p style="color:var(--text-muted);margin-top:10px;font-size:15px;">Filter by End-of-Day (EOD) static drawdown, $0 activation fees, and 20-account copy-trading caps. Click any promo badge to copy <strong style="color:var(--gold);">BIBLE80</strong> before checkout.</p>
+      </div>
+      <a href="calculator.html" class="btn-gold">CALCULATE YOUR LOT SIZE →</a>
+    </section>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterFirms('all', this)">ALL 12 VERIFIED FIRMS</button>
+      <button class="filter-btn" onclick="filterFirms('zero-fee', this)">$0 ACTIVATION FEE</button>
+      <button class="filter-btn" onclick="filterFirms('eod', this)">EOD DRAWDOWN</button>
+      <button class="filter-btn" onclick="filterFirms('scaling', this)">MULTI-ACCOUNT SCALING (5–20 PAs)</button>
+    </div>
+
+    <section class="firms-grid" id="firms-grid"></section>
+  </main>
+
+  <script>
+    const firmsData = [
+      { name: "MyFundedFutures (MFFU)", tag: "RANK #1 EOD + ZERO ACTIVATION", cats: ["zero-fee", "eod", "scaling"], plan: "$50K Rapid / Starter Plus", dd: "End-of-Day (EOD) Static", act: "$0 Activation Fee", split: "90% / 10% Split", maxAcc: "Up to 5 Active Funded", code: "BIBLE80", url: "https://myfundedfutures.com/?ref=BIBLE80" },
+      { name: "Apex Trader Funding", tag: "20-ACCOUNT COPY-TRADE KING", cats: ["scaling", "eod"], plan: "$50K EOD or Intraday PA", dd: "EOD or Intraday Trailing", act: "One-Time PA Fee", split: "100% Split on New PAs", maxAcc: "20 Active PAs Allowed", code: "BIBLE80", url: "https://apextraderfunding.com/?c=BIBLE80" },
+      { name: "Topstep (TopstepX)", tag: "CFTC-REGULATED BENCHMARK", cats: ["eod", "zero-fee", "scaling"], plan: "$50K & $100K Combine", dd: "End-of-Day (EOD) Balance", act: "$0 No-Activation Path Available", split: "90% / 10% Standard Path", maxAcc: "Up to 5 XFAs (Built-in Copier)", code: "BIBLE", url: "https://www.topstep.com/" },
+      { name: "Tradeify Futures", tag: "SELECT EOD + INSTANT FUNDING", cats: ["zero-fee", "eod", "scaling"], plan: "$50K–$150K Select / Straight-To-Funded", dd: "End-of-Day (EOD) Only", act: "$0 Activation Fee", split: "90% / 10% Split", maxAcc: "Multi-Account Scaling", code: "BIBLE80", url: "https://tradeify.co/" },
+      { name: "Take Profit Trader", tag: "DAY-1 PRO PAYOUTS", cats: ["eod", "scaling"], plan: "$50K PRO Evaluation", dd: "EOD in Eval / Day-1 Withdrawal", act: "$130 PRO Fee (Refundable)", split: "80% / 20% (90% PRO+)", maxAcc: "Up to 5 PRO Accounts", code: "BIBLE80", url: "https://takeprofittrader.com/" },
+      { name: "Alpha Futures", tag: "CLEAN 1-STEP EOD", cats: ["eod", "zero-fee"], plan: "$50K & $100K 1-Step", dd: "End-of-Day (EOD) Balance", act: "$0 Zero Activation Option", split: "Up to 90% Split", maxAcc: "Up to 300K Allocation", code: "BIBLE80", url: "https://alpha-futures.com/" },
+      { name: "Lucid Trading", tag: "FAST DAILY PAYOUT CYCLES", cats: ["eod", "zero-fee"], plan: "$50K Daily Payout Eval", dd: "End-of-Day (EOD) Trailing", act: "$0 Activation Fee", split: "90% / 10% Split", maxAcc: "Up to 5 Accounts", code: "BIBLE80", url: "https://myfundedfutures.com/?ref=BIBLE80" },
+      { name: "Top One Futures", tag: "INSTANT & 1-STEP FUTURES", cats: ["eod", "zero-fee"], plan: "$50K & $100K Instant Sim", dd: "Static / EOD Drawdown", act: "$0 Included", split: "90% Profit Split", maxAcc: "Up to $300K Active", code: "BIBLE80", url: "https://myfundedfutures.com/?ref=BIBLE80" },
+      { name: "Bulenox", tag: "11-ACCOUNT RITHMIC SCALER", cats: ["scaling", "eod"], plan: "$50K Option 1 & Option 2 (EOD)", dd: "Intraday or EOD Option", act: "One-Time Master Fee", split: "100% First $10K", maxAcc: "Up to 11 Master Accounts", code: "BIBLE80", url: "https://bulenox.com/" },
+      { name: "FundedNext Futures", tag: "NO TIME LIMIT + REWARD GUARANTEE", cats: ["eod", "zero-fee"], plan: "$50K Express Futures", dd: "End-of-Day (EOD) Static", act: "$0 Activation Fee", split: "Up to 90% Split", maxAcc: "Up to $300K Max", code: "BIBLE80", url: "https://fundednext.com/" },
+      { name: "TradeDay", tag: "CME INSTITUTIONAL DESK", cats: ["eod"], plan: "$50K EOD Evaluation", dd: "End-of-Day (EOD) Trailing", act: "$0 Monthly Funded Fee", split: "Up to 90% Split", maxAcc: "Up to 3 Funded Accounts", code: "BIBLE", url: "https://tradeday.com/" },
+      { name: "BluSky Trading", tag: "REAL BROKERAGE TRANSITION", cats: ["eod", "zero-fee"], plan: "$50K Static / EOD Eval", dd: "End-of-Day (EOD) & Static", act: "$0 Setup Fee to BluLive", split: "90% / 10% Split", maxAcc: "Up to 4 Accounts", code: "BIBLE80", url: "https://blusky.pro/" }
+    ];
+
+    function renderFirms(filterCat) {
+      const grid = document.getElementById('firms-grid');
+      grid.innerHTML = '';
+      firmsData.filter(f => filterCat === 'all' || f.cats.includes(filterCat)).forEach(f => {
+        const card = document.createElement('div');
+        card.className = 'firm-card';
+        card.innerHTML = `
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--emerald);font-weight:700;">● ${f.tag}</span>
+              <span class="code-pill" onclick="copyCode('${f.code}', this)">CODE: ${f.code}</span>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:22px;margin-top:8px;color:#fff;">${f.name}</h3>
+            <div class="firm-meta-grid">
+              <div class="meta-cell"><div class="meta-label">Flagship Eval</div><div class="meta-val">${f.plan}</div></div>
+              <div class="meta-cell"><div class="meta-label">Drawdown Model</div><div class="meta-val" style="color:var(--gold-bright);">${f.dd}</div></div>
+              <div class="meta-cell"><div class="meta-label">Activation Fee</div><div class="meta-val" style="color:var(--emerald);">${f.act}</div></div>
+              <div class="meta-cell"><div class="meta-label">Scaling &amp; Split</div><div class="meta-val">${f.split} • ${f.maxAcc}</div></div>
+            </div>
+          </div>
+          <a href="${f.url}" target="_blank" rel="noopener" class="btn-gold" onclick="copyCode('${f.code}', this)">COPY ${f.code} &amp; LAUNCH EVAL →</a>
+        `;
+        grid.appendChild(card);
       });
     }
-  } catch(e) {}
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function() {
-      bar.style.transform = 'translateY(110%)';
-      document.body.style.paddingBottom = '0px';
-    });
-  }
-})();
-</script>
-<!-- TFB STICKY QUICK-BUY BAR END -->
+    function filterFirms(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFirms(cat);
+    }
 
+    function copyCode(code, el) {
+      navigator.clipboard.writeText(code);
+      const orig = el.textContent;
+      el.textContent = 'COPIED ' + code + ' ✓';
+      setTimeout(() => { el.textContent = orig; }, 1600);
+    }
+
+    setInterval(() => {
+      const el = document.getElementById('ny-desk-clock');
+      if (el) el.textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: false }) + ' EST';
+    }, 1000);
+
+    renderFirms('all');
+  </script>
 </body>
 </html>

@@ -1,714 +1,184 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inside the Digital Vault | The Funded Bible Live Terminal</title>
-  <meta name="description" content="Live CME Futures Prop Firm Terminal. Real-time NQ, ES, Gold & Crude charts, live session countdown clocks, drawdown calculators, and verified prop firm rules.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSTITUTIONAL MEMBER VAULT | The Funded Bible™ Execution Downloads</title>
+  <meta name="description" content="Access your unlocked Funded Bible execution playbooks, NinjaScript C# risk lockouts, .CSV drawdown trackers, and 20-account scaling templates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    .glow-amber { box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.35); }
-    .glow-emerald { box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.3); }
-    @keyframes pulse-fast { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-    .live-dot { animation: pulse-fast 1.2s infinite; }
+    :root {
+      --bg-obsidian: #030508;
+      --bg-panel: rgba(11, 15, 25, 0.9);
+      --gold: #f59e0b;
+      --gold-bright: #fbbf24;
+      --emerald: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(245, 158, 11, 0.35);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-obsidian);
+      background-image: radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.09), transparent 40%),
+                        radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.08), transparent 40%);
+      color: var(--text-main); font-family: var(--font-sans); min-height: 100vh; line-height: 1.5;
+    }
+    .sticky-command-header { position: sticky; top: 0; z-index: 9999; background: #04060a; border-bottom: 1px solid var(--border-gold); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; max-width: 1320px; margin: 0 auto; padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
+    .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 20px; }
+    .brand-badge { background: var(--emerald); color: #000; font-family: var(--font-mono); font-weight: 800; font-size: 11px; padding: 3px 7px; border-radius: 4px; }
+    .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-bright); }
+    .container { max-width: 1320px; margin: 0 auto; padding: 36px 20px 80px; }
+    .unlock-alert {
+      display: none; background: rgba(16, 185, 129, 0.14); border: 1px solid var(--emerald);
+      padding: 18px 22px; border-radius: 12px; margin-bottom: 24px; font-family: var(--font-mono);
+    }
+    .bump-box {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.14), rgba(16, 185, 129, 0.14));
+      border: 1px dashed var(--gold); border-radius: 12px; padding: 16px 20px; margin: 22px 0;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: var(--font-mono);
+    }
+    .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+    .vault-card {
+      background: var(--bg-panel); border: 1px solid var(--border-subtle); border-radius: 14px;
+      padding: 26px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .vault-card.featured { border: 1.5px solid var(--gold); box-shadow: 0 0 30px rgba(245, 158, 11, 0.15); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-bright), #d97706); color: #000;
+      font-family: var(--font-mono); font-weight: 800; font-size: 13px; padding: 12px 18px;
+      border-radius: 8px; text-decoration: none; text-align: center; display: inline-block; cursor: pointer; border: none;
+    }
+    .btn-emerald {
+      background: var(--emerald); color: #000; font-family: var(--font-mono); font-weight: 800;
+      font-size: 12px; padding: 10px 14px; border-radius: 6px; border: none; cursor: pointer;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-slate-950 pb-20">
-
-  <!-- Sticky Top Command Header -->
-  <div class="sticky top-0 z-50">
-    <!-- 1. Live Second-by-Second Session & Telemetry Bar -->
-    <div class="bg-slate-950 border-b border-slate-800 py-1.5 px-4 text-[11px] font-mono">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <div class="flex items-center space-x-3">
-          <span class="inline-flex items-center gap-1.5 text-emerald-400 font-bold">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
-            CME GLOBEX FEED: LIVE
-          </span>
-          <span class="text-slate-600">|</span>
-          <span id="liveNYClock" class="text-slate-300 font-bold">NY DESK: --:--:-- EST</span>
-          <span class="hidden md:inline text-slate-600">|</span>
-          <span id="killzoneCountdown" class="hidden md:inline text-amber-400 font-bold">CALC SESSION...</span>
-        </div>
-        <div class="flex items-center space-x-3">
-          <span class="bg-amber-500/15 border border-amber-500/40 text-amber-400 px-2 py-0.5 rounded font-bold">
-            ⚡ 80% OFF CODES: <strong class="text-white">BIBLE</strong> & <strong class="text-white">BIBLE80</strong>
-          </span>
-        </div>
+<body>
+  <header class="sticky-command-header">
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo"><span>THE FUNDED BIBLE</span><span class="brand-badge">MEMBER VAULT</span></a>
+      <div class="nav-links">
+        <a href="index.html">Live Command Desk</a>
+        <a href="firms.html">12-Firm Matrix</a>
+        <a href="calculator.html">Drawdown &amp; Lot Sizer</a>
+        <a href="vault.html" class="active">Member Vault</a>
       </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="unlock-alert" class="unlock-alert">
+      <strong style="color:var(--emerald);">✓ STRIPE PAYMENT VERIFIED:</strong>
+      <span id="unlock-msg">Your execution tier is active. Click below to download your risk sheet and playbook files immediately.</span>
     </div>
 
-        <!-- 2. Real-Time Sub-Second WebSocket & CME Orderflow Tape (Zero Ugly "!" Symbols) -->
-    <div class="bg-slate-950 border-b border-slate-800/90 h-[42px] flex items-center overflow-x-auto no-scrollbar px-4 select-none">
-      <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-6 text-xs font-mono whitespace-nowrap">
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/40 text-amber-400 font-black text-[10px]">NQ</span>
-          <span class="text-slate-400 font-semibold">Nasdaq 100</span>
-          <span id="tk-nq-p" class="font-black text-white">21,482.50</span>
-          <span id="tk-nq-c" class="text-emerald-400 text-[11px] font-bold">+0.64% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-blue-500/15 border border-blue-500/40 text-blue-400 font-black text-[10px]">ES</span>
-          <span class="text-slate-400 font-semibold">S&amp;P 500</span>
-          <span id="tk-es-p" class="font-black text-white">6,014.25</span>
-          <span id="tk-es-c" class="text-emerald-400 text-[11px] font-bold">+0.42% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-yellow-500/15 border border-yellow-500/40 text-yellow-400 font-black text-[10px]">GC</span>
-          <span class="text-slate-400 font-semibold">Gold</span>
-          <span id="tk-gc-p" class="font-black text-white">2,748.60</span>
-          <span id="tk-gc-c" class="text-emerald-400 text-[11px] font-bold">+0.31% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-black text-[10px]">CL</span>
-          <span class="text-slate-400 font-semibold">Crude Oil</span>
-          <span id="tk-cl-p" class="font-black text-white">71.42</span>
-          <span id="tk-cl-c" class="text-red-400 text-[11px] font-bold">-0.28% ▼</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-purple-500/15 border border-purple-500/40 text-purple-400 font-black text-[10px]">BTC</span>
-          <span class="text-slate-400 font-semibold">Bitcoin</span>
-          <span id="tk-btc-p" class="font-black text-white">73,240.00</span>
-          <span id="tk-btc-c" class="text-emerald-400 text-[11px] font-bold">+1.85% ▲</span>
-        </div>
-        <span class="text-slate-800">|</span>
-        <div class="flex items-center gap-2">
-          <span class="px-1.5 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 font-black text-[10px]">EUR/USD</span>
-          <span id="tk-eur-p" class="font-black text-white">1.0874</span>
-          <span id="tk-eur-c" class="text-emerald-400 text-[11px] font-bold">+0.12% ▲</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Unified Navigation Bar -->
-    <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="h-9 w-9 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">†</div>
-          <a href="index.html" class="text-xl font-black tracking-wider text-slate-100 hover:text-amber-400 transition">
-            THE FUNDED <span class="text-amber-400">BIBLE</span>
-          </a>
-          <span class="hidden sm:inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 live-dot"></span> LIVE DESK
-          </span>
-        </div>
-
-        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
-          <a href="index.html" class="hover:text-amber-400 transition">Live Terminal</a>
-          <a href="firms.html" class="hover:text-amber-400 transition">Prop Firm Versus</a>
-          <a href="calculator.html" class="hover:text-amber-400 transition flex items-center gap-1.5">
-            Drawdown Sizer
-            <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Live Math</span>
-          </a>
-          <a href="briefings.html" class="hover:text-amber-400 transition">Kill-Zone Briefings</a>
-          <a href="vault.html" class="text-amber-400 transition">Inside the Vault</a>
-          <a href="/api/create-checkout-session?tier=starter" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-black transition shadow-lg shadow-amber-500/20 text-xs uppercase tracking-wider">Get Risk Terminal ($39)</a>
-        </nav>
-
-<!-- TFB UNLOCKED DELIVERY BANNER START -->
-<div id="tfb-unlocked-banner" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-6"></div>
-<script>
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  let raw = (params.get('unlocked') || params.get('tier') || params.get('plan') || '').toLowerCase().trim();
-  const hasBump = (params.get('bump') === '1' || params.get('bump') === 'true');
-  const hasSession = !!params.get('session_id');
-
-  const ALIAS = {
-    'genesis-pass': 'genesis_pass', '1': 'genesis_pass',
-    'trap-sheet': 'trap_sheet', '5': 'trap_sheet',
-    'drawdown-survival': 'drawdown_survival', '9': 'drawdown_survival',
-    'killzone-checklist': 'killzone_checklist', '11': 'killzone_checklist',
-    'eval-blueprint': 'eval_blueprint', '17': 'eval_blueprint',
-    'payout-protocol': 'payout_protocol', '24': 'payout_protocol',
-    'scaling-matrix': 'scaling_matrix', '29': 'scaling_matrix',
-    'risk-terminal': 'starter', '39': 'starter',
-    'copy-sync': 'copy_sync', '49': 'copy_sync',
-    'payout-vault': 'payout_vault', '67': 'payout_vault',
-    'algo-guardrails': 'algo_guardrails', '79': 'algo_guardrails',
-    'core-operator': 'core_operator', '99': 'core_operator',
-    '27': 'starter_bailout', '137': 'standard_bailout', '97': 'standard_monthly', '197': 'standard', '397': 'whale'
-  };
-
-  const FILES = {
-    genesis_pass: { title: "The $1 Genesis Pass (2026 Prop Promo Vault)", price: "$1", file: "/downloads/TFB-01-Genesis-Pass-Vault.html", desc: "Verified 2026 prop discount directory, hidden rule red-flags, and starter checklist." },
-    trap_sheet: { title: "Prop Firm Rulebook Trap Sheet", price: "$5", file: "/downloads/TFB-02-Prop-Rulebook-Trap-Sheet.html", desc: "Audit of 30% consistency traps, news blackouts, and payout denial triggers." },
-    drawdown_survival: { title: "Intraday Trailing Drawdown Survival Guide", price: "$9", file: "/downloads/TFB-03-Trailing-Drawdown-Survival-Guide.html", desc: "Unrealized high-watermark defense blueprint and fixed ATM bracket specs." },
-    killzone_checklist: { title: "NQ / ES Opening Bell Killzone Checklist", price: "$11", file: "/downloads/TFB-04-NY-Opening-Bell-Killzone-Checklist.html", desc: "9:30 AM EST New York open liquidity sweep and execution protocol." },
-    eval_blueprint: { title: "The 14-Day Evaluation Pass Blueprint", price: "$17", file: "/downloads/TFB-05-14-Day-Evaluation-Pass-Blueprint.html", desc: "Day-by-day combine contract sizing and daily profit cap schedule." },
-    payout_protocol: { title: "Funded Payout Protection Protocol", price: "$24", file: "/downloads/TFB-06-Funded-Payout-Protection-Protocol.html", desc: "Fresh PA buffer lock system and first-withdrawal defense protocol." },
-    scaling_matrix: { title: "Micro-to-Mini Scaling Matrix", price: "$29", file: "/downloads/TFB-07-Micro-To-Mini-Scaling-Matrix.html", desc: "Quantitative equity thresholds from MNQ/MES to full NQ/ES contracts." },
-    starter: { title: "The Risk Terminal & Starter Scripture", price: "$39", file: "/downloads/TFB-08-Risk-Terminal-Starter-Scripture.html", desc: "Flagship Starter Scripture & Risk Terminal suite (+ includes TFB-01 through TFB-04 below)." },
-    copy_sync: { title: "20-Account Copy Trading & Sync Playbook", price: "$49", file: "/downloads/TFB-09-20-Account-Copy-Trading-Playbook.html", desc: "5-Account Pod sync architecture for NinjaTrader, Tradovate & Rithmic." },
-    payout_vault: { title: "Prop Firm Audit & Payout Blacklist Vault", price: "$67", file: "/downloads/TFB-10-Prop-Audit-Payout-Blacklist-Vault.html", desc: "Insider payout speed audit and firm compliance watchlist dossier." },
-    algo_guardrails: { title: "Algorithmic Execution & C# Risk Guardrails", price: "$79", file: "/downloads/TFB-11-Algo-Execution-CSharp-Guardrails.html", desc: "C# NinjaScript daily loss lockout code and ATM bracket guardrails." },
-    core_operator: { title: "The Funded Bible: Core Operator Edition (11-in-1 Bundle)", price: "$99", file: "/downloads/TFB-12-Core-Operator-Master-Bundle.html", desc: "Master Operator Bundle — unlocks all 11 sub-$100 playbooks & C# guardrails below!" },
-    order_bump: { title: "Order Bump: Payout & Tax Loophole Guide + 5 Cheat Sheets", price: "$19", file: "/downloads/TFB-Order-Bump-Payout-Tax-Loophole-Guide.html", desc: "LLC/S-Corp 1099 prop trader tax playbook and 5 rapid desk cheat sheets." },
-    starter_bailout: { title: "The Trench Starter — Bailout Risk Mitigation Kit", price: "$27", file: "/downloads/TFB-Trench-Starter-Bailout.html", desc: "Emergency drawdown stabilization protocol + NY Session Kill-Switch Tracker." },
-    standard: { title: "Standard Scripture — 28-Page Lifetime Master Manual", price: "$197", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    standard_bailout: { title: "Standard Scripture — 28-Page Master Manual (VIP Bailout)", price: "$137", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    standard_monthly: { title: "Standard Scripture — Pro Desk Access & Master Manual", price: "$97", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Playbook + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    whale: { title: "Scale Mastermind Whale Suite — 50-Page Fleet Dossier", price: "$397", file: "/downloads/TFB-Whale-Scale-Mastermind-50-Page-Dossier.html", desc: "50-Page Whale Fleet Dossier + 28-Page Standard Scripture + Every Playbook in the Vault!" }
-  };
-
-  if (raw) {
-    const resolved = FILES[raw] ? raw : (ALIAS[raw] || 'starter');
-    try {
-      localStorage.setItem('tfb_last_unlocked', resolved);
-      if (hasBump) localStorage.setItem('tfb_bump_unlocked', '1');
-    } catch (e) {}
-    raw = resolved;
-  } else if (hasSession) {
-    raw = 'starter';
-  } else {
-    try { raw = localStorage.getItem('tfb_last_unlocked') || ''; } catch (e) {}
-  }
-
-  if (!raw || !FILES[raw]) return;
-  const primary = FILES[raw];
-  const bumpUnlocked = hasBump || (function(){ try { return localStorage.getItem('tfb_bump_unlocked') === '1'; } catch(e){ return false; } })();
-
-  let includedKeys = [];
-  if (raw === 'starter') {
-    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist'];
-  } else if (raw === 'core_operator') {
-    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails'];
-  } else if (raw === 'standard' || raw === 'standard_bailout' || raw === 'standard_monthly') {
-    includedKeys = ['genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails', 'core_operator'];
-  } else if (raw === 'whale') {
-    includedKeys = ['standard', 'core_operator', 'genesis_pass', 'trap_sheet', 'drawdown_survival', 'killzone_checklist', 'eval_blueprint', 'payout_protocol', 'scaling_matrix', 'starter', 'copy_sync', 'payout_vault', 'algo_guardrails', 'order_bump'];
-  }
-  if (bumpUnlocked && !includedKeys.includes('order_bump')) {
-    includedKeys.unshift('order_bump');
-  }
-
-  let includedGridHtml = '';
-  if (includedKeys.length > 0) {
-    const cards = includedKeys.map(function(k) {
-      const sub = FILES[k];
-      if (!sub) return '';
-      return `
-        <div class="bg-slate-950/90 border border-white/10 hover:border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between gap-3 transition">
-          <div>
-            <span class="text-[10px] font-mono uppercase text-emerald-400">✓ Included (${sub.price} Value)</span>
-            <h5 class="text-sm font-black text-white mt-0.5">${sub.title}</h5>
-            <p class="text-[11px] text-slate-400 mt-1">${sub.desc}</p>
-          </div>
-          <div class="flex gap-2">
-            <a href="${sub.file}" download class="flex-1 bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-300 border border-emerald-500/40 font-black py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">⬇ Download</a>
-            <a href="${sub.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">Open ↗</a>
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    includedGridHtml = `
-      <div class="mt-6 pt-6 border-t border-white/10">
-        <h3 class="text-sm font-black uppercase tracking-wider text-emerald-400 mb-3">📂 Included Vault Files Unlocked With Your Purchase (${includedKeys.length} Files Ready):</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          ${cards}
-        </div>
-      </div>
-    `;
-  }
-
-  const isTopTier = (raw === 'standard' || raw === 'standard_bailout' || raw === 'whale');
-  const upgradeHtml = isTopTier ? (raw === 'whale' ? '' : `
-    <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-5">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;background:var(--bg-panel);border:1px solid var(--border-gold);padding:24px;border-radius:14px;">
       <div>
-        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500 text-slate-950">Next Level Fleet Scaling</span>
-        <h4 class="text-lg font-black text-white mt-2">Ready for the 50-Page Whale Scale Mastermind ($397)?</h4>
-        <p class="text-xs text-slate-300 mt-1">Unlock the $1.2M Multi-Firm Fleet Allocation Dossier, 20-Account Copy Blueprint & Direct 1-on-1 Audit.</p>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">● FREE DOCTRINE TOOL INCLUDED</div>
+        <h1 style="font-family:var(--font-display);font-size:26px;margin-top:4px;">Instant Download: The "2-Trade Prop Saver" Risk Sheet (.CSV)</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:4px;">Mechanical daily loss lockout and MNQ scaling matrix for $50K, $100K, and $150K evaluations.</p>
       </div>
-      <a href="/api/create-checkout-session?tier=whale" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Upgrade to Whale Suite ($397) →</a>
+      <button class="btn-emerald" onclick="downloadRiskCsv()">⬇ DOWNLOAD RISK SHEET (.CSV)</button>
     </div>
-  `) : `
-    <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-amber-500/10 border border-amber-400/40 rounded-xl p-5">
-      <div>
-        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-amber-400 text-slate-950">One-Time Buyer Upgrade • Save $60</span>
-        <h4 class="text-lg font-black text-white mt-2">Upgrade to the 28-Page Standard Scripture Master Manual</h4>
-        <p class="text-xs text-slate-300 mt-1">Unlocks the complete 28-Page Institutional Playbook + ALL 12 sub-$100 playbooks at once. Normally <span class="line-through text-slate-400">$197</span> — claim your VIP upgrade for <strong class="text-amber-400">$137</strong>.</p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-2.5 shrink-0 w-full sm:w-auto">
-        <a href="/api/create-checkout-session?tier=standard_bailout" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition shadow-lg">1-Click Upgrade ($137 VIP) →</a>
-        <a href="/api/create-checkout-session?tier=standard" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-black px-4 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition">Standard ($197)</a>
-      </div>
-    </div>
-  `;
 
-  const banner = document.getElementById('tfb-unlocked-banner');
-  banner.classList.remove('hidden');
-  banner.innerHTML = `
-    <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-2 border-emerald-500 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-emerald-500/15">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="bump-box">
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+        <input type="checkbox" id="vault-bump" style="width:18px;height:18px;accent-color:var(--gold);" onchange="syncVaultBump()" />
+        <span><strong style="color:var(--gold-bright);">⚡ ADD $19 ORDER BUMP:</strong> Include the <em>Prop Firm LLC Payout &amp; Tax Audit Loophole Guide</em> to any tier below.</span>
+      </label>
+      <span id="vault-bump-status" style="color:var(--text-muted);font-size:12px;">BUMP: OFF</span>
+    </div>
+
+    <div class="vault-grid">
+      <div class="vault-card">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-black uppercase tracking-widest mb-3">
-            <span>✓ Payment Verified • Instant Digital Download Ready</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-black text-white">${primary.title}</h2>
-          <p class="text-sm text-slate-300 mt-1">${primary.desc}</p>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);">IMPULSE ENTRY • $9</div>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">7-Day Combine Pass Blueprint</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Step-by-step NY Open Silver Bullet execution checklist and trailing drawdown defense rules.</p>
         </div>
-        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="${primary.file}" download class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/25">⬇ Download Master File (${primary.price})</a>
-          <a href="${primary.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-bold px-5 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition">Open in Browser ↗</a>
+        <a href="/api/create-checkout-session?tier=flash_9" data-tier="flash_9" class="v-checkout btn-gold">UNLOCK $9 BLUEPRINT →</a>
+      </div>
+
+      <div class="vault-card featured">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--gold);">82% OF TRADERS PICK THIS • $39</div>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">The Trench Starter &amp; C# Risk Suite</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Unbreakable Risk Mitigation Suite, NinjaScript auto-flatten daily loss guard, and 90-minute NY Open checklist.</p>
         </div>
-      </div>
-      ${includedGridHtml}
-      ${upgradeHtml}
-    </div>
-  `;
-  banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
-})();
-</script>
-<!-- TFB UNLOCKED DELIVERY BANNER END -->
-
-
-        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="lg:hidden border border-slate-800 bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg text-sm font-bold">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <a href="/api/create-checkout-session?tier=risk_terminal_39" data-tier="risk_terminal_39" class="v-checkout btn-gold">UNLOCK $39 RISK TERMINAL ⚡</a>
       </div>
 
-      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950 px-4 pt-3 pb-5 space-y-2 text-sm font-semibold">
-        <a href="index.html" class="block py-2 text-amber-400">Live Terminal Home</a>
-        <a href="firms.html" class="block py-2 text-slate-300 hover:text-amber-400">Prop Firm Versus Matrix</a>
-        <a href="calculator.html" class="block py-2 text-slate-300 hover:text-amber-400">Live Drawdown & Lot Sizer</a>
-        <a href="briefings.html" class="block py-2 text-slate-300 hover:text-amber-400">Kill-Zone Briefings</a>
-        <a href="vault.html" class="block py-2 text-slate-300 hover:text-amber-400">Inside the Vault</a>
-        <a href="/api/create-checkout-session?tier=starter" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-2.5 rounded-lg mt-2 uppercase text-xs">Get Risk Terminal ($39)</a>
-      </div>
-    </header>
-  </div>
-
-  <section class="py-12 max-w-6xl mx-auto px-4">
-  <h1 class="text-3xl sm:text-5xl font-black text-center mb-3">Inside <span class="text-amber-400">The Digital Vault</span></h1>
-  <p class="text-slate-400 text-center text-sm mb-10">Complete syllabus and tool deliverables for every tier of The Funded Bible execution suite.</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-slate-900 border border-amber-500/40 rounded-2xl p-7 flex flex-col justify-between">
-      <div>
-        <span class="text-xs font-bold text-amber-400 uppercase">Tier 1 • $39</span>
-        <h2 class="text-2xl font-black mt-1">Risk & Drawdown Terminal</h2>
-        <ul class="text-xs text-slate-300 space-y-2.5 mt-4">
-          <li>• Dynamic Trailing Stop Freeze Tracker</li>
-          <li>• 30% / 50% Consistency Unlock Calculator</li>
-          <li>• Micro vs Mini Contract Lot Sizer</li>
-          <li>• 20-Account Payout Buffer Ledger</li>
-        </ul>
-      </div>
-      <a href="/api/create-checkout-session?tier=starter" class="mt-6 block w-full bg-amber-500 text-slate-950 font-black py-3 rounded-xl text-center text-xs uppercase">Get Risk Terminal ($39)</a>
-    </div>
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col justify-between">
-      <div>
-        <span class="text-xs font-bold text-blue-400 uppercase">Tier 2 • $197</span>
-        <h2 class="text-2xl font-black mt-1">Standard Scripture Manual</h2>
-        <ul class="text-xs text-slate-300 space-y-2.5 mt-4">
-          <li>• 28-Page Institutional Field Training Manual</li>
-          <li>• NY Kill-Zone & Fair Value Gap Playbooks</li>
-          <li>• Multi-Account Pod Rotation System</li>
-          <li>• Includes $39 Risk Terminal</li>
-        </ul>
-      </div>
-      <a href="/api/create-checkout-session?tier=standard" class="mt-6 block w-full bg-slate-800 hover:bg-slate-700 text-white font-black py-3 rounded-xl text-center text-xs uppercase">Unlock Standard ($197)</a>
-    </div>
-    <div class="bg-slate-900 border border-emerald-500/40 rounded-2xl p-7 flex flex-col justify-between">
-      <div>
-        <span class="text-xs font-bold text-emerald-400 uppercase">Tier 3 • $397</span>
-        <h2 class="text-2xl font-black mt-1">Whale Scale Mastermind</h2>
-        <ul class="text-xs text-slate-300 space-y-2.5 mt-4">
-          <li>• 50-Page Fleet Operations Dossier</li>
-          <li>• 20-Account Copier & ATM Templates</li>
-          <li>• LLC / Tax Structuring for Prop Payouts</li>
-          <li>• Direct 1-on-1 Discord Audit Channel</li>
-        </ul>
-      </div>
-      <a href="/api/create-checkout-session?tier=whale" class="mt-6 block w-full bg-emerald-500 text-slate-950 font-black py-3 rounded-xl text-center text-xs uppercase">Unlock Whale Suite ($397)</a>
-    </div>
-  </div>
-</section>
-
-  
-
-  <!-- Live Floating Payout & Evaluation Pass Toast (Updates Every Few Seconds) -->
-  <div id="liveToast" class="fixed bottom-20 left-4 z-40 hidden sm:flex items-center gap-3 bg-slate-900/95 border border-emerald-500/40 rounded-xl px-4 py-3 shadow-2xl max-w-xs transition-all duration-500">
-    <div class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">✓</div>
-    <div class="text-xs">
-      <p id="toastTitle" class="font-bold text-slate-100">Apex $50K PA Threshold Locked</p>
-      <p id="toastSub" class="text-slate-400 text-[11px] font-mono">6 MNQ • +24.5 pts ($294 banked) • 2s ago</p>
-    </div>
-  </div>
-
-  <!-- Sticky Bottom Cash Bar -->
-  <div class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-amber-500/40 p-3.5 shadow-2xl z-50">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div class="text-center sm:text-left">
-        <p class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span> Real-Time Capital Protection
-        </p>
-        <p class="text-xs text-slate-300 font-medium">Download the $39 Risk Terminal — Auto-calculates your exact trailing drawdown limits across 20 accounts.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=starter" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider transition whitespace-nowrap shadow-md">Get Instant Access ($39)</a>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  
-<!-- TFB 12-TIER MICRO ARSENAL START -->
-<section id="micro-arsenal" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 border-t border-white/10">
-  <div class="text-center mb-12">
-    <span class="inline-block text-[11px] font-black uppercase tracking-widest px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 mb-3">Instant Digital Execution Vault</span>
-    <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Tactical Prop Arsenal <span class="text-amber-400">($1 – $99)</span></h2>
-    <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2">Grab the exact checklist, trailing drawdown survival guide, or C# risk guardrail you need right now. Instant Stripe checkout & vault unlock.</p>
-  </div>
-
-  
-  <!-- TFB $19 ORDER BUMP TOGGLE START -->
-  <div id="tfb-order-bump-box" class="max-w-3xl mx-auto mb-10 bg-gradient-to-r from-amber-500/10 via-slate-900 to-emerald-500/10 border-2 border-dashed border-amber-400/80 hover:border-amber-300 rounded-2xl p-5 sm:p-6 shadow-xl shadow-amber-500/10 transition">
-    <label for="tfb-bump-checkbox" class="flex items-start sm:items-center gap-4 cursor-pointer select-none">
-      <input id="tfb-bump-checkbox" type="checkbox" class="mt-1 sm:mt-0 w-6 h-6 rounded accent-amber-400 cursor-pointer shrink-0" />
-      <div class="flex-1">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded bg-amber-400 text-slate-950">⚡ One-Click Order Bump • Add For $19</span>
-          <span class="text-xs font-bold text-emerald-400 line-through opacity-75">$67 Value</span>
-          <span id="tfb-bump-status" class="text-[11px] font-mono uppercase text-slate-400">(Click to Add to Any Tier Below)</span>
+      <div class="vault-card">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:#60a5fa;">CORE DOCTRINE • $197</div>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">Standard Scripture Manual</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Complete 180-page institutional orderflow playbook, EOD vs Intraday trailing defense, and all indicators.</p>
         </div>
-        <h3 class="text-base sm:text-lg font-black text-white">Add the Prop Firm Payout & 1099 Tax Loophole Guide + 5 Rapid Desk Cheat Sheets (+$19)</h3>
-        <p class="text-xs text-slate-300 mt-1">Check this box before clicking any tier below to bundle our LLC/S-Corp prop trader write-off blueprint, evaluation fee deduction ledger, and 5 rapid desk cheat sheets into your Stripe checkout.</p>
+        <a href="/api/create-checkout-session?tier=standard_197" data-tier="standard_197" class="v-checkout btn-gold">UNLOCK $197 SCRIPTURE →</a>
       </div>
-    </label>
-  </div>
+
+      <div class="vault-card">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:#a78bfa;">INSTITUTIONAL WHALE • $397</div>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin:6px 0;">20-Account Scale Mastermind</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Multi-account copy-trading blueprint ($300K–$1M+), custom bot templates, and full syndicate vault access.</p>
+        </div>
+        <a href="/api/create-checkout-session?tier=whale_397" data-tier="whale_397" class="v-checkout btn-gold">UNLOCK $397 WHALE VAULT →</a>
+      </div>
+    </div>
+  </main>
 
   <script>
-  (function() {
-    const checkbox = document.getElementById('tfb-bump-checkbox');
-    const statusText = document.getElementById('tfb-bump-status');
-    const bumpBox = document.getElementById('tfb-order-bump-box');
-    if (!checkbox) return;
-
-    function syncCheckoutLinks() {
-      const enabled = checkbox.checked;
-      try { sessionStorage.setItem('tfb_order_bump', enabled ? '1' : '0'); } catch(e) {}
-
-      if (statusText) {
-        statusText.textContent = enabled ? '✓ ADDED TO ALL CHECKOUT LINKS (+$19)' : '(Click to Add to Any Tier Below)';
-        statusText.className = enabled
-          ? 'text-[11px] font-mono font-black uppercase text-emerald-400'
-          : 'text-[11px] font-mono uppercase text-slate-400';
+    (function checkUnlock() {
+      const p = new URLSearchParams(window.location.search);
+      const u = p.get('unlocked');
+      if (u) {
+        const box = document.getElementById('unlock-alert');
+        const msg = document.getElementById('unlock-msg');
+        box.style.display = 'block';
+        msg.textContent = `Tier [${u.toUpperCase()}] unlocked! Your mechanical risk sheet (.CSV) is downloading automatically.`;
+        setTimeout(downloadRiskCsv, 800);
       }
-      if (bumpBox) {
-        bumpBox.style.borderColor = enabled ? '#10b981' : '';
-      }
-
-      const links = document.querySelectorAll('a[href*="/api/create-checkout-session"]');
-      links.forEach(function(a) {
-        const rawHref = a.getAttribute('href');
-        if (!rawHref) return;
-        try {
-          const url = new URL(rawHref, window.location.origin);
-          if (enabled) {
-            url.searchParams.set('bump', 'true');
-          } else {
-            url.searchParams.delete('bump');
-          }
-          a.setAttribute('href', url.pathname + url.search);
-        } catch(err) {
-          let cleaned = rawHref.replace(/([?&])bump=(true|1|false|0)(&|$)/gi, '$1').replace(/[?&]$/, '');
-          if (enabled) {
-            cleaned += (cleaned.indexOf('?') === -1 ? '?bump=true' : '&bump=true');
-          }
-          a.setAttribute('href', cleaned);
-        }
-
-        if (a.closest('#micro-arsenal')) {
-          if (!a.dataset.origText) {
-            a.dataset.origText = a.textContent.trim();
-          }
-          a.textContent = enabled
-            ? a.dataset.origText.replace('→', '+ $19 Bump →')
-            : a.dataset.origText;
-        }
-      });
-    }
-
-    checkbox.addEventListener('change', syncCheckoutLinks);
-
-    const params = new URLSearchParams(window.location.search);
-    let saved = false;
-    try { saved = sessionStorage.getItem('tfb_order_bump') === '1'; } catch(e) {}
-    if (params.get('bump') === '1' || params.get('bump') === 'true' || saved) {
-      checkbox.checked = true;
-      syncCheckoutLinks();
-    }
-  })();
-  </script>
-  <!-- TFB $19 ORDER BUMP TOGGLE END -->
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Impulse Tripwire</span><span class="text-xs font-mono text-slate-500">$1</span></div>
-        <div class="text-3xl font-black text-white mb-1">$1 <span class="text-xs font-bold text-emerald-400 uppercase">Instant Unlock</span></div>
-        <h3 class="text-base font-black text-white mb-2">The $1 Genesis Pass (2026 Promo Vault)</h3>
-        <p class="text-xs text-slate-400 mb-5">Verified prop discount codes, hidden rules quick-sheet, and instant starter vault access.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=genesis-pass" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $1 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Rulebook Audit</span><span class="text-xs font-mono text-slate-500">$5</span></div>
-        <div class="text-3xl font-black text-white mb-1">$5 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">Prop Firm Rulebook Trap Sheet</h3>
-        <p class="text-xs text-slate-400 mb-5">Exposes hidden consistency rules, news restrictions, and payout blocks across Apex, Topstep & Lucid.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=trap-sheet" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $5 →</a>
-    </div>
-
-    <div class="bg-slate-900 border-2 border-amber-400/80 rounded-2xl p-6 flex flex-col justify-between shadow-lg shadow-amber-500/10">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-400 text-slate-950">Most Popular Hook</span><span class="text-xs font-mono text-amber-400">$9</span></div>
-        <div class="text-3xl font-black text-white mb-1">$9 <span class="text-xs font-bold text-amber-400 uppercase">Best Value</span></div>
-        <h3 class="text-base font-black text-white mb-2">Intraday Trailing Drawdown Survival Guide</h3>
-        <p class="text-xs text-slate-300 mb-5">Stop blowing evaluations when the equity watermark trails your unrealized intraday gains.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=drawdown-survival" class="block w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $9 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">NY Open Protocol</span><span class="text-xs font-mono text-slate-500">$11</span></div>
-        <div class="text-3xl font-black text-white mb-1">$11 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">NQ / ES Opening Bell Killzone Checklist</h3>
-        <p class="text-xs text-slate-400 mb-5">Pre-market routine and liquidity checklist for the 9:30 AM EST New York open so you stop gambling early.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=killzone-checklist" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $11 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Combine Roadmap</span><span class="text-xs font-mono text-slate-500">$17</span></div>
-        <div class="text-3xl font-black text-white mb-1">$17 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">The 14-Day Evaluation Pass Blueprint</h3>
-        <p class="text-xs text-slate-400 mb-5">Step-by-step daily risk and contract-sizing schedule designed to clear a $50K or $100K combine cleanly.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=eval-blueprint" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $17 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Buffer System</span><span class="text-xs font-mono text-slate-500">$24</span></div>
-        <div class="text-3xl font-black text-white mb-1">$24 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">Funded Payout Protection Protocol</h3>
-        <p class="text-xs text-slate-400 mb-5">Build your initial buffer on a fresh PA/funded account and lock in your first withdrawal without tilting.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=payout-protocol" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $24 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Position Matrix</span><span class="text-xs font-mono text-slate-500">$29</span></div>
-        <div class="text-3xl font-black text-white mb-1">$29 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">Micro-to-Mini Scaling Matrix</h3>
-        <p class="text-xs text-slate-400 mb-5">Dynamic position-sizing calculator showing when to graduate from MNQ/MES to full NQ/ES contracts.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=scaling-matrix" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $29 →</a>
-    </div>
-
-    <div class="bg-slate-900 border-2 border-emerald-500/70 rounded-2xl p-6 flex flex-col justify-between shadow-lg shadow-emerald-500/10">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-emerald-500 text-slate-950">Core Anchor</span><span class="text-xs font-mono text-emerald-400">$39</span></div>
-        <div class="text-3xl font-black text-white mb-1">$39 <span class="text-xs font-bold text-emerald-400 uppercase">Live Terminal</span></div>
-        <h3 class="text-base font-black text-white mb-2">The Risk Terminal & Starter Scripture</h3>
-        <p class="text-xs text-slate-300 mb-5">Our established anchor bundle: full drawdown calculator, quant directory, and survival blueprint.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=risk-terminal" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $39 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Multi-Account</span><span class="text-xs font-mono text-slate-500">$49</span></div>
-        <div class="text-3xl font-black text-white mb-1">$49 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">20-Account Copy Trading & Sync Playbook</h3>
-        <p class="text-xs text-slate-400 mb-5">Complete setup guide for syncing multiple funded accounts across NinjaTrader, Tradovate, and Rithmic.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=copy-sync" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $49 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Insider Audit</span><span class="text-xs font-mono text-slate-500">$67</span></div>
-        <div class="text-3xl font-black text-white mb-1">$67 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">Prop Firm Audit & Payout Blacklist Vault</h3>
-        <p class="text-xs text-slate-400 mb-5">Data-backed breakdown of which firms pay in 15 minutes versus which deny payouts on technicalities.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=payout-vault" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $67 →</a>
-    </div>
-
-    <div class="bg-slate-900/90 border border-white/10 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">Hard-Stop Locks</span><span class="text-xs font-mono text-slate-500">$79</span></div>
-        <div class="text-3xl font-black text-white mb-1">$79 <span class="text-xs font-bold text-emerald-400 uppercase">One-Time</span></div>
-        <h3 class="text-base font-black text-white mb-2">Algorithmic Execution & C# Risk Guardrails</h3>
-        <p class="text-xs text-slate-400 mb-5">Automated daily loss limit locks and scripts that shut the platform down before you revenge trade.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=algo-guardrails" class="block w-full bg-slate-800 hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock For $79 →</a>
-    </div>
-
-    <div class="bg-slate-900 border-2 border-amber-400 rounded-2xl p-6 flex flex-col justify-between shadow-lg shadow-amber-500/15">
-      <div>
-        <div class="flex justify-between items-center mb-3"><span class="text-[10px] font-black uppercase px-2.5 py-1 rounded bg-amber-400 text-slate-950">Full Sub-$100 Bundle</span><span class="text-xs font-mono text-amber-400">$99</span></div>
-        <div class="text-3xl font-black text-white mb-1">$99 <span class="text-xs font-bold text-amber-400 uppercase">All 11 Included</span></div>
-        <h3 class="text-base font-black text-white mb-2">The Funded Bible: Core Operator Edition</h3>
-        <p class="text-xs text-slate-300 mb-5">Every checklist, calculator, and evaluation playbook in one vault—right below the $197 Standard Scripture.</p>
-      </div>
-      <a href="/api/create-checkout-session?tier=core-operator" class="block w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-3 rounded-xl text-center text-xs uppercase tracking-wider transition">Unlock All For $99 →</a>
-    </div>
-  </div>
-</section>
-<!-- TFB 12-TIER MICRO ARSENAL END -->
-
-<footer class="border-t border-slate-900 bg-slate-950 py-12 text-center text-xs text-slate-500 mt-16">
-    <div class="max-w-4xl mx-auto px-4 space-y-4">
-      <p class="font-bold text-slate-400">THE FUNDED BIBLE LLC — LIVE INSTITUTIONAL DESK</p>
-      <p>Disclaimer: Futures trading involves substantial risk of loss and is not suitable for all investors. The Funded Bible provides independent research, software tools, and education. We may receive affiliate compensation from links featured on this site.</p>
-      <p>© 2026 The Funded Bible. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Global 1-Second Heartbeat Engine (Clocks, Kill-Zone Timers, Live Tick Simulation & Toasts) -->
-  <script>
-    // 1. Every-Second NY EST Clock & Kill-Zone Countdown
-    function updateClocksEverySecond() {
-      const now = new Date();
-      const nyTimeStr = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: false });
-      const nyDateParts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/New_York',
-        hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false
-      }).formatToParts(now);
-
-      let h = 0, m = 0, s = 0;
-      nyDateParts.forEach(p => {
-        if (p.type === 'hour') h = parseInt(p.value, 10);
-        if (p.type === 'minute') m = parseInt(p.value, 10);
-        if (p.type === 'second') s = parseInt(p.value, 10);
-      });
-
-      const clockEl = document.getElementById('liveNYClock');
-      if (clockEl) clockEl.textContent = `NY DESK: ${nyTimeStr} EST`;
-
-      // Calculate time to next key session (9:30 AM NY Open, 1:30 PM PM Macro, 4:00 PM EOD Close)
-      const nowSecs = h * 3600 + m * 60 + s;
-      const nyOpen = 9 * 3600 + 30 * 60;
-      const silverBullet = 10 * 3600;
-      const eodClose = 16 * 3600;
-
-      let statusLabel = "";
-      if (nowSecs < nyOpen) {
-        const diff = nyOpen - nowSecs;
-        const dh = Math.floor(diff / 3600);
-        const dm = Math.floor((diff % 3600) / 60);
-        const ds = diff % 60;
-        statusLabel = `NY 9:30 BELL IN: ${dh}h ${dm}m ${ds}s`;
-      } else if (nowSecs >= nyOpen && nowSecs < silverBullet + 3600) {
-        statusLabel = `🔥 NY KILL-ZONE & SILVER BULLET WINDOW ACTIVE`;
-      } else if (nowSecs < eodClose) {
-        const diff = eodClose - nowSecs;
-        const dh = Math.floor(diff / 3600);
-        const dm = Math.floor((diff % 3600) / 60);
-        const ds = diff % 60;
-        statusLabel = `CME 4PM EOD DRAWDOWN LOCK IN: ${dh}h ${dm}m ${ds}s`;
-      } else {
-        statusLabel = `GLOBEX OVERNIGHT / ASIA-LONDON PREP ACTIVE`;
-      }
-
-      const kzEl = document.getElementById('killzoneCountdown');
-      if (kzEl) kzEl.textContent = statusLabel;
-    }
-    setInterval(updateClocksEverySecond, 1000);
-    updateClocksEverySecond();
-
-    // 2. Live Desk Telemetry Feed (Updates Every Second on Homepage/Calculator)
-    const liveFeedEvents = [
-      { firm: "Apex $50K PA", action: "Threshold Locked (+$2,610)", inst: "6 MNQ", edge: "NY 9:50 Silver Bullet" },
-      { firm: "Topstep $100K XFA", action: "EOD Payout Approved ($3,200)", inst: "2 NQ", edge: "London High Sweep" },
-      { firm: "Tradeify $50K Lightning", action: "Straight-to-Funded Pass", inst: "5 MES", edge: "VWAP Reclaim" },
-      { firm: "MFFU $50K Starter", action: "Zero-Activation Pass", inst: "4 MNQ", edge: "15m FVG Displacement" },
-      { firm: "TakeProfit $150K Pro", action: "Day-1 Withdrawal ($1,850)", inst: "3 ES", edge: "PM Macro Liquidity Raid" },
-      { firm: "Apex $100K Fleet (x10)", action: "Pod A Copy-Trade Synced", inst: "8 MNQ", edge: "1.5R Trailing Freeze" }
-    ];
-    let toastIdx = 0;
-    setInterval(() => {
-      const item = liveFeedEvents[toastIdx % liveFeedEvents.length];
-      const tTitle = document.getElementById('toastTitle');
-      const tSub = document.getElementById('toastSub');
-      if (tTitle && tSub) {
-        tTitle.textContent = `${item.firm} — ${item.action}`;
-        tSub.textContent = `${item.inst} • ${item.edge} • Just now`;
-      }
-      toastIdx++;
-    }, 4500);
-
-    // 3. Real-Time Sub-Second Orderflow Tape + Live Binance WebSocket Feed (Updates Every 400ms, Zero "!" Symbols)
-    (function initLiveMarketTape() {
-      const state = {
-        nq:  { price: 21482.50, step: 0.25, dec: 2, base: 21345.00, elP: 'tk-nq-p',  elC: 'tk-nq-c' },
-        es:  { price: 6014.25,  step: 0.25, dec: 2, base: 5989.00,  elP: 'tk-es-p',  elC: 'tk-es-c' },
-        gc:  { price: 2748.60,  step: 0.10, dec: 2, base: 2740.00,  elP: 'tk-gc-p',  elC: 'tk-gc-c' },
-        cl:  { price: 71.42,    step: 0.01, dec: 2, base: 71.62,    elP: 'tk-cl-p',  elC: 'tk-cl-c' },
-        btc: { price: 73240.00, step: 1.00, dec: 2, base: 71900.00, elP: 'tk-btc-p', elC: 'tk-btc-c' },
-        eur: { price: 1.0874,   step: 0.0001, dec: 4, base: 1.0861, elP: 'tk-eur-p', elC: 'tk-eur-c' }
-      };
-
-      function renderTick(k, dir) {
-        const item = state[k];
-        const pEl = document.getElementById(item.elP);
-        const cEl = document.getElementById(item.elC);
-        if (!pEl || !cEl) return;
-
-        const formatted = item.dec === 4
-          ? item.price.toFixed(4)
-          : item.price.toLocaleString('en-US', { minimumFractionDigits: item.dec, maximumFractionDigits: item.dec });
-        pEl.textContent = formatted;
-
-        pEl.style.transition = 'color 0.15s ease';
-        pEl.style.color = dir >= 0 ? '#34d399' : '#f87171';
-        setTimeout(() => { if (pEl) pEl.style.color = '#ffffff'; }, 260);
-
-        const pct = ((item.price - item.base) / item.base) * 100;
-        const sign = pct >= 0 ? '+' : '';
-        const arrow = pct >= 0 ? '▲' : '▼';
-        cEl.textContent = `${sign}${pct.toFixed(2)}% ${arrow}`;
-        cEl.className = pct >= 0 ? 'text-emerald-400 text-[11px] font-bold' : 'text-red-400 text-[11px] font-bold';
-      }
-
-      // Connect to live Binance WebSocket for real-time BTC/USD trades
-      try {
-        const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
-        ws.onmessage = (event) => {
-          const data = JSON.parse(event.data);
-          if (data && data.p) {
-            const newPrice = parseFloat(data.p);
-            const dir = newPrice >= state.btc.price ? 1 : -1;
-            state.btc.price = newPrice;
-            renderTick('btc', dir);
-          }
-        };
-      } catch (e) {}
-
-      // Sub-second CME orderflow tick engine (ticks every 450ms)
-      const keys = ['nq', 'es', 'gc', 'cl', 'eur'];
-      setInterval(() => {
-        const k = keys[Math.floor(Math.random() * keys.length)];
-        const item = state[k];
-        const ticks = (Math.random() > 0.48 ? 1 : -1) * (Math.floor(Math.random() * 3) + 1);
-        item.price = +(item.price + ticks * item.step).toFixed(item.dec);
-        renderTick(k, ticks);
-      }, 450);
     })();
 
+    function syncVaultBump() {
+      const on = document.getElementById('vault-bump').checked;
+      document.getElementById('vault-bump-status').textContent = on ? 'BUMP: ACTIVE (+$19)' : 'BUMP: OFF';
+      document.querySelectorAll('.v-checkout').forEach(a => {
+        const t = a.getAttribute('data-tier');
+        a.href = `/api/create-checkout-session?tier=${t}${on ? '&bump=true' : ''}`;
+      });
+    }
+
+    function downloadRiskCsv() {
+      const csv = [
+        "Account Size,Max Drawdown Buffer,Drawdown Type,Max Risk Per Trade (6%),Safe MNQ Micros (15pt SL),Daily Loss Kill-Switch (2 Losses),Survival Buffer (Trades)",
+        "$25000,$1500,Intraday Trailing,$90,3 MNQ,-$180,16.6",
+        "$50000,$2500,EOD Static,$150,5 MNQ,-$300,16.6",
+        "$100000,$3000,EOD Static,$180,6 MNQ,-$360,16.6",
+        "$150000,$4500,EOD Static,$270,9 MNQ,-$540,16.6",
+        "$300000,$7500,Whale Syndicate,$450,15 MNQ,-$900,16.6"
+      ].join("\n");
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'The_Funded_Bible_2_Trade_Prop_Saver.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   </script>
 </body>
 </html>
