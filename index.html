@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -126,11 +126,11 @@
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
         {
           "symbols": [
-            { "proName": "FOREXCOM:NSXUSD", "title": "NQ1! Nasdaq 100" },
-            { "proName": "FOREXCOM:SPXUSD", "title": "ES1! S&P 500" },
-            { "proName": "OANDA:XAUUSD", "title": "GC1! Gold Futures" },
-            { "proName": "TVC:USOIL", "title": "CL1! Crude Oil" },
-            { "proName": "FOREXCOM:US2000", "title": "RTY1! Russell 2000" },
+            { "proName": "FOREXCOM:NSXUSD", "title": "NQ Nasdaq 100" },
+            { "proName": "FOREXCOM:SPXUSD", "title": "ES S&P 500" },
+            { "proName": "OANDA:XAUUSD", "title": "GC Gold Futures" },
+            { "proName": "TVC:USOIL", "title": "CL Crude Oil" },
+            { "proName": "FOREXCOM:US2000", "title": "RTY Russell 2000" },
             { "proName": "BITSTAMP:BTCUSD", "title": "BTC/USD" }
           ],
           "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive", "colorTheme": "dark", "locale": "en"
@@ -223,11 +223,11 @@
           <h2 class="section-title">Live Futures Execution Desk</h2>
         </div>
         <div class="sym-btn-group" id="symbol-switcher">
-          <button class="sym-btn active" onclick="switchTerminalSymbol('FOREXCOM:NSXUSD', this)">NQ1! (Nasdaq 100)</button>
-          <button class="sym-btn" onclick="switchTerminalSymbol('FOREXCOM:SPXUSD', this)">ES1! (S&amp;P 500)</button>
-          <button class="sym-btn" onclick="switchTerminalSymbol('OANDA:XAUUSD', this)">GC1! (Gold)</button>
-          <button class="sym-btn" onclick="switchTerminalSymbol('TVC:USOIL', this)">CL1! (Crude Oil)</button>
-          <button class="sym-btn" onclick="switchTerminalSymbol('FOREXCOM:US2000', this)">RTY1! (Russell)</button>
+          <button class="sym-btn active" onclick="switchTerminalSymbol('FOREXCOM:NSXUSD', this)">NQ (Nasdaq 100)</button>
+          <button class="sym-btn" onclick="switchTerminalSymbol('FOREXCOM:SPXUSD', this)">ES (S&amp;P 500)</button>
+          <button class="sym-btn" onclick="switchTerminalSymbol('OANDA:XAUUSD', this)">GC (Gold)</button>
+          <button class="sym-btn" onclick="switchTerminalSymbol('TVC:USOIL', this)">CL (Crude Oil)</button>
+          <button class="sym-btn" onclick="switchTerminalSymbol('FOREXCOM:US2000', this)">RTY (Russell)</button>
         </div>
       </div>
       <div class="terminal-desk-grid">
@@ -330,13 +330,13 @@
       <div class="video-grid">
         <div class="video-card">
           <div class="video-frame-wrapper">
-            <iframe src="https://www.youtube.com/embed/21X5lGlDOfg" title="Live Institutional Desk Briefing" allowfullscreen loading="lazy"></iframe>
+            <div style="width:100%;height:100%;background:radial-gradient(circle at 20% 20%,rgba(16,185,129,0.18),#05080f 75%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center;font-family:var(--font-mono);"><div style="color:#10b981;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:8px;">● LIVE EXECUTION PROTOCOL #01</div><div style="color:#fff;font-size:18px;font-weight:800;margin-bottom:8px;font-family:var(--font-display);">09:30 EST NY Open Silver Bullet &amp; VWAP Reclaim</div><div style="color:#94a3b8;font-size:12px;max-width:420px;margin-bottom:16px;">Wait for 09:30–09:45 Judas sweep of pre-market high/low, confirm 5m FVG displacement + VWAP reclaim, execute 5 MNQ with 15pt hard SL.</div><a href="/api/create-checkout-session?tier=flash_9" data-base-tier="flash_9" class="checkout-btn btn-gold" style="padding:10px 18px;font-size:12px;">UNLOCK $9 NY OPEN BLUEPRINT →</a></div>
           </div>
           <div style="margin-top:12px;"><strong style="color:#fff;">NY Open Liquidity Sweep &amp; VWAP Reclaim Protocol</strong></div>
         </div>
         <div class="video-card">
           <div class="video-frame-wrapper">
-            <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Automated Risk Execution Stream" allowfullscreen loading="lazy"></iframe>
+            <div style="width:100%;height:100%;background:radial-gradient(circle at 80% 20%,rgba(245,158,11,0.18),#05080f 75%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center;font-family:var(--font-mono);"><div style="color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:8px;">● MULTI-ACCOUNT ARCHITECT #02</div><div style="color:#fff;font-size:18px;font-weight:800;margin-bottom:8px;font-family:var(--font-display);">20-Account Replikanto &amp; C# Auto-Flatten Sync</div><div style="color:#94a3b8;font-size:12px;max-width:420px;margin-bottom:16px;">Lock 40 base points across 10–20 linked PA/XFA accounts using 5 MNQ micro lots with automated NinjaScript daily loss kill-switches.</div><a href="/api/create-checkout-session?tier=risk_terminal_39" data-base-tier="risk_terminal_39" class="checkout-btn btn-gold" style="padding:10px 18px;font-size:12px;">DEPLOY $39 C# RISK SUITE ⚡</a></div>
           </div>
           <div style="margin-top:12px;"><strong style="color:#fff;">Scaling 5 MNQ to 20 Linked PA Accounts Automatically</strong></div>
         </div>
@@ -401,10 +401,10 @@
     }, 1000);
 
     const sweepEvents = [
-      { sym: "NQ1!", msg: "Bullish 5m FVG Displacement (+16.5 pts)", col: "#10b981" },
-      { sym: "ES1!", msg: "Session VWAP Reclaim + Institutional Bid Absorption", col: "#10b981" },
-      { sym: "GC1!", msg: "London High Liquidity Sweep — Stop Hunt Cleared", col: "#f59e0b" },
-      { sym: "NQ1!", msg: "Intraday Trailing Safe-Size Adjusted: 5 MNQ (15pt SL)", col: "#3b82f6" }
+      { sym: "NQ", msg: "Bullish 5m FVG Displacement (+16.5 pts)", col: "#10b981" },
+      { sym: "ES", msg: "Session VWAP Reclaim + Institutional Bid Absorption", col: "#10b981" },
+      { sym: "GC", msg: "London High Liquidity Sweep — Stop Hunt Cleared", col: "#f59e0b" },
+      { sym: "NQ", msg: "Intraday Trailing Safe-Size Adjusted: 5 MNQ (15pt SL)", col: "#3b82f6" }
     ];
     function pushOrderflowEvent() {
       const feed = document.getElementById('orderflow-feed');
@@ -803,5 +803,78 @@
 })();
 </script>
 <!-- TFB TICKER SYMBOL SANITIZER END -->
+<script>
+(function() {
+  // Exact Checkout Route Map matching every single tier and price on the page
+  const TIER_MAP = {
+    "1":    { tier: "tier_1",            price: 1,   name: "Kill-Zone & Genesis Pass ($1)" },
+    "5":    { tier: "tier_5",            price: 5,   name: "Prop Firm Rulebook Trap Sheet ($5)" },
+    "7":    { tier: "tier_7",            price: 7,   name: "Trailing Drawdown Shield ($7)" },
+    "9":    { tier: "flash_9",           price: 9,   name: "7-Day Combine Pass Blueprint ($9)" },
+    "11":   { tier: "tier_11",           price: 11,  name: "NY Opening Bell Killzone Checklist ($11)" },
+    "17":   { tier: "tier_17",           price: 17,  name: "14-Day Evaluation Pass Blueprint ($17)" },
+    "19":   { tier: "tier_19",           price: 19,  name: "Silver Bullet FVG Guide ($19)" },
+    "24":   { tier: "tier_24",           price: 24,  name: "Funded Payout Protection Protocol ($24)" },
+    "27":   { tier: "tier_27",           price: 27,  name: "Payout Withdrawal Playbook ($27)" },
+    "29":   { tier: "tier_29",           price: 29,  name: "Micro-to-Mini Scaling Matrix ($29)" },
+    "39":   { tier: "risk_terminal_39",  price: 39,  name: "Prop Risk Terminal & C# Suite ($39)" },
+    "49":   { tier: "tier_49",           price: 49,  name: "NT8 ATM & 20-Account Sync Pack ($49)" },
+    "67":   { tier: "tier_67",           price: 67,  name: "Prop Firm Audit & Payout Vault ($67)" },
+    "79":   { tier: "tier_79",           price: 79,  name: "Algorithmic C# Risk Guardrails ($79)" },
+    "99":   { tier: "tier_99",           price: 99,  name: "Core Operator Complete Edition ($99)" },
+    "197":  { tier: "standard_197",      price: 197, name: "The Funded Bible Scripture Manual ($197)" },
+    "397":  { tier: "whale_397",         price: 397, name: "Whale Scale 20-Account Syndicate Vault ($397)" }
+  };
+
+  function syncAllCheckoutButtons(bumpChecked) {
+    // Sync all order bump checkboxes on the page
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.checked = bumpChecked;
+    });
+
+    const statusEl = document.getElementById('bump-status');
+    if (statusEl) {
+      statusEl.textContent = bumpChecked ? 'BUMP: ACTIVE (+$19 TAX SHIELD)' : 'BUMP: OFF';
+      statusEl.style.color = bumpChecked ? '#10b981' : '#94a3b8';
+    }
+
+    // Match every checkout link on the page to its exact tier price & details
+    document.querySelectorAll('a').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const txt = (a.textContent || '').trim();
+
+      // Skip navigation or anchor links unless it is a direct buy button
+      if (href.startsWith('#') && !txt.includes('GET NINJASCRIPT') && !txt.includes('BLUEPRINT')) return;
+
+      // Check for price match in button text or card context
+      let matchedPrice = null;
+      const priceMatch = txt.match(/\$(397|197|99|79|67|49|39|29|27|24|19|17|11|9|7|5|1)\b/);
+      if (priceMatch && !txt.includes('$9+')) {
+        matchedPrice = priceMatch[1];
+      }
+
+      if (matchedPrice && TIER_MAP[matchedPrice]) {
+        const info = TIER_MAP[matchedPrice];
+        a.setAttribute('data-base-tier', info.tier);
+        a.classList.add('checkout-btn');
+        const finalPrice = bumpChecked ? (info.price + 19) : info.price;
+        a.href = `/api/create-checkout-session?tier=${info.tier}&amount=${finalPrice}${bumpChecked ? '&bump=true' : ''}`;
+      } else if (a.hasAttribute('data-base-tier')) {
+        const baseTier = a.getAttribute('data-base-tier');
+        a.href = `/api/create-checkout-session?tier=${baseTier}${bumpChecked ? '&bump=true' : ''}`;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', (e) => {
+        syncAllCheckoutButtons(e.target.checked);
+      });
+    });
+    syncAllCheckoutButtons(false);
+  });
+})();
+</script>
 </body>
 </html>
