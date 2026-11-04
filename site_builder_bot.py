@@ -51,7 +51,7 @@ def build_page(title, description, body_content, canonical_url):
         <p class="text-sm font-bold text-amber-400 uppercase tracking-wide">Stop Blowing Evaluations</p>
         <p class="text-xs text-slate-300">Automated Risk & Consistency Calculator (Google Sheet)</p>
       </div>
-      <a href="https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded text-sm transition">Get Access ($39)</a>
+      <a href="/api/create-checkout-session?tier=starter" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded text-sm transition">Get Access ($39)</a>
     </div>
   </div>
 
