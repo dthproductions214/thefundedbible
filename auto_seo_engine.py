@@ -139,6 +139,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </div>
 <script src="/tfb-closer-bot.js" defer></script>
+<script src="/tfb-flash-proof.js" defer></script>
 </body>
 </html>
 """
