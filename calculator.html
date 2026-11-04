@@ -355,5 +355,63 @@ function calc(){
     })();
 
   </script>
+
+<!-- TFB STICKY QUICK-BUY BAR START -->
+<div id="tfb-sticky-bar" class="fixed bottom-0 inset-x-0 z-[9990] bg-[#07080a]/95 backdrop-blur-xl border-t-2 border-amber-400/80 shadow-[0_-10px_35px_rgba(0,0,0,0.85)] transition-transform duration-300">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-2.5">
+    <div class="flex items-center gap-3 text-center md:text-left">
+      <span class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 animate-pulse">⚡ Instant Vault Unlock</span>
+      <div>
+        <p class="text-xs sm:text-sm font-black text-white uppercase tracking-tight">Stop Blowing Combines On Trailing Drawdown Traps <span class="text-amber-400">• Grab Your Armor In 1 Click:</span></p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto">
+      <a href="/api/create-checkout-session?tier=genesis-pass" class="flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-black px-3.5 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition whitespace-nowrap">
+        $1 Genesis Pass →
+      </a>
+      <a href="/api/create-checkout-session?tier=drawdown-survival" class="flex-1 sm:flex-initial bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-4 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition shadow-lg shadow-amber-500/20 whitespace-nowrap">
+        🔥 $9 Survival Guide →
+      </a>
+      <a href="/api/create-checkout-session?tier=risk-terminal" class="flex-1 sm:flex-initial bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-4 py-2 rounded-xl text-[11px] sm:text-xs uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/20 whitespace-nowrap">
+        ⚡ $39 Risk Terminal →
+      </a>
+      <button id="tfb-sticky-close" aria-label="Minimize bar" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-white/10 text-xs font-black flex items-center justify-center transition shrink-0">✕</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const bar = document.getElementById('tfb-sticky-bar');
+  const closeBtn = document.getElementById('tfb-sticky-close');
+  if (!bar) return;
+
+  // Add bottom padding to body so the sticky bar never covers footer links
+  document.body.style.paddingBottom = '76px';
+
+  // Sync with the $19 Order Bump checkbox if checked in session
+  try {
+    if (sessionStorage.getItem('tfb_order_bump') === '1') {
+      const links = bar.querySelectorAll('a[href*="/api/create-checkout-session"]');
+      links.forEach(function(a) {
+        const href = a.getAttribute('href');
+        if (href && href.indexOf('bump=') === -1) {
+          a.setAttribute('href', href + '&bump=true');
+        }
+      });
+    }
+  } catch(e) {}
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      bar.style.transform = 'translateY(110%)';
+      document.body.style.paddingBottom = '0px';
+    });
+  }
+})();
+</script>
+<!-- TFB STICKY QUICK-BUY BAR END -->
+
 </body>
 </html>
