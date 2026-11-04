@@ -110,5 +110,97 @@
       </div>
     </div>
   </main>
+<!-- STICKY BOTTOM QUICK-BUY & LEAD CAPTURE BAR -->
+<div id="tfb-sticky-bottom-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9995;background:rgba(4,6,10,0.96);border-top:1px solid rgba(245,158,11,0.4);padding:10px 20px;display:flex; flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;box-shadow:0 -10px 30px rgba(0,0,0,0.9);backdrop-filter:blur(10px);">
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;">
+    <span style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid #10b981;padding:3px 8px;border-radius:4px;font-weight:800;">FREE TOOL</span>
+    <span style="color:#f8fafc;font-weight:700;">Steal the "2-Trade Prop Saver" Risk Sheet (.CSV)</span>
+    <button onclick="openLeadModal()" style="background:#10b981;color:#000;border:none;padding:6px 12px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;cursor:pointer;">⬇ FREE .CSV DOWNLOAD</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 ✓';" style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fff;padding:6px 10px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;">CODE: BIBLE80 (80% OFF)</span>
+    <a href="/api/create-checkout-session?tier=flash_9" style="background:#111827;color:#fbbf24;border:1px solid #f59e0b;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$9 PASS BLUEPRINT</a>
+    <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE ⚡</a>
+  </div>
+</div>
+
+<!-- EXIT-INTENT & FREE .CSV LEAD CAPTURE MODAL -->
+<div id="tfb-lead-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(2,4,8,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
+  <div style="background:linear-gradient(165deg,#0d1322,#060911);border:1.5px solid #f59e0b;border-radius:16px;max-width:520px;width:100%;padding:32px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.95);font-family:'Plus Jakarta Sans',sans-serif;">
+    <button onclick="closeLeadModal()" style="position:absolute;top:14px;right:16px;background:transparent;border:none;color:#94a3b8;font-size:20px;cursor:pointer;font-family:'JetBrains Mono',monospace;">[X]</button>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#ef4444;font-weight:800;letter-spacing:0.8px;">⚠️ WAIT — DO NOT BLOW ANOTHER COMBINE</div>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:#fff;margin:8px 0 10px;line-height:1.15;">Steal The "2-Trade Prop Saver" Risk Sheet (.CSV) — 100% Free</h3>
+    <p style="color:#94a3b8;font-size:14px;margin-bottom:18px;line-height:1.55;">Prop firms engineer trailing drawdowns to liquidate emotional sizing. Enter your best email below for an <strong style="color:#fff;">instant .CSV download</strong> of our mechanical MNQ/MES lot-sizing matrix + daily loss kill-switch tracker:</p>
+    <form onsubmit="submitLeadCapture(event)" style="display:flex;flex-direction:column;gap:12px;">
+      <input type="email" id="tfb-lead-email" required placeholder="Enter your best trading email..." style="width:100%;padding:14px;border-radius:8px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;" />
+      <button type="submit" id="tfb-lead-btn" style="width:100%;padding:14px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:14px;cursor:pointer;">🔒 UNLOCK &amp; DOWNLOAD RISK SUITE (.CSV) NOW →</button>
+    </form>
+    <div id="tfb-lead-success" style="display:none;margin-top:14px;padding:12px;border-radius:8px;background:rgba(16,185,129,0.15);border:1px solid #10b981;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d1fae5;text-align:center;">
+      ✓ .CSV Downloaded! Want the full automated NinjaTrader 8 C# Risk Lockout Suite? <a href="/api/create-checkout-session?tier=flash_9" style="color:#fbbf24;font-weight:800;text-decoration:underline;">Grab the $9 Pass Blueprint here →</a>
+    </div>
+    <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748b;text-align:center;">🔒 Instant automated capture + immediate .CSV download. Zero spam.</div>
+  </div>
+</div>
+
+<script>
+  function triggerCsvDownload() {
+    const csvRows = [
+      "Account Size,Max Drawdown Buffer,Drawdown Type,Max Risk Per Trade (6%),Safe MNQ Micros (15pt SL),Daily Loss Kill-Switch (2 Losses),Survival Buffer (Trades)",
+      "$25000,$1500,Intraday Trailing,$90,3 MNQ,-$180,16.6",
+      "$50000,$2500,EOD Static,$150,5 MNQ,-$300,16.6",
+      "$100000,$3000,EOD Static,$180,6 MNQ,-$360,16.6",
+      "$150000,$4500,EOD Static,$270,9 MNQ,-$540,16.6",
+      "$300000,$7500,Whale Syndicate,$450,15 MNQ,-$900,16.6"
+    ].join("\n");
+    const blob = new Blob([csvRows], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.setAttribute('download', 'The_Funded_Bible_2_Trade_Prop_Saver.csv');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function openLeadModal() {
+    const m = document.getElementById('tfb-lead-modal');
+    if (m) m.style.display = 'flex';
+  }
+
+  function closeLeadModal() {
+    const m = document.getElementById('tfb-lead-modal');
+    if (m) m.style.display = 'none';
+    sessionStorage.setItem('tfb_exit_shown', '1');
+  }
+
+  async function submitLeadCapture(e) {
+    e.preventDefault();
+    const emailInput = document.getElementById('tfb-lead-email');
+    const email = emailInput ? emailInput.value.trim() : '';
+    if (!email) return;
+
+    localStorage.setItem('tfb_captured_lead', email);
+    try {
+      fetch('/api/capture-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: window.location.pathname, timestamp: new Date().toISOString() })
+      }).catch(() => {});
+    } catch (_) {}
+
+    triggerCsvDownload();
+    const s = document.getElementById('tfb-lead-success');
+    if (s) s.style.display = 'block';
+    sessionStorage.setItem('tfb_exit_shown', '1');
+  }
+
+  // Trigger Exit-Intent automatically once per session when mouse leaves top of viewport
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0 && !sessionStorage.getItem('tfb_exit_shown') && !localStorage.getItem('tfb_captured_lead')) {
+      sessionStorage.setItem('tfb_exit_shown', '1');
+      openLeadModal();
+    }
+  });
+</script>
 </body>
 </html>
