@@ -309,11 +309,28 @@
     if (!email) return;
 
     localStorage.setItem('tfb_captured_lead', email);
+    const payload = {
+      email: email,
+      source: window.location.pathname,
+      timestamp: new Date().toISOString()
+    };
     try {
       fetch('/api/capture-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, source: window.location.pathname, timestamp: new Date().toISOString() })
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+
+      fetch('https://formsubmit.co/ajax/dannydth87@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '🔥 NEW FUNDED BIBLE LEAD: ' + email,
+          _captcha: 'false',
+          Trader_Email: email,
+          Page_Source: window.location.href,
+          Lead_Magnet: '2-Trade Prop Saver Risk Sheet (.CSV)'
+        })
       }).catch(() => {});
     } catch (_) {}
 
