@@ -207,3 +207,49 @@
     }, 6400);
   }
 })();
+// 4. Interactive Mystery Vault Exit-Intent Upgrade Inside #tfb-lead-modal
+(function upgradeExitModalWithMysteryBox() {
+  const modal = document.getElementById('tfb-lead-modal');
+  if (!modal || document.getElementById('tfb-mystery-box-bar')) return;
+  const innerCard = modal.querySelector('div');
+  if (!innerCard) return;
+
+  const mysteryBar = document.createElement('div');
+  mysteryBar.id = 'tfb-mystery-box-bar';
+  mysteryBar.style.cssText = 'background:linear-gradient(90deg,rgba(245,158,11,0.18),rgba(16,185,129,0.18));border:1px dashed #fbbf24;border-radius:10px;padding:10px 14px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;';
+  mysteryBar.innerHTML = `
+    <div style="font-size:11px;color:#fff;">
+      🎁 <strong style="color:#fbbf24;">MYSTERY DESK BONUS:</strong> <span id="tfb-mystery-status">Tap to reveal your instant combine bonus</span>
+    </div>
+    <button type="button" id="tfb-spin-btn" style="background:#f59e0b;color:#000;border:none;padding:6px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:800;cursor:pointer;flex-shrink:0;">🎰 REVEAL BONUS</button>
+  `;
+  innerCard.insertBefore(mysteryBar, innerCard.firstChild.nextSibling);
+
+  const spinBtn = document.getElementById('tfb-spin-btn');
+  const statusEl = document.getElementById('tfb-mystery-status');
+  const leadBtn = document.getElementById('tfb-lead-btn');
+
+  if (spinBtn && statusEl) {
+    spinBtn.addEventListener('click', () => {
+      spinBtn.disabled = true;
+      spinBtn.textContent = 'ROLLING...';
+      const prizes = [
+        'UNLOCKED: Free .CSV + 80% OFF $9 Pass Blueprint!',
+        'JACKPOT: Free .CSV + $39 C# Kill-Switch VIP Access!',
+        'WINNER: Free .CSV + 20-Account Copier Cheat Sheet!'
+      ];
+      let ticks = 0;
+      const iv = setInterval(() => {
+        statusEl.textContent = prizes[ticks % prizes.length];
+        ticks++;
+        if (ticks > 8) {
+          clearInterval(iv);
+          statusEl.innerHTML = '<strong style="color:#10b981;">✓ JACKPOT: Free .CSV + $9 Blueprint Fast-Track Unlocked!</strong>';
+          spinBtn.textContent = 'CLAIM BELOW ↓';
+          spinBtn.style.background = '#10b981';
+          if (leadBtn) leadBtn.textContent = '🔒 CLAIM MYSTERY BONUS + DOWNLOAD .CSV NOW →';
+        }
+      }, 110);
+    });
+  }
+})();
