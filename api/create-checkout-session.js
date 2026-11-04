@@ -1,135 +1,128 @@
-import Stripe from 'stripe';
+﻿import Stripe from 'stripe';
 
 const CATALOG = {
-  genesis_pass: {
-    name: 'The $1 Genesis Pass — 2026 Prop Promo Vault',
+  tier_1: {
+    name: 'The $1 Genesis Pass (2026 Promo Vault)',
     description: 'Verified prop discount codes, hidden rules quick-sheet, and instant starter vault access.',
-    amount: 100,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+    amount: 100
   },
-  trap_sheet: {
-    name: 'Prop Firm Rulebook Trap Sheet',
-    description: 'Exposes hidden consistency rules, news restrictions, and payout blocks across Apex, Topstep, and Lucid.',
-    amount: 500,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  tier_5: {
+    name: 'Prop Firm Rulebook Trap Sheet ($5)',
+    description: 'Exposes hidden consistency rules, news restrictions, and payout blocks across Apex, Topstep & Lucid.',
+    amount: 500
   },
-  drawdown_survival: {
-    name: 'Intraday Trailing Drawdown Survival Guide',
-    description: 'Stop blowing evaluations when the equity watermark trails your unrealized intraday gains.',
-    amount: 900,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  tier_7: {
+    name: 'Intraday Trailing Drawdown Shield ($7)',
+    description: 'Mechanical defense guide to stop blowing combines on unrealized high-water mark trailing locks.',
+    amount: 700
   },
-  killzone_checklist: {
-    name: 'NQ / ES Opening Bell Killzone Checklist',
+  flash_9: {
+    name: '7-Day Combine Pass Blueprint ($9)',
+    description: 'Exact $50K & $100K Daily Lot-Sizing Sheet, Apex Intraday Trailing Defense Rules & 90-Min NY Open Checklist.',
+    amount: 900
+  },
+  tier_11: {
+    name: 'NQ / ES Opening Bell Killzone Checklist ($11)',
     description: 'Pre-market routine and liquidity checklist for the 9:30 AM EST New York open.',
-    amount: 1100,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+    amount: 1100
   },
-  eval_blueprint: {
-    name: 'The 14-Day Evaluation Pass Blueprint',
-    description: 'Step-by-step daily risk and contract-sizing schedule designed to clear a $50K or $100K combine.',
-    amount: 1700,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  tier_17: {
+    name: 'The 14-Day Evaluation Pass Blueprint ($17)',
+    description: 'Step-by-step daily risk and contract-sizing schedule designed to clear a $50K or $100K combine cleanly.',
+    amount: 1700
   },
-  payout_protocol: {
-    name: 'Funded Payout Protection Protocol',
-    description: 'Build your initial buffer on a fresh PA/funded account and lock in your first withdrawal.',
-    amount: 2400,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  tier_19: {
+    name: 'Silver Bullet & FVG Execution Guide ($19)',
+    description: '10:00-11:00 AM EST NY session liquidity sweep & Fair Value Gap mechanical entry playbook.',
+    amount: 1900
   },
-  scaling_matrix: {
-    name: 'Micro-to-Mini Scaling Matrix',
+  tier_24: {
+    name: 'Funded Payout Protection Protocol ($24)',
+    description: 'Build your initial buffer on a fresh PA/funded account and lock in your first withdrawal without tilting.',
+    amount: 2400
+  },
+  tier_27: {
+    name: 'First Payout Withdrawal Playbook ($27)',
+    description: 'Step-by-step buffer lock and payout request schedule for funded PA & XFA accounts.',
+    amount: 2700
+  },
+  tier_29: {
+    name: 'Micro-to-Mini Scaling Matrix ($29)',
     description: 'Dynamic position-sizing calculator showing when to graduate from MNQ/MES to full NQ/ES contracts.',
-    amount: 2900,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+    amount: 2900
   },
-  starter: {
-    name: 'The Risk Terminal & Starter Scripture',
-    description: 'Flagship starter bundle: live drawdown calculator, quant directory, and survival blueprint.',
-    amount: 3900,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  risk_terminal_39: {
+    name: 'The Trench Starter & C# Risk Suite ($39)',
+    description: 'Unbreakable Risk Mitigation Sheet (.CSV/Excel), NinjaScript Auto-Flatten 2-Loss Daily Kill-Switch & 20-Account Copy-Trade Risk Calculator.',
+    amount: 3900
   },
-  copy_sync: {
-    name: '20-Account Copy Trading & Sync Playbook',
+  tier_49: {
+    name: '20-Account Copy Trading & Sync Playbook ($49)',
     description: 'Complete setup guide for syncing multiple funded accounts across NinjaTrader, Tradovate, and Rithmic.',
-    amount: 4900,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
+    amount: 4900
   },
-  payout_vault: {
-    name: 'Prop Firm Audit & Payout Blacklist Vault',
+  tier_67: {
+    name: 'Prop Firm Audit & Payout Blacklist Vault ($67)',
     description: 'Data-backed breakdown of which firms pay in 15 minutes versus which deny payouts on technicalities.',
-    amount: 6700,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
+    amount: 6700
   },
-  algo_guardrails: {
-    name: 'Algorithmic Execution & C# Risk Guardrails',
+  tier_79: {
+    name: 'Algorithmic Execution & C# Risk Guardrails ($79)',
     description: 'Automated daily loss limit locks and scripts that shut the platform down before you revenge trade.',
-    amount: 7900,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
+    amount: 7900
   },
-  core_operator: {
-    name: 'The Funded Bible: Core Operator Edition',
-    description: 'All 11 checklists, calculators, and evaluation playbooks combined in one vault.',
-    amount: 9900,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
+  tier_99: {
+    name: 'The Funded Bible: Core Operator Edition ($99)',
+    description: 'Every checklist, calculator, and evaluation playbook ($1-$79) bundled in one complete vault.',
+    amount: 9900
   },
-  starter_bailout: {
-    name: 'The Trench Starter — 30% Off Bailout Ticket (BAILOUT30)',
-    description: 'Instant download: Unbreakable Risk Mitigation Sheet + NY Session Kill-Switch Tracker',
-    amount: 2700,
-    fallback: 'https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03'
+  standard_197: {
+    name: 'Standard Scripture Master Manual ($197 Lifetime)',
+    description: 'Complete Institutional Playbook, Trailing vs. EOD Drawdown Defense System, All NinjaScript Indicators & Full 12-Tier Arsenal Included.',
+    amount: 19700
   },
-  standard: {
-    name: 'Standard Scripture — Lifetime Master Manual & Risk Suite',
-    description: 'Complete 28-Page Funded Bible Playbook, Multi-Account Pod Blueprint + $39 Risk Terminal Included',
-    amount: 19700,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
-  },
-  standard_bailout: {
-    name: 'Standard Scripture — 30% Off Bailout Ticket (BAILOUT30)',
-    description: 'Lifetime Standard Scripture Manual + Risk Terminal Suite (30% Off Special)',
-    amount: 13700,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
-  },
-  standard_monthly: {
-    name: 'Standard Scripture — Pro Desk Access',
-    description: 'Complete Funded Bible Playbook, Drawdown Defense & Discord Community Access',
-    amount: 9700,
-    fallback: 'https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05'
-  },
-  whale: {
-    name: 'Scale Mastermind Whale Suite — Lifetime Dossier',
-    description: 'Complete 50-Page Fleet Operations Dossier, 20-Account Copy-Trading Blueprint & Direct 1-on-1 Audit',
-    amount: 39700,
-    fallback: 'https://buy.stripe.com/bJedR9cn7c7egKjaZB3gk06'
+  whale_397: {
+    name: 'Whale Scale Mastermind Vault ($397 Lifetime)',
+    description: '$1.2M Multi-Account Copy-Trading Blueprint (20 Accounts), Custom Bot & C# Execution Templates, VIP War Room & Every Playbook/Tax Guide Included.',
+    amount: 39700
   }
 };
 
-const ALIAS_MAP = {
-  'genesis-pass': 'genesis_pass', '1': 'genesis_pass',
-  'trap-sheet': 'trap_sheet', '5': 'trap_sheet',
-  'drawdown-survival': 'drawdown_survival', '9': 'drawdown_survival',
-  'killzone-checklist': 'killzone_checklist', '11': 'killzone_checklist',
-  'eval-blueprint': 'eval_blueprint', '17': 'eval_blueprint',
-  'payout-protocol': 'payout_protocol', '24': 'payout_protocol',
-  'scaling-matrix': 'scaling_matrix', '29': 'scaling_matrix',
-  'risk-terminal': 'starter', '39': 'starter',
-  'copy-sync': 'copy_sync', '49': 'copy_sync',
-  'payout-vault': 'payout_vault', '67': 'payout_vault',
-  'algo-guardrails': 'algo_guardrails', '79': 'algo_guardrails',
-  'core-operator': 'core_operator', '99': 'core_operator'
-};
+function resolveTierKey(raw, rawAmount) {
+  const s = String(raw || '').toLowerCase().trim();
+  const amt = parseInt(rawAmount, 10);
 
-function resolveTierKey(rawTier) {
-  const t = String(rawTier || 'starter').toLowerCase().trim();
-  if (CATALOG[t]) return t;
-  if (ALIAS_MAP[t]) return ALIAS_MAP[t];
-  if (t.includes('whale') || t.includes('mastermind') || t.includes('397')) return 'whale';
-  if (t.includes('137') || (t.includes('standard') && t.includes('bailout'))) return 'standard_bailout';
-  if (t.includes('97') && !t.includes('197') && !t.includes('397')) return 'standard_monthly';
-  if (t.includes('standard') || t.includes('scripture') || t.includes('197')) return 'standard';
-  if (t.includes('27') || t.includes('bailout')) return 'starter_bailout';
-  return 'starter';
+  if (CATALOG[s]) return s;
+
+  // Match by explicit slug aliases
+  if (s.includes('397') || s.includes('whale') || s.includes('mastermind') || s === 'tier_3') return 'whale_397';
+  if (s.includes('197') || s.includes('standard') || s.includes('scripture') || s === 'tier_2') return 'standard_197';
+  if (s.includes('99') || s.includes('core-operator') || s.includes('core_operator')) return 'tier_99';
+  if (s.includes('79') || s.includes('algo-guardrails') || s.includes('guardrail')) return 'tier_79';
+  if (s.includes('67') || s.includes('payout-vault') || s.includes('blacklist')) return 'tier_67';
+  if (s.includes('49') || s.includes('copy-sync') || s.includes('copier')) return 'tier_49';
+  if (s.includes('39') || s.includes('starter') || s.includes('terminal') || s === 'tier_1_anchor') return 'risk_terminal_39';
+  if (s.includes('29') || s.includes('scaling-matrix')) return 'tier_29';
+  if (s.includes('27')) return 'tier_27';
+  if (s.includes('24') || s.includes('payout-protocol')) return 'tier_24';
+  if (s.includes('19') || s.includes('silver')) return 'tier_19';
+  if (s.includes('17') || s.includes('eval-blueprint')) return 'tier_17';
+  if (s.includes('11') || s.includes('killzone')) return 'tier_11';
+  if (s.includes('9') || s.includes('flash') || s.includes('drawdown-survival') || s.includes('blueprint')) return 'flash_9';
+  if (s.includes('7') || s.includes('shield')) return 'tier_7';
+  if (s.includes('5') || s.includes('trap-sheet')) return 'tier_5';
+  if (s.includes('1') || s.includes('genesis')) return 'tier_1';
+
+  // Fallback match by dollar amount if passed
+  const byAmount = {
+    1: 'tier_1', 5: 'tier_5', 7: 'tier_7', 9: 'flash_9', 11: 'tier_11',
+    17: 'tier_17', 19: 'tier_19', 24: 'tier_24', 27: 'tier_27', 29: 'tier_29',
+    39: 'risk_terminal_39', 49: 'tier_49', 67: 'tier_67', 79: 'tier_79',
+    99: 'tier_99', 197: 'standard_197', 397: 'whale_397'
+  };
+  if (byAmount[amt]) return byAmount[amt];
+
+  return 'risk_terminal_39';
 }
 
 export default async function handler(req, res) {
@@ -141,12 +134,17 @@ export default async function handler(req, res) {
       body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     } catch (_) {}
 
-    const rawTier = query.tier || body.tier || query.plan || body.plan || 'starter';
-    const includeBump = (query.bump === 'true' || query.bump === '1' || body.bump === true || body.orderBump === true);
+    const rawTier = query.tier || body.tier || query.plan || body.plan || '';
+    const rawAmount = query.amount || body.amount || '';
+    const includeBump = (
+      query.bump === 'true' ||
+      query.bump === '1' ||
+      body.bump === true ||
+      body.orderBump === true
+    );
 
-    const selectedKey = resolveTierKey(rawTier);
-    const item = CATALOG[selectedKey] || CATALOG.starter;
-    fallbackUrl = item.fallback || fallbackUrl;
+    const selectedKey = resolveTierKey(rawTier, rawAmount);
+    const item = CATALOG[selectedKey] || CATALOG.risk_terminal_39;
 
     const secretKey = (process.env.STRIPE_SECRET_KEY || process.env.STRIPE_API_KEY || '').trim();
     const proto = (req.headers && req.headers['x-forwarded-proto']) || 'https';
@@ -159,7 +157,10 @@ export default async function handler(req, res) {
         {
           price_data: {
             currency: 'usd',
-            product_data: { name: item.name, description: item.description },
+            product_data: {
+              name: item.name,
+              description: item.description
+            },
             unit_amount: item.amount
           },
           quantity: 1
@@ -171,8 +172,8 @@ export default async function handler(req, res) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Order Bump: Prop Firm Payout & Tax Loophole Guide + 5 Cheat Sheets',
-              description: 'Add-on digital bundle'
+              name: 'Order Bump: Prop Firm LLC Payout & 1099 Tax Shield + 5 Drawdown Cheat Sheets',
+              description: 'Instant Add-On Bundle: LLC/S-Corp tax deduction blueprint + 5 rapid prop desk rule cheat sheets.'
             },
             unit_amount: 1900
           },
@@ -185,7 +186,7 @@ export default async function handler(req, res) {
         mode: 'payment',
         line_items: lineItems,
         success_url: `${origin}/vault.html?unlocked=${selectedKey}&bump=${includeBump ? '1' : '0'}&session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${origin}/vault.html`
+        cancel_url: `${origin}/#pricing`
       });
 
       if (session && session.url) {
