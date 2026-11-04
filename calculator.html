@@ -231,8 +231,13 @@
       <input type="email" id="tfb-lead-email" required placeholder="Enter your best trading email..." style="width:100%;padding:14px;border-radius:8px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;" />
       <button type="submit" id="tfb-lead-btn" style="width:100%;padding:14px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:14px;cursor:pointer;">🔒 UNLOCK &amp; DOWNLOAD RISK SUITE (.CSV) NOW →</button>
     </form>
-    <div id="tfb-lead-success" style="display:none;margin-top:14px;padding:12px;border-radius:8px;background:rgba(16,185,129,0.15);border:1px solid #10b981;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d1fae5;text-align:center;">
-      ✓ .CSV Downloaded! Want the full automated NinjaTrader 8 C# Risk Lockout Suite? <a href="/api/create-checkout-session?tier=flash_9" style="color:#fbbf24;font-weight:800;text-decoration:underline;">Grab the $9 Pass Blueprint here →</a>
+    <div id="tfb-lead-success" style="display:none;margin-top:16px;padding:18px;border-radius:12px;background:rgba(16,185,129,0.12);border:1.5px solid #10b981;font-family:'JetBrains Mono',monospace;text-align:center;">
+      <div style="color:#10b981;font-size:12px;font-weight:800;margin-bottom:6px;">✓ .CSV DOWNLOADED &amp; WELCOME PLAYBOOK SENT TO YOUR INBOX!</div>
+      <div style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;margin-bottom:12px;">WAIT — UNLOCK YOUR ONE-TIME TRADER UPGRADE:</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="/api/create-checkout-session?tier=flash_9" style="display:block;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:12px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">⚡ STEP 1: GET THE 7-DAY PASS BLUEPRINT ($9) →</a>
+        <a href="/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#0b101b;border:1px solid #f59e0b;color:#fbbf24;padding:12px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;">🔥 STEP 2: DEPLOY THE NT8 C# RISK LOCKOUT SUITE ($39) →</a>
+      </div>
     </div>
     <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748b;text-align:center;">🔒 Instant automated capture + immediate .CSV download. Zero spam.</div>
   </div>
@@ -294,7 +299,7 @@
         body: JSON.stringify({
           _subject: '🔥 NEW FUNDED BIBLE LEAD: ' + email,
           _captcha: 'false',
-          Trader_Email: email,
+          email: email, _replyto: email, _autoresponse: 'Your 2-Trade Prop Saver (.CSV) is unlocked! 1) Get the  7-Day Combine Pass Blueprint: https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9  2) Deploy the  NT8 C# Risk Suite: https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39  3) Use code BIBLE80 for 80% off evaluations at https://www.thefundedbible.com/firms.html', Trader_Email: email,
           Page_Source: window.location.href,
           Lead_Magnet: '2-Trade Prop Saver Risk Sheet (.CSV)'
         })
