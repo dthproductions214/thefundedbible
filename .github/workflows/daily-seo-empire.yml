@@ -24,7 +24,9 @@ jobs:
           python-version: '3.11'
 
       - name: Execute Programmatic SEO Generator
-        run: python auto_seo_engine.py
+        run: |
+          python auto_seo_engine.py
+          python generate_viral_hooks.py
 
       - name: Commit & Push New SEO Pages to Main (Triggers Vercel Live Deploy)
         run: |
