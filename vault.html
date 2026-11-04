@@ -909,5 +909,42 @@ $1.2M MULTI-FIRM FLEET ALLOCATION & REPLIKANTO COPY-TRADING ARCHITECTURE
 })();
 </script>
 <!-- TFB TICKER SYMBOL SANITIZER END -->
+
+<!-- TFB OTO UPSELL MODAL START -->
+<div id="tfb-oto-modal" class="fixed inset-0 z-[99999] hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+  <div class="bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-amber-400 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative">
+    <div class="text-center">
+      <span class="text-[10px] font-black uppercase tracking-widest px-3.5 py-1 rounded-full bg-amber-400 text-slate-950">⚡ Special One-Time Offer (OTO)</span>
+      <h3 class="text-2xl sm:text-3xl font-black text-white uppercase mt-3">Upgrade to the Core Operator Edition ($99)</h3>
+      <p class="text-xs sm:text-sm text-slate-300 mt-2">You just unlocked your starter guide. Before you leave, add all 11 playbooks, the 20-account copy-trading guide, and C# risk locks for a special member discount.</p>
+    </div>
+    <div class="bg-slate-950/90 border border-white/10 rounded-2xl p-5 my-6 space-y-2 text-xs text-slate-300">
+      <div>✓ All 11 Tactical Prop Playbooks Included ($330 value)</div>
+      <div>✓ Automated C# NinjaScript Daily Loss Lockout Code</div>
+      <div>✓ 20-Account Copy-Trading Pod Architecture Guide</div>
+    </div>
+    <div class="space-y-3">
+      <a href="/api/create-checkout-session?tier=core-operator" class="block w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-4 rounded-xl text-center text-xs uppercase tracking-wider transition shadow-lg">Yes! Upgrade My Vault Access For $99 →</a>
+      <button type="button" onclick="document.getElementById('tfb-oto-modal').classList.add('hidden')" class="block w-full bg-transparent hover:bg-white/5 text-slate-400 font-bold py-2.5 rounded-xl text-center text-xs uppercase transition">No thanks, I'll stick to my single guide</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const unlocked = urlParams.get('unlocked');
+  if (unlocked && unlocked !== 'core_operator' && unlocked !== 'whale' && unlocked !== 'standard') {
+    setTimeout(function() {
+      const modal = document.getElementById('tfb-oto-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }, 1500);
+  }
+})();
+</script>
+<!-- TFB OTO UPSELL MODAL END -->
+
 </body>
 </html>
