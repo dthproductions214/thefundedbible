@@ -355,5 +355,28 @@
 </script>
 <script src="/tfb-closer-bot.js" defer></script>
 <script src="/tfb-flash-proof.js" defer></script>
+<!-- TFB TICKER SYMBOL SANITIZER START -->
+<script>
+(function() {
+  function scrub(root) {
+    if (!root) return;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    let n;
+    while ((n = w.nextNode())) {
+      const p = n.parentNode && n.parentNode.tagName;
+      if (p === 'SCRIPT' || p === 'STYLE') continue;
+      if (n.nodeValue && n.nodeValue.indexOf('!') !== -1) {
+        n.nodeValue = n.nodeValue
+          .replace(/\b(M?NQ|M?ES|M?GC|M?CL|RTY|YM)1!/g, '$1')
+          .replace(/\b(M?NQ|M?ES|M?GC|M?CL|RTY|YM)!/g, '$1');
+      }
+    }
+  }
+  scrub(document.body);
+  document.addEventListener('DOMContentLoaded', function() { scrub(document.body); });
+  setTimeout(function() { scrub(document.body); }, 900);
+})();
+</script>
+<!-- TFB TICKER SYMBOL SANITIZER END -->
 </body>
 </html>
