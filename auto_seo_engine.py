@@ -219,7 +219,7 @@ def build_all_seo_pages():
     sitemap_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sitemap_lines.append(f"  <url><loc>{SITE_URL}/</loc><lastmod>{TODAY}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>")
     for f in all_html:
-        if f == "index.html":
+        if f in ["index.html", "admin.html", "viral.html"]:
             continue
         prio = "0.9" if f in ["firms.html", "calculator.html", "briefings.html", "vault.html"] else "0.8"
         sitemap_lines.append(f"  <url><loc>{SITE_URL}/{f}</loc><lastmod>{TODAY}</lastmod><changefreq>daily</changefreq><priority>{prio}</priority></url>")
