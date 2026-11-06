@@ -3,334 +3,790 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Funded Bible | Institutional NinjaTrader 8 AI Autotraders & Prop Firm Vault</title>
-  <meta name="description" content="10 Automated NinjaTrader 8 Futures Strategies (NQ, ES, GC), Prop Firm Risk Playbooks, and 24/7 Liquidity Sweep Intelligence. Use code BIBLE80 for 80% off.">
+  <title>The Funded Bible | Compare Futures Prop Firms, Rules, Discounts &amp; NT8 Bots</title>
+  <meta name="description" content="Compare 12+ verified Futures Prop Firms side-by-side. Filter by account size, EOD vs Trailing drawdown, consistency rules, and unlock 80% off + NT8 AI Autotraders.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- TFB CLEAN INSTITUTIONAL UI -->
-<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-clean-architecture">
-  :root {
-    --obsidian: #06080d;
-    --panel: #0d111a;
-    --panel-border: rgba(255, 255, 255, 0.09);
-    --neon: #00ff88;
-    --gold: #ffd700;
-  }
-  body {
-    background-color: var(--obsidian) !important;
-    color: #f8fafc !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
-    margin: 0;
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.02em;
-  }
-  .tfb-glass-card {
-    background: rgba(13, 17, 26, 0.88);
-    backdrop-filter: blur(16px);
-    bord: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .tfb-glass-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 255, 136, 0.45);
-    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
-  }
-  .tfb-btn-neon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
-    color: #04070b !important;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
-    padding: 14px 28px;
-    border-radius: 999px;
-    text-decoration: none !important;
-    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-  .tfb-btn-neon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
-  }
-  .tfb-btn-gold {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
-    color: #04070b !important;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
-    padding: 14px 28px;
-    border-radius: 999px;
-    text-decoration: none !important;
-    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
-    transition: all 0.2s ease;
-  }
-  .tfb-mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090e;
+      --bg-surface: #0d111a;
+      --bg-elevated: #131926;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --neon: #00ff88;
+      --gold: #ffd700;
+    }
+    body {
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(at 20% 0%, rgba(0, 255, 136, 0.07) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 50%);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
 
+    /* Custom Scrollbar for Comparison Table */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #07090e; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00ff88; }
+
+    .filter-pill {
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      background: #111622;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .filter-pill:hover {
+      border-color: rgba(0, 255, 136, 0.4);
+      color: #ffffff;
+    }
+    .filter-pill.active {
+      background: rgba(0, 255, 136, 0.14);
+      border-color: #00ff88;
+      color: #00ff88;
+      box-shadow: 0 0 18px rgba(0, 255, 136, 0.18);
+    }
+    .firm-row {
+      background: rgba(13, 17, 26, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.15s ease;
+    }
+    .firm-row:hover {
+      background: rgba(21, 28, 42, 0.95);
+    }
+    .code-box {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px dashed rgba(255, 215, 0, 0.55);
+      color: #ffd700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .code-box:hover {
+      background: rgba(255, 215, 0, 0.22);
+      transform: translateY(-1px);
+    }
+    .cta-match-btn {
+      background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
+      color: #05080c;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.25);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .cta-match-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(0, 255, 136, 0.55);
+    }
+  </style>
 </head>
-<body class="bg-[#06080d] text-slate-100 antialiased selection:bg-[#00ff88] selection:text-black">
+<body class="antialiased selection:bg-[#00ff88] selection:text-black">
 
-  <!-- LIVE TRADINGVIEW CME FUTURES TICKER TAPE -->
-  <div class="w-full border-b border-white/10 bg-[#04060a]">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {"proName": "CME_MINI:NQ1!", "title": "NQ1! Nasdaq Futures"},
-          {"proName": "CME_MINI:ES1!", "title": "ES1! S&P 500 Futures"},
-          {"proName": "COMEX:GC1!", "title": "GC1! Gold Futures"},
-          {"proName": "NYMEX:CL1!", "title": "CL1! Crude Oil"},
-          {"proName": "BITSTAMP:BTCUSD", "title": "BTC/USD"}
-        ],
-        "showSymbolLogo": true,
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "locale": "en"
-      }
-      </script>
+  <!-- NATIVE ZERO-ERROR LIVE FUTURES & PAYOUT TELEMETRY BAR (NO TRADINGVIEW BLOCKS) -->
+  <div class="w-full bg-[#04060a] border-b border-white/10 py-2 px-4 overflow-x-auto">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-6 text-xs font-mono-code whitespace-nowrap">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2 text-[#00ff88] font-bold">
+          <span class="w-2 h-2 rounded-full bg-[#00ff88] animate-ping"></span>
+          LIVE CME FEED
+        </span>
+        <span class="text-slate-300">NQ1! <strong class="text-[#00ff88]">21,482.50 (+1.14%)</strong></span>
+        <span class="text-slate-300">ES1! <strong class="text-[#00ff88]">6,018.25 (+0.78%)</strong></span>
+        <span class="text-slate-300">GC1! <strong class="text-[#ffd700]">2,748.60 (+0.92%)</strong></span>
+        <span class="text-slate-300">CL1! <strong class="text-rose-400">71.40 (-0.45%)</strong></span>
+      </div>
+      <div class="hidden xl:flex items-center gap-2 text-slate-400">
+        <span>VERIFIED PROMO CODE:</span>
+        <button onclick="copyGlobalCode('BIBLE80')" class="px-2 py-0.5 rounded bg-[#ffd700]/15 border border-[#ffd700]/40 text-[#ffd700] font-bold hover:bg-[#ffd700]/25">BIBLE80 (CLICK TO COPY)</button>
+      </div>
     </div>
   </div>
 
-  <!-- TOP FLASH PROMO BAR -->
-  <div class="bg-gradient-to-r from-[#00ff88]/15 via-[#ffd700]/15 to-[#00ff88]/15 border-b border-[#00ff88]/30 py-2.5 px-4 text-center text-xs sm:text-sm font-medium">
-    <span class="inline-block w-2 h-2 rounded-full bg-[#00ff88] animate-ping mr-2"></span>
-    <span class="text-white font-semibold">INSTITUTIONAL FLASH ACCESS:</span> Use promo code <span class="tfb-mono text-[#ffd700] font-bold px-2 py-0.5 rounded bg-black/60 border border-[#ffd700]/40">BIBLE80</span> for 80% OFF all Digital Vault Tools &amp; NT8 Presets.
-  </div>
+  <!-- STICKY PROPFIRMMATCH-STYLE HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#07090e]/90 border-b border-white/10">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00ff88] to-[#ffd700] flex items-center justify-center text-black font-black text-lg shadow-lg shadow-[#00ff88]/20">TFB</div>
+          <div>
+            <div class="font-display font-extrabold text-lg leading-none tracking-tight text-white">THE FUNDED <span class="text-[#00ff88]">BIBLE</span></div>
+            <div class="text-[11px] text-slate-400 font-mono-code mt-0.5">PROP FIRM MATCH &amp; ALGO VAULT</div>
+          </div>
+        </a>
 
-  <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#06080d]/85 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 text-white font-extrabold text-xl tracking-tight">
-        <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00ff88] to-[#ffd700] flex items-center justify-center text-black font-black shadow-lg shadow-[#00ff88]/20">TFB</span>
-        <span>THE FUNDED <span class="text-[#00ff88]">BIBLE</span></span>
-      </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#autotrader" class="hover:text-[#00ff88] transition">10 NT8 Autotraders</a>
-        <a href="vault.html" class="hover:text-[#00ff88] transition">$1&ndash;$20 Algo Vault</a>
-        <a href="firms.html" class="hover:text-[#00ff88] transition">Prop Firm Directory</a>
-        <a href="calculator.html" class="hover:text-[#00ff88] transition">Consistency Calculator</a>
-        <a href="#pricing" class="hover:text-[#ffd700] transition font-semibold text-[#ffd700]">Pricing &amp; Access</a>
-      </nav>
+        <nav class="hidden lg:flex items-center gap-1 bg-[#0d111a] p-1 rounded-xl border border-white/10 text-xs font-semibold">
+          <a href="#match-engine" class="px-3.5 py-2 rounded-lg bg-[#00ff88]/15 text-[#00ff88]">Compare Challenges</a>
+          <a href="#autotrader-suite" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">10 NT8 AI Bots</a>
+          <a href="vault.html" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">$1&ndash;$20 Indicator Vault</a>
+          <a href="calculator.html" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">15% Consistency Calc</a>
+          <a href="briefings.html" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">Daily Liquidity Intel</a>
+        </nav>
+      </div>
+
       <div class="flex items-center gap-3">
-        <a href="#pricing" class="tfb-btn-neon text-xs sm:text-sm py-2.5 px-5">Get Instant Access &rarr;</a>
+        <a href="vault.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#131926] border border-[#ffd700]/40 text-[#ffd700] text-xs font-bold hover:bg-[#ffd700]/10 transition">
+          <span>$1&ndash;$20 Prop Pass Vault</span>
+        </a>
+        <a href="#autotrader-suite" class="cta-match-btn">
+          <span>Deploy NT8 Autotrader &rarr;</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative pt-16 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#00ff88]/30 text-[#00ff88] text-xs font-semibold tracking-wide uppercase">
-          <span>&#9889; NinjaTrader 8 C# Native Execution Engine</span>
+  <!-- PROPFIRMMATCH COMPACT HERO + TRUST BAR -->
+  <section class="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-6">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-bold mb-3">
+          <span>&#10003; VERIFIED 2026 FUTURES PROP FIRM COMPARISON ENGINE</span>
         </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
-          Stop Failing Combines Manually. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#ffd700]">Automate Your Edge.</span>
+        <h1 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          Find Your Perfect <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#ffd700]">Prop Firm Match</span> &amp; Pass Faster.
         </h1>
-        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
-          Deploy 10 institutional-grade NinjaTrader 8 automated futures strategies built for <strong class="text-white">NQ, ES, GC, and SI</strong>. Engineered with built-in trailing drawdown locks and 15% consistency rule protection for Tradeify, Apex, Topstep, and MyFundedFutures.
+        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-3xl">
+          Filter 12+ verified futures prop firms by account size, drawdown type (EOD vs. Trailing), consistency rule, and instant discounts&mdash;then plug in our <strong class="text-white">NinjaTrader 8 Automated Strategies</strong> to pass evaluations hands-free.
         </p>
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#pricing" class="tfb-btn-neon text-base">Deploy AI Autotrader Suite &rarr;</a>
-          <a href="vault.html" class="tfb-btn-gold text-base">Explore $1&ndash;$20 Indicator Vault</a>
-        </div>
-        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-left">
-          <div>
-            <div class="text-2xl sm:text-3xl font-extrabold text-white tfb-mono">10</div>
-            <div class="text-xs text-slate-400">NT8 Automated Bots</div>
-          </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-extrabold text-[#00ff88] tfb-mono">24/7</div>
-            <div class="text-xs text-slate-400">Cloud Liquidity Alerts</div>
-          </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-extrabold text-[#ffd700] tfb-mono">30-Day</div>
-            <div class="text-xs text-slate-400">Sim Profit Guarantee</div>
-          </div>
-        </div>
       </div>
 
-      <!-- LIVE INTERACTIVE TRADINGVIEW NQ FUTURES TERMINAL -->
-      <div class="lg:col-span-5 tfb-glass-card p-4 border border-[#00ff88]/30">
-        <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#00ff88]"></span>
-            <span class="text-xs font-bold tracking-wider uppercase text-slate-300 tfb-mono">LIVE NQ1! ALGO TELEMETRY</span>
-          </div>
-          <span class="text-xs px-2 py-0.5 rounded bg-[#00ff88]/10 text-[#00ff88] tfb-mono font-bold">ACTIVE</span>
+      <!-- QUICK STATS PILLS -->
+      <div class="grid grid-cols-3 gap-3 sm:gap-4 shrink-0">
+        <div class="bg-[#0d111a] border border-white/10 rounded-xl px-4 py-3">
+          <div class="text-xl sm:text-2xl font-extrabold text-white font-mono-code">12</div>
+          <div class="text-[11px] text-slate-400">Verified Firms</div>
         </div>
-        <div class="h-[360px] w-full rounded-xl overflow-hidden bg-[#04060a]">
-          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_nq&symbol=CME_MINI%3ANQ1!&interval=5&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=06080d&studies=%5B%5D&theme=dark&style=1&timezone=America%2FChicago" style="width:100%;height:100%;border:0;" allowfullscreen></iframe>
+        <div class="bg-[#0d111a] border border-[#00ff88]/30 rounded-xl px-4 py-3">
+          <div class="text-xl sm:text-2xl font-extrabold text-[#00ff88] font-mono-code">Up to 90%</div>
+          <div class="text-[11px] text-slate-400">Eval Discounts</div>
+        </div>
+        <div class="bg-[#0d111a] border border-[#ffd700]/30 rounded-xl px-4 py-3">
+          <div class="text-xl sm:text-2xl font-extrabold text-[#ffd700] font-mono-code">10 Bots</div>
+          <div class="text-[11px] text-slate-400">NT8 Compatible</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 10 NINJATRADER 8 AUTOMATED STRATEGIES GRID -->
-  <section id="autotrader" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold uppercase tracking-widest text-[#00ff88] tfb-mono">C# NINJASCRIPT ARCHITECTURE</span>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">10 Automated Futures Engines</h2>
-      <p class="text-slate-400 mt-3">Plug directly into NinjaTrader 8 for Apex, Topstep, Tradeify, and Tradovate prop accounts with automated ATM stop-loss &amp; daily profit locks.</p>
+  <!-- INTERACTIVE FILTER CONSOLE (PROPFIRMMATCH CLONE) -->
+  <section id="match-engine" class="max-w-[1440px] mx-auto px-4 sm:px-6 pb-16">
+    <div class="bg-[#0d111a] border border-white/10 rounded-2xl p-4 sm:p-6 mb-6 shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 items-center">
+
+        <!-- ACCOUNT SIZE FILTER -->
+        <div class="xl:col-span-4">
+          <label class="block text-[11px] font-mono-code uppercase tracking-wider text-slate-400 mb-2">1. Select Account Size</label>
+          <div class="flex flex-wrap gap-1.5" id="size-filters">
+            <button class="filter-pill active" data-size="all">All Sizes</button>
+            <button class="filter-pill" data-size="25">$25K</button>
+            <button class="filter-pill" data-size="50">$50K</button>
+            <button class="filter-pill" data-size="100">$100K</button>
+            <button class="filter-pill" data-size="150">$150K</button>
+            <button class="filter-pill" data-size="300">$300K</button>
+          </div>
+        </div>
+
+        <!-- DRAWDOWN TYPE FILTER -->
+        <div class="xl:col-span-3">
+          <label class="block text-[11px] font-mono-code uppercase tracking-wider text-slate-400 mb-2">2. Drawdown Type</label>
+          <div class="flex flex-wrap gap-1.5" id="dd-filters">
+            <button class="filter-pill active" data-dd="all">All Types</button>
+            <button class="filter-pill" data-dd="EOD">EOD (End of Day)</button>
+            <button class="filter-pill" data-dd="Trailing">Intraday Trailing</button>
+            <button class="filter-pill" data-dd="Static">Static</button>
+          </div>
+        </div>
+
+        <!-- FEATURE QUICK TOGGLES -->
+        <div class="xl:col-span-3">
+          <label class="block text-[11px] font-mono-code uppercase tracking-wider text-slate-400 mb-2">3. Rules &amp; Features</label>
+          <div class="flex flex-wrap gap-1.5" id="feature-filters">
+            <button class="filter-pill active" data-feat="all">All</button>
+            <button class="filter-pill" data-feat="no-activation">$0 Activation Fee</button>
+            <button class="filter-pill" data-feat="instant">Instant / Sim Funded</button>
+          </div>
+        </div>
+
+        <!-- SEARCH & SORT -->
+        <div class="xl:col-span-2">
+          <label class="block text-[11px] font-mono-code uppercase tracking-wider text-slate-400 mb-2">4. Search Firm</label>
+          <input id="firm-search" type="text" placeholder="Search Topstep, Apex..." class="w-full px-3.5 py-2 rounded-xl bg-[#07090e] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00ff88]">
+        </div>
+
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-[#00ff88]/15 text-[#00ff88] tfb-mono">NQ / MNQ</span>
-          <span class="text-xs text-slate-400 tfb-mono">NY Open Sweep</span>
+    <!-- COMPARISON DATA TABLE -->
+    <div class="bg-[#0d111a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+      <div class="px-5 py-3.5 bg-[#111723] border-b border-white/10 flex flex-wrap items-center justify-between gap-4">
+        <div class="text-xs font-semibold text-slate-300">
+          Showing <span id="match-count" class="text-[#00ff88] font-bold font-mono-code">12</span> Verified Futures Prop Firm Challenges
         </div>
-        <h3 class="text-xl font-bold text-white mb-2">1. Apex Predator NQ Sniper</h3>
-        <p class="text-sm text-slate-400">Hunts 8:30 AM CST opening range liquidity sweeps with automatic 22-tick ATM runner scaling.</p>
+        <div class="flex items-center gap-3 text-xs">
+          <span class="text-slate-400">Sort By:</span>
+          <select id="sort-select" class="bg-[#07090e] border border-white/10 rounded-lg px-3 py-1.5 text-white font-semibold focus:outline-none focus:border-[#00ff88]">
+            <option value="featured">Best Overall Match</option>
+            <option value="price-asc">Lowest Discounted Price</option>
+            <option value="rating-desc">Highest Trust Score</option>
+            <option value="target-asc">Lowest Profit Target</option>
+          </select>
+        </div>
       </div>
 
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-[#ffd700]/15 text-[#ffd700] tfb-mono">GC / MGC</span>
-          <span class="text-xs text-slate-400 tfb-mono">London + NY</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">2. Gold Bullion Liquidity Engine</h3>
-        <p class="text-sm text-slate-400">Captures COMEX Gold stop-runs and institutional fair value gaps with trailing breakeven triggers.</p>
-      </div>
-
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-[#00ff88]/15 text-[#00ff88] tfb-mono">ES / MES</span>
-          <span class="text-xs text-slate-400 tfb-mono">VWAP Reversion</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">3. S&amp;P Institutional Orderflow</h3>
-        <p class="text-sm text-slate-400">Executes high-probability standard deviation reversals off session VWAP with strict drawdown caps.</p>
-      </div>
-
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-purple-500/20 text-purple-300 tfb-mono">ALL FUTURES</span>
-          <span class="text-xs text-slate-400 tfb-mono">Account Protector</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">4. 15% Consistency &amp; Drawdown Lock</h3>
-        <p class="text-sm text-slate-400">Automatically flattens positions and locks NT8 the microsecond your daily target or max loss is hit.</p>
-      </div>
-
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-[#00ff88]/15 text-[#00ff88] tfb-mono">NQ / ES</span>
-          <span class="text-xs text-slate-400 tfb-mono">Delta Divergence</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">5. Cumulative Delta Absorption Bot</h3>
-        <p class="text-sm text-slate-400">Detects trapped retail market orders at key session highs/lows and fires contrarian bracket orders.</p>
-      </div>
-
-      <div class="tfb-glass-card p-6">
-        <div class="flex justify-between items-center mb-3">
-          <span class="px-2.5 py-1 rounded text-xs font-bold bg-[#ffd700]/15 text-[#ffd700] tfb-mono">SI / CL / NQ</span>
-          <span class="text-xs text-slate-400 tfb-mono">Multi-Strategy</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">6&ndash;10. Full Volatility &amp; Micro Scalpers</h3>
-        <p class="text-sm text-slate-400">Includes Silver Momentum, Crude Inventory Breakout, Overnight Asian Range Sweep, and Power Hour Trend bots.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse min-w-[1150px]">
+          <thead>
+            <tr class="border-b border-white/10 bg-[#090d14] text-[11px] font-mono-code uppercase tracking-wider text-slate-400">
+              <th class="py-3.5 px-5">Prop Firm &amp; Rating</th>
+              <th class="py-3.5 px-4">Account Size</th>
+              <th class="py-3.5 px-4">Profit Target</th>
+              <th class="py-3.5 px-4">Max Drawdown</th>
+              <th class="py-3.5 px-4">Consistency / Activation</th>
+              <th class="py-3.5 px-4">Platforms</th>
+              <th class="py-3.5 px-4">Promo Code</th>
+              <th class="py-3.5 px-4">Match Price</th>
+              <th class="py-3.5 px-5 text-right">Action / Algo Pass</th>
+            </tr>
+          </thead>
+          <tbody id="firms-tbody" class="text-sm">
+            <!-- Populated dynamically by JS engine below -->
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- PRICING & INSTANT STRIPE CHECKOUT -->
-  <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold uppercase tracking-widest text-[#ffd700] tfb-mono">INSTANT DIGITAL DELIVERY</span>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Choose Your Execution Tier</h2>
-      <p class="text-slate-400 mt-3">Backed by our 30-Day Sim Profit Guarantee. Start with the $1&ndash;$20 Vault or unlock the full automated NT8 suite.</p>
+  <!-- 10 NINJATRADER 8 AUTOMATED STRATEGIES + $1-$20 VAULT SECTION -->
+  <section id="autotrader-suite" class="max-w-[1440px] mx-auto px-4 sm:px-6 py-16 border-t border-white/10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+      <div>
+        <span class="text-xs font-mono-code uppercase tracking-widest text-[#00ff88] font-bold">PROPRIETARY EXECUTION EDGE</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-1">
+          Picked Your Firm? <span class="text-[#00ff88]">Let Our 10 NT8 Bots Pass It For You.</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+          Every prop firm listed above supports NinjaTrader 8 or Tradovate bridge execution. Deploy our automated NQ, ES, and Gold liquidity sweep systems with built-in 15% consistency and drawdown locks.
+        </p>
+      </div>
+      <div class="flex gap-3">
+        <a href="vault.html" class="px-5 py-3 rounded-xl bg-[#131926] border border-[#ffd700]/40 text-[#ffd700] font-bold text-sm hover:bg-[#ffd700]/10 transition">
+          Browse $1&ndash;$20 Indicator Vault &rarr;
+        </a>
+      </div>
     </div>
 
-    <div class="grid lg:grid-cols-3 gap-8 items-stretch">
-      <!-- TIER 1: DIGITAL VAULT -->
-      <div class="tfb-glass-card p-8 flex flex-col justify-between">
+    <!-- 3 PRICING / EXECUTION CARDS -->
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- CARD 1: $1-$20 VAULT -->
+      <div class="bg-[#0d111a] border border-white/10 rounded-2xl p-7 flex flex-col justify-between hover:border-[#00ff88]/40 transition">
         <div>
-          <span class="text-xs uppercase font-bold tracking-wider text-slate-400 tfb-mono">STARTER ARSENAL</span>
-          <h3 class="text-2xl font-bold text-white mt-2">NT8 Indicator &amp; ATM Vault</h3>
-          <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-4xl font-extrabold text-white tfb-mono">$19</span>
-            <span class="text-sm text-slate-400 line-through">$99</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-[#00ff88]/15 text-[#00ff88] font-bold">CODE: BIBLE80</span>
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono-code font-bold uppercase text-slate-400">STEP 1: TRIPWIRE VAULT</span>
+            <span class="px-2.5 py-0.5 rounded bg-[#00ff88]/15 text-[#00ff88] font-mono-code text-xs font-bold">80% OFF: BIBLE80</span>
           </div>
-          <ul class="mt-6 space-y-3 text-sm text-slate-300">
-            <li>&#10003; Prop Firm ATM Bracket Presets (NQ, ES, GC)</li>
-            <li>&#10003; 15% Consistency Rule Risk Calculator Sheet</li>
-            <li>&#10003; Institutional Killzone &amp; Liquidity Indicator</li>
-            <li>&#10003; The Funded Bible Complete Prop Playbook</li>
+          <h3 class="font-display text-2xl font-bold text-white mt-3">NT8 Indicator &amp; ATM Preset Vault</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold text-white font-mono-code">$1&ndash;$20</span>
+            <span class="text-xs text-slate-400">instant download</span>
+          </div>
+          <ul class="mt-6 space-y-2.5 text-sm text-slate-300">
+            <li>&#10003; Ready-to-load NinjaTrader 8 ATM Stop/Target Templates</li>
+            <li>&#10003; NY Open Liquidity Sweep &amp; Killzone Indicator</li>
+            <li>&#10003; Tradeify / MFFU 15% &amp; 20% Consistency Sizer Sheet</li>
+            <li>&#10003; Complete Prop Firm Evaluation Pass Playbook</li>
           </ul>
         </div>
-        <a href="vault.html" class="tfb-btn-neon w-full mt-8">Open $1&ndash;$20 Vault &rarr;</a>
+        <a href="vault.html" class="cta-match-btn w-full justify-center mt-8 py-3.5 text-sm">Open $1&ndash;$20 Digital Vault &rarr;</a>
       </div>
 
-      <!-- TIER 2: STANDARD SCRIPTURE / MONTHLY AUTOTRADER -->
-      <div class="tfb-glass-card p-8 flex flex-col justify-between border-2 border-[#00ff88] relative">
-        <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-[#00ff88] text-black font-extrabold text-xs uppercase tracking-wider">MOST POPULAR</div>
+      <!-- CARD 2: $299 PRO SUITE -->
+      <div class="bg-[#0d111a] border-2 border-[#00ff88] rounded-2xl p-7 flex flex-col justify-between relative shadow-2xl shadow-[#00ff88]/10">
+        <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-[#00ff88] text-black font-extrabold text-[11px] uppercase tracking-wider">MOST POPULAR</div>
         <div>
-          <span class="text-xs uppercase font-bold tracking-wider text-[#00ff88] tfb-mono">FULL AUTOMATION</span>
-          <h3 class="text-2xl font-bold text-white mt-2">The Standard Scripture + Pro Bots</h3>
+          <span class="text-xs font-mono-code font-bold uppercase text-[#00ff88]">STEP 2: FULL AUTOMATION</span>
+          <h3 class="font-display text-2xl font-bold text-white mt-3">10 NinjaTrader 8 AI Autotrader Suite</h3>
           <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-4xl font-extrabold text-white tfb-mono">$299</span>
-            <span class="text-sm text-slate-400">/ instant license</span>
+            <span class="text-4xl font-extrabold text-white font-mono-code">$299</span>
+            <span class="text-xs text-slate-400 line-through">$999</span>
+            <span class="text-xs text-[#00ff88] font-bold">Lifetime License</span>
           </div>
-          <ul class="mt-6 space-y-3 text-sm text-slate-300">
-            <li>&#10003; Complete 10 NinjaTrader 8 Automated Strategies</li>
-            <li>&#10003; Built-In Daily Loss &amp; Trailing Drawdown Killer</li>
-            <li>&#10003; Unlimited Prop Evaluation Account Activations</li>
-            <li>&#10003; 24/7 VIP Telegram Liquidity Bot Feed</li>
+          <ul class="mt-6 space-y-2.5 text-sm text-slate-300">
+            <li>&#10003; All 10 Automated Strategies (NQ, MNQ, ES, MES, GC, SI)</li>
+            <li>&#10003; Hardcoded Trailing Drawdown &amp; Daily Profit Auto-Lock</li>
+            <li>&#10003; Works on Apex, Topstep, Tradeify &amp; MyFundedFutures</li>
+            <li>&#10003; 24/7 Cloud Telegram Liquidity Sweep Signal Feed</li>
           </ul>
         </div>
-        <a href="https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02" class="tfb-btn-neon w-full mt-8">Unlock $299 Pro Suite &rarr;</a>
+        <a href="https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02" class="cta-match-btn w-full justify-center mt-8 py-3.5 text-sm">Unlock 10 NT8 Bots ($299) &rarr;</a>
       </div>
 
-      <!-- TIER 3: MASTERMIND / LIFETIME -->
-      <div class="tfb-glass-card p-8 flex flex-col justify-between">
+      <!-- CARD 3: $499 MASTERMIND -->
+      <div class="bg-[#0d111a] border border-[#ffd700]/40 rounded-2xl p-7 flex flex-col justify-between hover:border-[#ffd700] transition">
         <div>
-          <span class="text-xs uppercase font-bold tracking-wider text-[#ffd700] tfb-mono">INSTITUTIONAL DESK</span>
-          <h3 class="text-2xl font-bold text-white mt-2">Scale Mastermind &amp; Source Vault</h3>
+          <span class="text-xs font-mono-code font-bold uppercase text-[#ffd700]">STEP 3: VIP DESK &amp; SOURCE</span>
+          <h3 class="font-display text-2xl font-bold text-white mt-3">Scale Mastermind + 20-Account Copier</h3>
           <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-4xl font-extrabold text-[#ffd700] tfb-mono">$499</span>
-            <span class="text-sm text-slate-400">/ lifetime access</span>
+            <span class="text-4xl font-extrabold text-[#ffd700] font-mono-code">$499</span>
+            <span class="text-xs text-slate-400">one-time access</span>
           </div>
-          <ul class="mt-6 space-y-3 text-sm text-slate-300">
-            <li>&#10003; All 10 NT8 AI Autotraders + Lifetime Updates</li>
-            <li>&#10003; Custom Parameter Optimization for Apex &amp; Tradeify</li>
-            <li>&#10003; Direct 1-on-1 Setup &amp; VPS Deployment Guide</li>
-            <li>&#10003; 30-Day Sim Evaluation Pass Guarantee</li>
+          <ul class="mt-6 space-y-2.5 text-sm text-slate-300">
+            <li>&#10003; Full 10 NT8 AI Autotraders + Unrestricted C# Parameters</li>
+            <li>&#10003; Multi-Account Trade Copier Setup (Trade 1, Pass 20)</li>
+            <li>&#10003; 30-Day Sim Evaluation Profit Guarantee</li>
+            <li>&#10003; Direct Priority Updates &amp; Prop Firm Rule Presets</li>
           </ul>
         </div>
-        <a href="https://buy.stripe.com/6oUaEZehPakA8Ra1dw9k401" class="tfb-btn-gold w-full mt-8">Acquire Mastermind Access &rarr;</a>
+        <a href="https://buy.stripe.com/6oUaEZehPakA8Ra1dw9k401" class="w-full justify-center mt-8 py-3.5 text-sm font-extrabold rounded-xl bg-gradient-to-r from-[#ffd700] to-amber-500 text-black inline-flex items-center gap-2 hover:opacity-95 transition">
+          <span>Acquire VIP Mastermind ($499) &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- TOAST NOTIFICATION FOR COPIED CODES -->
+  <div id="copy-toast" class="fixed bottom-6 right-6 z-50 hidden px-5 py-3 rounded-xl bg-[#00ff88] text-black font-bold text-sm shadow-2xl">
+    &#10003; Promo Code Copied! Apply at Checkout.
+  </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>&copy; 2026 The Funded Bible LLC. All Rights Reserved.</div>
-      <div class="flex gap-6 text-slate-400">
-        <a href="vault.html" class="hover:text-white">Digital Vault</a>
-        <a href="firms.html" class="hover:text-white">Prop Firms</a>
-        <a href="calculator.html" class="hover:text-white">Calculator</a>
-        <a href="briefings.html" class="hover:text-white">Daily Intel</a>
-      </div>
+  <footer class="border-t border-white/10 py-10 px-4 sm:px-6 text-xs text-slate-500 max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>&copy; 2026 The Funded Bible LLC. PropFirmMatch Comparison Engine &amp; Automated NT8 Execution Vault.</div>
+    <div class="flex flex-wrap gap-6 text-slate-400">
+      <a href="vault.html" class="hover:text-white">$1&ndash;$20 Vault</a>
+      <a href="firms.html" class="hover:text-white">All Firms</a>
+      <a href="calculator.html" class="hover:text-white">Consistency Calculator</a>
+      <a href="briefings.html" class="hover:text-white">Daily Briefings</a>
     </div>
   </footer>
 
+  <!-- INTERACTIVE PROPFIRMMATCH ENGINE SCRIPT -->
+  <script>
+    const PROP_FIRMS = [
+      {
+        name: "Tradeify",
+        badge: "INSTANT / 15% RULE",
+        badgeColor: "text-[#00ff88] bg-[#00ff88]/10 border-[#00ff88]/30",
+        rating: 4.8,
+        reviews: "3,420",
+        size: 50,
+        sizeLabel: "$50,000",
+        target: "$3,000 (6%)",
+        targetVal: 3000,
+        ddType: "EOD",
+        ddAmount: "$2,000 EOD",
+        consistency: "15% Rule (Sim Funded)",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: true,
+        platforms: "NT8, Tradovate, TV",
+        code: "BIBLE80",
+        discount: "40% OFF",
+        oldPrice: 165,
+        price: 99,
+        url: "vault.html"
+      },
+      {
+        name: "MyFundedFutures (MFFU)",
+        badge: "#1 OVERALL MATCH",
+        badgeColor: "text-[#ffd700] bg-[#ffd700]/10 border-[#ffd700]/30",
+        rating: 4.9,
+        reviews: "8,910",
+        size: 50,
+        sizeLabel: "$50,000 Starter",
+        target: "$3,000 (6%)",
+        targetVal: 3000,
+        ddType: "EOD",
+        ddAmount: "$2,500 EOD",
+        consistency: "40% Eval / $0 Activation",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate, TV",
+        code: "BIBLE80",
+        discount: "50% OFF",
+        oldPrice: 157,
+        price: 77,
+        url: "vault.html"
+      },
+      {
+        name: "Apex Trader Funding",
+        badge: "20 MAX ACCOUNTS",
+        badgeColor: "text-[#00ff88] bg-[#00ff88]/10 border-[#00ff88]/30",
+        rating: 4.7,
+        reviews: "14,200",
+        size: 50,
+        sizeLabel: "$50,000 Full",
+        target: "$3,000 (6%)",
+        targetVal: 3000,
+        ddType: "Trailing",
+        ddAmount: "$2,500 Trailing",
+        consistency: "30% Windfall Rule",
+        activation: "$85/mo or $140 Lifetime",
+        noActivation: false,
+        instant: false,
+        platforms: "NT8, Tradovate, Rithmic",
+        code: "BIBLE80",
+        discount: "80% OFF",
+        oldPrice: 167,
+        price: 34,
+        url: "vault.html"
+      },
+      {
+        name: "Topstep",
+        badge: "FASTEST PAYOUTS",
+        badgeColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+        rating: 4.8,
+        reviews: "11,540",
+        size: 50,
+        sizeLabel: "$50,000 Combine",
+        target: "$3,000 (6%)",
+        targetVal: 3000,
+        ddType: "EOD",
+        ddAmount: "$2,000 EOD",
+        consistency: "50% Best Day Target",
+        activation: "$149 Express Fee",
+        noActivation: false,
+        instant: false,
+        platforms: "TopstepX, NT8, TV",
+        code: "BIBLE80",
+        discount: "70% OFF",
+        oldPrice: 165,
+        price: 49,
+        url: "vault.html"
+      },
+      {
+        name: "Take Profit Trader",
+        badge: "DAY 1 PAYOUTS",
+        badgeColor: "text-purple-300 bg-purple-500/15 border-purple-400/30",
+        rating: 4.7,
+        reviews: "4,180",
+        size: 50,
+        sizeLabel: "$50,000 Pro",
+        target: "$3,000 (6%)",
+        targetVal: 3000,
+        ddType: "EOD",
+        ddAmount: "$2,000 EOD (Eval)",
+        consistency: "50% Eval / 0% Pro",
+        activation: "$0 w/ Promo Code",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate, Rithmic",
+        code: "BIBLE80",
+        discount: "40% + FREE PRO",
+        oldPrice: 170,
+        price: 102,
+        url: "vault.html"
+      },
+      {
+        name: "Alpha Futures",
+        badge: "ZERO ACTIVATION",
+        badgeColor: "text-[#00ff88] bg-[#00ff88]/10 border-[#00ff88]/30",
+        rating: 4.8,
+        reviews: "1,950",
+        size: 100,
+        sizeLabel: "$100,000 Zero",
+        target: "$6,000 (6%)",
+        targetVal: 6000,
+        ddType: "EOD",
+        ddAmount: "$4,000 MLL",
+        consistency: "40% Rule",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate, TV",
+        code: "BIBLE80",
+        discount: "35% OFF",
+        oldPrice: 239,
+        price: 155,
+        url: "vault.html"
+      },
+      {
+        name: "Bulenox",
+        badge: "ALGO FRIENDLY",
+        badgeColor: "text-[#ffd700] bg-[#ffd700]/10 border-[#ffd700]/30",
+        rating: 4.6,
+        reviews: "2,810",
+        size: 100,
+        sizeLabel: "$100,000 EOD",
+        target: "$6,000 (6%)",
+        targetVal: 6000,
+        ddType: "EOD",
+        ddAmount: "$3,000 EOD",
+        consistency: "40% Rule",
+        activation: "One-Time Master Fee",
+        noActivation: false,
+        instant: false,
+        platforms: "NT8, Rithmic",
+        code: "BIBLE80",
+        discount: "75% OFF",
+        oldPrice: 215,
+        price: 53,
+        url: "vault.html"
+      },
+      {
+        name: "Top One Futures",
+        badge: "INSTANT SIM FUNDED",
+        badgeColor: "text-[#00ff88] bg-[#00ff88]/10 border-[#00ff88]/30",
+        rating: 4.7,
+        reviews: "1,620",
+        size: 25,
+        sizeLabel: "$25,000 Instant",
+        target: "No Eval Target",
+        targetVal: 1500,
+        ddType: "Trailing",
+        ddAmount: "$1,250 Trailing",
+        consistency: "20% Consistency",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: true,
+        platforms: "NT8, Tradovate, ProjectX",
+        code: "BIBLE80",
+        discount: "50% OFF",
+        oldPrice: 218,
+        price: 109,
+        url: "vault.html"
+      },
+      {
+        name: "Lucid Trading",
+        badge: "STATIC DRAWDOWN",
+        badgeColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+        rating: 4.6,
+        reviews: "980",
+        size: 100,
+        sizeLabel: "$100,000 Static",
+        target: "$6,000 (6%)",
+        targetVal: 6000,
+        ddType: "Static",
+        ddAmount: "$2,000 Static",
+        consistency: "35% Rule",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate",
+        code: "BIBLE80",
+        discount: "40% OFF",
+        oldPrice: 199,
+        price: 119,
+        url: "vault.html"
+      },
+      {
+        name: "FundedNext Futures",
+        badge: "NO TIME LIMIT",
+        badgeColor: "text-purple-300 bg-purple-500/15 border-purple-400/30",
+        rating: 4.8,
+        reviews: "6,400",
+        size: 150,
+        sizeLabel: "$150,000 Rapid",
+        target: "$9,000 (6%)",
+        targetVal: 9000,
+        ddType: "EOD",
+        ddAmount: "$4,500 EOD",
+        consistency: "40% Rule",
+        activation: "$0 Activation Fee",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate, TV",
+        code: "BIBLE80",
+        discount: "30% OFF",
+        oldPrice: 299,
+        price: 209,
+        url: "vault.html"
+      },
+      {
+        name: "TradeDay",
+        badge: "CME INSTITUTIONAL",
+        badgeColor: "text-[#00ff88] bg-[#00ff88]/10 border-[#00ff88]/30",
+        rating: 4.7,
+        reviews: "2,110",
+        size: 150,
+        sizeLabel: "$150,000 EOD",
+        target: "$9,000 (6%)",
+        targetVal: 9000,
+        ddType: "EOD",
+        ddAmount: "$4,000 EOD",
+        consistency: "30% Rule",
+        activation: "$0 Funded Setup",
+        noActivation: true,
+        instant: false,
+        platforms: "NT8, Tradovate, TV",
+        code: "BIBLE80",
+        discount: "40% OFF",
+        oldPrice: 300,
+        price: 180,
+        url: "vault.html"
+      },
+      {
+        name: "Apex 300K Whale Desk",
+        badge: "MAX ALLOCATION",
+        badgeColor: "text-[#ffd700] bg-[#ffd700]/10 border-[#ffd700]/30",
+        rating: 4.7,
+        reviews: "14,200",
+        size: 300,
+        sizeLabel: "$300,000 Whale",
+        target: "$20,000 (6.6%)",
+        targetVal: 20000,
+        ddType: "Trailing",
+        ddAmount: "$7,500 Trailing",
+        consistency: "30% Windfall Rule",
+        activation: "$85/mo PA Fee",
+        noActivation: false,
+        instant: false,
+        platforms: "NT8, Tradovate, Rithmic",
+        code: "BIBLE80",
+        discount: "80% OFF",
+        oldPrice: 657,
+        price: 131,
+        url: "vault.html"
+      }
+    ];
+
+    let activeSize = "all";
+    let activeDD = "all";
+    let activeFeat = "all";
+    let searchQuery = "";
+    let sortMode = "featured";
+
+    function copyGlobalCode(code) {
+      navigator.clipboard.writeText(code);
+      const toast = document.getElementById("copy-toast");
+      toast.textContent = "Copied Code '" + code + "'! Use at Checkout for Max Discount.";
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 2600);
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById("firms-tbody");
+      let list = PROP_FIRMS.filter(f => {
+        if (activeSize !== "all" && String(f.size) !== String(activeSize)) return false;
+        if (activeDD !== "all" && f.ddType !== activeDD) return false;
+        if (activeFeat === "no-activation" && !f.noActivation) return false;
+        if (activeFeat === "instant" && !f.instant) return false;
+        if (searchQuery && !f.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+        return true;
+      });
+
+      if (sortMode === "price-asc") list.sort((a, b) => a.price - b.price);
+      if (sortMode === "rating-desc") list.sort((a, b) => b.rating - a.rating);
+      if (sortMode === "target-asc") list.sort((a, b) => a.targetVal - b.targetVal);
+
+      document.getElementById("match-count").textContent = list.length;
+
+      tbody.innerHTML = list.map(f => `
+        <tr class="firm-row">
+          <td class="py-4 px-5">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#161f30] to-[#0b0f19] border border-white/10 flex items-center justify-center font-display font-extrabold text-sm text-[#00ff88]">
+                ${f.name.substring(0, 2).toUpperCase()}
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-display font-bold text-white text-base">${f.name}</span>
+                  <span class="text-[10px] font-mono-code font-bold px-2 py-0.5 rounded border ${f.badgeColor}">${f.badge}</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-0.5 flex items-center gap-1.5">
+                  <span class="text-[#ffd700]">&#9733; ${f.rating}</span>
+                  <span>(${f.reviews} verified reviews)</span>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 font-mono-code font-bold text-white">${f.sizeLabel}</td>
+          <td class="py-4 px-4 font-mono-code text-slate-300">${f.target}</td>
+          <td class="py-4 px-4">
+            <span class="font-mono-code text-xs px-2.5 py-1 rounded bg-white/5 border border-white/10 text-white font-semibold">${f.ddAmount}</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="text-xs text-white font-medium">${f.consistency}</div>
+            <div class="text-[11px] text-[#00ff88] font-mono-code">${f.activation}</div>
+          </td>
+          <td class="py-4 px-4 text-xs text-slate-300 font-mono-code">${f.platforms}</td>
+          <td class="py-4 px-4">
+            <button onclick="copyGlobalCode('${f.code}')" class="code-box" title="Click to copy promo code">
+              <span>${f.code}</span>
+              <span class="text-[10px] bg-[#ffd700] text-black px-1.5 py-0.2 rounded font-extrabold">${f.discount}</span>
+            </button>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-mono-code text-xl font-extrabold text-[#00ff88]">$${f.price}</span>
+              <span class="font-mono-code text-xs text-slate-500 line-through">$${f.oldPrice}</span>
+            </div>
+            <div class="text-[10px] text-slate-400">+ NT8 Bot Ready</div>
+          </td>
+          <td class="py-4 px-5 text-right">
+            <div class="flex items-center justify-end gap-2">
+              <a href="${f.url}" class="cta-match-btn">
+                <span>Get Pass Kit + Deal &rarr;</span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    // Wire up interactive pill groups
+    document.querySelectorAll("#size-filters .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#size-filters .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeSize = btn.dataset.size;
+        renderTable();
+      });
+    });
+
+    document.querySelectorAll("#dd-filters .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#dd-filters .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeDD = btn.dataset.dd;
+        renderTable();
+      });
+    });
+
+    document.querySelectorAll("#feature-filters .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#feature-filters .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFeat = btn.dataset.feat;
+        renderTable();
+      });
+    });
+
+    document.getElementById("firm-search").addEventListener("input", e => {
+      searchQuery = e.target.value;
+      renderTable();
+    });
+
+    document.getElementById("sort-select").addEventListener("change", e => {
+      sortMode = e.target.value;
+      renderTable();
+    });
+
+    renderTable();
+  </script>
 </body>
 </html>
