@@ -1,4 +1,4 @@
-import os, time, json, urllib.request
+ï»¿import os, time, json, urllib.request
 import yfinance as yf
 
 TELEGRAM_BOT_TOKEN = "9042945272:AAGVY4bd68LCk3YIV8B0OUEIKmt0UKGweJ8"
@@ -6,10 +6,10 @@ TELEGRAM_CHAT_ID = "8585819972"
 STATE_FILE = "state.json"
 
 PROMO_FOOTER = (
-    "\n\n?? PASS YOUR PROP EVALUATION — NO MERCY."
+    "\n\n?? PASS YOUR PROP EVALUATION - NO MERCY."
     "\n? Grab the High-Volatility ATM Risk Setups & Playbooks NOW:"
     "\n?? https://thefundedbible.com"
-    "\n?? USE CODE BIBLE80 AT CHECKOUT FOR 80% OFF — SECURE THE BAG."
+    "\n?? USE CODE BIBLE80 AT CHECKOUT FOR 80% OFF - SECURE THE BAG."
 )
 
 try:
@@ -44,17 +44,17 @@ for ticker, name in FUTURES.items():
             if abs(pct) >= 0.01 and key not in seen:
                 seen[key] = now
                 if pct > 0:
-                    tag = "?? BULLISH BREAKOUT — INSTANT BUY PRESSURE"
+                    tag = "?? BULLISH BREAKOUT - INSTANT BUY PRESSURE"
                     direction_emoji = "??"
                 else:
-                    tag = "?? BEARISH LIQUIDITY FLUSH — MASSIVE SELL PRESSURE"
+                    tag = "?? BEARISH LIQUIDITY FLUSH - MASSIVE SELL PRESSURE"
                     direction_emoji = "??"
                 
                 msg = (
                     f"?? HIGH-ALERT {direction_emoji} {tag}\n"
                     f"?? Asset: {name}\n"
                     f"?? Trade Price: {c:,.2f} ({pct:+.2f}% in 15m)\n"
-                    f"?? Session Extreme: {float(df['Low'].min()):,.2f} — {float(df['High'].max()):,.2f}\n"
+                    f"?? Session Extreme: {float(df['Low'].min()):,.2f} - {float(df['High'].max()):,.2f}\n"
                     f"?? Tactical Play: Trailing drawdown is a target. Adjust risk now."
                     f"{PROMO_FOOTER}"
                 )
