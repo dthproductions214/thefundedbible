@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE FUNDED BIBLE | Institutional Prop Trading Terminal & Playbooks</title>
-    <meta name="description" content="The #1 Institutional Prop Firm Trading Terminal, Live Charts, Risk Calculators, and Funded Account Playbooks.">
+    <title>THE FUNDED BIBLE | #1 Institutional Prop Firm Terminal, Live Charts & 15% Consistency Engine</title>
+    <meta name="description" content="Dominate Futures & Forex Prop Evaluations. Real-time NQ, ES & Gold TradingView Orderflow Charts, 4-Screen SMT Quad War Room, 15% Funded Consistency Calculator, and C# NinjaScript Algos.">
+    <meta name="keywords" content="prop firm trading, 15% consistency rule calculator, Tradeify funded account, Apex Trader Funding, Topstep, NQ futures strategy, XAUUSD institutional orderflow, NinjaTrader 8 indicators, The Funded Bible">
+    <link rel="canonical" href="https://thefundedbible.com/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
@@ -12,49 +14,20 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        obsidian: '#050507',
-                        panel: '#0c0d12',
-                        borderDark: '#1c1f2b',
-                        gold: '#f59e0b',
-                        neon: '#00ff88',
-                        crimson: '#ff2a5f'
-                    }
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { obsidian: '#050507', panel: '#0c0d12', borderDark: '#1c1f2b', gold: '#f59e0b', neon: '#00ff88', crimson: '#ff2a5f' }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #050507;
-            color: #e2e8f0;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 35%),
-                radial-gradient(circle at 85% 80%, rgba(0, 255, 136, 0.06) 0%, transparent 40%);
+            background-color: #050507; color: #e2e8f0;
+            background-image: radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 35%), radial-gradient(circle at 85% 80%, rgba(0, 255, 136, 0.06) 0%, transparent 40%);
         }
-        .glass-panel {
-            background: rgba(12, 13, 18, 0.88);
-            backdrop-filter: blur(16px);
-            border: 1px solid #1c1f2b;
-        }
-        .gold-glow:hover {
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
-            border-color: #f59e0b;
-        }
-        .active-symbol {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-            color: #050507 !important;
-            font-weight: 700 !important;
-            border-color: #fbbf24 !important;
-        }
-        .active-nav {
-            border-bottom: 2px solid #f59e0b;
-            color: #f59e0b !important;
-        }
+        .glass-panel { background: rgba(12, 13, 18, 0.90); backdrop-filter: blur(16px); border: 1px solid #1c1f2b; }
+        .gold-glow:hover { box-shadow: 0 0 25px rgba(245, 158, 11, 0.35); border-color: #f59e0b; }
+        .active-symbol { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important; color: #050507 !important; font-weight: 700 !important; border-color: #fbbf24 !important; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian overflow-x-hidden">
@@ -75,41 +48,34 @@
                     { "proName": "NYMEX:CL1!", "title": "CL1! (Crude Oil)" },
                     { "proName": "FX:GBPUSD", "title": "GBP/USD" }
                 ],
-                "showSymbolLogo": true,
-                "colorTheme": "dark",
-                "isTransparent": true,
-                "displayMode": "adaptive",
-                "locale": "en"
+                "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "en"
             }
             </script>
         </div>
     </div>
 
-    <!-- MAIN NAVIGATION -->
+    <!-- MULTI-PAGE GLOBAL NAVIGATION -->
     <header class="border-b border-borderDark bg-panel/95 backdrop-blur-md sticky top-[46px] z-40">
         <div class="max-w-[1650px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center font-mono font-bold text-obsidian text-xl shadow-lg shadow-gold/20">
-                    TFB
-                </div>
+            <a href="index.html" class="flex items-center space-x-4">
+                <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center font-mono font-bold text-obsidian text-xl shadow-lg shadow-gold/20">TFB</div>
                 <div>
                     <span class="text-xl font-bold tracking-wider text-white block leading-none">THE FUNDED <span class="text-gold">BIBLE</span></span>
                     <span class="text-[11px] font-mono text-neon uppercase tracking-widest flex items-center gap-1.5 mt-1">
                         <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span> LIVE INSTITUTIONAL TERMINAL
                     </span>
                 </div>
-            </div>
+            </a>
 
-            <nav class="hidden lg:flex items-center space-x-3 font-mono text-xs">
-                <button onclick="switchSection('terminal')" class="px-4 py-2.5 rounded-md bg-borderDark/60 text-white hover:text-gold transition">01 // MULTI-CHART DECK</button>
-                <button onclick="switchSection('quad')" class="px-4 py-2.5 rounded-md hover:bg-borderDark/60 text-gray-300 hover:text-gold transition">02 // 4-SCREEN WAR ROOM</button>
-                <button onclick="switchSection('heatmap')" class="px-4 py-2.5 rounded-md hover:bg-borderDark/60 text-gray-300 hover:text-gold transition">03 // HEATMAP & RED NEWS</button>
-                <button onclick="switchSection('calculator')" class="px-4 py-2.5 rounded-md hover:bg-borderDark/60 text-gray-300 hover:text-gold transition">04 // 15% CONSISTENCY ENGINE</button>
-                <button onclick="switchSection('vault')" class="px-4 py-2.5 rounded-md hover:bg-borderDark/60 text-gray-300 hover:text-gold transition">05 // PLAYBOOK VAULT</button>
+            <nav class="hidden lg:flex items-center space-x-2 font-mono text-xs">
+                <a href="index.html" class="px-4 py-2.5 rounded-md bg-gold text-obsidian font-bold transition">01 // LIVE TERMINAL</a>
+                <a href="screener.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold hover:border-gold border border-transparent transition">02 // ALL-MARKET SCREENER & CRYPTO</a>
+                <a href="prop-firms.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold hover:border-gold border border-transparent transition">03 // PROP FIRM MATRIX & RULES</a>
+                <a href="playbooks.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold hover:border-gold border border-transparent transition">04 // PLAYBOOKS & NINJASCRIPT VAULT</a>
             </nav>
 
-            <a href="#vault-section" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-gold to-yellow-500 text-obsidian font-bold text-xs font-mono uppercase tracking-wider hover:brightness-110 transition shadow-lg shadow-gold/20">
-                GET FUNDED PLAYBOOK →
+            <a href="playbooks.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-gold to-yellow-500 text-obsidian font-bold text-xs font-mono uppercase tracking-wider hover:brightness-110 transition shadow-lg shadow-gold/20">
+                UNLOCK ALGO VAULT →
             </a>
         </div>
     </header>
@@ -119,14 +85,14 @@
         <div class="max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-8 space-y-4">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/30 text-gold font-mono text-xs">
-                    <span>⚡ PROP FIRM EXECUTION & RISK ARCHITECTURE</span>
+                    <span>⚡ INSTITUTIONAL PROP DESK & ALGORITHMIC EXECUTION</span>
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08]">
                     STOP BLOWING EVALS. <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-neon">TRADE LIKE THE HOUSE.</span>
                 </h1>
                 <p class="text-gray-400 text-base sm:text-lg max-w-3xl">
-                    Real-time multi-asset orderflow charts, 4-screen prop desk quad-view, automated 15% funded consistency calculators, and mechanical NinjaTrader 8 / TradingView execution systems.
+                    Live multi-asset orderflow charts, 4-screen SMT divergence quad war room, automated 15% funded consistency calculators, and mechanical NinjaTrader 8 C# execution systems.
                 </p>
             </div>
             <div class="lg:col-span-4 grid grid-cols-2 gap-3 font-mono">
@@ -138,42 +104,42 @@
                 <div class="glass-panel p-4 rounded-xl border-l-4 border-l-gold">
                     <span class="text-xs text-gray-400 block">FUNDED RULE ENGINE</span>
                     <span class="text-lg font-bold text-white mt-1 block">15% CONSISTENCY</span>
-                    <span class="text-xs text-gold mt-1 block">FUNDED MODE LOCKED</span>
+                    <span class="text-xs text-gold mt-1 block">FUNDED MODE ARMED</span>
                 </div>
                 <div class="glass-panel p-4 rounded-xl col-span-2 flex items-center justify-between">
                     <div>
                         <span class="text-xs text-gray-400 block">ACTIVE PRIMARY FEED</span>
                         <span id="current-symbol-label" class="text-base font-bold text-gold">OANDA:XAUUSD (GOLD)</span>
                     </div>
-                    <span class="px-3 py-1 rounded bg-neon/10 text-neon text-xs border border-neon/30">LIVE STREAM</span>
+                    <span class="px-3 py-1 rounded bg-neon/10 text-neon text-xs border border-neon/30">REAL-TIME DOM</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MAIN TERMINAL WORKSPACE -->
+    <!-- MAIN WORKSPACE -->
     <main class="max-w-[1650px] w-full mx-auto px-4 sm:px-6 py-8 space-y-14 flex-grow">
 
-        <!-- SECTION 1: PRIMARY LIVE TRADINGVIEW COMMAND DECK -->
-        <section id="terminal-section" class="space-y-4">
+        <!-- 1. HOT-SWAP MULTI-ASSET CHART TERMINAL -->
+        <section class="space-y-4">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-borderDark pb-4">
                 <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <span class="text-gold font-mono">[01]</span> MASTER EXECUTION TERMINAL (HOT-SWAP ANY SYMBOL)
-                    </h2>
-                    <p class="text-xs font-mono text-gray-400">Click any symbol below to switch the live institutional chart, VWAP/EMA overlays, and algorithmic signal gauge.</p>
+                    <h2 class="text-2xl font-bold text-white"><span class="text-gold font-mono">[01]</span> MASTER EXECUTION DECK (12 MAJOR SYMBOLS)</h2>
+                    <p class="text-xs font-mono text-gray-400">Click any symbol to hot-swap the live TradingView chart, VWAP/EMA overlays, and algorithmic signal gauge.</p>
                 </div>
-
-                <div class="flex flex-wrap gap-2 font-mono text-xs" id="symbol-buttons">
-                    <button onclick="loadSymbol('OANDA:XAUUSD', 'GOLD / USD (XAUUSD)', this)" class="sym-btn active-symbol px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">XAUUSD (GOLD)</button>
-                    <button onclick="loadSymbol('CME_MINI:NQ1!', 'NASDAQ 100 FUTURES (NQ1!)', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">NQ1! (NASDAQ)</button>
-                    <button onclick="loadSymbol('CME_MINI:ES1!', 'S&P 500 FUTURES (ES1!)', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">ES1! (S&P 500)</button>
-                    <button onclick="loadSymbol('FOREXCOM:DJI', 'US30 / DOW JONES', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">US30 (DOW)</button>
-                    <button onclick="loadSymbol('BITSTAMP:BTCUSD', 'BITCOIN / USD', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">BTCUSD</button>
-                    <button onclick="loadSymbol('FX:EURUSD', 'EUR / USD', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">EURUSD</button>
-                    <button onclick="loadSymbol('NYMEX:CL1!', 'CRUDE OIL FUTURES (CL1!)', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">CL1! (OIL)</button>
-                    <button onclick="loadSymbol('FX:GBPUSD', 'GBP / USD', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">GBPUSD</button>
-                    <button onclick="loadSymbol('FX:USDJPY', 'USD / JPY', this)" class="sym-btn px-3.5 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">USDJPY</button>
+                <div class="flex flex-wrap gap-2 font-mono text-xs">
+                    <button onclick="loadSymbol('OANDA:XAUUSD', 'GOLD / USD (XAUUSD)', this)" class="sym-btn active-symbol px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">XAUUSD</button>
+                    <button onclick="loadSymbol('CME_MINI:NQ1!', 'NASDAQ 100 FUTURES (NQ1!)', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">NQ1!</button>
+                    <button onclick="loadSymbol('CME_MINI:ES1!', 'S&P 500 FUTURES (ES1!)', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">ES1!</button>
+                    <button onclick="loadSymbol('FOREXCOM:DJI', 'US30 / DOW JONES', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">US30</button>
+                    <button onclick="loadSymbol('CME_MINI:RTY1!', 'RUSSELL 2000 FUTURES', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">RTY1!</button>
+                    <button onclick="loadSymbol('BITSTAMP:BTCUSD', 'BITCOIN / USD', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">BTCUSD</button>
+                    <button onclick="loadSymbol('BITSTAMP:ETHUSD', 'ETHEREUM / USD', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">ETHUSD</button>
+                    <button onclick="loadSymbol('FX:EURUSD', 'EUR / USD', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">EURUSD</button>
+                    <button onclick="loadSymbol('FX:GBPUSD', 'GBP / USD', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">GBPUSD</button>
+                    <button onclick="loadSymbol('FX:USDJPY', 'USD / JPY', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">USDJPY</button>
+                    <button onclick="loadSymbol('NYMEX:CL1!', 'CRUDE OIL FUTURES', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">CL1! (OIL)</button>
+                    <button onclick="loadSymbol('NASDAQ:NVDA', 'NVIDIA CORP (NVDA)', this)" class="sym-btn px-3 py-2 rounded-lg bg-panel border border-borderDark text-gray-200 hover:border-gold transition">NVDA</button>
                 </div>
             </div>
 
@@ -181,39 +147,31 @@
                 <div class="xl:col-span-9 glass-panel rounded-2xl overflow-hidden border border-borderDark h-[680px] shadow-2xl">
                     <div id="tv_chart_container" class="w-full h-full"></div>
                 </div>
-
                 <div class="xl:col-span-3 flex flex-col gap-6 h-[680px]">
                     <div class="glass-panel rounded-2xl p-3 border border-borderDark h-1/2 overflow-hidden">
-                        <div class="text-xs font-mono text-gold mb-1 px-2 uppercase tracking-wider">⚡ Live Algorithmic Signal Meter</div>
+                        <div class="text-xs font-mono text-gold mb-1 px-2 uppercase">⚡ Live Algorithmic Signal Meter</div>
                         <div id="tv_tech_container" class="w-full h-[90%]"></div>
                     </div>
-
                     <div class="glass-panel rounded-2xl p-3 border border-borderDark h-1/2 overflow-hidden">
-                        <div class="text-xs font-mono text-neon mb-1 px-2 uppercase tracking-wider">📊 Institutional Orderbook Watch</div>
+                        <div class="text-xs font-mono text-neon mb-1 px-2 uppercase">📊 Institutional Orderbook Watch</div>
                         <div class="tradingview-widget-container h-[90%] w-full">
                             <div class="tradingview-widget-container__widget h-full w-full"></div>
                             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                             {
-                                "width": "100%",
-                                "height": "100%",
-                                "symbolsGroups": [
-                                    {
-                                        "name": "Core Prop Assets",
-                                        "symbols": [
-                                            { "name": "OANDA:XAUUSD", "displayName": "Gold (XAUUSD)" },
-                                            { "name": "CME_MINI:NQ1!", "displayName": "NQ1! Futures" },
-                                            { "name": "CME_MINI:ES1!", "displayName": "ES1! Futures" },
-                                            { "name": "FOREXCOM:DJI", "displayName": "US30 Index" },
-                                            { "name": "BITSTAMP:BTCUSD", "displayName": "Bitcoin" },
-                                            { "name": "FX:EURUSD", "displayName": "EUR/USD" },
-                                            { "name": "NYMEX:CL1!", "displayName": "Crude Oil" }
-                                        ]
-                                    }
-                                ],
-                                "showSymbolLogo": true,
-                                "isTransparent": true,
-                                "colorTheme": "dark",
-                                "locale": "en"
+                                "width": "100%", "height": "100%",
+                                "symbolsGroups": [{
+                                    "name": "Core Prop Assets",
+                                    "symbols": [
+                                        { "name": "OANDA:XAUUSD", "displayName": "Gold (XAUUSD)" },
+                                        { "name": "CME_MINI:NQ1!", "displayName": "NQ1! Futures" },
+                                        { "name": "CME_MINI:ES1!", "displayName": "ES1! Futures" },
+                                        { "name": "FOREXCOM:DJI", "displayName": "US30 Index" },
+                                        { "name": "BITSTAMP:BTCUSD", "displayName": "Bitcoin" },
+                                        { "name": "FX:EURUSD", "displayName": "EUR/USD" },
+                                        { "name": "NYMEX:CL1!", "displayName": "Crude Oil" }
+                                    ]
+                                }],
+                                "showSymbolLogo": true, "isTransparent": true, "colorTheme": "dark", "locale": "en"
                             }
                             </script>
                         </div>
@@ -222,85 +180,31 @@
             </div>
         </section>
 
-        <!-- SECTION 2: 4-SCREEN QUAD PROP DESK WAR ROOM -->
-        <section id="quad-section" class="space-y-4">
-            <div class="border-b border-borderDark pb-3">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <span class="text-gold font-mono">[02]</span> 4-SCREEN QUAD WAR ROOM (SIMULTANEOUS SMT DIVERGENCE MONITOR)
-                </h2>
-                <p class="text-xs font-mono text-gray-400">Track NQ1!, ES1!, XAUUSD, and BTCUSD side-by-side in real time to spot institutional SMT divergence at session highs and lows.</p>
+        <!-- 2. 4-SCREEN QUAD PROP DESK WAR ROOM -->
+        <section class="space-y-4">
+            <div class="border-b border-borderDark pb-3 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white"><span class="text-gold font-mono">[02]</span> 4-SCREEN QUAD WAR ROOM (SMT DIVERGENCE MONITOR)</h2>
+                    <p class="text-xs font-mono text-gray-400">Simultaneous 5-minute institutional feeds on NQ1!, ES1!, XAUUSD, and BTCUSD.</p>
+                </div>
+                <a href="screener.html" class="text-xs font-mono text-gold hover:underline">OPEN FULL MARKET SCREENER →</a>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]">
-                    <div id="quad_nq" class="w-full h-full"></div>
-                </div>
-                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]">
-                    <div id="quad_es" class="w-full h-full"></div>
-                </div>
-                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]">
-                    <div id="quad_gold" class="w-full h-full"></div>
-                </div>
-                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]">
-                    <div id="quad_btc" class="w-full h-full"></div>
-                </div>
+                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]"><div id="quad_nq" class="w-full h-full"></div></div>
+                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]"><div id="quad_es" class="w-full h-full"></div></div>
+                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]"><div id="quad_gold" class="w-full h-full"></div></div>
+                <div class="glass-panel rounded-2xl overflow-hidden border border-borderDark h-[420px]"><div id="quad_btc" class="w-full h-full"></div></div>
             </div>
         </section>
 
-        <!-- SECTION 3: LIVE MARKET HEATMAP & HIGH-IMPACT ECONOMIC CALENDAR -->
-        <section id="heatmap-section" class="space-y-4">
-            <div class="border-b border-borderDark pb-3">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <span class="text-gold font-mono">[03]</span> GLOBAL LIQUIDITY HEATMAP & RED-FOLDER NEWS RADAR
-                </h2>
-                <p class="text-xs font-mono text-gray-400">Live currency cross-strength matrix and high-impact macroeconomic calendar (CPI, FOMC, NFP, Powell).</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div class="lg:col-span-6 glass-panel rounded-2xl p-4 h-[520px] overflow-hidden">
-                    <div class="text-xs font-mono text-gold mb-2 uppercase">🔥 Live Currency Matrix & Strength Cross-Rates</div>
-                    <div class="tradingview-widget-container h-[92%] w-full">
-                        <div class="tradingview-widget-container__widget h-full w-full"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-                        {
-                            "width": "100%",
-                            "height": "100%",
-                            "currencies": ["EUR", "USD", "JPY", "GBP", "CAD", "AUD", "CHF"],
-                            "isTransparent": true,
-                            "colorTheme": "dark",
-                            "locale": "en"
-                        }
-                        </script>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-6 glass-panel rounded-2xl p-4 h-[520px] overflow-hidden">
-                    <div class="text-xs font-mono text-crimson mb-2 uppercase">🚨 High-Impact Economic Calendar (Red Folder Filter)</div>
-                    <div class="tradingview-widget-container h-[92%] w-full">
-                        <div class="tradingview-widget-container__widget h-full w-full"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-                        {
-                            "colorTheme": "dark",
-                            "isTransparent": true,
-                            "width": "100%",
-                            "height": "100%",
-                            "locale": "en",
-                            "importanceFilter": "0,1",
-                            "countryFilter": "us,eu,gb,jp,ca"
-                        }
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: 15% FUNDED CONSISTENCY & LOT SIZE ENGINE -->
+        <!-- 3. 15% FUNDED CONSISTENCY & LOT SIZE ENGINE -->
         <section id="calculator-section" class="space-y-4">
-            <div class="border-b border-borderDark pb-3">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <span class="text-gold font-mono">[04]</span> FUNDED ACCOUNT 15% CONSISTENCY & LOT SIZE ENGINE
-                </h2>
-                <p class="text-xs font-mono text-gray-400">Engineered for Funded Accounts (Tradeify, Apex, Topstep, FTMO). Verify exact payout eligibility and contract sizing before entering.</p>
+            <div class="border-b border-borderDark pb-3 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white"><span class="text-gold font-mono">[03]</span> FUNDED ACCOUNT 15% CONSISTENCY & LOT SIZE ENGINE</h2>
+                    <p class="text-xs font-mono text-gray-400">Built for Funded Accounts (Tradeify, Apex, Topstep, FTMO). Verify payout eligibility and contract sizing in real time.</p>
+                </div>
+                <a href="prop-firms.html" class="text-xs font-mono text-neon hover:underline">VIEW ALL PROP FIRM RULES →</a>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -349,7 +253,6 @@
                             <span class="font-mono text-xs text-gray-400">PAYOUT ELIGIBILITY STATUS</span>
                             <span id="out-status" class="px-3 py-1 rounded text-xs font-mono font-bold bg-crimson/20 text-crimson">LOCKED</span>
                         </div>
-
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="bg-obsidian p-4 rounded-xl border border-borderDark">
                                 <span class="text-[11px] font-mono text-gray-400 block">MIN TOTAL PROFIT REQUIRED</span>
@@ -369,79 +272,36 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-6 pt-4 border-t border-borderDark text-xs font-mono text-gray-400">
-                        💡 <strong class="text-white">Funded Bible Rule:</strong> On a 15% consistency funded account, your highest profit day cannot exceed 15% of your total profit balance when requesting a withdrawal.
+                        💡 <strong class="text-white">Funded Bible Rule:</strong> On a 15% consistency funded account, your highest single day profit cannot exceed 15% of your total profit balance at payout request.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: THE FUNDED PLAYBOOK & ALGO VAULT -->
-        <section id="vault-section" class="space-y-6">
+        <!-- 4. HEATMAP & RED-FOLDER ECONOMIC CALENDAR -->
+        <section class="space-y-4">
             <div class="border-b border-borderDark pb-3">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <span class="text-gold font-mono">[05]</span> INSTITUTIONAL PLAYBOOKS & NINJASCRIPT EXECUTION SYSTEMS
-                </h2>
-                <p class="text-xs font-mono text-gray-400">Pure mechanical execution systems engineered to pass prop evaluations and extract consistent funded payouts.</p>
+                <h2 class="text-2xl font-bold text-white"><span class="text-gold font-mono">[04]</span> GLOBAL CURRENCY CROSS-MATRIX & RED-FOLDER NEWS RADAR</h2>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between gold-glow transition duration-300">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <span class="px-3 py-1 rounded bg-gold/15 text-gold font-mono text-xs font-bold">FLAGSHIP PLAYBOOK</span>
-                            <span class="font-mono text-2xl font-bold text-white">$97</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">The Funded Bible: Complete Risk & Execution Blueprint</h3>
-                        <p class="text-sm text-gray-400">Mechanical playbook for NQ, ES, and Gold. Includes NY Open liquidity sweep models, drawdown lock protocols, and the 15% consistency scaling roadmap.</p>
-                        <ul class="space-y-2 text-xs font-mono text-gray-300 pt-2">
-                            <li>✓ 9:30 AM NY Open Judas Swing Setup</li>
-                            <li>✓ Funded Account Scaling & Payout Protection</li>
-                            <li>✓ Daily Pre-Market Institutional Checklist</li>
-                        </ul>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-6 glass-panel rounded-2xl p-4 h-[500px] overflow-hidden">
+                    <div class="text-xs font-mono text-gold mb-2 uppercase">🔥 Live Currency Cross-Rates Matrix</div>
+                    <div class="tradingview-widget-container h-[92%] w-full">
+                        <div class="tradingview-widget-container__widget h-full w-full"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+                        { "width": "100%", "height": "100%", "currencies": ["EUR", "USD", "JPY", "GBP", "CAD", "AUD", "CHF"], "isTransparent": true, "colorTheme": "dark", "locale": "en" }
+                        </script>
                     </div>
-                    <button onclick="openCheckoutModal('The Funded Bible Blueprint ($97)')" class="mt-6 w-full py-3.5 rounded-xl bg-gradient-to-r from-gold to-yellow-500 text-obsidian font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition">
-                        INSTANT ACCESS DOWNLOAD →
-                    </button>
                 </div>
-
-                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between gold-glow transition duration-300 border-neon/40">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <span class="px-3 py-1 rounded bg-neon/15 text-neon font-mono text-xs font-bold">NINJATRADER 8 / C# ALGO</span>
-                            <span class="font-mono text-2xl font-bold text-white">$247</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">TFB Liquidity Sweep & Auto-Breakeven Suite</h3>
-                        <p class="text-sm text-gray-400">Custom C# NinjaScript indicator & ATM execution assistant. Automatically plots Asian/London highs & lows, fair value gaps, and auto-locks stops once +1R is hit.</p>
-                        <ul class="space-y-2 text-xs font-mono text-gray-300 pt-2">
-                            <li>✓ Compatible with NinjaTrader 8 & TradeLocker</li>
-                            <li>✓ Hard Daily Loss Limit Kill-Switch</li>
-                            <li>✓ Real-Time Session Killzone Shading</li>
-                        </ul>
+                <div class="lg:col-span-6 glass-panel rounded-2xl p-4 h-[500px] overflow-hidden">
+                    <div class="text-xs font-mono text-crimson mb-2 uppercase">🚨 High-Impact Economic Calendar (CPI / FOMC / NFP)</div>
+                    <div class="tradingview-widget-container h-[92%] w-full">
+                        <div class="tradingview-widget-container__widget h-full w-full"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                        { "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": "100%", "locale": "en", "importanceFilter": "0,1", "countryFilter": "us,eu,gb,jp,ca" }
+                        </script>
                     </div>
-                    <button onclick="openCheckoutModal('TFB NinjaScript & Execution Suite ($247)')" class="mt-6 w-full py-3.5 rounded-xl bg-neon text-obsidian font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition">
-                        UNLOCK ALGO SUITE →
-                    </button>
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between gold-glow transition duration-300">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <span class="px-3 py-1 rounded bg-purple-500/20 text-purple-300 font-mono text-xs font-bold">VIP WAR ROOM</span>
-                            <span class="font-mono text-2xl font-bold text-white">$149<span class="text-xs text-gray-400">/mo</span></span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Live NY Session Tape Reading & Prop Desk Access</h3>
-                        <p class="text-sm text-gray-400">Trade the New York session live with daily pre-market markups on XAUUSD and NQ1!, live orderflow levels, and direct funded account accountability.</p>
-                        <ul class="space-y-2 text-xs font-mono text-gray-300 pt-2">
-                            <li>✓ Daily 8:30 AM EST Live Key Level Markup</li>
-                            <li>✓ Full Playbook & Calculator Vault Included</li>
-                            <li>✓ Private Discord & Trade Review Desk</li>
-                        </ul>
-                    </div>
-                    <button onclick="openCheckoutModal('VIP War Room Desk Access ($149/mo)')" class="mt-6 w-full py-3.5 rounded-xl bg-white text-obsidian font-mono font-bold text-xs uppercase tracking-wider hover:bg-gold transition">
-                        JOIN THE DESK →
-                    </button>
                 </div>
             </div>
         </section>
@@ -451,35 +311,25 @@
     <!-- FOOTER -->
     <footer class="border-t border-borderDark bg-panel py-8 px-4 sm:px-6 mt-16">
         <div class="max-w-[1650px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-gray-500">
-            <div>© 2026 THE FUNDED BIBLE LLC. ALL RIGHTS RESERVED. BUILT FOR FUNDED TRADERS.</div>
+            <div>© 2026 THE FUNDED BIBLE LLC. ALL RIGHTS RESERVED.</div>
             <div class="flex space-x-6">
-                <a href="#terminal-section" class="hover:text-gold">LIVE TERMINAL</a>
-                <a href="#quad-section" class="hover:text-gold">4-SCREEN WAR ROOM</a>
-                <a href="#heatmap-section" class="hover:text-gold">HEATMAP</a>
-                <a href="#calculator-section" class="hover:text-gold">15% CALCULATOR</a>
+                <a href="index.html" class="text-gold">TERMINAL</a>
+                <a href="screener.html" class="hover:text-gold">MARKET SCREENER</a>
+                <a href="prop-firms.html" class="hover:text-gold">PROP FIRM MATRIX</a>
+                <a href="playbooks.html" class="hover:text-gold">PLAYBOOKS & ALGOS</a>
             </div>
         </div>
     </footer>
 
-    <!-- TRADINGVIEW ENGINE & SCRIPTS -->
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
         function renderTradingViewWidgets(symbol) {
             document.getElementById('tv_chart_container').innerHTML = '';
             new TradingView.widget({
-                "autosize": true,
-                "symbol": symbol,
-                "interval": "15",
-                "timezone": "America/New_York",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "enable_publishing": false,
-                "backgroundColor": "#0c0d12",
-                "gridColor": "rgba(28, 31, 43, 0.6)",
-                "hide_top_toolbar": false,
-                "save_image": true,
-                "container_id": "tv_chart_container",
+                "autosize": true, "symbol": symbol, "interval": "15", "timezone": "America/New_York",
+                "theme": "dark", "style": "1", "locale": "en", "enable_publishing": false,
+                "backgroundColor": "#0c0d12", "gridColor": "rgba(28, 31, 43, 0.6)",
+                "hide_top_toolbar": false, "save_image": true, "container_id": "tv_chart_container",
                 "studies": ["VWAP@tv-basicstudies", "RSI@tv-basicstudies", "MAExp@tv-basicstudies"]
             });
 
@@ -490,15 +340,8 @@
             script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js';
             script.async = true;
             script.innerHTML = JSON.stringify({
-                "interval": "15m",
-                "width": "100%",
-                "isTransparent": true,
-                "height": "100%",
-                "symbol": symbol,
-                "showIntervalTabs": true,
-                "displayMode": "single",
-                "locale": "en",
-                "colorTheme": "dark"
+                "interval": "15m", "width": "100%", "isTransparent": true, "height": "100%",
+                "symbol": symbol, "showIntervalTabs": true, "displayMode": "single", "locale": "en", "colorTheme": "dark"
             });
             techContainer.appendChild(script);
         }
@@ -512,17 +355,9 @@
             ];
             pairs.forEach(p => {
                 new TradingView.widget({
-                    "autosize": true,
-                    "symbol": p.sym,
-                    "interval": "5",
-                    "timezone": "America/New_York",
-                    "theme": "dark",
-                    "style": "1",
-                    "locale": "en",
-                    "enable_publishing": false,
-                    "backgroundColor": "#0c0d12",
-                    "hide_side_toolbar": true,
-                    "container_id": p.id,
+                    "autosize": true, "symbol": p.sym, "interval": "5", "timezone": "America/New_York",
+                    "theme": "dark", "style": "1", "locale": "en", "enable_publishing": false,
+                    "backgroundColor": "#0c0d12", "hide_side_toolbar": true, "container_id": p.id,
                     "studies": ["VWAP@tv-basicstudies"]
                 });
             });
@@ -533,11 +368,6 @@
             document.querySelectorAll('.sym-btn').forEach(btn => btn.classList.remove('active-symbol'));
             if (btnElement) btnElement.classList.add('active-symbol');
             renderTradingViewWidgets(symbol);
-        }
-
-        function switchSection(target) {
-            const el = document.getElementById(target + '-section');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
         function runFundedMath() {
@@ -576,7 +406,6 @@
             const mins = String(estTime.getMinutes()).padStart(2, '0');
             const secs = String(estTime.getSeconds()).padStart(2, '0');
             document.getElementById('live-clock').innerText = `${hours}:${mins}:${secs} EST`;
-
             const statusEl = document.getElementById('session-status');
             if (hours >= 8 && hours < 12) {
                 statusEl.innerText = '🔥 NY AM KILLZONE LIVE';

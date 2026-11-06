@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROP FIRM RULE MATRIX & FUNDED ACCOUNT COMPARISON | The Funded Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }, colors: { obsidian: '#050507', panel: '#0c0d12', borderDark: '#1c1f2b', gold: '#f59e0b', neon: '#00ff88' } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050507; color: #e2e8f0; }
+        .glass-panel { background: rgba(12, 13, 18, 0.90); border: 1px solid #1c1f2b; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="border-b border-borderDark bg-panel/95 sticky top-0 z-40">
+        <div class="max-w-[1650px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-4">
+                <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center font-mono font-bold text-obsidian text-xl">TFB</div>
+                <span class="text-xl font-bold tracking-wider text-white">THE FUNDED <span class="text-gold">BIBLE</span></span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-2 font-mono text-xs">
+                <a href="index.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">01 // LIVE TERMINAL</a>
+                <a href="screener.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">02 // ALL-MARKET SCREENER & CRYPTO</a>
+                <a href="prop-firms.html" class="px-4 py-2.5 rounded-md bg-gold text-obsidian font-bold transition">03 // PROP FIRM MATRIX & RULES</a>
+                <a href="playbooks.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">04 // PLAYBOOKS & NINJASCRIPT VAULT</a>
+            </nav>
+            <a href="playbooks.html" class="px-5 py-2.5 rounded-lg bg-gold text-obsidian font-bold text-xs font-mono uppercase">UNLOCK ALGO VAULT →</a>
+        </div>
+    </header>
+
+    <main class="max-w-[1650px] w-full mx-auto px-4 sm:px-6 py-10 space-y-10 flex-grow">
+        <div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-white"><span class="text-gold font-mono">[03]</span> 2026 PROP FIRM FUNDED RULEBOOK & DRAWDOWN MATRIX</h1>
+            <p class="text-sm font-mono text-gray-400 mt-1">Know the exact rules of the house before placing a single contract. Note: The 15% Consistency Rule applies to Funded Accounts at payout.</p>
+        </div>
+
+        <div class="glass-panel rounded-2xl overflow-x-auto border border-borderDark">
+            <table class="w-full text-left font-mono text-sm">
+                <thead class="bg-obsidian border-b border-borderDark text-gold uppercase text-xs">
+                    <tr>
+                        <th class="p-5">PROP FIRM</th>
+                        <th class="p-5">DRAWDOWN TYPE</th>
+                        <th class="p-5">FUNDED CONSISTENCY RULE</th>
+                        <th class="p-5">PLATFORMS</th>
+                        <th class="p-5">PAYOUT WINDOW</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-borderDark text-gray-200">
+                    <tr class="hover:bg-obsidian/60">
+                        <td class="p-5 font-bold text-white">Tradeify (Funded / Lightning)</td>
+                        <td class="p-5 text-neon">End-of-Day (EOD) / Trailing</td>
+                        <td class="p-5 text-gold font-bold">15% Funded Account Consistency</td>
+                        <td class="p-5">NinjaTrader 8, Tradovate, TradingView</td>
+                        <td class="p-5">Same-Day / 24h Processing</td>
+                    </tr>
+                    <tr class="hover:bg-obsidian/60">
+                        <td class="p-5 font-bold text-white">Topstep (Express Funded)</td>
+                        <td class="p-5 text-neon">End-of-Day (EOD)</td>
+                        <td class="p-5">5 Winning Days ($200+ per day)</td>
+                        <td class="p-5">TopstepX, NinjaTrader 8, TradingView</td>
+                        <td class="p-5">After 5 Winning Days</td>
+                    </tr>
+                    <tr class="hover:bg-obsidian/60">
+                        <td class="p-5 font-bold text-white">Apex Trader Funding (PA)</td>
+                        <td class="p-5 text-yellow-400">Intraday Trailing (Locks at +$100)</td>
+                        <td class="p-5">30% Windfall Rule at Payout</td>
+                        <td class="p-5">NinjaTrader 8, Tradovate, Rithmic</td>
+                        <td class="p-5">Every 8 Trading Days</td>
+                    </tr>
+                    <tr class="hover:bg-obsidian/60">
+                        <td class="p-5 font-bold text-white">MyFundedFutures (MFFU)</td>
+                        <td class="p-5 text-neon">End-of-Day (EOD)</td>
+                        <td class="p-5">No Eval Consistency (Starter 40%)</td>
+                        <td class="p-5">NinjaTrader 8, Tradovate, TradingView</td>
+                        <td class="p-5">Bi-Weekly / 5 Winning Days</td>
+                    </tr>
+                    <tr class="hover:bg-obsidian/60">
+                        <td class="p-5 font-bold text-white">FTMO / Forex Prop Desks</td>
+                        <td class="p-5 text-neon">Static 5% Daily / 10% Max</td>
+                        <td class="p-5">Standard Risk Scaling</td>
+                        <td class="p-5">TradeLocker, cTrader, MT5</td>
+                        <td class="p-5">14-Day Bi-Weekly Split</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

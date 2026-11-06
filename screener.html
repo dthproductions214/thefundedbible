@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL-MARKET SCREENER & CRYPTO HEATMAP | The Funded Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }, colors: { obsidian: '#050507', panel: '#0c0d12', borderDark: '#1c1f2b', gold: '#f59e0b', neon: '#00ff88' } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050507; color: #e2e8f0; }
+        .glass-panel { background: rgba(12, 13, 18, 0.90); border: 1px solid #1c1f2b; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="border-b border-borderDark bg-panel/95 sticky top-0 z-40">
+        <div class="max-w-[1650px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-4">
+                <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center font-mono font-bold text-obsidian text-xl">TFB</div>
+                <span class="text-xl font-bold tracking-wider text-white">THE FUNDED <span class="text-gold">BIBLE</span></span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-2 font-mono text-xs">
+                <a href="index.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">01 // LIVE TERMINAL</a>
+                <a href="screener.html" class="px-4 py-2.5 rounded-md bg-gold text-obsidian font-bold transition">02 // ALL-MARKET SCREENER & CRYPTO</a>
+                <a href="prop-firms.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">03 // PROP FIRM MATRIX & RULES</a>
+                <a href="playbooks.html" class="px-4 py-2.5 rounded-md bg-borderDark/50 text-gray-200 hover:text-gold transition">04 // PLAYBOOKS & NINJASCRIPT VAULT</a>
+            </nav>
+            <a href="playbooks.html" class="px-5 py-2.5 rounded-lg bg-gold text-obsidian font-bold text-xs font-mono uppercase">UNLOCK ALGO VAULT →</a>
+        </div>
+    </header>
+
+    <main class="max-w-[1650px] w-full mx-auto px-4 sm:px-6 py-8 space-y-10 flex-grow">
+        <div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-white"><span class="text-gold font-mono">[02]</span> INSTITUTIONAL MULTI-ASSET SCREENER & HEATMAPS</h1>
+            <p class="text-sm font-mono text-gray-400 mt-1">Real-time algorithmic scanning across Forex, Futures, US Equities, and Crypto markets.</p>
+        </div>
+
+        <!-- FOREX & FUTURES REAL-TIME SCREENER -->
+        <div class="glass-panel rounded-2xl p-4 h-[600px]">
+            <div class="text-xs font-mono text-gold mb-2 uppercase">⚡ Live Institutional Forex & Commodities Screener</div>
+            <div class="tradingview-widget-container h-[94%] w-full">
+                <div class="tradingview-widget-container__widget h-full w-full"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                { "width": "100%", "height": "100%", "defaultColumn": "overview", "defaultScreen": "general", "market": "forex", "showToolbar": true, "colorTheme": "dark", "locale": "en", "isTransparent": true }
+                </script>
+            </div>
+        </div>
+
+        <!-- S&P 500 STOCK HEATMAP + CRYPTO HEATMAP -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="glass-panel rounded-2xl p-4 h-[560px]">
+                <div class="text-xs font-mono text-neon mb-2 uppercase">🔥 S&P 500 Institutional Sector Heatmap (NQ / ES Weighting)</div>
+                <div class="tradingview-widget-container h-[93%] w-full">
+                    <div class="tradingview-widget-container__widget h-full w-full"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+                    { "exchanges": [], "dataSource": "SPX500", "grouping": "sector", "blockSize": "market_cap_basic", "blockColor": "change", "locale": "en", "symbolUrl": "", "colorTheme": "dark", "hasTopBar": true, "isDataSetEnabled": false, "isZoomEnabled": true, "hasSymbolTooltip": true, "width": "100%", "height": "100%" }
+                    </script>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-4 h-[560px]">
+                <div class="text-xs font-mono text-gold mb-2 uppercase">⚡ Crypto Liquidity Heatmap (BTC / ETH / SOL Orderflow)</div>
+                <div class="tradingview-widget-container h-[93%] w-full">
+                    <div class="tradingview-widget-container__widget h-full w-full"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+                    { "dataSource": "Crypto", "blockSize": "market_cap_calc", "blockColor": "change", "locale": "en", "symbolUrl": "", "colorTheme": "dark", "hasTopBar": true, "isDataSetEnabled": false, "isZoomEnabled": true, "hasSymbolTooltip": true, "width": "100%", "height": "100%" }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
