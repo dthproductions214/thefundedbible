@@ -1,24 +1,31 @@
-﻿name: 24/7 TFB Cloud Engine
+name: 24/7 TFB Cloud Engine
+
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+
       - name: Install Packages
         run: pip install yfinance requests
+
       - name: Run Engine
         run: python cloud_bot.py
+
       - name: Save State
         run: |
           git config --global user.name "GitHub Action"
