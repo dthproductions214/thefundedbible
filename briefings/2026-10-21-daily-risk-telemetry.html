@@ -1,87 +1,93 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prop Firm Trailing Drawdown & Execution Briefing â€“ October 21, 2026 | The Funded Bible</title>
+    <title>Prop Firm Trailing Drawdown & Execution Briefing – October 21, 2026 | The Funded Bible</title>
     <meta name="description" content="Automated institutional desk briefing for October 21, 2026. Review 6% buffer rules, micro contracts, and prop payout telemetry.">
     <script src="https://cdn.tailwindcss.com"></script>
-<!-- TFB LUXURY CYBERPUNK UI ENGINE -->
+<!-- TFB CLEAN INSTITUTIONAL UI -->
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-luxury-skin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="tfb-clean-architecture">
   :root {
-    --bg-obsidian: #050608;
-    --glass-card: rgba(14, 17, 24, 0.78);
-    --neon-green: #00ff88;
-    --cyber-gold: #ffd700;
-    --electric-purple: #8b5cf6;
+    --obsidian: #06080d;
+    --panel: #0d111a;
+    --panel-border: rgba(255, 255, 255, 0.09);
+    --neon: #00ff88;
+    --gold: #ffd700;
   }
   body {
-    background-color: var(--bg-obsidian) !important;
-    background-image: 
-      radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.08) 0%, transparent 38%),
-      radial-gradient(circle at 85% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
-    color: #f1f5f9 !important;
-    font-family: 'Inter', sans-serif !important;
+    background-color: var(--obsidian) !important;
+    color: #f8fafc !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    margin: 0;
     overflow-x: hidden;
   }
-  h1, h2, h3, .font-bold {
+  h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: -0.02em;
   }
-  h1 {
-    background: linear-gradient(135deg, #ffffff 0%, #00ff88 55%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 28px rgba(0, 255, 136, 0.22));
+  .tfb-glass-card {
+    background: rgba(13, 17, 26, 0.88);
+    backdrop-filter: blur(16px);
+    bord: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  /* Upgrade all cards, boxes, and sections into Frosted Obsidian Glass */
-  div[class*="bg-"], section[class*="bg-"], .card, article, table {
-    background: var(--glass-card) !important;
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  .tfb-glass-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 136, 0.45);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
   }
-  div[class*="bg-"]:hover, .card:hover, article:hover {
-    border-color: rgba(0, 255, 136, 0.45) !important;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 255, 136, 0.14) !important;
-    transform: translateY(-4px);
+  .tfb-btn-neon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
-  /* Make every CTA button glow like an institutional terminal button */
-  a[href*="stripe"], a[href*="whop"], a[href*="t.me"], button, .btn {
-    background: linear-gradient(135deg, #00ff88 0%, #00b862 100%) !important;
-    color: #040608 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 9999px !important;
-    border: none !important;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: all 0.25s ease !important;
+  .tfb-btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
   }
-  a[href*="stripe"]:hover, a[href*="whop"]:hover, a[href*="t.me"]:hover, button:hover {
-    transform: translateY(-2px) scale(1.03) !important;
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), 0 0 15px rgba(255, 215, 0, 0.5) !important;
+  .tfb-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
+    transition: all 0.2s ease;
   }
-  code, pre, .mono {
-    font-family: 'JetBrains Mono', monospace !important;
-    color: var(--cyber-gold) !important;
+  .tfb-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>
+
 </head>
 <body class="bg-[#06080d] text-slate-200 font-sans p-6 max-w-3xl mx-auto">
     <a href="/" class="text-emerald-400 text-sm font-bold uppercase">&larr; Back to The Funded Bible</a>
     <div class="mt-6 border-b border-slate-800 pb-4">
-        <span class="text-xs text-cyan-400 font-mono uppercase">Automated Desk Telemetry â€¢ October 21, 2026</span>
+        <span class="text-xs text-cyan-400 font-mono uppercase">Automated Desk Telemetry • October 21, 2026</span>
         <h1 class="text-3xl font-black text-white mt-1 uppercase">Daily Combine Buffer & Trailing Rule Analysis</h1>
     </div>
     <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-300">
@@ -89,7 +95,7 @@
         <div class="bg-slate-900 border border-emerald-500/40 p-4 rounded-xl">
             <h3 class="font-bold text-white mb-2">Core Doctrine Checklist for Today:</h3>
             <ul class="list-disc list-inside space-y-1 text-xs text-emerald-300 font-mono">
-                <li>Strict 90-minute morning window: 9:30 AM â€“ 11:00 AM EST.</li>
+                <li>Strict 90-minute morning window: 9:30 AM – 11:00 AM EST.</li>
                 <li>Hard lockout kill-switch: Walk away immediately after 2 consecutive stop-outs.</li>
                 <li>Never size off nominal account size; true tradable balance is only the buffer.</li>
             </ul>
@@ -101,4 +107,3 @@
     </div>
 </body>
 </html>
-

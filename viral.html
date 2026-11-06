@@ -1,82 +1,88 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EMAIL BROADCAST &amp; VIRAL COMMAND CENTER | The Funded Bibleâ„¢</title>
+  <title>EMAIL BROADCAST &amp; VIRAL COMMAND CENTER | The Funded Bible™</title>
   <meta name="robots" content="noindex, follow" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-<!-- TFB LUXURY CYBERPUNK UI ENGINE -->
+<!-- TFB CLEAN INSTITUTIONAL UI -->
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-luxury-skin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="tfb-clean-architecture">
   :root {
-    --bg-obsidian: #050608;
-    --glass-card: rgba(14, 17, 24, 0.78);
-    --neon-green: #00ff88;
-    --cyber-gold: #ffd700;
-    --electric-purple: #8b5cf6;
+    --obsidian: #06080d;
+    --panel: #0d111a;
+    --panel-border: rgba(255, 255, 255, 0.09);
+    --neon: #00ff88;
+    --gold: #ffd700;
   }
   body {
-    background-color: var(--bg-obsidian) !important;
-    background-image: 
-      radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.08) 0%, transparent 38%),
-      radial-gradient(circle at 85% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
-    color: #f1f5f9 !important;
-    font-family: 'Inter', sans-serif !important;
+    background-color: var(--obsidian) !important;
+    color: #f8fafc !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    margin: 0;
     overflow-x: hidden;
   }
-  h1, h2, h3, .font-bold {
+  h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: -0.02em;
   }
-  h1 {
-    background: linear-gradient(135deg, #ffffff 0%, #00ff88 55%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 28px rgba(0, 255, 136, 0.22));
+  .tfb-glass-card {
+    background: rgba(13, 17, 26, 0.88);
+    backdrop-filter: blur(16px);
+    bord: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  /* Upgrade all cards, boxes, and sections into Frosted Obsidian Glass */
-  div[class*="bg-"], section[class*="bg-"], .card, article, table {
-    background: var(--glass-card) !important;
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  .tfb-glass-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 136, 0.45);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
   }
-  div[class*="bg-"]:hover, .card:hover, article:hover {
-    border-color: rgba(0, 255, 136, 0.45) !important;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 255, 136, 0.14) !important;
-    transform: translateY(-4px);
+  .tfb-btn-neon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
-  /* Make every CTA button glow like an institutional terminal button */
-  a[href*="stripe"], a[href*="whop"], a[href*="t.me"], button, .btn {
-    background: linear-gradient(135deg, #00ff88 0%, #00b862 100%) !important;
-    color: #040608 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 9999px !important;
-    border: none !important;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: all 0.25s ease !important;
+  .tfb-btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
   }
-  a[href*="stripe"]:hover, a[href*="whop"]:hover, a[href*="t.me"]:hover, button:hover {
-    transform: translateY(-2px) scale(1.03) !important;
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), 0 0 15px rgba(255, 215, 0, 0.5) !important;
+  .tfb-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
+    transition: all 0.2s ease;
   }
-  code, pre, .mono {
-    font-family: 'JetBrains Mono', monospace !important;
-    color: var(--cyber-gold) !important;
+  .tfb-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>
+
 </head>
 <body style="background:#030508;color:#f8fafc;font-family:'Plus Jakarta Sans',sans-serif;margin:0;padding:0 0 90px;">
   <header style="position:sticky;top:0;z-index:999;background:#04060a;border-bottom:1px solid rgba(245,158,11,0.35);padding:14px 20px;">
@@ -97,14 +103,14 @@
     <section style="background:linear-gradient(160deg,rgba(15,22,36,0.96),rgba(7,10,18,0.99));border:1.5px solid #10b981;border-radius:16px;padding:26px;margin-bottom:34px;box-shadow:0 20px 50px rgba(0,0,0,0.85);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:14px;">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">â— 1-CLICK LEAD BROADCAST LAUNCHER â€¢ UPDATED November 04, 2026</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">● 1-CLICK LEAD BROADCAST LAUNCHER • UPDATED November 04, 2026</div>
           <h1 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin:4px 0;">Convert Captured Trader Emails Into $9, $39 &amp; $197 Buyers</h1>
-          <p style="color:#94a3b8;font-size:13.5px;">Paste your captured trader emails below (comma-separated from your Gmail alerts or Stripe Customers tab). Clicking <strong style="color:#10b981;">ðŸš€ OPEN IN GMAIL â†—</strong> on any email below automatically loads your leads into BCC with the Subject and Body pre-filled!</p>
+          <p style="color:#94a3b8;font-size:13.5px;">Paste your captured trader emails below (comma-separated from your Gmail alerts or Stripe Customers tab). Clicking <strong style="color:#10b981;">🚀 OPEN IN GMAIL ↗</strong> on any email below automatically loads your leads into BCC with the Subject and Body pre-filled!</p>
         </div>
-        <a href="https://dashboard.stripe.com/customers" target="_blank" style="background:#111827;border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;padding:10px 16px;border-radius:8px;text-decoration:none;">OPEN STRIPE CUSTOMERS LIST â†—</a>
+        <a href="https://dashboard.stripe.com/customers" target="_blank" style="background:#111827;border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;padding:10px 16px;border-radius:8px;text-decoration:none;">OPEN STRIPE CUSTOMERS LIST ↗</a>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <input type="text" id="bcc-lead-list" placeholder="Paste captured trader emails here (e.g. trader1@gmail.com, trader2@yahoo.com) â€” auto-saves in your browser..." oninput="saveBccList()" style="flex:1;min-width:280px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:13px 14px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;" />
+        <input type="text" id="bcc-lead-list" placeholder="Paste captured trader emails here (e.g. trader1@gmail.com, trader2@yahoo.com) — auto-saves in your browser..." oninput="saveBccList()" style="flex:1;min-width:280px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:13px 14px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;" />
         <button onclick="clearBccList()" style="background:#1e293b;color:#94a3b8;border:1px solid rgba(255,255,255,0.15);padding:12px 16px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;">CLEAR LIST</button>
       </div>
     </section>
@@ -112,15 +118,15 @@
     <!-- SECTION 1: 5-EMAIL FOLLOW-UP & BROADCAST SEQUENCE -->
     <section id="email-sequence" style="margin-bottom:48px;">
       <div style="margin-bottom:18px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">â— AUTOMATED 5-DAY CASH CONVERSION FUNNEL + DAILY DESK BROADCAST</div>
-        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:4px;">1-Click Follow-Up Email Sequence ($9 â†’ $39 â†’ $197 â†’ $397)</h2>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">● AUTOMATED 5-DAY CASH CONVERSION FUNNEL + DAILY DESK BROADCAST</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:4px;">1-Click Follow-Up Email Sequence ($9 → $39 → $197 → $397)</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(410px,1fr));gap:22px;">
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAY 01 â€¢ INSTANT LEAD DELIVERY + $9 IMPULSE TRIPWIRE</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAY 01 • INSTANT LEAD DELIVERY + $9 IMPULSE TRIPWIRE</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: $9 7-Day Combine Pass Blueprint</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
@@ -134,7 +140,7 @@ Before you fire your next NQ or ES trade today, read this carefully:
 
 You do NOT have a $50,000 account. You have a $2,500 drawdown buffer.
 
-When you fire 2 NQ Minis with a 20-point stop loss, you are risking $800 on a single candleâ€”that is 32% of your entire evaluation life gone in 45 seconds. Two bad trades and you are buying another reset.
+When you fire 2 NQ Minis with a 20-point stop loss, you are risking $800 on a single candle—that is 32% of your entire evaluation life gone in 45 seconds. Two bad trades and you are buying another reset.
 
 Here is the mechanical fix inside your sheet:
 1. Drop your size to 5 MNQ Micros ($10/point total).
@@ -153,19 +159,19 @@ https://www.thefundedbible.com/firms.html
 
 Trade mechanical buffer math,
 Danny Hoang
-The Funded Bibleâ„¢ Desk
+The Funded Bible™ Desk
 https://www.thefundedbible.com</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-1', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-1', 'em-body-1')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-1', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-1', 'em-body-1')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAY 02 â€¢ THE INTRADAY TRAILING DRAWDOWN KILLER ($39 SUITE)</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAY 02 • THE INTRADAY TRAILING DRAWDOWN KILLER ($39 SUITE)</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: $39 Trench Starter & C# Risk Suite</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
@@ -179,10 +185,10 @@ That is the Intraday High-Water Mark Trailing Drawdown trap.
 Firms like Apex trail your highest UNREALIZED open equity tick-by-tick. If you hold for home-run swings without scaling out, every pullback eats your breathing room alive.
 
 How our desk defeats intraday trailing locks mechanically:
-â€¢ Enter 5 MNQ on a confirmed 5-minute Fair Value Gap (FVG) reclaim across Session VWAP.
-â€¢ Automatically dump 80% of the position (4 MNQ) at +20 points (+$160 banked).
-â€¢ Snap the remaining 1 MNQ stop to +2 points above entry.
-â€¢ Hard-lock the NinjaTrader 8 terminal the second you hit +2R or -2 losses.
+• Enter 5 MNQ on a confirmed 5-minute Fair Value Gap (FVG) reclaim across Session VWAP.
+• Automatically dump 80% of the position (4 MNQ) at +20 points (+$160 banked).
+• Snap the remaining 1 MNQ stop to +2 points above entry.
+• Hard-lock the NinjaTrader 8 terminal the second you hit +2R or -2 losses.
 
 Instead of trusting your emotions at 09:45 AM EST when NQ is moving 25 points a minute, let our automated C# Risk Suite lock your platform for you.
 
@@ -194,18 +200,18 @@ https://www.thefundedbible.com/calculator.html
 
 Stay disciplined,
 Danny Hoang
-The Funded Bibleâ„¢ Desk</pre>
+The Funded Bible™ Desk</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-2', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-2', 'em-body-2')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-2', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-2', 'em-body-2')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAY 03 â€¢ THE $0 ACTIVATION FEE AUDIT (BIBLE80 + $39 UPSELL)</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAY 03 • THE $0 ACTIVATION FEE AUDIT (BIBLE80 + $39 UPSELL)</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: Affiliate Commissions (BIBLE80) + $39 Risk Suite</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
@@ -217,10 +223,10 @@ The Funded Bibleâ„¢ Desk</pre>
 If you are building a 10-account copy-trading syndicate, activation fees drain $1,400 to $2,500 out of your pocket before you place a single funded trade.
 
 We audited all 12 major futures prop firms for November 2026. Right now, you can trade End-of-Day (EOD) static drawdown evaluations with $0 Activation Fees on:
-â€¢ MyFundedFutures (MFFU) â€” $0 Activation + EOD Drawdown
-â€¢ Tradeify Futures â€” $0 Activation on Select EOD & Straight-To-Funded
-â€¢ Topstep (TopstepX) â€” $0 No-Activation Fee Path + Built-In Trade Copier
-â€¢ Alpha Futures â€” $0 Activation Option + Clean 1-Step EOD
+• MyFundedFutures (MFFU) — $0 Activation + EOD Drawdown
+• Tradeify Futures — $0 Activation on Select EOD & Straight-To-Funded
+• Topstep (TopstepX) — $0 No-Activation Fee Path + Built-In Trade Copier
+• Alpha Futures — $0 Activation Option + Clean 1-Step EOD
 
 See the full 12-firm side-by-side matrix and copy code BIBLE80 (up to 80% off evaluations) here:
 https://www.thefundedbible.com/firms.html
@@ -230,18 +236,18 @@ https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
 
 See you on the NY Open tape,
 Danny Hoang
-The Funded Bibleâ„¢ Desk</pre>
+The Funded Bible™ Desk</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-3', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-3', 'em-body-3')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-3', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-3', 'em-body-3')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAY 04 â€¢ 20-ACCOUNT SYNDICATE MATH ($197 SCRIPTURE MANUAL)</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAY 04 • 20-ACCOUNT SYNDICATE MATH ($197 SCRIPTURE MANUAL)</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: $197 Standard Scripture Manual</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
@@ -255,13 +261,13 @@ Institutional prop syndicates do the exact opposite:
 They trade 4 MNQ Micros ($8/point) for a calm, mechanical 20-point base hit (+$160 per account).
 Then they copy that exact execution across 10 linked PA/XFA accounts simultaneously.
 
-â€¢ Profit on a single 20-point NQ base hit across 10 accounts = +$1,600.
-â€¢ Risk per individual $50K account (15pt stop) = $120 (just 4.8% of the drawdown buffer).
-â€¢ Consecutive losses required to blow the fleet = 20.8 trades.
+• Profit on a single 20-point NQ base hit across 10 accounts = +$1,600.
+• Risk per individual $50K account (15pt stop) = $120 (just 4.8% of the drawdown buffer).
+• Consecutive losses required to blow the fleet = 20.8 trades.
 
 You stop sweating every 5-point pullback because each account is barely risking 5% of its buffer, while your aggregate payout scales 10x to 20x.
 
-Inside The Funded Bibleâ„¢ Standard Scripture Manual ($197), you get our complete 180-page institutional orderflow playbook, ICT Silver Bullet liquidity sweep models, EOD vs. Intraday defense rules, and all NinjaScript C# risk indicators:
+Inside The Funded Bible™ Standard Scripture Manual ($197), you get our complete 180-page institutional orderflow playbook, ICT Silver Bullet liquidity sweep models, EOD vs. Intraday defense rules, and all NinjaScript C# risk indicators:
 
 Unlock the full $197 Standard Scripture Manual (Lifetime Access) here:
 https://www.thefundedbible.com/api/create-checkout-session?tier=standard_197
@@ -270,18 +276,18 @@ Or test your own 1-to-20 account multiplier math on the live desk calculator:
 https://www.thefundedbible.com/calculator.html
 
 Danny Hoang
-The Funded Bibleâ„¢ Desk</pre>
+The Funded Bible™ Desk</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-4', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-4', 'em-body-4')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-4', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-4', 'em-body-4')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAY 05 â€¢ CONSISTENCY RULE FIXER + $397 WHALE SYNDICATE CLOSE</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAY 05 • CONSISTENCY RULE FIXER + $397 WHALE SYNDICATE CLOSE</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: $197 Scripture / $397 Whale Scale Mastermind</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
@@ -290,58 +296,58 @@ The Funded Bibleâ„¢ Desk</pre>
             </div>
             <pre id="em-body-5" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#e2e8f0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.58;max-height:310px;overflow-y:auto;">Nothing hurts worse than passing your profit target or building a $4,000 funded cushion, requesting a payout, and getting denied because one big NQ trend day broke the firm's 40% or 50% Consistency Rule.
 
-If your largest single winning day was $1,800 on a 40% consistency firm (like Tradeify Select or Topstep Combine), your total account profit MUST reach at least $4,500 ($1,800 Ã· 0.40) before your withdrawal unlocks.
+If your largest single winning day was $1,800 on a 40% consistency firm (like Tradeify Select or Topstep Combine), your total account profit MUST reach at least $4,500 ($1,800 ÷ 0.40) before your withdrawal unlocks.
 
 We built an automated Consistency Rule Fixer into our calculator so you never guess how much extra profit you need to generate:
 https://www.thefundedbible.com/calculator.html
 
 And if you are ready to stop trading solo combines and build a synchronized 10-to-20 account funded fleet ($300K to $1M+ in active prop allocation), pick your weapon below:
 
-1. $9 â€” 7-Day Combine Pass Blueprint (Fast-Track Entry):
+1. $9 — 7-Day Combine Pass Blueprint (Fast-Track Entry):
 https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9
 
-2. $39 â€” The Trench Starter & NinjaScript C# Risk Suite (Most Popular):
+2. $39 — The Trench Starter & NinjaScript C# Risk Suite (Most Popular):
 https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
 
-3. $197 â€” The Funded Bibleâ„¢ Full 180-Page Scripture Manual + Indicators:
+3. $197 — The Funded Bible™ Full 180-Page Scripture Manual + Indicators:
 https://www.thefundedbible.com/api/create-checkout-session?tier=standard_197
 
-4. $397 â€” 20-Account Whale Scale Mastermind & Copier Architecture:
+4. $397 — 20-Account Whale Scale Mastermind & Copier Architecture:
 https://www.thefundedbible.com/api/create-checkout-session?tier=whale_397
 
 Let's lock your next payout,
 Danny Hoang
-The Funded Bibleâ„¢ LLC</pre>
+The Funded Bible™ LLC</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-5', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-5', 'em-body-5')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-5', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-5', 'em-body-5')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">ðŸ“§ DAILY NY DESK BROADCAST â€¢ November 04, 2026</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 DAILY NY DESK BROADCAST • November 04, 2026</span>
               <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: Daily List Cash Broadcast ($9 / $39 / BIBLE80)</span>
             </div>
             <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
-              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#fff;"><strong>SUBJECT:</strong> <span id="em-sub-6">ðŸš¨ NY Open Desk Briefing (November 04, 2026): NQ1! Liquidity Sweep & 5 MNQ Plan</span></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#fff;"><strong>SUBJECT:</strong> <span id="em-sub-6">🚨 NY Open Desk Briefing (November 04, 2026): NQ1! Liquidity Sweep & 5 MNQ Plan</span></div>
               <button onclick="copyTextById('em-sub-6', this)" style="background:#1e293b;color:#fbbf24;border:1px solid #f59e0b;padding:4px 10px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;cursor:pointer;flex-shrink:0;">COPY SUBJECT</button>
             </div>
             <pre id="em-body-6" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#e2e8f0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.58;max-height:310px;overflow-y:auto;">NY Futures Desk Briefing for November 04, 2026:
 
-1. 09:30â€“09:45 EST JUDAS SWING LOCKOUT:
+1. 09:30–09:45 EST JUDAS SWING LOCKOUT:
 Do not chase the 09:30 AM cash open candle. Let algorithms sweep the overnight London High or Asia Low liquidity pool first.
 
-2. 09:50â€“10:10 EST SILVER BULLET WINDOW:
+2. 09:50–10:10 EST SILVER BULLET WINDOW:
 Wait for a 5-minute displacement candle to close back inside the range across Session VWAP leaving a clean Fair Value Gap (FVG).
 
 3. MECHANICAL SIZING ($50K ACCOUNT):
-â€¢ Max Contract Size: 5 MNQ Micros
-â€¢ Structural Stop Loss: 15 Points ($150 Risk = 6% of Buffer)
-â€¢ Take-Profit Target: +20 to +30 Points ($200â€“$300 per linked account)
-â€¢ Daily Kill-Switch: Hard platform lockout after 2 consecutive stops (-$300)
+• Max Contract Size: 5 MNQ Micros
+• Structural Stop Loss: 15 Points ($150 Risk = 6% of Buffer)
+• Take-Profit Target: +20 to +30 Points ($200–$300 per linked account)
+• Daily Kill-Switch: Hard platform lockout after 2 consecutive stops (-$300)
 
 Open the Live NQ1! / ES1! Terminal & Pre-Market Readiness Gate here:
 https://www.thefundedbible.com/briefings.html
@@ -354,11 +360,11 @@ https://www.thefundedbible.com/firms.html
 
 Trade clean,
 Danny Hoang
-The Funded Bibleâ„¢ Desk</pre>
+The Funded Bible™ Desk</pre>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <button onclick="copyTextById('em-body-6', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ COPY EMAIL BODY</button>
-            <button onclick="launchGmailBlast('em-sub-6', 'em-body-6')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸš€ OPEN IN GMAIL â†—</button>
+            <button onclick="copyTextById('em-body-6', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-6', 'em-body-6')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
           </div>
         </div>
         
@@ -368,14 +374,14 @@ The Funded Bibleâ„¢ Desk</pre>
     <!-- SECTION 2: VIRAL X, TIKTOK & YOUTUBE SHORTS HOOKS -->
     <section id="viral-hooks">
       <div style="margin-bottom:18px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;">â— ORGANIC TRAFFIC SYNDICATION â€¢ LINK IN BIO: thefundedbible.com/links.html</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;">● ORGANIC TRAFFIC SYNDICATION • LINK IN BIO: thefundedbible.com/links.html</div>
         <h2 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:4px;">1-Click Viral X, TikTok &amp; YouTube Shorts Scripts</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;">
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— X / TWITTER VIRAL HOOK #01 â€¢ TRAILING DRAWDOWN TRAP</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● X / TWITTER VIRAL HOOK #01 • TRAILING DRAWDOWN TRAP</div>
             <pre id="hook-1" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">94% of retail futures traders fail $50K combines for one mathematical reason:
 
 They size against the $50,000 nominal balance instead of the $2,500 drawdown buffer.
@@ -390,21 +396,21 @@ https://www.thefundedbible.com/vault.html
 Use code BIBLE80 for 80% off your next evaluation.</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-1', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
-            <a href="https://twitter.com/intent/tweet?text=94%25%20of%20retail%20futures%20traders%20fail%20%2450K%20combines%20for%20one%20mathematical%20reason%3A%0A%0AThey%20size%20against%20the%20%2450%2C000%20nominal%20balance%20instead%20of%20the%20%242%2C500%20drawdown%20buffer.%0A%0ASwinging%203%20NQ%20minis%20on%20a%2015pt%20stop%20risks%20%24900%20%2836%25%20of%20your%20life%20in%201%20trade%29.%0A%0ADrop%20to%205%20MNQ%20micros%20%28%24150%20risk%29.%20You%20survive%2016.6%20straight%20losses.%0A%0AFree%20MNQ%20Risk%20Sheet%20%28.CSV%29%20%2B%20%249%20Pass%20Blueprint%3A%0Ahttps%3A//www.thefundedbible.com/vault.html%0A%0AUse%20code%20BIBLE80%20for%2080%25%20off%20your%20next%20evaluation." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X â†—</a>
+            <button onclick="copyTextById('hook-1', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
+            <a href="https://twitter.com/intent/tweet?text=94%25%20of%20retail%20futures%20traders%20fail%20%2450K%20combines%20for%20one%20mathematical%20reason%3A%0A%0AThey%20size%20against%20the%20%2450%2C000%20nominal%20balance%20instead%20of%20the%20%242%2C500%20drawdown%20buffer.%0A%0ASwinging%203%20NQ%20minis%20on%20a%2015pt%20stop%20risks%20%24900%20%2836%25%20of%20your%20life%20in%201%20trade%29.%0A%0ADrop%20to%205%20MNQ%20micros%20%28%24150%20risk%29.%20You%20survive%2016.6%20straight%20losses.%0A%0AFree%20MNQ%20Risk%20Sheet%20%28.CSV%29%20%2B%20%249%20Pass%20Blueprint%3A%0Ahttps%3A//www.thefundedbible.com/vault.html%0A%0AUse%20code%20BIBLE80%20for%2080%25%20off%20your%20next%20evaluation." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X ↗</a>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— X / TWITTER VIRAL HOOK #02 â€¢ 20-ACCOUNT SYNDICATE MATH</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● X / TWITTER VIRAL HOOK #02 • 20-ACCOUNT SYNDICATE MATH</div>
             <pre id="hook-2" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">Stop swinging for 80-point NQ home runs on 1 combine.
 
 How funded syndicate desks actually print:
-â€¢ 4 MNQ micros ($8/pt)
-â€¢ 20-point base hit = $160 per account
-â€¢ Copied across 10 linked PA/XFA accounts = $1,600/day
-â€¢ Max risk per account = 4.8% of drawdown buffer
+• 4 MNQ micros ($8/pt)
+• 20-point base hit = $160 per account
+• Copied across 10 linked PA/XFA accounts = $1,600/day
+• Max risk per account = 4.8% of drawdown buffer
 
 Run your exact syndicate math live:
 https://www.thefundedbible.com/calculator.html
@@ -412,15 +418,15 @@ https://www.thefundedbible.com/calculator.html
 Code BIBLE80 saves 80% on evaluations.</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-2', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
-            <a href="https://twitter.com/intent/tweet?text=Stop%20swinging%20for%2080-point%20NQ%20home%20runs%20on%201%20combine.%0A%0AHow%20funded%20syndicate%20desks%20actually%20print%3A%0A%E2%80%A2%204%20MNQ%20micros%20%28%248/pt%29%0A%E2%80%A2%2020-point%20base%20hit%20%3D%20%24160%20per%20account%0A%E2%80%A2%20Copied%20across%2010%20linked%20PA/XFA%20accounts%20%3D%20%241%2C600/day%0A%E2%80%A2%20Max%20risk%20per%20account%20%3D%204.8%25%20of%20drawdown%20buffer%0A%0ARun%20your%20exact%20syndicate%20math%20live%3A%0Ahttps%3A//www.thefundedbible.com/calculator.html%0A%0ACode%20BIBLE80%20saves%2080%25%20on%20evaluations." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X â†—</a>
+            <button onclick="copyTextById('hook-2', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
+            <a href="https://twitter.com/intent/tweet?text=Stop%20swinging%20for%2080-point%20NQ%20home%20runs%20on%201%20combine.%0A%0AHow%20funded%20syndicate%20desks%20actually%20print%3A%0A%E2%80%A2%204%20MNQ%20micros%20%28%248/pt%29%0A%E2%80%A2%2020-point%20base%20hit%20%3D%20%24160%20per%20account%0A%E2%80%A2%20Copied%20across%2010%20linked%20PA/XFA%20accounts%20%3D%20%241%2C600/day%0A%E2%80%A2%20Max%20risk%20per%20account%20%3D%204.8%25%20of%20drawdown%20buffer%0A%0ARun%20your%20exact%20syndicate%20math%20live%3A%0Ahttps%3A//www.thefundedbible.com/calculator.html%0A%0ACode%20BIBLE80%20saves%2080%25%20on%20evaluations." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X ↗</a>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— X / TWITTER VIRAL HOOK #03 â€¢ $0 ACTIVATION FEE AUDIT</div>
-            <pre id="hook-3" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">Paying $149â€“$250 in "Activation Fees" after passing a $50K prop evaluation is dead in 2026.
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● X / TWITTER VIRAL HOOK #03 • $0 ACTIVATION FEE AUDIT</div>
+            <pre id="hook-3" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">Paying $149–$250 in "Activation Fees" after passing a $50K prop evaluation is dead in 2026.
 
 If you scale 10 funded accounts, activation fees eat $1,500+ before you place a single live trade.
 
@@ -430,18 +436,18 @@ https://www.thefundedbible.com/firms.html
 Promo codes BIBLE80 & BIBLE active now.</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-3', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
-            <a href="https://twitter.com/intent/tweet?text=Paying%20%24149%E2%80%93%24250%20in%20%22Activation%20Fees%22%20after%20passing%20a%20%2450K%20prop%20evaluation%20is%20dead%20in%202026.%0A%0AIf%20you%20scale%2010%20funded%20accounts%2C%20activation%20fees%20eat%20%241%2C500%2B%20before%20you%20place%20a%20single%20live%20trade.%0A%0ACompare%20every%20verified%20%240%20Activation%20Fee%20%2B%20EOD%20Drawdown%20prop%20firm%20side-by-side%3A%0Ahttps%3A//www.thefundedbible.com/firms.html%0A%0APromo%20codes%20BIBLE80%20%26%20BIBLE%20active%20now." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X â†—</a>
+            <button onclick="copyTextById('hook-3', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
+            <a href="https://twitter.com/intent/tweet?text=Paying%20%24149%E2%80%93%24250%20in%20%22Activation%20Fees%22%20after%20passing%20a%20%2450K%20prop%20evaluation%20is%20dead%20in%202026.%0A%0AIf%20you%20scale%2010%20funded%20accounts%2C%20activation%20fees%20eat%20%241%2C500%2B%20before%20you%20place%20a%20single%20live%20trade.%0A%0ACompare%20every%20verified%20%240%20Activation%20Fee%20%2B%20EOD%20Drawdown%20prop%20firm%20side-by-side%3A%0Ahttps%3A//www.thefundedbible.com/firms.html%0A%0APromo%20codes%20BIBLE80%20%26%20BIBLE%20active%20now." target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X ↗</a>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— X / TWITTER VIRAL HOOK #04 â€¢ NY OPEN SILVER BULLET</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● X / TWITTER VIRAL HOOK #04 • NY OPEN SILVER BULLET</div>
             <pre id="hook-4" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">The 09:30 EST NY Cash Open is engineered to liquidate impatient retail traders.
 
 My entire 90-minute Combine Pass routine:
-1. Sit on hands 09:30â€“09:45 EST while Judas swing sweeps London High/Low
+1. Sit on hands 09:30–09:45 EST while Judas swing sweeps London High/Low
 2. Wait for a 5m Fair Value Gap (FVG) reclaim across VWAP
 3. Enter 5 MNQ (15pt SL / 30pt TP = +$300)
 4. Hard daily lockout after 2 trades
@@ -450,58 +456,58 @@ Full $9 Execution Checklist:
 https://www.thefundedbible.com</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-4', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
-            <a href="https://twitter.com/intent/tweet?text=The%2009%3A30%20EST%20NY%20Cash%20Open%20is%20engineered%20to%20liquidate%20impatient%20retail%20traders.%0A%0AMy%20entire%2090-minute%20Combine%20Pass%20routine%3A%0A1.%20Sit%20on%20hands%2009%3A30%E2%80%9309%3A45%20EST%20while%20Judas%20swing%20sweeps%20London%20High/Low%0A2.%20Wait%20for%20a%205m%20Fair%20Value%20Gap%20%28FVG%29%20reclaim%20across%20VWAP%0A3.%20Enter%205%20MNQ%20%2815pt%20SL%20/%2030pt%20TP%20%3D%20%2B%24300%29%0A4.%20Hard%20daily%20lockout%20after%202%20trades%0A%0AFull%20%249%20Execution%20Checklist%3A%0Ahttps%3A//www.thefundedbible.com" target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X â†—</a>
+            <button onclick="copyTextById('hook-4', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
+            <a href="https://twitter.com/intent/tweet?text=The%2009%3A30%20EST%20NY%20Cash%20Open%20is%20engineered%20to%20liquidate%20impatient%20retail%20traders.%0A%0AMy%20entire%2090-minute%20Combine%20Pass%20routine%3A%0A1.%20Sit%20on%20hands%2009%3A30%E2%80%9309%3A45%20EST%20while%20Judas%20swing%20sweeps%20London%20High/Low%0A2.%20Wait%20for%20a%205m%20Fair%20Value%20Gap%20%28FVG%29%20reclaim%20across%20VWAP%0A3.%20Enter%205%20MNQ%20%2815pt%20SL%20/%2030pt%20TP%20%3D%20%2B%24300%29%0A4.%20Hard%20daily%20lockout%20after%202%20trades%0A%0AFull%20%249%20Execution%20Checklist%3A%0Ahttps%3A//www.thefundedbible.com" target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">POST TO X ↗</a>
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— TIKTOK / REEL SCRIPT #01 â€¢ THE $50K COMBINE LIE</div>
-            <pre id="hook-5" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">[ON-SCREEN HOOK TEXT]: Stop trading a $50K prop account like you have $50,000 ðŸ’€ðŸ“‰
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● TIKTOK / REEL SCRIPT #01 • THE $50K COMBINE LIE</div>
+            <pre id="hook-5" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">[ON-SCREEN HOOK TEXT]: Stop trading a $50K prop account like you have $50,000 💀📉
 
 [VOICEOVER]:
-You don't have fifty grand. You have a twenty-five hundred dollar drawdown buffer. When you fire two NQ minis with a twenty-point stop, you're risking eight hundred bucksâ€”one third of your entire account life on a single candle. Drop down to five MNQ micros with a fifteen-point stop. Now you're only risking a hundred and fifty bucks a trade, and your account survives sixteen straight losses.
+You don't have fifty grand. You have a twenty-five hundred dollar drawdown buffer. When you fire two NQ minis with a twenty-point stop, you're risking eight hundred bucks—one third of your entire account life on a single candle. Drop down to five MNQ micros with a fifteen-point stop. Now you're only risking a hundred and fifty bucks a trade, and your account survives sixteen straight losses.
 
 [CAPTION]:
-Stop donating evaluation fees to prop firms. Grab the free 2-Trade Prop Saver Risk Sheet (.CSV) + $9 7-Day Pass Blueprint at the link in bio (thefundedbible.com) âš¡ Use code BIBLE80 for 80% off evaluations. #futures #propfirm #nqfutures #daytrading #apextraderfunding #topstep #myfundedfutures</pre>
+Stop donating evaluation fees to prop firms. Grab the free 2-Trade Prop Saver Risk Sheet (.CSV) + $9 7-Day Pass Blueprint at the link in bio (thefundedbible.com) ⚡ Use code BIBLE80 for 80% off evaluations. #futures #propfirm #nqfutures #daytrading #apextraderfunding #topstep #myfundedfutures</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-5', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
+            <button onclick="copyTextById('hook-5', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
             
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— TIKTOK / REEL SCRIPT #02 â€¢ 10-ACCOUNT COPY TRADER MATH</div>
-            <pre id="hook-6" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">[ON-SCREEN HOOK TEXT]: Why pros trade 4 Micros across 10 accounts instead of 4 Minis on 1 ðŸ§ ðŸ’°
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● TIKTOK / REEL SCRIPT #02 • 10-ACCOUNT COPY TRADER MATH</div>
+            <pre id="hook-6" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">[ON-SCREEN HOOK TEXT]: Why pros trade 4 Micros across 10 accounts instead of 4 Minis on 1 🧠💰
 
 [VOICEOVER]:
-Amateur traders try to make two grand on a single combine by over-leveraging NQ minisâ€”and they blow up by Tuesday. Funded syndicate desks trade four MNQ micros for a boring twenty-point base hit. That's a hundred and sixty bucks per account, copied across ten linked PA accounts for sixteen hundred dollars in fifteen minutesâ€”with zero trailing drawdown stress.
+Amateur traders try to make two grand on a single combine by over-leveraging NQ minis—and they blow up by Tuesday. Funded syndicate desks trade four MNQ micros for a boring twenty-point base hit. That's a hundred and sixty bucks per account, copied across ten linked PA accounts for sixteen hundred dollars in fifteen minutes—with zero trailing drawdown stress.
 
 [CAPTION]:
-Base hits across 10 linked accounts beat home runs on 1 combine every single time. Run the 20-Account Syndicate Calculator live at thefundedbible.com âš¡ Code BIBLE80 gets you 80% off. #copytrading #ninjatrader #futurespropfirm #daytrader #icttrading</pre>
+Base hits across 10 linked accounts beat home runs on 1 combine every single time. Run the 20-Account Syndicate Calculator live at thefundedbible.com ⚡ Code BIBLE80 gets you 80% off. #copytrading #ninjatrader #futurespropfirm #daytrader #icttrading</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-6', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
+            <button onclick="copyTextById('hook-6', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
             
           </div>
         </div>
         
         <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">â— YOUTUBE SHORT PACK #01 â€¢ HIGH-CTR TITLE + SEO DESCRIPTION</div>
-            <pre id="hook-7" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">TITLE: Why 94% Fail $50K Prop Evaluations (And The 5 MNQ Fix) ðŸ’€ðŸ“ˆ #shorts
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● YOUTUBE SHORT PACK #01 • HIGH-CTR TITLE + SEO DESCRIPTION</div>
+            <pre id="hook-7" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">TITLE: Why 94% Fail $50K Prop Evaluations (And The 5 MNQ Fix) 💀📈 #shorts
 
 DESCRIPTION:
-Stop sizing against your $50,000 nominal balanceâ€”size against your $2,500 drawdown buffer.
-ðŸ”¥ Download the FREE "2-Trade Prop Saver" Risk Sheet (.CSV): https://www.thefundedbible.com/vault.html
-âš¡ Get the $9 7-Day Combine Pass Blueprint: https://www.thefundedbible.com
-ðŸ’° Compare All 12 Prop Firms + Copy 80% OFF Code [BIBLE80]: https://www.thefundedbible.com/firms.html</pre>
+Stop sizing against your $50,000 nominal balance—size against your $2,500 drawdown buffer.
+🔥 Download the FREE "2-Trade Prop Saver" Risk Sheet (.CSV): https://www.thefundedbible.com/vault.html
+⚡ Get the $9 7-Day Combine Pass Blueprint: https://www.thefundedbible.com
+💰 Compare All 12 Prop Firms + Copy 80% OFF Code [BIBLE80]: https://www.thefundedbible.com/firms.html</pre>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button onclick="copyTextById('hook-7', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">ðŸ“‹ 1-CLICK COPY POST</button>
+            <button onclick="copyTextById('hook-7', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
             
           </div>
         </div>
@@ -538,7 +544,7 @@ Stop sizing against your $50,000 nominal balanceâ€”size against your $2,500
       const text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text);
       const orig = btn.innerText;
-      btn.innerText = 'âœ“ COPIED!';
+      btn.innerText = '✓ COPIED!';
       setTimeout(() => { btn.innerText = orig; }, 1700);
     }
 

@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyFundedFutures (MFFU) vs Alpha Futures (2026 Prop Firm Audit) | The Funded Bibleâ„¢</title>
+  <title>MyFundedFutures (MFFU) vs Alpha Futures (2026 Prop Firm Audit) | The Funded Bible™</title>
   <meta name="description" content="Side-by-side institutional audit comparing MyFundedFutures (MFFU) (End-of-Day (EOD) Static, $0 ZERO Activation Fee) against Alpha Futures (End-of-Day (EOD) Balance, $0 Zero Activation Option). Use promo code BIBLE80 for 80% off." />
   <link rel="canonical" href="https://www.thefundedbible.com/myfundedfutures-vs-alpha-futures.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,77 +57,83 @@
     table.cmp-table td { padding: 14px; border-bottom: 1px solid var(--border-subtle); color: #fff; }
     .btn-gold { background: linear-gradient(135deg, var(--gold-bright), #d97706); color: #000; font-family: var(--font-mono); font-weight: 800; font-size: 13px; padding: 13px 22px; border-radius: 8px; text-decoration: none; display: inline-block; }
   </style>
-<!-- TFB LUXURY CYBERPUNK UI ENGINE -->
+<!-- TFB CLEAN INSTITUTIONAL UI -->
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-luxury-skin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="tfb-clean-architecture">
   :root {
-    --bg-obsidian: #050608;
-    --glass-card: rgba(14, 17, 24, 0.78);
-    --neon-green: #00ff88;
-    --cyber-gold: #ffd700;
-    --electric-purple: #8b5cf6;
+    --obsidian: #06080d;
+    --panel: #0d111a;
+    --panel-border: rgba(255, 255, 255, 0.09);
+    --neon: #00ff88;
+    --gold: #ffd700;
   }
   body {
-    background-color: var(--bg-obsidian) !important;
-    background-image: 
-      radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.08) 0%, transparent 38%),
-      radial-gradient(circle at 85% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
-    color: #f1f5f9 !important;
-    font-family: 'Inter', sans-serif !important;
+    background-color: var(--obsidian) !important;
+    color: #f8fafc !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    margin: 0;
     overflow-x: hidden;
   }
-  h1, h2, h3, .font-bold {
+  h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: -0.02em;
   }
-  h1 {
-    background: linear-gradient(135deg, #ffffff 0%, #00ff88 55%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 28px rgba(0, 255, 136, 0.22));
+  .tfb-glass-card {
+    background: rgba(13, 17, 26, 0.88);
+    backdrop-filter: blur(16px);
+    bord: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  /* Upgrade all cards, boxes, and sections into Frosted Obsidian Glass */
-  div[class*="bg-"], section[class*="bg-"], .card, article, table {
-    background: var(--glass-card) !important;
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  .tfb-glass-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 136, 0.45);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
   }
-  div[class*="bg-"]:hover, .card:hover, article:hover {
-    border-color: rgba(0, 255, 136, 0.45) !important;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 255, 136, 0.14) !important;
-    transform: translateY(-4px);
+  .tfb-btn-neon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
-  /* Make every CTA button glow like an institutional terminal button */
-  a[href*="stripe"], a[href*="whop"], a[href*="t.me"], button, .btn {
-    background: linear-gradient(135deg, #00ff88 0%, #00b862 100%) !important;
-    color: #040608 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 9999px !important;
-    border: none !important;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: all 0.25s ease !important;
+  .tfb-btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
   }
-  a[href*="stripe"]:hover, a[href*="whop"]:hover, a[href*="t.me"]:hover, button:hover {
-    transform: translateY(-2px) scale(1.03) !important;
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), 0 0 15px rgba(255, 215, 0, 0.5) !important;
+  .tfb-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
+    transition: all 0.2s ease;
   }
-  code, pre, .mono {
-    font-family: 'JetBrains Mono', monospace !important;
-    color: var(--cyber-gold) !important;
+  .tfb-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>
+
 </head>
 <body>
   <header class="sticky-command-header">
@@ -146,8 +152,8 @@
   <main class="container">
     <div class="panel">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
-        <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">â— VERIFIED INSTITUTIONAL AUDIT â€¢ UPDATED November 04, 2026</span>
-        <span class="code-pill" onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 âœ“';">COPY 80% OFF CODE: BIBLE80</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">● VERIFIED INSTITUTIONAL AUDIT • UPDATED November 04, 2026</span>
+        <span class="code-pill" onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 ✓';">COPY 80% OFF CODE: BIBLE80</span>
       </div>
       <h1 style="font-family:var(--font-display);font-size:clamp(26px,3.6vw,42px);font-weight:800;line-height:1.12;margin-bottom:14px;">MyFundedFutures (MFFU) vs Alpha Futures: Drawdown, Activation Fees & Payout Audit</h1>
       <p style="color:var(--text-muted);font-size:15.5px;margin-bottom:20px;">Side-by-side institutional audit comparing MyFundedFutures (MFFU) (End-of-Day (EOD) Static, $0 ZERO Activation Fee) against Alpha Futures (End-of-Day (EOD) Balance, $0 Zero Activation Option). Use promo code BIBLE80 for 80% off.</p>
@@ -171,8 +177,8 @@
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
-        <a href="/api/create-checkout-session?tier=flash_9" class="btn-gold">GET THE $9 7-DAY PASS BLUEPRINT âš¡</a>
-        <a href="/api/create-checkout-session?tier=risk_terminal_39" class="btn-gold" style="background:#111827;color:#fff;border:1px solid var(--gold);">DEPLOY $39 NT8 RISK SUITE â†’</a>
+        <a href="/api/create-checkout-session?tier=flash_9" class="btn-gold">GET THE $9 7-DAY PASS BLUEPRINT ⚡</a>
+        <a href="/api/create-checkout-session?tier=risk_terminal_39" class="btn-gold" style="background:#111827;color:#fff;border:1px solid var(--gold);">DEPLOY $39 NT8 RISK SUITE →</a>
         <a href="firms.html" class="btn-gold" style="background:transparent;color:var(--gold-bright);border:1px solid var(--border-subtle);">FULL 12-FIRM MATRIX</a>
       </div>
     </div>
@@ -180,15 +186,14 @@
 
   <div id="tfb-sticky-bottom-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9995;background:rgba(4,6,10,0.96);border-top:1px solid rgba(245,158,11,0.4);padding:10px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;">
     <div style="font-size:12px;color:#fff;">
-      <span style="color:#10b981;font-weight:800;">â— LIVE DESK OFFER:</span> Pass Your Next $50K Combine in 7 Sessions With Mechanical MNQ Sizing
+      <span style="color:#10b981;font-weight:800;">● LIVE DESK OFFER:</span> Pass Your Next $50K Combine in 7 Sessions With Mechanical MNQ Sizing
     </div>
     <div style="display:flex;gap:10px;align-items:center;">
       <a href="/api/create-checkout-session?tier=flash_9" style="background:#111827;color:#fbbf24;border:1px solid #f59e0b;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$9 BLUEPRINT</a>
-      <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE âš¡</a>
+      <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE ⚡</a>
     </div>
   </div>
 <script src="/tfb-closer-bot.js" defer></script>
 <script src="/tfb-flash-proof.js" defer></script>
 </body>
 </html>
-

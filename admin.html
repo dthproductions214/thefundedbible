@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FOUNDER COMMAND &amp; REVENUE OS | The Funded Bibleâ„¢ Private Desk</title>
+  <title>FOUNDER COMMAND &amp; REVENUE OS | The Funded Bible™ Private Desk</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,94 +128,100 @@
     .slider-row label { display: flex; justify-content: space-between; color: var(--text-muted); margin-bottom: 5px; }
     .slider-row input[type="range"] { width: 100%; accent-color: var(--gold); cursor: pointer; }
   </style>
-<!-- TFB LUXURY CYBERPUNK UI ENGINE -->
+<!-- TFB CLEAN INSTITUTIONAL UI -->
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-luxury-skin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="tfb-clean-architecture">
   :root {
-    --bg-obsidian: #050608;
-    --glass-card: rgba(14, 17, 24, 0.78);
-    --neon-green: #00ff88;
-    --cyber-gold: #ffd700;
-    --electric-purple: #8b5cf6;
+    --obsidian: #06080d;
+    --panel: #0d111a;
+    --panel-border: rgba(255, 255, 255, 0.09);
+    --neon: #00ff88;
+    --gold: #ffd700;
   }
   body {
-    background-color: var(--bg-obsidian) !important;
-    background-image: 
-      radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.08) 0%, transparent 38%),
-      radial-gradient(circle at 85% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
-    color: #f1f5f9 !important;
-    font-family: 'Inter', sans-serif !important;
+    background-color: var(--obsidian) !important;
+    color: #f8fafc !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    margin: 0;
     overflow-x: hidden;
   }
-  h1, h2, h3, .font-bold {
+  h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: -0.02em;
   }
-  h1 {
-    background: linear-gradient(135deg, #ffffff 0%, #00ff88 55%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 28px rgba(0, 255, 136, 0.22));
+  .tfb-glass-card {
+    background: rgba(13, 17, 26, 0.88);
+    backdrop-filter: blur(16px);
+    bord: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  /* Upgrade all cards, boxes, and sections into Frosted Obsidian Glass */
-  div[class*="bg-"], section[class*="bg-"], .card, article, table {
-    background: var(--glass-card) !important;
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  .tfb-glass-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 136, 0.45);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
   }
-  div[class*="bg-"]:hover, .card:hover, article:hover {
-    border-color: rgba(0, 255, 136, 0.45) !important;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 255, 136, 0.14) !important;
-    transform: translateY(-4px);
+  .tfb-btn-neon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
-  /* Make every CTA button glow like an institutional terminal button */
-  a[href*="stripe"], a[href*="whop"], a[href*="t.me"], button, .btn {
-    background: linear-gradient(135deg, #00ff88 0%, #00b862 100%) !important;
-    color: #040608 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 9999px !important;
-    border: none !important;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: all 0.25s ease !important;
+  .tfb-btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
   }
-  a[href*="stripe"]:hover, a[href*="whop"]:hover, a[href*="t.me"]:hover, button:hover {
-    transform: translateY(-2px) scale(1.03) !important;
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), 0 0 15px rgba(255, 215, 0, 0.5) !important;
+  .tfb-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+    color: #04070b !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
+    transition: all 0.2s ease;
   }
-  code, pre, .mono {
-    font-family: 'JetBrains Mono', monospace !important;
-    color: var(--cyber-gold) !important;
+  .tfb-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 </style>
+
 </head>
 <body>
 
   <header class="sticky-header">
     <div class="header-inner">
       <a href="index.html" class="brand">
-        <span>THE FUNDED BIBLEâ„¢</span>
+        <span>THE FUNDED BIBLE™</span>
         <span class="badge">FOUNDER COMMAND OS</span>
       </a>
       <div class="quick-nav">
-        <a href="index.html" target="_blank">Live Desk â†—</a>
-        <a href="viral.html" target="_blank" style="border-color:var(--emerald);color:var(--emerald);">Viral &amp; Email OS â†—</a>
-        <a href="links.html" target="_blank" style="border-color:var(--gold);color:var(--gold-bright);">Bio Link Hub â†—</a>
-        <a href="vault.html" target="_blank">Member Vault â†—</a>
-        <a href="directory.html" target="_blank">150+ SEO Index â†—</a>
-        <a href="https://dashboard.stripe.com/customers" target="_blank">Stripe Customers â†—</a>
-        <a href="https://github.com/dthproductions214/thefundedbible/actions" target="_blank">GitHub Cron â†—</a>
+        <a href="index.html" target="_blank">Live Desk ↗</a>
+        <a href="viral.html" target="_blank" style="border-color:var(--emerald);color:var(--emerald);">Viral &amp; Email OS ↗</a>
+        <a href="links.html" target="_blank" style="border-color:var(--gold);color:var(--gold-bright);">Bio Link Hub ↗</a>
+        <a href="vault.html" target="_blank">Member Vault ↗</a>
+        <a href="directory.html" target="_blank">150+ SEO Index ↗</a>
+        <a href="https://dashboard.stripe.com/customers" target="_blank">Stripe Customers ↗</a>
+        <a href="https://github.com/dthproductions214/thefundedbible/actions" target="_blank">GitHub Cron ↗</a>
       </div>
     </div>
   </header>
@@ -227,7 +233,7 @@
       <div class="kpi-box">
         <div class="kpi-label">LIVE INDEXED SITEMAP URLS</div>
         <div class="kpi-val" id="kpi-sitemap-count">SCANNING...</div>
-        <div class="kpi-sub" id="kpi-sitemap-status">â— Auto-Cron Active @ 08:00 EST</div>
+        <div class="kpi-sub" id="kpi-sitemap-status">● Auto-Cron Active @ 08:00 EST</div>
       </div>
       <div class="kpi-box" style="border-left-color:var(--gold);">
         <div class="kpi-label">LEAD CAPTURE &amp; OTO WEBHOOK</div>
@@ -251,27 +257,27 @@
       <!-- Left: Daily High-Leverage Execution Checklist -->
       <div class="panel">
         <div class="panel-title">
-          <span>âš¡ Daily 3-Minute Traffic &amp; Closing Routine</span>
+          <span>⚡ Daily 3-Minute Traffic &amp; Closing Routine</span>
           <button onclick="resetAdminChecklist()" class="btn-sm-emerald">RESET DAY</button>
         </div>
         <p style="color:var(--text-muted);font-size:13px;">Your SEO pages, IndexNow pings, lead capture, welcome emails, and post-purchase OTO upsells run 100% automatically. Complete these 5 quick actions daily to pour fuel on the funnel:</p>
 
         <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c1" onchange="saveAdminChecks()" /> <span>1. Open <strong>viral.html</strong> and fire 1 pre-written X/Twitter Post (1-Click Intent Button)</span></label>
-        <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c2" onchange="saveAdminChecks()" /> <span>2. Post 1 TikTok / YouTube Short using Script #1â€“#3 (Bio Link: <strong>thefundedbible.com/links.html</strong>)</span></label>
+        <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c2" onchange="saveAdminChecks()" /> <span>2. Post 1 TikTok / YouTube Short using Script #1–#3 (Bio Link: <strong>thefundedbible.com/links.html</strong>)</span></label>
         <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c3" onchange="saveAdminChecks()" /> <span>3. Copy new trader leads from <strong>Stripe Customers</strong> into <strong>viral.html</strong> BCC Bar</span></label>
-        <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c4" onchange="saveAdminChecks()" /> <span>4. Click <strong>ðŸš€ OPEN IN GMAIL â†—</strong> on the Daily NY Desk Broadcast &amp; hit Send</span></label>
+        <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c4" onchange="saveAdminChecks()" /> <span>4. Click <strong>🚀 OPEN IN GMAIL ↗</strong> on the Daily NY Desk Broadcast &amp; hit Send</span></label>
         <label class="check-item"><input type="checkbox" class="adm-cb" data-id="c5" onchange="saveAdminChecks()" /> <span>5. Verify GitHub Actions 08:00 EST SEO &amp; IndexNow Cron succeeded (Green Check)</span></label>
 
         <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="viral.html" class="btn-sm" style="padding:10px 16px;font-size:12px;">OPEN VIRAL &amp; EMAIL BROADCAST OS â†’</a>
-          <a href="links.html" class="btn-sm-emerald" style="padding:10px 16px;font-size:12px;">PREVIEW BIO LINK HUB â†’</a>
+          <a href="viral.html" class="btn-sm" style="padding:10px 16px;font-size:12px;">OPEN VIRAL &amp; EMAIL BROADCAST OS →</a>
+          <a href="links.html" class="btn-sm-emerald" style="padding:10px 16px;font-size:12px;">PREVIEW BIO LINK HUB →</a>
         </div>
       </div>
 
       <!-- Right: Live Funnel Revenue & Conversion Simulator -->
       <div class="panel" style="border-color:rgba(16,185,129,0.4);">
         <div class="panel-title">
-          <span>ðŸ’° Daily Funnel Cash-Flow Simulator</span>
+          <span>💰 Daily Funnel Cash-Flow Simulator</span>
           <span id="sim-monthly-badge" style="font-family:var(--font-mono);font-size:13px;color:var(--emerald);background:rgba(16,185,129,0.14);padding:4px 10px;border-radius:6px;border:1px solid var(--emerald);">$14,850 / MO</span>
         </div>
         <p style="color:var(--text-muted);font-size:13px;">Model your daily traffic across the $9 Blueprint tripwire, $39 C# Risk Suite OTO, $19 Tax Bump, and $197/$397 backend:</p>
@@ -309,7 +315,7 @@
     <!-- 3. COMPLETE STRIPE CHECKOUT & POST-PURCHASE OTO TEST MATRIX -->
     <section class="panel" style="margin-bottom:26px;">
       <div class="panel-title">
-        <span>ðŸ’³ 1-Click Stripe Checkout &amp; Post-Purchase OTO Funnel Matrix</span>
+        <span>💳 1-Click Stripe Checkout &amp; Post-Purchase OTO Funnel Matrix</span>
         <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);">ALL 10 TIERS + $19 ORDER BUMP WIRED</span>
       </div>
       <div class="table-wrap">
@@ -329,41 +335,41 @@
               <td><code>flash_9</code></td>
               <td><strong>7-Day Combine Pass Blueprint (Tripwire)</strong></td>
               <td style="color:var(--emerald);font-weight:800;">$9</td>
-              <td><a href="/api/create-checkout-session?tier=flash_9" target="_blank" class="btn-sm">TEST $9 CHECKOUT â†—</a></td>
-              <td><a href="/api/create-checkout-session?tier=flash_9&bump=true" target="_blank" class="btn-sm-emerald">TEST $9 + $19 BUMP â†—</a></td>
-              <td><a href="vault.html?unlocked=flash_9" target="_blank" class="btn-sm-emerald">VIEW $9 â†’ $39 OTO â†—</a></td>
+              <td><a href="/api/create-checkout-session?tier=flash_9" target="_blank" class="btn-sm">TEST $9 CHECKOUT ↗</a></td>
+              <td><a href="/api/create-checkout-session?tier=flash_9&bump=true" target="_blank" class="btn-sm-emerald">TEST $9 + $19 BUMP ↗</a></td>
+              <td><a href="vault.html?unlocked=flash_9" target="_blank" class="btn-sm-emerald">VIEW $9 → $39 OTO ↗</a></td>
             </tr>
             <tr>
               <td><code>risk_terminal_39</code></td>
               <td><strong>The Trench Starter &amp; NT8 C# Risk Suite</strong></td>
               <td style="color:var(--gold-bright);font-weight:800;">$39</td>
-              <td><a href="/api/create-checkout-session?tier=risk_terminal_39" target="_blank" class="btn-sm">TEST $39 CHECKOUT â†—</a></td>
-              <td><a href="/api/create-checkout-session?tier=risk_terminal_39&bump=true" target="_blank" class="btn-sm-emerald">TEST $39 + $19 BUMP â†—</a></td>
-              <td><a href="vault.html?unlocked=risk_terminal_39" target="_blank" class="btn-sm-emerald">VIEW $39 â†’ $197 OTO â†—</a></td>
+              <td><a href="/api/create-checkout-session?tier=risk_terminal_39" target="_blank" class="btn-sm">TEST $39 CHECKOUT ↗</a></td>
+              <td><a href="/api/create-checkout-session?tier=risk_terminal_39&bump=true" target="_blank" class="btn-sm-emerald">TEST $39 + $19 BUMP ↗</a></td>
+              <td><a href="vault.html?unlocked=risk_terminal_39" target="_blank" class="btn-sm-emerald">VIEW $39 → $197 OTO ↗</a></td>
             </tr>
             <tr>
               <td><code>standard_197</code></td>
               <td><strong>Standard Scripture Master Manual (180p)</strong></td>
               <td style="color:#60a5fa;font-weight:800;">$197</td>
-              <td><a href="/api/create-checkout-session?tier=standard_197" target="_blank" class="btn-sm">TEST $197 CHECKOUT â†—</a></td>
-              <td><a href="/api/create-checkout-session?tier=standard_197&bump=true" target="_blank" class="btn-sm-emerald">TEST $197 + $19 BUMP â†—</a></td>
-              <td><a href="vault.html?unlocked=standard_197" target="_blank" class="btn-sm-emerald">VIEW $197 â†’ $397 OTO â†—</a></td>
+              <td><a href="/api/create-checkout-session?tier=standard_197" target="_blank" class="btn-sm">TEST $197 CHECKOUT ↗</a></td>
+              <td><a href="/api/create-checkout-session?tier=standard_197&bump=true" target="_blank" class="btn-sm-emerald">TEST $197 + $19 BUMP ↗</a></td>
+              <td><a href="vault.html?unlocked=standard_197" target="_blank" class="btn-sm-emerald">VIEW $197 → $397 OTO ↗</a></td>
             </tr>
             <tr>
               <td><code>whale_397</code></td>
               <td><strong>20-Account Whale Syndicate Vault</strong></td>
               <td style="color:#a78bfa;font-weight:800;">$397</td>
-              <td><a href="/api/create-checkout-session?tier=whale_397" target="_blank" class="btn-sm">TEST $397 CHECKOUT â†—</a></td>
-              <td><a href="/api/create-checkout-session?tier=whale_397&bump=true" target="_blank" class="btn-sm-emerald">TEST $397 + $19 BUMP â†—</a></td>
-              <td><a href="vault.html?unlocked=whale_397" target="_blank" class="btn-sm-emerald">VIEW VIP WHALE VAULT â†—</a></td>
+              <td><a href="/api/create-checkout-session?tier=whale_397" target="_blank" class="btn-sm">TEST $397 CHECKOUT ↗</a></td>
+              <td><a href="/api/create-checkout-session?tier=whale_397&bump=true" target="_blank" class="btn-sm-emerald">TEST $397 + $19 BUMP ↗</a></td>
+              <td><a href="vault.html?unlocked=whale_397" target="_blank" class="btn-sm-emerald">VIEW VIP WHALE VAULT ↗</a></td>
             </tr>
             <tr>
-              <td><code>tier_1</code> â€“ <code>tier_99</code></td>
+              <td><code>tier_1</code> – <code>tier_99</code></td>
               <td><strong>Micro-Vault Tools ($1, $7, $19, $27, $49, $99)</strong></td>
-              <td>$1â€“$99</td>
-              <td><a href="/api/create-checkout-session?tier=tier_19" target="_blank" class="btn-sm">TEST $19 TIER â†—</a></td>
-              <td><a href="/api/create-checkout-session?tier=tier_49&bump=true" target="_blank" class="btn-sm-emerald">TEST $49 + BUMP â†—</a></td>
-              <td><a href="vault.html?unlocked=tier_19" target="_blank" class="btn-sm-emerald">VIEW MICRO OTO â†—</a></td>
+              <td>$1–$99</td>
+              <td><a href="/api/create-checkout-session?tier=tier_19" target="_blank" class="btn-sm">TEST $19 TIER ↗</a></td>
+              <td><a href="/api/create-checkout-session?tier=tier_49&bump=true" target="_blank" class="btn-sm-emerald">TEST $49 + BUMP ↗</a></td>
+              <td><a href="vault.html?unlocked=tier_19" target="_blank" class="btn-sm-emerald">VIEW MICRO OTO ↗</a></td>
             </tr>
           </tbody>
         </table>
@@ -373,13 +379,13 @@
     <!-- 4. ONE-CLICK TERMINAL COMMANDS & MANUAL SEO / INDEXNOW TRIGGER -->
     <section class="panel">
       <div class="panel-title">
-        <span>ðŸ› ï¸ 1-Click PowerShell Automation Snippet Vault</span>
+        <span>🛠️ 1-Click PowerShell Automation Snippet Vault</span>
         <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-bright);">ZERO-FRICTION TERMINAL COMMANDS</span>
       </div>
       <p style="color:var(--text-muted);font-size:13px;margin-bottom:12px;">Need to force-regenerate all 150+ SEO pages, refresh viral hooks, and blast IndexNow from your local PC anytime? Copy this 1-liner:</p>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#050811;border:1px solid var(--border-subtle);padding:12px 14px;border-radius:8px;">
         <code id="ps-cmd-1" style="flex:1;font-family:var(--font-mono);font-size:12px;color:var(--emerald);">cd C:\Users\hhsay\AppData\Local\Temp\tfb_push; python auto_seo_engine.py; python generate_viral_hooks.py; python ping_indexnow.py; git add -A; git commit -m "Manual SEO & Viral refresh"; git push origin main</code>
-        <button onclick="navigator.clipboard.writeText(document.getElementById('ps-cmd-1').innerText);this.innerText='âœ“ COPIED!';" class="btn-sm">COPY POWERSHELL 1-LINER</button>
+        <button onclick="navigator.clipboard.writeText(document.getElementById('ps-cmd-1').innerText);this.innerText='✓ COPIED!';" class="btn-sm">COPY POWERSHELL 1-LINER</button>
       </div>
     </section>
 
