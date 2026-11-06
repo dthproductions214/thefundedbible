@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,77 @@
         a { display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem; background: #3b82f6; color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
         a:hover { background: #2563eb; }
     </style>
+<!-- TFB LUXURY CYBERPUNK UI ENGINE -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="tfb-luxury-skin">
+  :root {
+    --bg-obsidian: #050608;
+    --glass-card: rgba(14, 17, 24, 0.78);
+    --neon-green: #00ff88;
+    --cyber-gold: #ffd700;
+    --electric-purple: #8b5cf6;
+  }
+  body {
+    background-color: var(--bg-obsidian) !important;
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.08) 0%, transparent 38%),
+      radial-gradient(circle at 85% 25%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
+    color: #f1f5f9 !important;
+    font-family: 'Inter', sans-serif !important;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .font-bold {
+    font-family: 'Space Grotesk', sans-serif !important;
+    letter-spacing: -0.03em !important;
+  }
+  h1 {
+    background: linear-gradient(135deg, #ffffff 0%, #00ff88 55%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 28px rgba(0, 255, 136, 0.22));
+  }
+  /* Upgrade all cards, boxes, and sections into Frosted Obsidian Glass */
+  div[class*="bg-"], section[class*="bg-"], .card, article, table {
+    background: var(--glass-card) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  div[class*="bg-"]:hover, .card:hover, article:hover {
+    border-color: rgba(0, 255, 136, 0.45) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 255, 136, 0.14) !important;
+    transform: translateY(-4px);
+  }
+  /* Make every CTA button glow like an institutional terminal button */
+  a[href*="stripe"], a[href*="whop"], a[href*="t.me"], button, .btn {
+    background: linear-gradient(135deg, #00ff88 0%, #00b862 100%) !important;
+    color: #040608 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.25s ease !important;
+  }
+  a[href*="stripe"]:hover, a[href*="whop"]:hover, a[href*="t.me"]:hover, button:hover {
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), 0 0 15px rgba(255, 215, 0, 0.5) !important;
+  }
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace !important;
+    color: var(--cyber-gold) !important;
+  }
+</style>
 </head>
 <body>
 
@@ -52,13 +123,13 @@
     copy_sync: { title: "20-Account Copy Trading & Sync Playbook", price: "$49", file: "/downloads/TFB-09-20-Account-Copy-Trading-Playbook.html", desc: "5-Account Pod sync architecture for NinjaTrader, Tradovate & Rithmic." },
     payout_vault: { title: "Prop Firm Audit & Payout Blacklist Vault", price: "$67", file: "/downloads/TFB-10-Prop-Audit-Payout-Blacklist-Vault.html", desc: "Insider payout speed audit and firm compliance watchlist dossier." },
     algo_guardrails: { title: "Algorithmic Execution & C# Risk Guardrails", price: "$79", file: "/downloads/TFB-11-Algo-Execution-CSharp-Guardrails.html", desc: "C# NinjaScript daily loss lockout code and ATM bracket guardrails." },
-    core_operator: { title: "The Funded Bible: Core Operator Edition (11-in-1 Bundle)", price: "$99", file: "/downloads/TFB-12-Core-Operator-Master-Bundle.html", desc: "Master Operator Bundle — unlocks all 11 sub-$100 playbooks & C# guardrails below!" },
+    core_operator: { title: "The Funded Bible: Core Operator Edition (11-in-1 Bundle)", price: "$99", file: "/downloads/TFB-12-Core-Operator-Master-Bundle.html", desc: "Master Operator Bundle â€” unlocks all 11 sub-$100 playbooks & C# guardrails below!" },
     order_bump: { title: "Order Bump: Payout & Tax Loophole Guide + 5 Cheat Sheets", price: "$19", file: "/downloads/TFB-Order-Bump-Payout-Tax-Loophole-Guide.html", desc: "LLC/S-Corp 1099 prop trader tax playbook and 5 rapid desk cheat sheets." },
-    starter_bailout: { title: "The Trench Starter — Bailout Risk Mitigation Kit", price: "$27", file: "/downloads/TFB-Trench-Starter-Bailout.html", desc: "Emergency drawdown stabilization protocol + NY Session Kill-Switch Tracker." },
-    standard: { title: "Standard Scripture — 28-Page Lifetime Master Manual", price: "$197", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    standard_bailout: { title: "Standard Scripture — 28-Page Master Manual (VIP Bailout)", price: "$137", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    standard_monthly: { title: "Standard Scripture — Pro Desk Access & Master Manual", price: "$97", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Playbook + All 12 Tactical Arsenal Playbooks unlocked below!" },
-    whale: { title: "Scale Mastermind Whale Suite — 50-Page Fleet Dossier", price: "$397", file: "/downloads/TFB-Whale-Scale-Mastermind-50-Page-Dossier.html", desc: "50-Page Whale Fleet Dossier + 28-Page Standard Scripture + Every Playbook in the Vault!" }
+    starter_bailout: { title: "The Trench Starter â€” Bailout Risk Mitigation Kit", price: "$27", file: "/downloads/TFB-Trench-Starter-Bailout.html", desc: "Emergency drawdown stabilization protocol + NY Session Kill-Switch Tracker." },
+    standard: { title: "Standard Scripture â€” 28-Page Lifetime Master Manual", price: "$197", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    standard_bailout: { title: "Standard Scripture â€” 28-Page Master Manual (VIP Bailout)", price: "$137", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Master Manual + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    standard_monthly: { title: "Standard Scripture â€” Pro Desk Access & Master Manual", price: "$97", file: "/downloads/TFB-Standard-Scripture-28-Page-Master-Manual.html", desc: "Complete 28-Page Playbook + All 12 Tactical Arsenal Playbooks unlocked below!" },
+    whale: { title: "Scale Mastermind Whale Suite â€” 50-Page Fleet Dossier", price: "$397", file: "/downloads/TFB-Whale-Scale-Mastermind-50-Page-Dossier.html", desc: "50-Page Whale Fleet Dossier + 28-Page Standard Scripture + Every Playbook in the Vault!" }
   };
 
   if (raw) {
@@ -100,13 +171,13 @@
       return `
         <div class="bg-slate-950/90 border border-white/10 hover:border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between gap-3 transition">
           <div>
-            <span class="text-[10px] font-mono uppercase text-emerald-400">✓ Included (${sub.price} Value)</span>
+            <span class="text-[10px] font-mono uppercase text-emerald-400">âœ“ Included (${sub.price} Value)</span>
             <h5 class="text-sm font-black text-white mt-0.5">${sub.title}</h5>
             <p class="text-[11px] text-slate-400 mt-1">${sub.desc}</p>
           </div>
           <div class="flex gap-2">
-            <a href="${sub.file}" download class="flex-1 bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-300 border border-emerald-500/40 font-black py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">⬇ Download</a>
-            <a href="${sub.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">Open ↗</a>
+            <a href="${sub.file}" download class="flex-1 bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-300 border border-emerald-500/40 font-black py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">â¬‡ Download</a>
+            <a href="${sub.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2 px-3 rounded-lg text-[11px] uppercase text-center transition">Open â†—</a>
           </div>
         </div>
       `;
@@ -114,7 +185,7 @@
 
     includedGridHtml = `
       <div class="mt-6 pt-6 border-t border-white/10">
-        <h3 class="text-sm font-black uppercase tracking-wider text-emerald-400 mb-3">📂 Included Vault Files Unlocked With Your Purchase (${includedKeys.length} Files Ready):</h3>
+        <h3 class="text-sm font-black uppercase tracking-wider text-emerald-400 mb-3">ðŸ“‚ Included Vault Files Unlocked With Your Purchase (${includedKeys.length} Files Ready):</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
           ${cards}
         </div>
@@ -130,17 +201,17 @@
         <h4 class="text-lg font-black text-white mt-2">Ready for the 50-Page Whale Scale Mastermind ($397)?</h4>
         <p class="text-xs text-slate-300 mt-1">Unlock the $1.2M Multi-Firm Fleet Allocation Dossier, 20-Account Copy Blueprint & Direct 1-on-1 Audit.</p>
       </div>
-      <a href="/api/create-checkout-session?tier=whale" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Upgrade to Whale Suite ($397) →</a>
+      <a href="/api/create-checkout-session?tier=whale" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Upgrade to Whale Suite ($397) â†’</a>
     </div>
   `) : `
     <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-amber-500/10 border border-amber-400/40 rounded-xl p-5">
       <div>
-        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-amber-400 text-slate-950">One-Time Buyer Upgrade • Save $60</span>
+        <span class="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-amber-400 text-slate-950">One-Time Buyer Upgrade â€¢ Save $60</span>
         <h4 class="text-lg font-black text-white mt-2">Upgrade to the 28-Page Standard Scripture Master Manual</h4>
-        <p class="text-xs text-slate-300 mt-1">Unlocks the complete 28-Page Institutional Playbook + ALL 12 sub-$100 playbooks at once. Normally <span class="line-through text-slate-400">$197</span> — claim your VIP upgrade for <strong class="text-amber-400">$137</strong>.</p>
+        <p class="text-xs text-slate-300 mt-1">Unlocks the complete 28-Page Institutional Playbook + ALL 12 sub-$100 playbooks at once. Normally <span class="line-through text-slate-400">$197</span> â€” claim your VIP upgrade for <strong class="text-amber-400">$137</strong>.</p>
       </div>
       <div class="flex flex-col sm:flex-row gap-2.5 shrink-0 w-full sm:w-auto">
-        <a href="/api/create-checkout-session?tier=standard_bailout" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition shadow-lg">1-Click Upgrade ($137 VIP) →</a>
+        <a href="/api/create-checkout-session?tier=standard_bailout" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition shadow-lg">1-Click Upgrade ($137 VIP) â†’</a>
         <a href="/api/create-checkout-session?tier=standard" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-black px-4 py-3.5 rounded-xl text-xs uppercase tracking-wider text-center transition">Standard ($197)</a>
       </div>
     </div>
@@ -153,14 +224,14 @@
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-black uppercase tracking-widest mb-3">
-            <span>✓ Payment Verified • Instant Digital Download Ready</span>
+            <span>âœ“ Payment Verified â€¢ Instant Digital Download Ready</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-black text-white">${primary.title}</h2>
           <p class="text-sm text-slate-300 mt-1">${primary.desc}</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="${primary.file}" download class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/25">⬇ Download Master File (${primary.price})</a>
-          <a href="${primary.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-bold px-5 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition">Open in Browser ↗</a>
+          <a href="${primary.file}" download class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition shadow-lg shadow-emerald-500/25">â¬‡ Download Master File (${primary.price})</a>
+          <a href="${primary.file}" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white border border-white/15 font-bold px-5 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider text-center transition">Open in Browser â†—</a>
         </div>
       </div>
       ${includedGridHtml}
@@ -182,12 +253,12 @@
   <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;">
     <span style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid #10b981;padding:3px 8px;border-radius:4px;font-weight:800;">FREE TOOL</span>
     <span style="color:#f8fafc;font-weight:700;">Steal the "2-Trade Prop Saver" Risk Sheet (.CSV)</span>
-    <button onclick="openLeadModal()" style="background:#10b981;color:#000;border:none;padding:6px 12px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;cursor:pointer;">⬇ FREE .CSV DOWNLOAD</button>
+    <button onclick="openLeadModal()" style="background:#10b981;color:#000;border:none;padding:6px 12px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;cursor:pointer;">â¬‡ FREE .CSV DOWNLOAD</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-    <span onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 ✓';" style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fff;padding:6px 10px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;">CODE: BIBLE80 (80% OFF)</span>
+    <span onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 âœ“';" style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fff;padding:6px 10px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;">CODE: BIBLE80 (80% OFF)</span>
     <a href="/api/create-checkout-session?tier=flash_9" style="background:#111827;color:#fbbf24;border:1px solid #f59e0b;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$9 PASS BLUEPRINT</a>
-    <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE ⚡</a>
+    <a href="/api/create-checkout-session?tier=risk_terminal_39" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none;">$39 RISK SUITE âš¡</a>
   </div>
 </div>
 
@@ -195,22 +266,22 @@
 <div id="tfb-lead-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(2,4,8,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
   <div style="background:linear-gradient(165deg,#0d1322,#060911);border:1.5px solid #f59e0b;border-radius:16px;max-width:520px;width:100%;padding:32px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.95);font-family:'Plus Jakarta Sans',sans-serif;">
     <button onclick="closeLeadModal()" style="position:absolute;top:14px;right:16px;background:transparent;border:none;color:#94a3b8;font-size:20px;cursor:pointer;font-family:'JetBrains Mono',monospace;">[X]</button>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#ef4444;font-weight:800;letter-spacing:0.8px;">⚠️ WAIT — DO NOT BLOW ANOTHER COMBINE</div>
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:#fff;margin:8px 0 10px;line-height:1.15;">Steal The "2-Trade Prop Saver" Risk Sheet (.CSV) — 100% Free</h3>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#ef4444;font-weight:800;letter-spacing:0.8px;">âš ï¸ WAIT â€” DO NOT BLOW ANOTHER COMBINE</div>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:#fff;margin:8px 0 10px;line-height:1.15;">Steal The "2-Trade Prop Saver" Risk Sheet (.CSV) â€” 100% Free</h3>
     <p style="color:#94a3b8;font-size:14px;margin-bottom:18px;line-height:1.55;">Prop firms engineer trailing drawdowns to liquidate emotional sizing. Enter your best email below for an <strong style="color:#fff;">instant .CSV download</strong> of our mechanical MNQ/MES lot-sizing matrix + daily loss kill-switch tracker:</p>
     <form onsubmit="submitLeadCapture(event)" style="display:flex;flex-direction:column;gap:12px;">
       <input type="email" id="tfb-lead-email" required placeholder="Enter your best trading email..." style="width:100%;padding:14px;border-radius:8px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;" />
-      <button type="submit" id="tfb-lead-btn" style="width:100%;padding:14px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:14px;cursor:pointer;">🔒 UNLOCK &amp; DOWNLOAD RISK SUITE (.CSV) NOW →</button>
+      <button type="submit" id="tfb-lead-btn" style="width:100%;padding:14px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:14px;cursor:pointer;">ðŸ”’ UNLOCK &amp; DOWNLOAD RISK SUITE (.CSV) NOW â†’</button>
     </form>
     <div id="tfb-lead-success" style="display:none;margin-top:16px;padding:18px;border-radius:12px;background:rgba(16,185,129,0.12);border:1.5px solid #10b981;font-family:'JetBrains Mono',monospace;text-align:center;">
-      <div style="color:#10b981;font-size:12px;font-weight:800;margin-bottom:6px;">✓ .CSV DOWNLOADED &amp; WELCOME PLAYBOOK SENT TO YOUR INBOX!</div>
-      <div style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;margin-bottom:12px;">WAIT — UNLOCK YOUR ONE-TIME TRADER UPGRADE:</div>
+      <div style="color:#10b981;font-size:12px;font-weight:800;margin-bottom:6px;">âœ“ .CSV DOWNLOADED &amp; WELCOME PLAYBOOK SENT TO YOUR INBOX!</div>
+      <div style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;margin-bottom:12px;">WAIT â€” UNLOCK YOUR ONE-TIME TRADER UPGRADE:</div>
       <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="/api/create-checkout-session?tier=flash_9" style="display:block;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:12px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">⚡ STEP 1: GET THE 7-DAY PASS BLUEPRINT ($9) →</a>
-        <a href="/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#0b101b;border:1px solid #f59e0b;color:#fbbf24;padding:12px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;">🔥 STEP 2: DEPLOY THE NT8 C# RISK LOCKOUT SUITE ($39) →</a>
+        <a href="/api/create-checkout-session?tier=flash_9" style="display:block;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;padding:12px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">âš¡ STEP 1: GET THE 7-DAY PASS BLUEPRINT ($9) â†’</a>
+        <a href="/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#0b101b;border:1px solid #f59e0b;color:#fbbf24;padding:12px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;">ðŸ”¥ STEP 2: DEPLOY THE NT8 C# RISK LOCKOUT SUITE ($39) â†’</a>
       </div>
     </div>
-    <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748b;text-align:center;">🔒 Instant automated capture + immediate .CSV download. Zero spam.</div>
+    <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748b;text-align:center;">ðŸ”’ Instant automated capture + immediate .CSV download. Zero spam.</div>
   </div>
 </div>
 
@@ -268,7 +339,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          _subject: '🔥 NEW FUNDED BIBLE LEAD: ' + email,
+          _subject: 'ðŸ”¥ NEW FUNDED BIBLE LEAD: ' + email,
           _captcha: 'false',
           email: email, _replyto: email, _autoresponse: 'Your 2-Trade Prop Saver (.CSV) is unlocked! 1) Get the  7-Day Combine Pass Blueprint: https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9  2) Deploy the  NT8 C# Risk Suite: https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39  3) Use code BIBLE80 for 80% off evaluations at https://www.thefundedbible.com/firms.html', Trader_Email: email,
           Page_Source: window.location.href,
@@ -295,3 +366,4 @@
 <script src="/tfb-flash-proof.js" defer></script>
 </body>
 </html>
+
