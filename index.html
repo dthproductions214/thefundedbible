@@ -875,7 +875,7 @@
     wireStripePrefillLinks(code);
 
     // Slash EVERY single Product Packet price on screen by 80% so user sees immediate proof!
-    document.querySelectorAll("#autotrader-suite article, #product-packets article").forEach(card => {
+    document.querySelectorAll("#autotrader-suite article, #autotrader-suite article, #product-packets article").forEach(card => {
       const priceEl = card.querySelector("span.text-2xl");
       if (!priceEl) return;
       if (!priceEl.dataset.origPrice) {
@@ -941,3 +941,4 @@
 
 </body>
 </html>
+
