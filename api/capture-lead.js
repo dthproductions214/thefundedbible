@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+﻿export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -30,7 +30,7 @@ Before you fire your next NQ or ES trade today, read this carefully:
 
 You do NOT have a $50,000 account. You have a $2,500 drawdown buffer.
 
-When you fire 2 NQ Minis with a 20-point stop loss, you are risking $800 on a single candle—that is 32% of your entire evaluation life gone in 45 seconds.
+When you fire 2 NQ Minis with a 20-point stop loss, you are risking $800 on a single candleâ€”that is 32% of your entire evaluation life gone in 45 seconds.
 
 Here is the mechanical fix inside your sheet:
 1. Drop your size to 5 MNQ Micros ($10/point total).
@@ -39,34 +39,34 @@ Here is the mechanical fix inside your sheet:
 
 At $150 risk per trade, a $50K evaluation survives 16.6 consecutive losing trades without blowing up.
 
-⚡ STEP 1 — UNLOCK THE $9 7-DAY COMBINE PASS BLUEPRINT:
+âš¡ STEP 1 â€” UNLOCK THE $9 7-DAY COMBINE PASS BLUEPRINT:
 Want the exact 90-minute NY Open Silver Bullet checklist to clear $3,000 profit targets in 7 sessions using this exact 5 MNQ schedule?
 https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9
 
-🔥 STEP 2 — DEPLOY THE $39 NINJATRADER 8 C# RISK LOCKOUT SUITE:
+ðŸ”¥ STEP 2 â€” DEPLOY THE $39 NINJATRADER 8 C# RISK LOCKOUT SUITE:
 Auto-flatten your platform the second you hit +2R or -2 losses so you never tilt an evaluation again:
 https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
 
-💰 STEP 3 — CLAIM 80% OFF + $0 ACTIVATION FEE EOD EVALUATIONS (CODE: BIBLE80):
+ðŸ’° STEP 3 â€” CLAIM 80% OFF + $0 ACTIVATION FEE EOD EVALUATIONS (CODE: BIBLE80):
 https://www.thefundedbible.com/firms.html
 
 Trade mechanical buffer math,
 Danny Hoang
-The Funded Bible™ Desk
+The Funded Bibleâ„¢ Desk
 https://www.thefundedbible.com`;
 
     const welcomeHtml = `
     <div style="background:#04060a;color:#f8fafc;font-family:Arial,sans-serif;padding:28px;max-width:600px;margin:0 auto;border:1px solid #f59e0b;border-radius:12px;">
-      <div style="color:#10b981;font-family:monospace;font-size:12px;font-weight:bold;margin-bottom:8px;">● THE FUNDED BIBLE™ EXECUTION DESK</div>
+      <div style="color:#10b981;font-family:monospace;font-size:12px;font-weight:bold;margin-bottom:8px;">â— THE FUNDED BIBLEâ„¢ EXECUTION DESK</div>
       <h2 style="color:#ffffff;margin:0 0 14px;">Your 2-Trade Prop Saver (.CSV) Is Unlocked</h2>
-      <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">You can re-download your mechanical risk sheet anytime inside the Member Vault: <a href="https://www.thefundedbible.com/vault.html" style="color:#fbbf24;font-weight:bold;">Open Member Vault →</a></p>
+      <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">You can re-download your mechanical risk sheet anytime inside the Member Vault: <a href="https://www.thefundedbible.com/vault.html" style="color:#fbbf24;font-weight:bold;">Open Member Vault â†’</a></p>
       <div style="background:#0b101b;border-left:4px solid #f59e0b;padding:14px;margin:18px 0;font-size:13px;color:#e2e8f0;line-height:1.6;">
         <strong>Remember the #1 Combine Survival Rule:</strong><br/>
-        You do NOT have a $50,000 account—you have a <strong>$2,500 drawdown buffer</strong>. Size at <strong>5 MNQ Micros</strong> with a 15-point stop ($150 risk = 6% of buffer) so your combine survives <strong>16.6 consecutive losses</strong>.
+        You do NOT have a $50,000 accountâ€”you have a <strong>$2,500 drawdown buffer</strong>. Size at <strong>5 MNQ Micros</strong> with a 15-point stop ($150 risk = 6% of buffer) so your combine survives <strong>16.6 consecutive losses</strong>.
       </div>
       <p style="margin:20px 0;">
-        <a href="https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9" style="display:block;background:#f59e0b;color:#000000;text-align:center;padding:14px;border-radius:8px;font-weight:bold;text-decoration:none;margin-bottom:12px;">⚡ UNLOCK THE $9 7-DAY PASS BLUEPRINT →</a>
-        <a href="https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#10b981;color:#000000;text-align:center;padding:14px;border-radius:8px;font-weight:bold;text-decoration:none;">🔥 DEPLOY THE $39 NT8 C# RISK LOCKOUT SUITE →</a>
+        <a href="https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9" style="display:block;background:#f59e0b;color:#000000;text-align:center;padding:14px;border-radius:8px;font-weight:bold;text-decoration:none;margin-bottom:12px;">âš¡ UNLOCK THE $9 7-DAY PASS BLUEPRINT â†’</a>
+        <a href="https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39" style="display:block;background:#10b981;color:#000000;text-align:center;padding:14px;border-radius:8px;font-weight:bold;text-decoration:none;">ðŸ”¥ DEPLOY THE $39 NT8 C# RISK LOCKOUT SUITE â†’</a>
       </p>
       <p style="color:#94a3b8;font-size:12px;text-align:center;margin-top:18px;">
         Need a fresh evaluation? Use code <strong style="color:#fbbf24;">BIBLE80</strong> for 80% off + $0 activation fees at <a href="https://www.thefundedbible.com/firms.html" style="color:#10b981;">TheFundedBible.com/firms.html</a>
@@ -87,7 +87,7 @@ https://www.thefundedbible.com`;
     if (process.env.STRIPE_SECRET_KEY) {
       const params = new URLSearchParams();
       params.append('email', email);
-      params.append('description', `Funded Bible Lead (.CSV Downloaded + Welcome Pitch Sent) — Source: ${source}`);
+      params.append('description', `Funded Bible Lead (.CSV Downloaded + Welcome Pitch Sent) â€” Source: ${source}`);
       params.append('metadata[lead_source]', source);
       params.append('metadata[captured_at]', timestamp);
       params.append('metadata[welcome_email_sent]', 'true');
@@ -116,7 +116,7 @@ https://www.thefundedbible.com`;
         body: JSON.stringify({
           email: email,
           _replyto: email,
-          _subject: `🔥 NEW FUNDED BIBLE LEAD: ${email} (Auto-Welcome Sent)`,
+          _subject: `ðŸ”¥ NEW FUNDED BIBLE LEAD: ${email} (Auto-Welcome Sent)`,
           _autoresponse: welcomeText,
           _template: 'table',
           _captcha: 'false',
