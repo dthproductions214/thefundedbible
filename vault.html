@@ -301,6 +301,53 @@
         <a href="vault.html" class="active">Member Vault</a>
       </div>
     </nav>
+
+<!-- TFB INSTANT BOT DOWNLOAD PORTAL START -->
+<div id="tfb-instant-bot-portal" style="max-width:1050px;margin:28px auto;padding:28px;background:linear-gradient(145deg,#0b131e,#070b12);border:2px solid #10b981;border-radius:14px;box-shadow:0 12px 35px rgba(16,185,129,0.2);">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;">
+        <div style="flex:1;min-width:280px;">
+            <span style="display:inline-block;background:rgba(16,185,129,0.15);color:#10b981;border:1px solid #10b981;padding:4px 12px;border-radius:999px;font-size:0.78rem;font-weight:800;letter-spacing:0.5px;margin-bottom:10px;">
+                INSTANT DIGITAL DELIVERY • $9 FLASH LOCK ACTIVE
+            </span>
+            <h2 id="tfb-selected-bot-title" style="color:#ffffff;font-size:1.75rem;margin:0 0 8px 0;font-weight:900;">
+                NinjaTrader 8 Automated Prop Firm Bot Package (.ZIP)
+            </h2>
+            <p style="color:#94a3b8;font-size:0.98rem;margin:0 0 12px 0;line-height:1.5;">
+                Includes the compiled <strong>NinjaScript (.cs) Strategy</strong>, <strong>ATM Auto-Breakeven XML Preset</strong>, and the <strong>Apex/Tradeify Trailing Drawdown Setup Guide</strong>.
+            </p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:0.82rem;color:#cbd5e1;">
+                <span>✔ NinjaTrader 8 &amp; Replikanto Ready</span>
+                <span>✔ Hard Daily Loss Circuit Breaker</span>
+                <span>✔ Lifetime Updates Included</span>
+            </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;min-width:260px;">
+            <a id="tfb-direct-zip-btn" href="/downloads/TFB-NinjaTrader8-Bot-Bundle.zip" download="TFB-NinjaTrader8-Bot-Bundle.zip" style="display:block;text-align:center;background:linear-gradient(135deg,#10b981,#059669);color:#000000;font-weight:900;font-size:1.08rem;padding:16px 22px;border-radius:10px;text-decoration:none;box-shadow:0 6px 20px rgba(16,185,129,0.35);">
+                ⬇ DOWNLOAD NT8 BOT (.ZIP) NOW
+            </a>
+            <a href="/bots-catalog.html" style="display:block;text-align:center;background:#131b2e;color:#f1f5f9;border:1px solid #1e293b;font-weight:700;font-size:0.88rem;padding:10px 16px;border-radius:8px;text-decoration:none;">
+                Browse All 100 Prop Bots ($9) →
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    const botSlug = params.get('bot');
+    const titleEl = document.getElementById('tfb-selected-bot-title');
+    const dlBtn = document.getElementById('tfb-direct-zip-btn');
+    if (botSlug && titleEl) {
+        const cleanName = botSlug.replace(/-/g, ' ').toUpperCase();
+        titleEl.textContent = cleanName + ' — NT8 Instant Download (.ZIP)';
+        if (dlBtn) {
+            dlBtn.setAttribute('download', botSlug + '-NT8-Bundle.zip');
+        }
+    }
+})();
+</script>
+<!-- TFB INSTANT BOT DOWNLOAD PORTAL END -->
+
   </header>
 
   <main class="container">
