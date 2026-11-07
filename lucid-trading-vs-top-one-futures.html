@@ -57,83 +57,6 @@
     table.cmp-table td { padding: 14px; border-bottom: 1px solid var(--border-subtle); color: #fff; }
     .btn-gold { background: linear-gradient(135deg, var(--gold-bright), #d97706); color: #000; font-family: var(--font-mono); font-weight: 800; font-size: 13px; padding: 13px 22px; border-radius: 8px; text-decoration: none; display: inline-block; }
   </style>
-<!-- TFB CLEAN INSTITUTIONAL UI -->
-<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style id="tfb-clean-architecture">
-  :root {
-    --obsidian: #06080d;
-    --panel: #0d111a;
-    --panel-border: rgba(255, 255, 255, 0.09);
-    --neon: #00ff88;
-    --gold: #ffd700;
-  }
-  body {
-    background-color: var(--obsidian) !important;
-    color: #f8fafc !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
-    margin: 0;
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Space Grotesk', sans-serif !important;
-    letter-spacing: -0.02em;
-  }
-  .tfb-glass-card {
-    background: rgba(13, 17, 26, 0.88);
-    backdrop-filter: blur(16px);
-    bord: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .tfb-glass-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 255, 136, 0.45);
-    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 136, 0.12);
-  }
-  .tfb-btn-neon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #00ff88 0%, #00c868 100%);
-    color: #04070b !important;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
-    padding: 14px 28px;
-    border-radius: 999px;
-    text-decoration: none !important;
-    box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-  .tfb-btn-neon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 36px rgba(0, 255, 136, 0.65);
-  }
-  .tfb-btn-gold {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
-    color: #04070b !important;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
-    padding: 14px 28px;
-    border-radius: 999px;
-    text-decoration: none !important;
-    box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
-    transition: all 0.2s ease;
-  }
-  .tfb-mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-</style>
-
 </head>
 <body>
   <header class="sticky-command-header">
@@ -152,7 +75,7 @@
   <main class="container">
     <div class="panel">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
-        <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">● VERIFIED INSTITUTIONAL AUDIT • UPDATED November 04, 2026</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);font-weight:700;">● VERIFIED INSTITUTIONAL AUDIT • UPDATED November 07, 2026</span>
         <span class="code-pill" onclick="navigator.clipboard.writeText('BIBLE80');this.textContent='COPIED BIBLE80 ✓';">COPY 80% OFF CODE: BIBLE80</span>
       </div>
       <h1 style="font-family:var(--font-display);font-size:clamp(26px,3.6vw,42px);font-weight:800;line-height:1.12;margin-bottom:14px;">Lucid Trading vs Top One Futures: Drawdown, Activation Fees & Payout Audit</h1>
@@ -195,108 +118,5 @@
   </div>
 <script src="/tfb-closer-bot.js" defer></script>
 <script src="/tfb-flash-proof.js" defer></script>
-
-
-<!-- TFB LIVE BIBLE80 DISCOUNT & STRIPE PREFILL ENGINE -->
-<div id="bible80-sticky-bar" class="fixed bottom-5 left-5 z-50 bg-[#0b101b]/95 backdrop-blur-xl border-2 border-[#ffd700] rounded-2xl p-3.5 shadow-2xl max-w-xs">
-  <div class="flex items-center justify-between gap-2 mb-2">
-    <span class="text-[11px] font-mono-code font-extrabold uppercase text-[#ffd700]">&#9889; APPLY VIP PROMO CODE</span>
-    <span id="bible80-badge-state" class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-[#00ff88]/20 text-[#00ff88] font-bold">80% OFF READY</span>
-  </div>
-  <div class="flex gap-1.5">
-    <input id="site-promo-input" type="text" value="BIBLE80" class="w-full px-3 py-1.5 rounded-lg bg-[#05070b] border border-white/15 font-mono-code text-xs font-bold text-[#ffd700] uppercase focus:outline-none focus:border-[#00ff88]">
-    <button onclick="activateBible80()" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#ffd700] to-amber-500 text-black font-display font-extrabold text-xs whitespace-nowrap hover:opacity-95 transition">
-      Apply 80% Off
-    </button>
-  </div>
-  <div id="bible80-confirm-msg" class="text-[11px] text-[#00ff88] font-mono-code mt-1.5 hidden">
-    &#10003; BIBLE80 Active! 80% Slashed + Auto-Applied to Stripe Checkout.
-  </div>
-</div>
-
-<script>
-  function wireStripePrefillLinks(code) {
-    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(a => {
-      try {
-        const url = new URL(a.href);
-        url.searchParams.set("prefilled_promo_code", code);
-        a.href = url.toString();
-      } catch (e) {
-        if (!a.href.includes("prefilled_promo_code=")) {
-          a.href = a.href + (a.href.includes("?") ? "&" : "?") + "prefilled_promo_code=" + code;
-        }
-      }
-    });
-  }
-
-  function activateBible80(silent) {
-    const input = document.getElementById("site-promo-input");
-    const rawCode = ((input && input.value) ? input.value : "BIBLE80").trim().toUpperCase();
-    const code = (rawCode === "BIBLE" || rawCode === "BIBLE80") ? rawCode : "BIBLE80";
-    if (input) input.value = code;
-
-    try { navigator.clipboard.writeText(code); } catch (e) {}
-
-    // 1. Append ?prefilled_promo_code=BIBLE80 to every Stripe checkout button on the page
-    wireStripePrefillLinks(code);
-
-    // 2. Visually slash product packet prices on the page so user sees BIBLE80 working live
-    document.querySelectorAll("#product-packets article").forEach(card => {
-      const priceEl = card.querySelector("span.text-2xl");
-      if (!priceEl) return;
-      if (!priceEl.dataset.origPrice) {
-        const num = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, ""));
-        if (!isNaN(num)) priceEl.dataset.origPrice = num;
-      }
-      const orig = parseFloat(priceEl.dataset.origPrice);
-      if (!isNaN(orig)) {
-        const discounted = (orig >= 200) ? (orig * 0.20).toFixed(0) : orig;
-        if (orig >= 200) {
-          priceEl.innerHTML = `<span class="text-[#00ff88]">$${discounted}</span> <span class="text-xs text-slate-400 line-through">$${orig}</span>`;
-        } else {
-          priceEl.classList.add("text-[#00ff88]");
-        }
-      }
-      const btn = card.querySelector('a[href*="buy.stripe.com"]');
-      if (btn) {
-        btn.innerHTML = `Unlock w/ ${code} &rarr;`;
-      }
-    });
-
-    // 3. Update status badges & toast
-    const badge = document.getElementById("bible80-badge-state");
-    if (badge) {
-      badge.textContent = "ACTIVE (-80%)";
-      badge.className = "text-[10px] font-mono-code px-2 py-0.5 rounded bg-[#00ff88] text-black font-extrabold";
-    }
-    const msg = document.getElementById("bible80-confirm-msg");
-    if (msg) msg.classList.remove("hidden");
-
-    const toast = document.getElementById("copy-toast");
-    if (toast && !silent) {
-      toast.innerHTML = "&#10003; Code <strong>" + code + "</strong> Applied! 80% Off Auto-Loaded into Checkout Links.";
-      toast.classList.remove("hidden");
-      setTimeout(() => toast.classList.add("hidden"), 3200);
-    }
-    localStorage.setItem("tfb_active_promo", code);
-  }
-
-  // Override copyGlobalCode so clicking ANY yellow BIBLE80 button on the site activates the discount + copies + pre-fills Stripe!
-  window.copyGlobalCode = function(code) {
-    const input = document.getElementById("site-promo-input");
-    if (input) input.value = code || "BIBLE80";
-    activateBible80(false);
-  };
-
-  // Auto-wire all Stripe links on initial load so even if they click straight to Stripe, BIBLE80 is pre-filled
-  document.addEventListener("DOMContentLoaded", () => {
-    wireStripePrefillLinks("BIBLE80");
-    if (localStorage.getItem("tfb_active_promo")) {
-      activateBible80(true);
-    }
-  });
-  wireStripePrefillLinks("BIBLE80");
-</script>
-
 </body>
 </html>
