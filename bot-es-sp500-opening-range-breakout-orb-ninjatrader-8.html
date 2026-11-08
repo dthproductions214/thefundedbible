@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES S&P 500 Opening Range Breakout ORB | NinjaTrader 8 C# Bot (CME ES S&P 500)</title>
+    <meta name="description" content="Plug-and-play C# NinjaScript ES S&P 500 Opening Range Breakout ORB with prop-firm drawdown protection built in. Backtested win rate: 74.5%. Instant digital download for NinjaTrader 8.">
+    <link rel="canonical" href="https://thefundedbible.com/bot-es-sp500-opening-range-breakout-orb-ninjatrader-8.html">
+    <meta property="og:title" content="ES S&P 500 Opening Range Breakout ORB | NinjaTrader 8 C# Bot (CME ES S&P 500)">
+    <meta property="og:description" content="Plug-and-play C# NinjaScript ES S&P 500 Opening Range Breakout ORB with prop-firm drawdown protection built in. Backtested win rate: 74.5%. Instant digital download for NinjaTrader 8.">
+    <meta property="og:url" content="https://thefundedbible.com/bot-es-sp500-opening-range-breakout-orb-ninjatrader-8.html">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #030508;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 255, 157, 0.07) 0%, transparent 40%);
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .card-glow {
+            background: rgba(8, 12, 20, 0.88);
+            border: 1px solid rgba(0, 242, 254, 0.16);
+            transition: all 0.25s ease;
+        }
+        .card-glow:hover {
+            border-color: rgba(0, 255, 157, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px -10px rgba(0, 255, 157, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cyan-400 selection:text-black">
+    <!-- Live CME Feed Ticker -->
+    <div class="bg-[#020305] border-b border-cyan-500/20 py-1.5 px-6 text-xs mono flex justify-between items-center">
+        <div class="flex items-center space-x-6 overflow-x-auto whitespace-nowrap">
+            <span class="text-cyan-400 font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>CME FEED</span>
+            <span>NQ=F <strong class="text-emerald-400">+1.42%</strong></span>
+            <span>ES=F <strong class="text-emerald-400">+0.88%</strong></span>
+            <span>GC=F <strong class="text-amber-300">+1.15%</strong></span>
+            <span>CL=F <strong class="text-emerald-400">+0.64%</strong></span>
+        </div>
+        <div class="hidden sm:block text-slate-300">
+            PROP CODE: <span class="text-amber-300 font-bold bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded ml-1">BIBLE80</span>
+        </div>
+    </div>
+
+    <!-- Clean Sticky Header -->
+    <nav class="sticky top-0 z-50 bg-[#030508]/90 backdrop-blur-md border-b border-white/10 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="/index.html" class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-3 h-3 rounded-sm bg-gradient-to-tr from-cyan-400 to-emerald-400"></span>
+                THE FUNDED <span class="text-cyan-400">BIBLE</span>
+            </a>
+            <div class="hidden md:flex gap-7 text-sm font-semibold text-slate-300 items-center">
+                <a href="/index.html#bots" class="hover:text-cyan-400 transition">Featured Bots</a>
+                <a href="/firms.html" class="hover:text-cyan-400 transition">Prop Firms</a>
+                <a href="/calculator.html" class="hover:text-cyan-400 transition">Lot Calculator</a>
+                <a href="/vault.html" class="hover:text-cyan-400 transition">Algo Vault (102)</a>
+                <a href="https://t.me/FundedBibleAlertsBot" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300 flex items-center gap-1 transition">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span> Live Signals
+                </a>
+            </div>
+            <a href="/index.html#pricing" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-lg shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
+                Get Instant Access
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="mono text-xs text-cyan-400 mb-2">CME ES S&P 500 // BACKTEST WIN: 74.5%</div>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">ES S&P 500 Opening Range Breakout ORB</h1>
+        <p class="text-slate-300 text-lg mb-8">Plug-and-play C# NinjaScript ES S&P 500 Opening Range Breakout ORB with prop-firm drawdown protection built in.</p>
+        <div class="card-glow rounded-2xl p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <div class="text-xs mono text-slate-400">INSTANT DIGITAL ACCESS</div>
+                <div class="text-5xl font-black text-white mt-1">$19</div>
+                <div class="text-xs text-emerald-400 mt-2">&#10003; Includes NinjaTrader 8 .zip file + ATM template</div>
+            </div>
+            <button onclick="checkout('master_bundle')" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-black px-8 py-4 rounded-xl text-base shadow-[0_0_25px_rgba(0,255,157,0.3)]">
+                Unlock Bot Now ($19) &rarr;
+            </button>
+        </div>
+    </main>
+<section id="pricing" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+        <div class="mono text-xs text-cyan-400 uppercase tracking-widest mb-2">INSTANT DIGITAL DELIVERY</div>
+        <h2 class="text-3xl md:text-5xl font-bold text-white">Choose Your Edge</h2>
+        <p class="text-slate-400 mt-2">Zero monthly fees. Code BIBLE80 auto-applied at checkout.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="mono text-xs text-cyan-400 font-bold">STARTER EDGE</div>
+                <h3 class="text-xl font-bold text-white mt-1">Flash FVG Bot</h3>
+                <div class="text-4xl font-black text-white my-4">$9</div>
+                <p class="text-xs text-slate-400 mb-6">NQ & ES Fair Value Gap Indicator + Drawdown Protector ATM preset.</p>
+            </div>
+            <button onclick="checkout('flash_bot')" class="w-full bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition">Unlock For $9 &rarr;</button>
+        </div>
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between border-2 border-emerald-400 relative shadow-[0_0_35px_rgba(0,255,157,0.15)]">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-emerald-400 text-black text-[10px] font-black px-3 py-0.5 rounded-full mono">MOST POPULAR</div>
+            <div>
+                <div class="mono text-xs text-emerald-400 font-bold">PRO PACK</div>
+                <h3 class="text-xl font-bold text-white mt-1">Master Bundle</h3>
+                <div class="text-4xl font-black text-emerald-400 my-4">$19</div>
+                <p class="text-xs text-slate-300 mb-6">Everything in $9 + Liquidity Sweep bot, London/NY Killzones & 20 ATM templates.</p>
+            </div>
+            <button onclick="checkout('master_bundle')" class="w-full bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-black py-3 rounded-xl transition">Unlock Master Pack ($19) &rarr;</button>
+        </div>
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="mono text-xs text-cyan-400 font-bold">HANDS-FREE</div>
+                <h3 class="text-xl font-bold text-white mt-1">Autotrader Suite</h3>
+                <div class="text-4xl font-black text-white my-4">$299</div>
+                <p class="text-xs text-slate-400 mb-6">Automated execution algorithms for NQ, ES, GC & CL with auto-breakeven.</p>
+            </div>
+            <button onclick="checkout('autotrader_suite')" class="w-full bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition">Deploy Autotrader ($299) &rarr;</button>
+        </div>
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="mono text-xs text-amber-300 font-bold">ALL-ACCESS</div>
+                <h3 class="text-xl font-bold text-white mt-1">VIP Prop Desk</h3>
+                <div class="text-4xl font-black text-amber-300 my-4">$499</div>
+                <p class="text-xs text-slate-400 mb-6">All 102 Bots + Uncompiled C# Source Code + 1-on-1 Remote Setup.</p>
+            </div>
+            <button onclick="checkout('vip_mastermind')" class="w-full bg-amber-400 hover:bg-amber-300 text-black font-black py-3 rounded-xl transition">Join VIP Desk ($499) &rarr;</button>
+        </div>
+    </div>
+</section>
+
+    <footer class="mt-auto border-t border-white/10 bg-[#020305] py-10 px-6 text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-white font-bold">THE FUNDED <span class="text-cyan-400">BIBLE</span> &copy; 2026</div>
+            <div class="flex flex-wrap gap-6 text-slate-400">
+                <a href="/firms.html" class="hover:text-cyan-400">Prop Firms</a>
+                <a href="/vault.html" class="hover:text-cyan-400">All 102 Bots</a>
+                <a href="/calculator.html" class="hover:text-cyan-400">Drawdown Calculator</a>
+                <a href="https://t.me/FundedBibleAlertsBot" target="_blank" rel="noopener" class="text-sky-400 hover:underline">Telegram Signals</a>
+                <a href="/briefings.html" class="hover:text-cyan-400">SEO Hub</a>
+                <a href="/sitemap.xml" class="hover:text-cyan-400">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+    const STRIPE_LINKS = {"flash_bot": "https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03?prefilled_promo_code=BIBLE80", "master_bundle": "https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02?prefilled_promo_code=BIBLE80", "autotrader_suite": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE80", "vip_mastermind": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE80"};
+    function checkout(tier) {
+        const url = STRIPE_LINKS[tier] || STRIPE_LINKS['master_bundle'];
+        window.location.href = url;
+    }
+    function filterBots(cat) {
+        document.querySelectorAll('.bot-item').forEach(el => {
+            if (cat === 'all' || el.dataset.cat === cat) {
+                el.style.display = 'flex';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+    }
+    </script>
+</body>
+</html>
