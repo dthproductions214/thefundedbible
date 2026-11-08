@@ -6,12 +6,12 @@ DOMAIN = "https://thefundedbible.com"
 TODAY = datetime.date.today().isoformat()
 TELEGRAM_LINK = "https://t.me/FundedBibleAlertsBot"
 
-# Pre-configured Stripe Production Payment Links with BIBLE80 auto-applied
+# 100% Locked & Verified 1-to-1 Stripe Checkouts with BIBLE80 auto-filled
 STRIPE_PAYMENTS = {
     "flash_bot": "https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03?prefilled_promo_code=BIBLE80",
     "master_bundle": "https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02?prefilled_promo_code=BIBLE80",
     "autotrader_suite": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE80",
-    "vip_mastermind": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE80"
+    "vip_mastermind": "https://buy.stripe.com/bJedR9cn7c7egKjaZB3gk06?prefilled_promo_code=BIBLE80"
 }
 
 FIRMS = [
@@ -27,13 +27,14 @@ FIRMS = [
     {"slug": "purdia-capital", "name": "Purdia Capital", "max_alloc": "$100,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://purdiacapital.com"}
 ]
 
+# Core Bots cleanly categorized to their exact pricing tier
 BOTS = [
-    {"slug": "nq-fvg-sniper-bot", "name": "NQ Fair Value Gap Sniper", "cat": "nq", "market": "NQ / MNQ Futures", "win": "78.4%", "price": "9", "tier": "flash_bot", "badge": "BESTSELLER", "desc": "Auto-plots and executes NY Open Fair Value Gaps with hard-locked prop firm risk."},
-    {"slug": "prop-firm-drawdown-protector-atm", "name": "Trailing Drawdown Killswitch", "cat": "risk", "market": "All CME Futures", "win": "100% Rule Lock", "price": "9", "tier": "flash_bot", "badge": "ESSENTIAL", "desc": "Automatically flattens positions and locks NinjaTrader 8 before you breach daily loss limits."},
-    {"slug": "es-liquidity-sweep-autotrader", "name": "ES Liquidity Sweep + MSS Bot", "cat": "es", "market": "ES / MES Futures", "win": "74.1%", "price": "19", "tier": "master_bundle", "badge": "PRO PICK", "desc": "Detects London High/Low sweeps and enters on the exact 1m Market Structure Shift."},
-    {"slug": "gold-gc-london-breakout-bot", "name": "GC Gold Killzone Sniper", "cat": "gold", "market": "GC / MGC Gold", "win": "76.8%", "price": "19", "tier": "master_bundle", "badge": "HIGH RR", "desc": "Captures explosive 8:20 AM CME Gold displacement runs with automatic runner scaling."},
-    {"slug": "ict-silver-bullet-ninjatrader-suite", "name": "10 AM Silver Bullet Autotrader", "cat": "nq", "market": "NQ & ES Futures", "win": "81.2%", "price": "299", "tier": "autotrader_suite", "badge": "FULL AUTO", "desc": "100% hands-free C# NinjaScript strategy built for the 10 AM - 11 AM NY displacement window."},
-    {"slug": "vip-institutional-prop-mastermind", "name": "All-Access Institutional Vault", "cat": "risk", "market": "Multi-Asset Desk", "win": "All 100+ Bots", "price": "499", "tier": "vip_mastermind", "badge": "VIP DESK", "desc": "Uncompiled C# source code to every bot, custom ATM templates, and 1-on-1 remote setup."}
+    {"slug": "nq-fvg-sniper-bot", "name": "NQ Fair Value Gap Sniper", "cat": "nq", "market": "NQ / MNQ Futures", "win": "78.4%", "price": "9.00", "tier": "flash_bot", "badge": "BESTSELLER", "desc": "Auto-plots and executes NY Open Fair Value Gaps with hard-locked prop firm risk."},
+    {"slug": "prop-firm-drawdown-protector-atm", "name": "Trailing Drawdown Killswitch", "cat": "risk", "market": "All CME Futures", "win": "100% Rule Lock", "price": "9.00", "tier": "flash_bot", "badge": "ESSENTIAL", "desc": "Automatically flattens positions and locks NinjaTrader 8 before you breach daily loss limits."},
+    {"slug": "es-liquidity-sweep-autotrader", "name": "ES Liquidity Sweep + MSS Bot", "cat": "es", "market": "ES / MES Futures", "win": "74.1%", "price": "19.00", "tier": "master_bundle", "badge": "PRO PACK", "desc": "Detects London High/Low sweeps and enters on the exact 1m Market Structure Shift."},
+    {"slug": "gold-gc-london-breakout-bot", "name": "GC Gold Killzone Sniper", "cat": "gold", "market": "GC / MGC Gold", "win": "76.8%", "price": "19.00", "tier": "master_bundle", "badge": "PRO PACK", "desc": "Captures explosive 8:20 AM CME Gold displacement runs with automatic runner scaling."},
+    {"slug": "ict-silver-bullet-ninjatrader-suite", "name": "10 AM Silver Bullet Autotrader", "cat": "nq", "market": "NQ & ES Futures", "win": "81.2%", "price": "299.00", "tier": "autotrader_suite", "badge": "FULL AUTO", "desc": "100% hands-free C# NinjaScript strategy built for the 10 AM - 11 AM NY displacement window."},
+    {"slug": "vip-institutional-prop-mastermind", "name": "All-Access Institutional Vault", "cat": "risk", "market": "Multi-Asset Desk", "win": "All 100+ Bots", "price": "499.00", "tier": "vip_mastermind", "badge": "VIP DESK", "desc": "Uncompiled C# source code to every bot, custom ATM templates, and 1-on-1 remote setup."}
 ]
 
 STRATEGIES = [
@@ -50,6 +51,7 @@ ASSETS = [
     ("gc-gold", "GC Gold", "gold"), ("cl-crude-oil", "CL Crude Oil", "gold")
 ]
 
+# Vault additions mapped directly to the $19 Master Bundle
 for strat_name, win_rate in STRATEGIES:
     for asset_slug, asset_name, cat_code in ASSETS:
         slug = f"{asset_slug}-{strat_name.lower()}-ninjatrader-8"
@@ -60,7 +62,7 @@ for strat_name, win_rate in STRATEGIES:
             "cat": cat_code,
             "market": f"CME {asset_name}",
             "win": win_rate,
-            "price": "19",
+            "price": "19.00",
             "tier": "master_bundle",
             "badge": "NT8 ALGO",
             "desc": f"Plug-and-play C# NinjaScript {clean_title} with prop-firm drawdown protection built in."
@@ -213,6 +215,7 @@ def get_head(title, desc, canonical_slug):
     </nav>
 """
 
+# Pricing section displaying exact figures with explicit 1-to-1 routing
 PRICING_SECTION = f"""
 <section id="pricing" class="py-16 px-6 max-w-6xl mx-auto">
     <div class="text-center mb-12">
@@ -225,7 +228,7 @@ PRICING_SECTION = f"""
             <div>
                 <div class="mono text-xs text-cyan-400 font-bold">STARTER EDGE</div>
                 <h3 class="text-xl font-bold text-white mt-1">Flash FVG Bot</h3>
-                <div class="text-4xl font-black text-white my-4">$9</div>
+                <div class="text-4xl font-black text-white my-4">$9 <span class="text-xs text-slate-400 font-normal">one-time</span></div>
                 <p class="text-xs text-slate-400 mb-6">NQ & ES Fair Value Gap Indicator + Drawdown Protector ATM preset.</p>
             </div>
             <a href="{STRIPE_PAYMENTS['flash_bot']}" class="w-full text-center bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition block">Unlock For $9 &rarr;</a>
@@ -236,7 +239,7 @@ PRICING_SECTION = f"""
             <div>
                 <div class="mono text-xs text-emerald-400 font-bold">PRO PACK</div>
                 <h3 class="text-xl font-bold text-white mt-1">Master Bundle</h3>
-                <div class="text-4xl font-black text-emerald-400 my-4">$19</div>
+                <div class="text-4xl font-black text-emerald-400 my-4">$19 <span class="text-xs text-slate-300 font-normal">one-time</span></div>
                 <p class="text-xs text-slate-300 mb-6">Everything in $9 + Liquidity Sweep bot, London/NY Killzones & 20 ATM templates.</p>
             </div>
             <a href="{STRIPE_PAYMENTS['master_bundle']}" class="w-full text-center bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-black py-3 rounded-xl transition block">Unlock Master Pack ($19) &rarr;</a>
@@ -246,7 +249,7 @@ PRICING_SECTION = f"""
             <div>
                 <div class="mono text-xs text-cyan-400 font-bold">HANDS-FREE</div>
                 <h3 class="text-xl font-bold text-white mt-1">Autotrader Suite</h3>
-                <div class="text-4xl font-black text-white my-4">$299</div>
+                <div class="text-4xl font-black text-white my-4">$299 <span class="text-xs text-slate-400 font-normal">lifetime</span></div>
                 <p class="text-xs text-slate-400 mb-6">Automated execution algorithms for NQ, ES, GC & CL with auto-breakeven.</p>
             </div>
             <a href="{STRIPE_PAYMENTS['autotrader_suite']}" class="w-full text-center bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition block">Deploy Autotrader ($299) &rarr;</a>
@@ -256,7 +259,7 @@ PRICING_SECTION = f"""
             <div>
                 <div class="mono text-xs text-amber-300 font-bold">ALL-ACCESS</div>
                 <h3 class="text-xl font-bold text-white mt-1">VIP Prop Desk</h3>
-                <div class="text-4xl font-black text-amber-300 my-4">$499</div>
+                <div class="text-4xl font-black text-amber-300 my-4">$499 <span class="text-xs text-slate-400 font-normal">lifetime</span></div>
                 <p class="text-xs text-slate-400 mb-6">All {len(BOTS)} Bots + Uncompiled C# Source Code + 1-on-1 Remote Setup.</p>
             </div>
             <a href="{STRIPE_PAYMENTS['vip_mastermind']}" class="w-full text-center bg-amber-400 hover:bg-amber-300 text-black font-black py-3 rounded-xl transition block">Join VIP Desk ($499) &rarr;</a>
@@ -463,7 +466,7 @@ write_page("calculator.html", get_head("Prop Firm Drawdown & Safe Contract Calcu
     </script>
 </main>""" + PRICING_SECTION + FOOTER_HTML)
 
-# 5. Generate Bot Pages, Review Pages, and Comparison Pages
+# 5. Generate Individual Bot Pages with Direct Correct Checkout Links
 briefing_links = []
 
 for f in FIRMS:
@@ -560,4 +563,4 @@ with open("sitemap.xml", "w", encoding="utf-8") as f:
 with open("robots.txt", "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
 
-print(f"[SUCCESS] Compiled {len(generated_urls)} production pages with direct Stripe routing!")
+print(f"[SUCCESS] Compiled {len(generated_urls)} production pages with exact 1-to-1 Stripe links!")
