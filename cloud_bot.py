@@ -1,61 +1,116 @@
-﻿# -*- coding: utf-8 -*-
-import os, time, json, urllib.request
+﻿import os
+import time
+import datetime
+import urllib.request
+import urllib.parse
+import json
 import yfinance as yf
 
-TELEGRAM_BOT_TOKEN = "9042945272:AAGVY4bd68LCK3YIV8B0OUEIKmt0UKGweJ8"
-TELEGRAM_CHAT_ID = "8585819972"
-STATE_FILE = "state.json"
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "9042945272:AAGVY4bd68LCk3YIV8B0OUEIKmt0UKGweJ8")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "8585819972")
+SITE_URL = "https://thefundedbible.com"
 
-PROMO_FOOTER = "\n\nPass Your Prop Evaluation:\nhttps://thefundedbible.com (Code BIBLE80)"
+SYMBOLS = {
+    "NQ=F": {"name": "NQ (Nasdaq 100 Futures)", "tp_pts": 35.0, "sl_pts": 15.0},
+    "ES=F": {"name": "ES (S&P 500 Futures)", "tp_pts": 12.0, "sl_pts": 5.0},
+    "GC=F": {"name": "GC (Gold Futures)", "tp_pts": 8.0, "sl_pts": 3.5},
+    "CL=F": {"name": "CL (Crude Oil Futures)", "tp_pts": 0.65, "sl_pts": 0.25}
+}
 
-try:
-    with open(STATE_FILE, "r") as f:
-        seen = json.load(f)
-except:
-    seen = {}
-
-now = time.time()
-seen = {k: v for k, v in seen.items() if now - v < 7200}
-
-def send_alert(msg):
-    if not TELEGRAM_CHAT_ID:
-        return
+def send_telegram_alert(text):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": CHAT_ID,
+        "text": text,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True
+    }
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     try:
-        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-        payload = json.dumps({"chat_id": TELEGRAM_CHAT_ID, "text": msg}).encode("utf-8")
-        req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-        urllib.request.urlopen(req, timeout=10)
+        with urllib.request.urlopen(req, timeout=10) as response:
+            return response.getcode() == 200
     except Exception as e:
-        print("Telegram Error:", e)
+        print(f"[ERROR] Telegram transmission failed: {e}")
+        return False
 
-def check_market():
-    tickers = ["NQ=F", "ES=F", "CL=F", "GC=F"]
-    for t in tickers:
+def scan_market_and_signal():
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Scanning CME Futures for institutional setups...")
+    
+    for ticker, info in SYMBOLS.items():
         try:
-            df = yf.Ticker(t).history(period="1d", interval="1m")
+            # period="5d" ensures data is retrieved even on weekends or pre-market
+            df = yf.download(ticker, period="5d", interval="15m", progress=False)
+            
+            # If 15m is empty (e.g. weekend session transition), pull daily/hourly candles
             if df.empty or len(df) < 5:
+                df = yf.download(ticker, period="5d", interval="1h", progress=False)
+
+            if df.empty or len(df) < 3:
+                print(f"[WARN] No data available right now for {ticker}")
                 continue
+            
+            # Flatten multi-index columns if returned by newer yfinance
+            if hasattr(df.columns, 'levels') and len(df.columns.levels) > 1:
+                df.columns = df.columns.get_level_values(0)
 
-            latest = df.iloc[-1]
-            close = latest['Close']
-            open_p = latest['Open']
+            c1 = df.iloc[-3]
+            c2 = df.iloc[-2]
+            c3 = df.iloc[-1]
 
-            move_pct = abs(close - open_p) / open_p * 100
-            if move_pct > 0.3:
-                key = f"{t}_move_{df.index[-1]}"
-                if key not in seen:
-                    direction = "SURGE UP" if close > open_p else "CRASH DOWN"
-                    msg = f"TFB CLOUD RADAR\n\nInstrument: {t}\nMove: {direction} ({move_pct:.2f}% in 1m)\nPrice: {close:.2f}{PROMO_FOOTER}"
-                    send_alert(msg)
-                    seen[key] = now
+            current_price = float(c3['Close'])
+
+            # Bullish Fair Value Gap / Expansion
+            if float(c3['Low']) > float(c1['High']) and float(c2['Close']) > float(c2['Open']):
+                signal_type = "BULLISH FVG EXPANSION (LONG)"
+                entry = round(current_price, 2)
+                sl = round(entry - info['sl_pts'], 2)
+                tp = round(entry + info['tp_pts'], 2)
+                bias_color = "🟢"
+            # Bearish Fair Value Gap / Breakdown
+            elif float(c3['High']) < float(c1['Low']) and float(c2['Close']) < float(c2['Open']):
+                signal_type = "BEARISH FVG BREAKDOWN (SHORT)"
+                entry = round(current_price, 2)
+                sl = round(entry + info['sl_pts'], 2)
+                tp = round(entry - info['tp_pts'], 2)
+                bias_color = "🔴"
+            else:
+                ema_fast = df['Close'].rolling(window=5).mean().iloc[-1]
+                ema_slow = df['Close'].rolling(window=13).mean().iloc[-1]
+                if ema_fast >= ema_slow:
+                    signal_type = "ORDERFLOW MOMENTUM LONG"
+                    entry = round(current_price, 2)
+                    sl = round(entry - info['sl_pts'], 2)
+                    tp = round(entry + info['tp_pts'], 2)
+                    bias_color = "🟢"
+                else:
+                    signal_type = "LIQUIDITY RUN SHORT"
+                    entry = round(current_price, 2)
+                    sl = round(entry + info['sl_pts'], 2)
+                    tp = round(entry - info['tp_pts'], 2)
+                    bias_color = "🔴"
+
+            message = (
+                f"{bias_color} <b>LIVE INSTITUTIONAL SIGNAL | THE FUNDED BIBLE</b>\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n"
+                f"📊 <b>Asset:</b> {info['name']}\n"
+                f"⚡ <b>Setup:</b> {signal_type}\n"
+                f"🎯 <b>Entry Zone:</b> <code>{entry}</code>\n"
+                f"🛑 <b>Hard Stop (SL):</b> <code>{sl}</code>\n"
+                f"💰 <b>Take Profit (TP):</b> <code>{tp}</code>\n"
+                f"🛡️ <b>Risk:</b> 1-2 Contracts Max (Prop Rule Lock)\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n"
+                f"🔥 <i>Automate this setup with our $9 NinjaScript Bot:</i>\n"
+                f"👉 <a href='{SITE_URL}'>thefundedbible.com</a>\n"
+                f"🏷️ <i>Prop Firm Code:</i> <b>BIBLE80</b> (Max Discount)"
+            )
+
+            send_telegram_alert(message)
+            print(f"[SUCCESS] Dispatched live signal for {ticker} -> Telegram")
+            time.sleep(2)
 
         except Exception as e:
-            print(f"Error checking {t}:", e)
-
-    with open(STATE_FILE, "w") as f:
-        json.dump(seen, f)
+            print(f"[ERROR] Symbol {ticker} scan: {e}")
 
 if __name__ == "__main__":
-    print("Cloud Engine Running...")
-    check_market()
-    print("Check complete.")
+    scan_market_and_signal()

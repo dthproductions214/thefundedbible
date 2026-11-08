@@ -1,0 +1,30 @@
+﻿name: 24/7 Live Market Signals
+
+on:
+  schedule:
+    # Triggers every 15 minutes, 24/7/365 without your PC on
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  signal_dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Market Libs
+        run: |
+          pip install yfinance pandas requests
+
+      - name: Run Cloud Signal Dispatcher
+        env:
+          TELEGRAM_BOT_TOKEN: "9042945272:AAGVY4bd68LCk3YIV8B0OUEIKmt0UKGweJ8"
+          TELEGRAM_CHAT_ID: "8585819972"
+        run: |
+          python cloud_bot.py
