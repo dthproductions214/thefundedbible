@@ -1,0 +1,435 @@
+import datetime
+import urllib.parse
+
+TODAY_DISPLAY = datetime.datetime.utcnow().strftime("%B %d, %Y")
+
+EMAIL_SEQUENCE = [
+    {
+        "day": "DAY 01 • INSTANT LEAD DELIVERY + $9 IMPULSE TRIPWIRE",
+        "target_tier": "$9 7-Day Combine Pass Blueprint",
+        "subject": "Your 2-Trade Prop Saver (.CSV) + Why $50K Combines Are A Trap",
+        "body": """Here is your direct link to re-download the "2-Trade Prop Saver" Mechanical Risk Sheet (.CSV) anytime:
+https://www.thefundedbible.com/vault.html
+
+Before you fire your next NQ or ES trade today, read this carefully:
+
+You do NOT have a $50,000 account. You have a $2,500 drawdown buffer.
+
+When you fire 2 NQ Minis with a 20-point stop loss, you are risking $800 on a single candle—that is 32% of your entire evaluation life gone in 45 seconds. Two bad trades and you are buying another reset.
+
+Here is the mechanical fix inside your sheet:
+1. Drop your size to 5 MNQ Micros ($10/point total).
+2. Lock a strict 15-point structural stop ($150 max risk per trade = 6% of your buffer).
+3. Arm a hard 2-loss daily kill-switch (-$300 max daily drawdown).
+
+At $150 risk per trade, a $50K evaluation survives 16.6 consecutive losing trades without blowing up.
+
+Want the exact 90-minute NY Open Silver Bullet checklist I use to clear $3,000 profit targets in 7 sessions using this exact 5 MNQ schedule?
+
+Unlock the 7-Day Combine Pass Blueprint right here for $9 (instant vault access):
+https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9
+
+Or if you need a fresh evaluation today, use code BIBLE80 for 80% off + $0 activation fee EOD accounts here:
+https://www.thefundedbible.com/firms.html
+
+Trade mechanical buffer math,
+Danny Hoang
+The Funded Bible™ Desk
+https://www.thefundedbible.com"""
+    },
+    {
+        "day": "DAY 02 • THE INTRADAY TRAILING DRAWDOWN KILLER ($39 SUITE)",
+        "target_tier": "$39 Trench Starter & C# Risk Suite",
+        "subject": "How a +$1,000 NQ winner quietly liquidates your prop account",
+        "body": """Ever had an NQ runner go up +50 points (+$1,000 unrealized profit), pull back to breakeven, and suddenly realize your prop account is $1,000 closer to liquidation even though you lost $0 on the trade?
+
+That is the Intraday High-Water Mark Trailing Drawdown trap.
+
+Firms like Apex trail your highest UNREALIZED open equity tick-by-tick. If you hold for home-run swings without scaling out, every pullback eats your breathing room alive.
+
+How our desk defeats intraday trailing locks mechanically:
+• Enter 5 MNQ on a confirmed 5-minute Fair Value Gap (FVG) reclaim across Session VWAP.
+• Automatically dump 80% of the position (4 MNQ) at +20 points (+$160 banked).
+• Snap the remaining 1 MNQ stop to +2 points above entry.
+• Hard-lock the NinjaTrader 8 terminal the second you hit +2R or -2 losses.
+
+Instead of trusting your emotions at 09:45 AM EST when NQ is moving 25 points a minute, let our automated C# Risk Suite lock your platform for you.
+
+Grab The Trench Starter & NinjaScript C# Risk Suite for $39 here:
+https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
+
+Check your exact MNQ survival math live on the calculator:
+https://www.thefundedbible.com/calculator.html
+
+Stay disciplined,
+Danny Hoang
+The Funded Bible™ Desk"""
+    },
+    {
+        "day": "DAY 03 • THE $0 ACTIVATION FEE AUDIT (BIBLE80 + $39 UPSELL)",
+        "target_tier": "Affiliate Commissions (BIBLE80) + $39 Risk Suite",
+        "subject": "Stop paying $149 'Activation Fees' after passing a $50K combine",
+        "body": """Passing a $50K evaluation used to mean getting hit with a $130 to $250 "Activation Fee" before you could touch a funded sim account.
+
+If you are building a 10-account copy-trading syndicate, activation fees drain $1,400 to $2,500 out of your pocket before you place a single funded trade.
+
+We audited all 12 major futures prop firms for November 2026. Right now, you can trade End-of-Day (EOD) static drawdown evaluations with $0 Activation Fees on:
+• MyFundedFutures (MFFU) — $0 Activation + EOD Drawdown
+• Tradeify Futures — $0 Activation on Select EOD & Straight-To-Funded
+• Topstep (TopstepX) — $0 No-Activation Fee Path + Built-In Trade Copier
+• Alpha Futures — $0 Activation Option + Clean 1-Step EOD
+
+See the full 12-firm side-by-side matrix and copy code BIBLE80 (up to 80% off evaluations) here:
+https://www.thefundedbible.com/firms.html
+
+And before you launch your next combine, arm the $39 Trench Starter Risk Terminal so you never violate a daily drawdown limit again:
+https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
+
+See you on the NY Open tape,
+Danny Hoang
+The Funded Bible™ Desk"""
+    },
+    {
+        "day": "DAY 04 • 20-ACCOUNT SYNDICATE MATH ($197 SCRIPTURE MANUAL)",
+        "target_tier": "$197 Standard Scripture Manual",
+        "subject": "Why 4 Micros across 10 accounts beats 4 Minis on 1 combine",
+        "body": """Retail gamblers try to make $2,000 a day by firing 4 NQ Minis ($80/point) on a single $50K combine. One 25-point stop hunt at 09:35 EST wipes out $2,000 and liquidates the account.
+
+Institutional prop syndicates do the exact opposite:
+
+They trade 4 MNQ Micros ($8/point) for a calm, mechanical 20-point base hit (+$160 per account).
+Then they copy that exact execution across 10 linked PA/XFA accounts simultaneously.
+
+• Profit on a single 20-point NQ base hit across 10 accounts = +$1,600.
+• Risk per individual $50K account (15pt stop) = $120 (just 4.8% of the drawdown buffer).
+• Consecutive losses required to blow the fleet = 20.8 trades.
+
+You stop sweating every 5-point pullback because each account is barely risking 5% of its buffer, while your aggregate payout scales 10x to 20x.
+
+Inside The Funded Bible™ Standard Scripture Manual ($197), you get our complete 180-page institutional orderflow playbook, ICT Silver Bullet liquidity sweep models, EOD vs. Intraday defense rules, and all NinjaScript C# risk indicators:
+
+Unlock the full $197 Standard Scripture Manual (Lifetime Access) here:
+https://www.thefundedbible.com/api/create-checkout-session?tier=standard_197
+
+Or test your own 1-to-20 account multiplier math on the live desk calculator:
+https://www.thefundedbible.com/calculator.html
+
+Danny Hoang
+The Funded Bible™ Desk"""
+    },
+    {
+        "day": "DAY 05 • CONSISTENCY RULE FIXER + $397 WHALE SYNDICATE CLOSE",
+        "target_tier": "$197 Scripture / $397 Whale Scale Mastermind",
+        "subject": "Blocked payout? How to clear 40% & 50% Consistency Rules fast",
+        "body": """Nothing hurts worse than passing your profit target or building a $4,000 funded cushion, requesting a payout, and getting denied because one big NQ trend day broke the firm's 40% or 50% Consistency Rule.
+
+If your largest single winning day was $1,800 on a 40% consistency firm (like Tradeify Select or Topstep Combine), your total account profit MUST reach at least $4,500 ($1,800 ÷ 0.40) before your withdrawal unlocks.
+
+We built an automated Consistency Rule Fixer into our calculator so you never guess how much extra profit you need to generate:
+https://www.thefundedbible.com/calculator.html
+
+And if you are ready to stop trading solo combines and build a synchronized 10-to-20 account funded fleet ($300K to $1M+ in active prop allocation), pick your weapon below:
+
+1. $9 — 7-Day Combine Pass Blueprint (Fast-Track Entry):
+https://www.thefundedbible.com/api/create-checkout-session?tier=flash_9
+
+2. $39 — The Trench Starter & NinjaScript C# Risk Suite (Most Popular):
+https://www.thefundedbible.com/api/create-checkout-session?tier=risk_terminal_39
+
+3. $197 — The Funded Bible™ Full 180-Page Scripture Manual + Indicators:
+https://www.thefundedbible.com/api/create-checkout-session?tier=standard_197
+
+4. $397 — 20-Account Whale Scale Mastermind & Copier Architecture:
+https://www.thefundedbible.com/api/create-checkout-session?tier=whale_397
+
+Let's lock your next payout,
+Danny Hoang
+The Funded Bible™ LLC"""
+    },
+    {
+        "day": f"DAILY NY DESK BROADCAST • {TODAY_DISPLAY}",
+        "target_tier": "Daily List Cash Broadcast ($9 / $39 / BIBLE80)",
+        "subject": f"🚨 NY Open Desk Briefing ({TODAY_DISPLAY}): NQ1! Liquidity Sweep & 5 MNQ Plan",
+        "body": f"""NY Futures Desk Briefing for {TODAY_DISPLAY}:
+
+1. 09:30–09:45 EST JUDAS SWING LOCKOUT:
+Do not chase the 09:30 AM cash open candle. Let algorithms sweep the overnight London High or Asia Low liquidity pool first.
+
+2. 09:50–10:10 EST SILVER BULLET WINDOW:
+Wait for a 5-minute displacement candle to close back inside the range across Session VWAP leaving a clean Fair Value Gap (FVG).
+
+3. MECHANICAL SIZING ($50K ACCOUNT):
+• Max Contract Size: 5 MNQ Micros
+• Structural Stop Loss: 15 Points ($150 Risk = 6% of Buffer)
+• Take-Profit Target: +20 to +30 Points ($200–$300 per linked account)
+• Daily Kill-Switch: Hard platform lockout after 2 consecutive stops (-$300)
+
+Open the Live NQ1! / ES1! Terminal & Pre-Market Readiness Gate here:
+https://www.thefundedbible.com/briefings.html
+
+Grab the $9 7-Day Pass Blueprint or $39 C# Risk Suite before the bell:
+https://www.thefundedbible.com/vault.html
+
+Need a fresh combine? Copy code BIBLE80 for 80% off + $0 activation fees:
+https://www.thefundedbible.com/firms.html
+
+Trade clean,
+Danny Hoang
+The Funded Bible™ Desk"""
+    }
+]
+
+X_POSTS = [
+    {
+        "tag": "X / TWITTER VIRAL HOOK #01 • TRAILING DRAWDOWN TRAP",
+        "text": """94% of retail futures traders fail $50K combines for one mathematical reason:
+
+They size against the $50,000 nominal balance instead of the $2,500 drawdown buffer.
+
+Swinging 3 NQ minis on a 15pt stop risks $900 (36% of your life in 1 trade).
+
+Drop to 5 MNQ micros ($150 risk). You survive 16.6 straight losses.
+
+Free MNQ Risk Sheet (.CSV) + $9 Pass Blueprint:
+https://www.thefundedbible.com/vault.html
+
+Use code BIBLE80 for 80% off your next evaluation."""
+    },
+    {
+        "tag": "X / TWITTER VIRAL HOOK #02 • 20-ACCOUNT SYNDICATE MATH",
+        "text": """Stop swinging for 80-point NQ home runs on 1 combine.
+
+How funded syndicate desks actually print:
+• 4 MNQ micros ($8/pt)
+• 20-point base hit = $160 per account
+• Copied across 10 linked PA/XFA accounts = $1,600/day
+• Max risk per account = 4.8% of drawdown buffer
+
+Run your exact syndicate math live:
+https://www.thefundedbible.com/calculator.html
+
+Code BIBLE80 saves 80% on evaluations."""
+    },
+    {
+        "tag": "X / TWITTER VIRAL HOOK #03 • $0 ACTIVATION FEE AUDIT",
+        "text": """Paying $149–$250 in "Activation Fees" after passing a $50K prop evaluation is dead in 2026.
+
+If you scale 10 funded accounts, activation fees eat $1,500+ before you place a single live trade.
+
+Compare every verified $0 Activation Fee + EOD Drawdown prop firm side-by-side:
+https://www.thefundedbible.com/firms.html
+
+Promo codes BIBLE80 & BIBLE active now."""
+    },
+    {
+        "tag": "X / TWITTER VIRAL HOOK #04 • NY OPEN SILVER BULLET",
+        "text": """The 09:30 EST NY Cash Open is engineered to liquidate impatient retail traders.
+
+My entire 90-minute Combine Pass routine:
+1. Sit on hands 09:30–09:45 EST while Judas swing sweeps London High/Low
+2. Wait for a 5m Fair Value Gap (FVG) reclaim across VWAP
+3. Enter 5 MNQ (15pt SL / 30pt TP = +$300)
+4. Hard daily lockout after 2 trades
+
+Full $9 Execution Checklist:
+https://www.thefundedbible.com"""
+    }
+]
+
+TIKTOK_SCRIPTS = [
+    {
+        "tag": "TIKTOK / REEL SCRIPT #01 • THE $50K COMBINE LIE",
+        "text": """[ON-SCREEN HOOK TEXT]: Stop trading a $50K prop account like you have $50,000 💀📉
+
+[VOICEOVER]:
+You don't have fifty grand. You have a twenty-five hundred dollar drawdown buffer. When you fire two NQ minis with a twenty-point stop, you're risking eight hundred bucks—one third of your entire account life on a single candle. Drop down to five MNQ micros with a fifteen-point stop. Now you're only risking a hundred and fifty bucks a trade, and your account survives sixteen straight losses.
+
+[CAPTION]:
+Stop donating evaluation fees to prop firms. Grab the free 2-Trade Prop Saver Risk Sheet (.CSV) + $9 7-Day Pass Blueprint at the link in bio (thefundedbible.com) ⚡ Use code BIBLE80 for 80% off evaluations. #futures #propfirm #nqfutures #daytrading #apextraderfunding #topstep #myfundedfutures"""
+    },
+    {
+        "tag": "TIKTOK / REEL SCRIPT #02 • 10-ACCOUNT COPY TRADER MATH",
+        "text": """[ON-SCREEN HOOK TEXT]: Why pros trade 4 Micros across 10 accounts instead of 4 Minis on 1 🧠💰
+
+[VOICEOVER]:
+Amateur traders try to make two grand on a single combine by over-leveraging NQ minis—and they blow up by Tuesday. Funded syndicate desks trade four MNQ micros for a boring twenty-point base hit. That's a hundred and sixty bucks per account, copied across ten linked PA accounts for sixteen hundred dollars in fifteen minutes—with zero trailing drawdown stress.
+
+[CAPTION]:
+Base hits across 10 linked accounts beat home runs on 1 combine every single time. Run the 20-Account Syndicate Calculator live at thefundedbible.com ⚡ Code BIBLE80 gets you 80% off. #copytrading #ninjatrader #futurespropfirm #daytrader #icttrading"""
+    }
+]
+
+YT_SHORTS = [
+    {
+        "tag": "YOUTUBE SHORT PACK #01 • HIGH-CTR TITLE + SEO DESCRIPTION",
+        "text": """TITLE: Why 94% Fail $50K Prop Evaluations (And The 5 MNQ Fix) 💀📈 #shorts
+
+DESCRIPTION:
+Stop sizing against your $50,000 nominal balance—size against your $2,500 drawdown buffer.
+🔥 Download the FREE "2-Trade Prop Saver" Risk Sheet (.CSV): https://www.thefundedbible.com/vault.html
+⚡ Get the $9 7-Day Combine Pass Blueprint: https://www.thefundedbible.com
+💰 Compare All 12 Prop Firms + Copy 80% OFF Code [BIBLE80]: https://www.thefundedbible.com/firms.html"""
+    }
+]
+
+def build_viral_hub():
+    # Build 5-Email Cash-Conversion Sequence Cards
+    email_cards_html = ""
+    e_idx = 0
+    for em in EMAIL_SEQUENCE:
+        e_idx += 1
+        email_cards_html += f"""
+        <div style="background:rgba(11,15,25,0.95);border:1px solid rgba(16,185,129,0.38);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 16px 40px rgba(0,0,0,0.75);">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">📧 {em['day']}</span>
+              <span style="background:rgba(245,158,11,0.15);border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">PITCHES: {em['target_tier']}</span>
+            </div>
+            <div style="background:#050811;border:1px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#fff;"><strong>SUBJECT:</strong> <span id="em-sub-{e_idx}">{em['subject']}</span></div>
+              <button onclick="copyTextById('em-sub-{e_idx}', this)" style="background:#1e293b;color:#fbbf24;border:1px solid #f59e0b;padding:4px 10px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;cursor:pointer;flex-shrink:0;">COPY SUBJECT</button>
+            </div>
+            <pre id="em-body-{e_idx}" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#e2e8f0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.58;max-height:310px;overflow-y:auto;">{em['body']}</pre>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <button onclick="copyTextById('em-body-{e_idx}', this)" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 COPY EMAIL BODY</button>
+            <button onclick="launchGmailBlast('em-sub-{e_idx}', 'em-body-{e_idx}')" style="background:linear-gradient(135deg,#10b981,#059669);color:#000;border:none;padding:11px 14px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">🚀 OPEN IN GMAIL ↗</button>
+          </div>
+        </div>
+        """
+
+    # Build Social Hook Cards
+    cards_html = ""
+    idx = 0
+    for item in X_POSTS + TIKTOK_SCRIPTS + YT_SHORTS:
+        idx += 1
+        is_x = "TWITTER" in item["tag"]
+        encoded_tweet = urllib.parse.quote(item["text"])
+        x_btn = f'<a href="https://twitter.com/intent/tweet?text={encoded_tweet}" target="_blank" style="background:#1d9bf0;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-family:\'JetBrains Mono\',monospace;font-size:12px;font-weight:800;">POST TO X ↗</a>' if is_x else ""
+        cards_html += f"""
+        <div style="background:rgba(11,15,25,0.92);border:1px solid rgba(245,158,11,0.32);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;margin-bottom:8px;">● {item['tag']}</div>
+            <pre id="hook-{idx}" style="white-space:pre-wrap;word-wrap:break-word;background:#050811;border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:8px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;">{item['text']}</pre>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="copyTextById('hook-{idx}', this)" style="flex:1;background:linear-gradient(135deg,#fbbf24,#d97706);color:#000;border:none;padding:10px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;cursor:pointer;">📋 1-CLICK COPY POST</button>
+            {x_btn}
+          </div>
+        </div>
+        """
+
+    viral_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMAIL BROADCAST &amp; VIRAL COMMAND CENTER | The Funded Bible™</title>
+  <meta name="robots" content="noindex, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body style="background:#030508;color:#f8fafc;font-family:'Plus Jakarta Sans',sans-serif;margin:0;padding:0 0 90px;">
+  <header style="position:sticky;top:0;z-index:999;background:#04060a;border-bottom:1px solid rgba(245,158,11,0.35);padding:14px 20px;">
+    <div style="max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <a href="index.html" style="color:#fff;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:20px;">THE FUNDED BIBLE <span style="background:#10b981;color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 7px;border-radius:4px;margin-left:6px;">MARKETING OS</span></a>
+      <div style="display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:12px;flex-wrap:wrap;">
+        <a href="#email-sequence" style="color:#10b981;text-decoration:none;font-weight:800;">1. 5-Email Cash Sequence</a>
+        <a href="#viral-hooks" style="color:#fbbf24;text-decoration:none;font-weight:800;">2. Viral X/TikTok Hooks</a>
+        <a href="links.html" style="color:#94a3b8;text-decoration:none;">Bio Funnel (links.html)</a>
+        <a href="index.html" style="color:#94a3b8;text-decoration:none;">Live Desk</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1320px;margin:0 auto;padding:32px 20px;">
+
+    <!-- LEAD BCC MANAGER BAR FOR 1-CLICK GMAIL BLASTS -->
+    <section style="background:linear-gradient(160deg,rgba(15,22,36,0.96),rgba(7,10,18,0.99));border:1.5px solid #10b981;border-radius:16px;padding:26px;margin-bottom:34px;box-shadow:0 20px 50px rgba(0,0,0,0.85);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:14px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">● 1-CLICK LEAD BROADCAST LAUNCHER • UPDATED {TODAY_DISPLAY}</div>
+          <h1 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin:4px 0;">Convert Captured Trader Emails Into $9, $39 &amp; $197 Buyers</h1>
+          <p style="color:#94a3b8;font-size:13.5px;">Paste your captured trader emails below (comma-separated from your Gmail alerts or Stripe Customers tab). Clicking <strong style="color:#10b981;">🚀 OPEN IN GMAIL ↗</strong> on any email below automatically loads your leads into BCC with the Subject and Body pre-filled!</p>
+        </div>
+        <a href="https://dashboard.stripe.com/customers" target="_blank" style="background:#111827;border:1px solid #f59e0b;color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;padding:10px 16px;border-radius:8px;text-decoration:none;">OPEN STRIPE CUSTOMERS LIST ↗</a>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <input type="text" id="bcc-lead-list" placeholder="Paste captured trader emails here (e.g. trader1@gmail.com, trader2@yahoo.com) — auto-saves in your browser..." oninput="saveBccList()" style="flex:1;min-width:280px;background:#04060b;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:13px 14px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;" />
+        <button onclick="clearBccList()" style="background:#1e293b;color:#94a3b8;border:1px solid rgba(255,255,255,0.15);padding:12px 16px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;">CLEAR LIST</button>
+      </div>
+    </section>
+
+    <!-- SECTION 1: 5-EMAIL FOLLOW-UP & BROADCAST SEQUENCE -->
+    <section id="email-sequence" style="margin-bottom:48px;">
+      <div style="margin-bottom:18px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;font-weight:800;">● AUTOMATED 5-DAY CASH CONVERSION FUNNEL + DAILY DESK BROADCAST</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:4px;">1-Click Follow-Up Email Sequence ($9 → $39 → $197 → $397)</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(410px,1fr));gap:22px;">
+        {email_cards_html}
+      </div>
+    </section>
+
+    <!-- SECTION 2: VIRAL X, TIKTOK & YOUTUBE SHORTS HOOKS -->
+    <section id="viral-hooks">
+      <div style="margin-bottom:18px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fbbf24;font-weight:800;">● ORGANIC TRAFFIC SYNDICATION • LINK IN BIO: thefundedbible.com/links.html</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:28px;margin-top:4px;">1-Click Viral X, TikTok &amp; YouTube Shorts Scripts</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;">
+        {cards_html}
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Restore saved BCC email list automatically
+    window.addEventListener('DOMContentLoaded', () => {{
+      const saved = localStorage.getItem('tfb_bcc_leads');
+      const localLead = localStorage.getItem('tfb_captured_lead');
+      const input = document.getElementById('bcc-lead-list');
+      if (saved && input) {{
+        input.value = saved;
+      }} else if (localLead && input) {{
+        input.value = localLead;
+      }}
+    }});
+
+    function saveBccList() {{
+      const val = document.getElementById('bcc-lead-list').value;
+      localStorage.setItem('tfb_bcc_leads', val);
+    }}
+
+    function clearBccList() {{
+      document.getElementById('bcc-lead-list').value = '';
+      localStorage.removeItem('tfb_bcc_leads');
+    }}
+
+    function copyTextById(id, btn) {{
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      const orig = btn.innerText;
+      btn.innerText = '✓ COPIED!';
+      setTimeout(() => {{ btn.innerText = orig; }}, 1700);
+    }}
+
+    function launchGmailBlast(subId, bodyId) {{
+      const subject = encodeURIComponent(document.getElementById(subId).innerText);
+      const body = encodeURIComponent(document.getElementById(bodyId).innerText);
+      const bccRaw = document.getElementById('bcc-lead-list').value.trim();
+      const bcc = encodeURIComponent(bccRaw);
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&bcc=${{bcc}}&su=${{subject}}&body=${{body}}`;
+      window.open(gmailUrl, '_blank');
+    }}
+  </script>
+</body>
+</html>"""
+
+    with open("viral.html", "w", encoding="utf-8") as fp:
+        fp.write(viral_html)
+
+    print("[✓] Upgraded viral.html with 5-Email Cash Sequence + 1-Click Gmail Broadcast Launcher!")
+
+if __name__ == "__main__":
+    build_viral_hub()

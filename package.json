@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@vercel/speed-insights": "^2.0.0",
+    "@vercel/analytics": "^2.0.1",
     "stripe": "^14.0.0"
-  }
+  },
+  "type": "module"
 }
