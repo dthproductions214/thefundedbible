@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thefundedbible.com/</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/firms.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/vault.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/firms.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/calculator.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/review-tradeify.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/review-apex-trader-funding.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
@@ -60,51 +60,106 @@
   <url><loc>https://thefundedbible.com/compare-ticktick-trader-vs-purdia-capital.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/compare-elitetraderfunding-vs-purdia-capital.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-nq-fvg-sniper-bot.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-prop-firm-drawdown-protector-atm.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-es-liquidity-sweep-autotrader.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-gold-gc-london-breakout-bot.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-orderbook-scalper.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-prop-firm-drawdown-protector-atm.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-ict-silver-bullet-ninjatrader-suite.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-vip-institutional-prop-mastermind.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-order-block-detector-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-order-block-detector-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-order-block-detector-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-order-block-detector-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-order-block-detector-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-volume-profile-poc-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-volume-profile-poc-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-volume-profile-poc-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-volume-profile-poc-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-volume-profile-poc-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-delta-divergence-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-delta-divergence-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-delta-divergence-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-delta-divergence-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-delta-divergence-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-order-block-sniper-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-volume-profile-poc-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-delta-divergence-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-nq-nasdaq-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-vwap-mean-reversion-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-vwap-mean-reversion-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-vwap-mean-reversion-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-vwap-mean-reversion-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-vwap-mean-reversion-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-asia-range-sweep-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-asia-range-sweep-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-asia-range-sweep-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-asia-range-sweep-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-asia-range-sweep-algo-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-smt-divergence-auto-plotter-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-smt-divergence-auto-plotter-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-smt-divergence-auto-plotter-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-smt-divergence-auto-plotter-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-smt-divergence-auto-plotter-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-trailing-drawdown-killswitch-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-es-sp500-trailing-drawdown-killswitch-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-gc-gold-trailing-drawdown-killswitch-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-cl-crude-trailing-drawdown-killswitch-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-trailing-drawdown-killswitch-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-opening-range-breakout-orb-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-vwap-mean-reversion-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-asia-sweep-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-smt-divergence-scanner-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-auto-breakeven-atm-guard-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-ny-midnight-open-retest-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-dom-orderflow-imbalance-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-2022-mentorship-mss-bot-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-london-close-reversal-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-macro-time-displacement-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-breaker-block-auto-entry-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-session-liquidity-raid-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-nq-nasdaq-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mnq-micro-nasdaq-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-es-sp500-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-mes-micro-sp500-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-gc-gold-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thefundedbible.com/bot-cl-crude-oil-atr-dynamic-trail-engine-ninjatrader-8.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://thefundedbible.com/briefings.html</loc><lastmod>2026-11-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
 </urlset>

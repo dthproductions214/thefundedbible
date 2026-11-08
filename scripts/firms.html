@@ -1,264 +1,269 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futures Prop Firm Comparison Matrix 2026 | The Funded Bible</title>
-    <meta name="description" content="Compare EOD vs Trailing drawdown rules, payout splits, and discount codes for Tradeify, Apex, Topstep, and My Funded Futures.">
+    <title>Futures Prop Firm Comparison 2026 | The Funded Bible</title>
+    <meta name="description" content="Compare EOD vs Trailing drawdown rules for Tradeify, Apex, Topstep, and My Funded Futures.">
     <link rel="canonical" href="https://thefundedbible.com/firms.html">
-    <meta property="og:title" content="Futures Prop Firm Comparison Matrix 2026 | The Funded Bible">
-    <meta property="og:description" content="Compare EOD vs Trailing drawdown rules, payout splits, and discount codes for Tradeify, Apex, Topstep, and My Funded Futures.">
+    <meta property="og:title" content="Futures Prop Firm Comparison 2026 | The Funded Bible">
+    <meta property="og:description" content="Compare EOD vs Trailing drawdown rules for Tradeify, Apex, Topstep, and My Funded Futures.">
     <meta property="og:url" content="https://thefundedbible.com/firms.html">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #05070a; color: #e2e8f0; font-family: 'Inter', sans-serif; background-image: radial-gradient(#00ff9d15 1px, transparent 1px); background-size: 32px 32px; }
+        body {
+            background-color: #030508;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 255, 157, 0.07) 0%, transparent 40%);
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .neon-border { border: 1px solid rgba(0, 255, 157, 0.25); box-shadow: 0 0 25px rgba(0, 255, 157, 0.08); }
-        .gold-border { border: 1px solid rgba(251, 191, 36, 0.35); box-shadow: 0 0 25px rgba(251, 191, 36, 0.1); }
-        .glass { background: rgba(10, 14, 20, 0.88); backdrop-filter: blur(12px); }
+        .card-glow {
+            background: rgba(10, 15, 24, 0.85);
+            border: 1px solid rgba(0, 242, 254, 0.18);
+            transition: all 0.25s ease;
+        }
+        .card-glow:hover {
+            border-color: rgba(0, 255, 157, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px -10px rgba(0, 255, 157, 0.22);
+        }
     </style>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Funded Bible", "url": "https://thefundedbible.com", "description": " #1 Futures Prop Firm Comparison Terminal, Drawdown Calculators, and Automated C# NinjaScript Trading Bots for NQ, ES, GC, and CL."}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Funded Bible", "url": "https://thefundedbible.com"}</script>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-black">
-    <!-- Top Live CME Feed Ticker -->
-    <div class="bg-black border-b border-emerald-500/30 py-1.5 px-4 text-xs mono flex justify-between items-center overflow-x-auto whitespace-nowrap">
-        <div class="flex space-x-6 items-center">
-            <span class="text-emerald-400 font-bold flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2"></span>CME GLOBEX LIVE</span>
+<body class="min-h-screen flex flex-col selection:bg-cyan-400 selection:text-black">
+    <!-- Minimal Live Ticker Bar -->
+    <div class="bg-[#020305] border-b border-cyan-500/20 py-2 px-6 text-xs mono flex justify-between items-center">
+        <div class="flex items-center space-x-6 overflow-x-auto whitespace-nowrap">
+            <span class="text-cyan-400 font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>CME FEED</span>
             <span>NQ=F <strong class="text-emerald-400">+1.42%</strong></span>
             <span>ES=F <strong class="text-emerald-400">+0.88%</strong></span>
-            <span>GC=F <strong class="text-amber-400">+1.15%</strong></span>
+            <span>GC=F <strong class="text-amber-300">+1.15%</strong></span>
             <span>CL=F <strong class="text-emerald-400">+0.64%</strong></span>
         </div>
-        <div class="hidden md:block text-amber-400 font-bold">USE CODE <span class="bg-amber-400/20 px-2 py-0.5 rounded border border-amber-400">BIBLE80</span> FOR MAX PROP DISCOUNTS</div>
+        <div class="hidden sm:block text-slate-300">
+            PROP FIRM CODE: <span class="text-amber-300 font-bold bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded ml-1">BIBLE80</span>
+        </div>
     </div>
-    <!-- Navigation -->
-    <nav class="glass sticky top-0 z-50 border-b border-white/10 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="/index.html" class="text-xl font-extrabold tracking-wider text-white flex items-center gap-2">
-                <span class="text-emerald-400">THE FUNDED</span> <span class="text-amber-400">BIBLE</span>
+
+    <!-- Clean Sticky Header -->
+    <nav class="sticky top-0 z-50 bg-[#030508]/90 backdrop-blur-md border-b border-white/10 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="/index.html" class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-3 h-3 rounded-sm bg-gradient-to-tr from-cyan-400 to-emerald-400"></span>
+                THE FUNDED <span class="text-cyan-400">BIBLE</span>
             </a>
-            <div class="flex gap-6 text-sm font-semibold items-center">
-                <a href="/firms.html" class="hover:text-emerald-400 transition">Prop Firms</a>
-                <a href="/vault.html" class="hover:text-emerald-400 transition">Algo Vault (47)</a>
-                <a href="/calculator.html" class="hover:text-emerald-400 transition">Drawdown Calc</a>
-                <a href="/briefings.html" class="hover:text-emerald-400 transition">SEO Intel</a>
-                <a href="#pricing" class="bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold px-4 py-2 rounded transition shadow-lg shadow-emerald-500/20">Get Funded Now</a>
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-300">
+                <a href="/index.html#bots" class="hover:text-cyan-400 transition">Top Bots</a>
+                <a href="/firms.html" class="hover:text-cyan-400 transition">Prop Firms</a>
+                <a href="/calculator.html" class="hover:text-cyan-400 transition">Lot Calculator</a>
+                <a href="/vault.html" class="hover:text-cyan-400 transition">Full Vault (102)</a>
             </div>
+            <a href="#pricing" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold text-xs md:text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
+                Get Instant Access
+            </a>
         </div>
     </nav>
 
-<main class="max-w-7xl mx-auto px-6 py-12">
-    <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4">2026 Futures Prop Firm Comparison Matrix</h1>
-    <p class="text-slate-400 mb-8">Every evaluation rule, trailing threshold, and payout requirement audited side-by-side.</p>
-    <div class="overflow-x-auto glass neon-border rounded-xl mb-12">
-        <table class="w-full text-left text-sm">
-            <thead class="bg-black/60 mono text-xs uppercase text-slate-400 border-b border-white/10">
-                <tr><th class="py-3 px-4">Prop Firm</th><th class="py-3 px-4">Max Allocation</th><th class="py-3 px-4">Payout Split</th><th class="py-3 px-4">Drawdown Type</th><th class="py-3 px-4">Platforms</th><th class="py-3 px-4">Promo Code</th><th class="py-3 px-4">Audit</th></tr>
-            </thead>
-            <tbody>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-tradeify.html" class="hover:text-emerald-400 underline">Tradeify</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$750,000</td>
-        <td class="py-4 px-4">90%</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader 8, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-tradeify.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-apex-trader-funding.html" class="hover:text-emerald-400 underline">Apex Trader Funding</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$300,000</td>
-        <td class="py-4 px-4">100% First $25k, 90% After</td>
-        <td class="py-4 px-4 text-amber-300">Intraday Trailing</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader 8, Tradovate, Rithmic</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-apex-trader-funding.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-topstep.html" class="hover:text-emerald-400 underline">Topstep</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$150,000</td>
-        <td class="py-4 px-4">100% First $10k, 90% After</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">TopstepX, NinjaTrader, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-topstep.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-my-funded-futures.html" class="hover:text-emerald-400 underline">My Funded Futures</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$600,000</td>
-        <td class="py-4 px-4">90%</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Tradovate, TradingView</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-my-funded-futures.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-take-profit-trader.html" class="hover:text-emerald-400 underline">Take Profit Trader</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$150,000</td>
-        <td class="py-4 px-4">80% to 90% Day 1</td>
-        <td class="py-4 px-4 text-amber-300">EOD (Eval) / Intraday (Pro)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-take-profit-trader.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-bulenox.html" class="hover:text-emerald-400 underline">Bulenox</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$250,000</td>
-        <td class="py-4 px-4">100% First $10k, 90% After</td>
-        <td class="py-4 px-4 text-amber-300">EOD or Trailing Options</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Rithmic</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-bulenox.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-earn2trade.html" class="hover:text-emerald-400 underline">Earn2Trade</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$400,000</td>
-        <td class="py-4 px-4">80%</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Finamark</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-earn2trade.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-ticktick-trader.html" class="hover:text-emerald-400 underline">TickTick Trader</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$100,000</td>
-        <td class="py-4 px-4">90%</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-ticktick-trader.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-elitetraderfunding.html" class="hover:text-emerald-400 underline">Elite Trader Funding</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$300,000</td>
-        <td class="py-4 px-4">100% First $12.5k, 90% After</td>
-        <td class="py-4 px-4 text-amber-300">EOD / Static / Trailing</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-elitetraderfunding.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr>
-    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-        <td class="py-4 px-4 font-bold text-white"><a href="/review-purdia-capital.html" class="hover:text-emerald-400 underline">Purdia Capital</a></td>
-        <td class="py-4 px-4 mono text-emerald-400">$100,000</td>
-        <td class="py-4 px-4">90%</td>
-        <td class="py-4 px-4 text-amber-300">End-of-Day (EOD)</td>
-        <td class="py-4 px-4 text-xs text-slate-300">NinjaTrader, Tradovate</td>
-        <td class="py-4 px-4"><span class="mono bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2 py-1 rounded text-xs font-bold">BIBLE80</span></td>
-        <td class="py-4 px-4"><a href="/review-purdia-capital.html" class="bg-emerald-500 text-black font-bold px-3 py-1.5 rounded text-xs hover:bg-emerald-400">Read Audit &rarr;</a></td>
-    </tr></tbody>
-        </table>
+<main class="max-w-5xl mx-auto px-6 py-12">
+    <h1 class="text-3xl md:text-5xl font-bold text-white mb-3">2026 Futures Prop Firm Rankings</h1>
+    <p class="text-slate-400 mb-8">Clean side-by-side breakdown of drawdown locks, payout speeds, and discount codes.</p>
+    <div class="space-y-4">
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader 8, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-tradeify.html" class="hover:text-cyan-400">Tradeify</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$750,000</strong> &bull; Split: 90%</p>
     </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-tradeify.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader 8, Tradovate, Rithmic</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-apex-trader-funding.html" class="hover:text-cyan-400">Apex Trader Funding</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">Intraday Trailing</strong> &bull; Max Allocation: <strong class="text-emerald-400">$300,000</strong> &bull; Split: 100% / 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-apex-trader-funding.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">TopstepX, NinjaTrader, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-topstep.html" class="hover:text-cyan-400">Topstep</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$150,000</strong> &bull; Split: 100% / 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-topstep.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Tradovate, TradingView</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-my-funded-futures.html" class="hover:text-cyan-400">My Funded Futures</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$600,000</strong> &bull; Split: 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-my-funded-futures.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-take-profit-trader.html" class="hover:text-cyan-400">Take Profit Trader</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">EOD (Eval) / Intraday (Pro)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$150,000</strong> &bull; Split: 80% / 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-take-profit-trader.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Rithmic</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-bulenox.html" class="hover:text-cyan-400">Bulenox</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">EOD or Trailing</strong> &bull; Max Allocation: <strong class="text-emerald-400">$250,000</strong> &bull; Split: 100% / 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-bulenox.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Finamark</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-earn2trade.html" class="hover:text-cyan-400">Earn2Trade</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$400,000</strong> &bull; Split: 80%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-earn2trade.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-ticktick-trader.html" class="hover:text-cyan-400">TickTick Trader</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$100,000</strong> &bull; Split: 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-ticktick-trader.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-elitetraderfunding.html" class="hover:text-cyan-400">Elite Trader Funding</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">EOD / Static / Trailing</strong> &bull; Max Allocation: <strong class="text-emerald-400">$300,000</strong> &bull; Split: 100% / 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-elitetraderfunding.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div>
+<div class="card-glow rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+        <span class="mono text-xs text-cyan-400">NinjaTrader, Tradovate</span>
+        <h2 class="text-2xl font-bold text-white mt-0.5"><a href="/review-purdia-capital.html" class="hover:text-cyan-400">Purdia Capital</a></h2>
+        <p class="text-xs text-slate-400 mt-1">Drawdown: <strong class="text-amber-300">End-of-Day (EOD)</strong> &bull; Max Allocation: <strong class="text-emerald-400">$100,000</strong> &bull; Split: 90%</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <span class="mono text-xs bg-amber-400/15 text-amber-300 border border-amber-400/30 px-3 py-2 rounded-lg font-bold">Code: BIBLE80</span>
+        <a href="/review-purdia-capital.html" class="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-extrabold px-4 py-2 rounded-lg text-xs">Full Review &rarr;</a>
+    </div>
+</div></div>
 </main>
-<section id="pricing" class="py-16 px-6 max-w-7xl mx-auto">
+<section id="pricing" class="py-16 px-6 max-w-6xl mx-auto">
     <div class="text-center mb-12">
-        <span class="mono text-xs uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded border border-emerald-500/30">Instant Digital Delivery</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-3">Deploy Institutional Edge Today</h2>
-        <p class="text-slate-400 mt-2 max-w-2xl mx-auto">Stop blowing trailing drawdowns manually. Plug our C# NinjaScript indicators, ATM risk templates, and execution bots directly into NinjaTrader 8.</p>
+        <div class="mono text-xs text-cyan-400 uppercase tracking-widest mb-2">SIMPLE ONE-TIME PRICING</div>
+        <h2 class="text-3xl md:text-5xl font-bold text-white">Pick Your Trading Arsenal</h2>
+        <p class="text-slate-400 mt-2">Instant digital download. No recurring subscriptions.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="glass neon-border rounded-xl p-6 flex flex-col justify-between">
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
             <div>
-                <div class="mono text-xs text-emerald-400 font-bold">STARTER EDGE</div>
-                <h3 class="text-xl font-bold text-white mt-1">Flash Bot & ATM Guard</h3>
-                <div class="text-4xl font-extrabold text-white my-4">$9 <span class="text-xs font-normal text-slate-400">one-time</span></div>
-                <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                    <li>&#10003; NQ/ES Fair Value Gap Highlighter</li>
-                    <li>&#10003; Prop Firm Drawdown Lock ATM</li>
-                    <li>&#10003; Risk Management Excel Matrix</li>
-                </ul>
+                <div class="mono text-xs text-cyan-400 font-bold">STARTER</div>
+                <h3 class="text-xl font-bold text-white mt-1">Flash FVG Bot</h3>
+                <div class="text-4xl font-black text-white my-4">$9</div>
+                <p class="text-xs text-slate-400 mb-6">Includes NQ/ES Fair Value Gap Highlighter + Drawdown Guard ATM.</p>
             </div>
-            <button onclick="checkout('flash_bot')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold py-3 rounded transition">Unlock For $9</button>
+            <button onclick="checkout('flash_bot')" class="w-full bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition">Buy For $9</button>
         </div>
-        <div class="glass gold-border rounded-xl p-6 flex flex-col justify-between relative">
-            <div class="absolute -top-3 right-4 bg-amber-400 text-black text-[10px] font-extrabold px-2 py-0.5 rounded mono">MOST POPULAR</div>
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between border-2 border-emerald-400 relative shadow-[0_0_40px_rgba(0,255,157,0.15)]">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-emerald-400 text-black text-[11px] font-black px-3 py-0.5 rounded-full mono">MOST POPULAR</div>
             <div>
-                <div class="mono text-xs text-amber-400 font-bold">PRO TRADER PACK</div>
-                <h3 class="text-xl font-bold text-white mt-1">Master Algo Bundle</h3>
-                <div class="text-4xl font-extrabold text-amber-400 my-4">$19 <span class="text-xs font-normal text-slate-400">one-time</span></div>
-                <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                    <li>&#10003; Everything in $9 Flash Tier</li>
-                    <li>&#10003; Liquidity Sweep + MSS Indicator</li>
-                    <li>&#10003; London & NY Killzone Auto-Plotter</li>
-                    <li>&#10003; 20+ NinjaTrader 8 ATM Presets</li>
-                </ul>
+                <div class="mono text-xs text-emerald-400 font-bold">PRO PACK</div>
+                <h3 class="text-xl font-bold text-white mt-1">Master Bundle</h3>
+                <div class="text-4xl font-black text-emerald-400 my-4">$19</div>
+                <p class="text-xs text-slate-300 mb-6">Everything in $9 + Liquidity Sweep Bot, Killzone Plotter & 20 ATM Templates.</p>
             </div>
-            <button onclick="checkout('master_bundle')" class="w-full bg-amber-400 hover:bg-amber-300 text-black font-extrabold py-3 rounded transition">Unlock Master Bundle ($19)</button>
+            <button onclick="checkout('master_bundle')" class="w-full bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-black py-3 rounded-xl transition">Get Master Pack ($19)</button>
         </div>
-        <div class="glass neon-border rounded-xl p-6 flex flex-col justify-between">
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
             <div>
-                <div class="mono text-xs text-emerald-400 font-bold">FULL AUTOMATION</div>
+                <div class="mono text-xs text-cyan-400 font-bold">HANDS-FREE</div>
                 <h3 class="text-xl font-bold text-white mt-1">Autotrader Suite</h3>
-                <div class="text-4xl font-extrabold text-white my-4">$299 <span class="text-xs font-normal text-slate-400">lifetime</span></div>
-                <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                    <li>&#10003; Hands-Free C# NinjaScript Bots</li>
-                    <li>&#10003; NQ, ES, GC & CL Execution Engines</li>
-                    <li>&#10003; Auto Breakeven & Trailing Stop Logic</li>
-                    <li>&#10003; Multi-Account Copier Compatible</li>
-                </ul>
+                <div class="text-4xl font-black text-white my-4">$299</div>
+                <p class="text-xs text-slate-400 mb-6">Full automated execution bots for NQ, ES, GC & CL with auto-breakeven.</p>
             </div>
-            <button onclick="checkout('autotrader_suite')" class="w-full bg-white hover:bg-slate-200 text-black font-extrabold py-3 rounded transition">Deploy Autotrader ($299)</button>
+            <button onclick="checkout('autotrader_suite')" class="w-full bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition">Unlock Suite ($299)</button>
         </div>
-        <div class="glass border border-purple-500/40 rounded-xl p-6 flex flex-col justify-between">
+
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
             <div>
-                <div class="mono text-xs text-purple-400 font-bold">INSTITUTIONAL DESK</div>
-                <h3 class="text-xl font-bold text-white mt-1">VIP Mastermind</h3>
-                <div class="text-4xl font-extrabold text-white my-4">$499 <span class="text-xs font-normal text-slate-400">lifetime</span></div>
-                <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                    <li>&#10003; Full Uncompiled C# Source Code</li>
-                    <li>&#10003; All {len(BOTS)}+ Vault Bots Included</li>
-                    <li>&#10003; 1-on-1 Remote NinjaTrader Setup</li>
-                    <li>&#10003; Private Prop Passing Blueprint</li>
-                </ul>
+                <div class="mono text-xs text-amber-300 font-bold">ALL-ACCESS</div>
+                <h3 class="text-xl font-bold text-white mt-1">VIP Prop Desk</h3>
+                <div class="text-4xl font-black text-amber-300 my-4">$499</div>
+                <p class="text-xs text-slate-400 mb-6">All 102 Bots + Uncompiled C# Source Code + 1-on-1 Remote Setup.</p>
             </div>
-            <button onclick="checkout('vip_mastermind')" class="w-full bg-purple-500 hover:bg-purple-400 text-black font-extrabold py-3 rounded transition">Join VIP Desk ($499)</button>
+            <button onclick="checkout('vip_mastermind')" class="w-full bg-amber-400 hover:bg-amber-300 text-black font-black py-3 rounded-xl transition">Join VIP ($499)</button>
         </div>
     </div>
 </section>
 
-    <footer class="mt-auto border-t border-white/10 bg-black/90 py-12 px-6 text-sm text-slate-400">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <div class="text-white font-extrabold text-lg mb-2">THE FUNDED BIBLE</div>
-                <p class="text-xs leading-relaxed">Institutional C# NinjaScript algorithms, Fair Value Gap execution engines, and verified CME futures prop firm comparison matrices.</p>
+    <footer class="mt-auto border-t border-white/10 bg-[#020305] py-10 px-6 text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-white font-bold">THE FUNDED <span class="text-cyan-400">BIBLE</span> &copy; 2026</div>
+            <div class="flex flex-wrap gap-6 text-slate-400">
+                <a href="/firms.html" class="hover:text-cyan-400">Prop Firm Matrix</a>
+                <a href="/vault.html" class="hover:text-cyan-400">All 102 Bots</a>
+                <a href="/calculator.html" class="hover:text-cyan-400">Drawdown Calculator</a>
+                <a href="/briefings.html" class="hover:text-cyan-400">SEO Directory</a>
+                <a href="/sitemap.xml" class="hover:text-cyan-400">Sitemap</a>
             </div>
-            <div>
-                <div class="text-emerald-400 font-bold mb-2 mono">CORE TERMINALS</div>
-                <ul class="space-y-1 text-xs">
-                    <li><a href="/firms.html" class="hover:text-white">Prop Firm Comparison Matrix</a></li>
-                    <li><a href="/vault.html" class="hover:text-white">NinjaTrader 8 Bot Vault</a></li>
-                    <li><a href="/calculator.html" class="hover:text-white">Position Size & Drawdown Calculator</a></li>
-                    <li><a href="/briefings.html" class="hover:text-white">Daily CME Market Briefings</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="text-amber-400 font-bold mb-2 mono">TOP PROP REVIEWS</div>
-                <ul class="space-y-1 text-xs">
-                    <li><a href="/review-tradeify.html" class="hover:text-white">Tradeify Review & Rules</a></li>
-                    <li><a href="/review-apex-trader-funding.html" class="hover:text-white">Apex Trader Funding Guide</a></li>
-                    <li><a href="/review-topstep.html" class="hover:text-white">Topstep EOD Breakdown</a></li>
-                    <li><a href="/review-my-funded-futures.html" class="hover:text-white">My Funded Futures Rules</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="text-white font-bold mb-2 mono">ALGO PRICING TIERS</div>
-                <ul class="space-y-1 text-xs">
-                    <li><a href="/index.html#pricing" class="text-emerald-400 hover:underline">$9 Flash FVG Bot</a></li>
-                    <li><a href="/index.html#pricing" class="text-amber-400 hover:underline">$19 Master Algo Bundle</a></li>
-                    <li><a href="/index.html#pricing" class="hover:text-white">$299 Full Autotrader Suite</a></li>
-                    <li><a href="/index.html#pricing" class="hover:text-white">$499 VIP Prop Desk Mastermind</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-xs flex justify-between">
-            <span>&copy; 2026 The Funded Bible. All rights reserved.</span>
-            <span class="mono text-emerald-400">STATUS: ALL SYSTEMS & INDEXERS ONLINE</span>
         </div>
     </footer>
     <script>
+    function filterBots(cat) {
+        document.querySelectorAll('.bot-item').forEach(el => {
+            if (cat === 'all' || el.dataset.cat === cat) {
+                el.style.display = 'flex';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+    }
     async function checkout(tier) {
+        const links = {
+            'flash_bot': '/api/create-checkout-session?tier=flash_bot&price=9',
+            'master_bundle': '/api/create-checkout-session?tier=master_bundle&price=19',
+            'autotrader_suite': '/api/create-checkout-session?tier=autotrader_suite&price=299',
+            'vip_mastermind': '/api/create-checkout-session?tier=vip_mastermind&price=499'
+        };
         try {
             const res = await fetch('/api/create-checkout-session', {
                 method: 'POST',
@@ -268,7 +273,7 @@
             const data = await res.json();
             if (data.url) { window.location.href = data.url; return; }
         } catch (e) {}
-        window.location.href = '/vault.html?checkout=' + tier;
+        window.location.href = links[tier] || '#pricing';
     }
     </script>
 </body>
