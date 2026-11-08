@@ -7,6 +7,19 @@ TODAY = datetime.date.today().isoformat()
 TELEGRAM_LINK = "https://t.me/FundedBibleAlertsBot"
 
 # 100% Locked & Verified 1-to-1 Stripe Checkouts with BIBLE80 auto-filled
+
+# Load custom bot payment links generated from Stripe
+CUSTOM_BOT_LINKS = {}
+if os.path.exists("stripe_bot_links.json"):
+    try:
+        with open("stripe_bot_links.json", "r") as f:
+            CUSTOM_BOT_LINKS = json.load(f)
+    except Exception:
+        pass
+
+def get_bot_checkout_url(b):
+    return CUSTOM_BOT_LINKS.get(b['slug'], STRIPE_PAYMENTS.get(b['tier'], STRIPE_PAYMENTS['master_bundle']))
+
 STRIPE_PAYMENTS = {
     "flash_bot": "https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03?prefilled_promo_code=BIBLE80",
     "master_bundle": "https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02?prefilled_promo_code=BIBLE80",
@@ -305,7 +318,7 @@ def write_page(filename, html_content):
     generated_urls.append(url)
 
 def render_bot_card(b):
-    checkout_url = STRIPE_PAYMENTS.get(b['tier'], STRIPE_PAYMENTS['master_bundle'])
+    checkout_url = get_bot_checkout_url(b)
     return f"""
     <div data-cat="{b['cat']}" class="bot-item card-glow rounded-2xl p-6 flex flex-col justify-between">
         <div>
@@ -529,7 +542,7 @@ for b in BOTS:
     slug = f"bot-{b['slug']}.html"
     title = f"{b['name']} | NinjaTrader 8 C# Bot ({b['market']})"
     desc = f"{b['desc']} Backtested win rate: {b['win']}. Instant digital download for NinjaTrader 8."
-    checkout_url = STRIPE_PAYMENTS.get(b['tier'], STRIPE_PAYMENTS['master_bundle'])
+    checkout_url = get_bot_checkout_url(b)
     write_page(slug, get_head(title, desc, slug) + f"""
     <main class="max-w-4xl mx-auto px-6 py-12">
         <div class="mono text-xs text-cyan-400 mb-2">{b['market']} // BACKTEST WIN: {b['win']}</div>
