@@ -1,4 +1,40 @@
-﻿import os
+
+# --- TIER PRICING TABLE (Starting at $14.99) ---
+PRICE_TIERS = [
+    14.99, 18.99, 24.99, 32.99, 34.99, 39.99, 42.99, 45.99, 
+    47.99, 48.99, 49.99, 52.99, 55.00, 59.00, 64.00, 69.00,
+    74.00, 79.00, 89.00, 99.00
+]
+
+STRATEGIES_LIST = [
+    'order-block-sniper', 'volume-profile-poc-bot', 'delta-divergence-algo',
+    'opening-range-breakout-orb', 'vwap-mean-reversion', 'asia-sweep-reversal',
+    'smt-divergence-scanner', 'auto-breakeven-atm-guard', 'ny-midnight-open-retest',
+    'dom-orderflow-imbalance', '2022-mentorship-mss-bot', 'london-close-reversal',
+    'macro-time-displacement', 'breaker-block-auto-entry', 'session-liquidity-raid',
+    'atr-dynamic-trail-engine'
+]
+
+BOT_PRICE_MAP = {
+    'nq-fvg-sniper-bot': 14.99,
+    'prop-firm-drawdown-protector-atm': 14.99,
+    'es-liquidity-sweep-autotrader': 18.99,
+    'gold-gc-london-breakout-bot': 24.99,
+    'ict-silver-bullet-ninjatrader-suite': 299.00,
+    'vip-institutional-prop-mastermind': 499.00
+}
+
+for s_i, strat in enumerate(STRATEGIES_LIST):
+    t_price = PRICE_TIERS[(s_i + 1) % len(PRICE_TIERS)]
+    for a in ['nq-nasdaq', 'mnq-micro-nasdaq', 'es-sp500', 'mes-micro-sp500', 'gc-gold', 'cl-crude-oil']:
+        BOT_PRICE_MAP[f'{a}-{strat}-ninjatrader-8'] = t_price
+
+def get_product_price(slug):
+    val = BOT_PRICE_MAP.get(slug, 14.99)
+    return f"{val:.2f}"
+# ---------------------------------------------
+
+import os
 import json
 import datetime
 
