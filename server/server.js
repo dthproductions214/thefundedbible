@@ -46,4 +46,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 4242;
-app.listen(PORT, () => console.log(Stripe checkout backend running on port \));
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(Stripe checkout backend running on port \));
+}
+module.exports = app;
