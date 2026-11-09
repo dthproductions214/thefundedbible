@@ -6,7 +6,7 @@ DOMAIN = "https://thefundedbible.com"
 TODAY = datetime.date.today().isoformat()
 TELEGRAM_LINK = "https://t.me/FundedBibleAlertsBot"
 
-# 100% Locked & Verified 1-to-1 Stripe Checkouts with BIBLE80 auto-filled
+# 100% Locked & Verified 1-to-1 Stripe Checkouts with BIBLE15 auto-filled
 
 # Load custom bot payment links generated from Stripe
 CUSTOM_BOT_LINKS = {}
@@ -21,23 +21,23 @@ def get_bot_checkout_url(b):
     return CUSTOM_BOT_LINKS.get(b['slug'], STRIPE_PAYMENTS.get(b['tier'], STRIPE_PAYMENTS['master_bundle']))
 
 STRIPE_PAYMENTS = {
-    "flash_bot": "https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03?prefilled_promo_code=BIBLE80",
-    "master_bundle": "https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02?prefilled_promo_code=BIBLE80",
-    "autotrader_suite": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE80",
-    "vip_mastermind": "https://buy.stripe.com/bJedR9cn7c7egKjaZB3gk06?prefilled_promo_code=BIBLE80"
+    "flash_bot": "https://buy.stripe.com/aFaeVd1It6MU2TtaZB3gk03?prefilled_promo_code=BIBLE15",
+    "master_bundle": "https://buy.stripe.com/bJefZh2Mx3AI79J9Vx3gk02?prefilled_promo_code=BIBLE15",
+    "autotrader_suite": "https://buy.stripe.com/3cI4gz0Ep2wE3XxaZB3gk05?prefilled_promo_code=BIBLE15",
+    "vip_mastermind": "https://buy.stripe.com/bJedR9cn7c7egKjaZB3gk06?prefilled_promo_code=BIBLE15"
 }
 
 FIRMS = [
-    {"slug": "tradeify", "name": "Tradeify", "max_alloc": "$750,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader 8, Tradovate", "code": "BIBLE80", "affiliate": "https://tradeify.co"},
-    {"slug": "apex-trader-funding", "name": "Apex Trader Funding", "max_alloc": "$300,000", "split": "100% / 90%", "drawdown": "Intraday Trailing", "platform": "NinjaTrader 8, Tradovate, Rithmic", "code": "BIBLE80", "affiliate": "https://apextraderfunding.com"},
-    {"slug": "topstep", "name": "Topstep", "max_alloc": "$150,000", "split": "100% / 90%", "drawdown": "End-of-Day (EOD)", "platform": "TopstepX, NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://topstep.com"},
-    {"slug": "my-funded-futures", "name": "My Funded Futures", "max_alloc": "$600,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate, TradingView", "code": "BIBLE80", "affiliate": "https://myfundedfutures.com"},
-    {"slug": "take-profit-trader", "name": "Take Profit Trader", "max_alloc": "$150,000", "split": "80% / 90%", "drawdown": "EOD (Eval) / Intraday (Pro)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://takeprofittrader.com"},
-    {"slug": "bulenox", "name": "Bulenox", "max_alloc": "$250,000", "split": "100% / 90%", "drawdown": "EOD or Trailing", "platform": "NinjaTrader, Rithmic", "code": "BIBLE80", "affiliate": "https://bulenox.com"},
-    {"slug": "earn2trade", "name": "Earn2Trade", "max_alloc": "$400,000", "split": "80%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Finamark", "code": "BIBLE80", "affiliate": "https://earn2trade.com"},
-    {"slug": "ticktick-trader", "name": "TickTick Trader", "max_alloc": "$100,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://tickticktrader.com"},
-    {"slug": "elitetraderfunding", "name": "Elite Trader Funding", "max_alloc": "$300,000", "split": "100% / 90%", "drawdown": "EOD / Static / Trailing", "platform": "NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://elitetraderfunding.com"},
-    {"slug": "purdia-capital", "name": "Purdia Capital", "max_alloc": "$100,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE80", "affiliate": "https://purdiacapital.com"}
+    {"slug": "tradeify", "name": "Tradeify", "max_alloc": "$750,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader 8, Tradovate", "code": "BIBLE15", "affiliate": "https://tradeify.co"},
+    {"slug": "apex-trader-funding", "name": "Apex Trader Funding", "max_alloc": "$300,000", "split": "100% / 90%", "drawdown": "Intraday Trailing", "platform": "NinjaTrader 8, Tradovate, Rithmic", "code": "BIBLE15", "affiliate": "https://apextraderfunding.com"},
+    {"slug": "topstep", "name": "Topstep", "max_alloc": "$150,000", "split": "100% / 90%", "drawdown": "End-of-Day (EOD)", "platform": "TopstepX, NinjaTrader, Tradovate", "code": "BIBLE15", "affiliate": "https://topstep.com"},
+    {"slug": "my-funded-futures", "name": "My Funded Futures", "max_alloc": "$600,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate, TradingView", "code": "BIBLE15", "affiliate": "https://myfundedfutures.com"},
+    {"slug": "take-profit-trader", "name": "Take Profit Trader", "max_alloc": "$150,000", "split": "80% / 90%", "drawdown": "EOD (Eval) / Intraday (Pro)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE15", "affiliate": "https://takeprofittrader.com"},
+    {"slug": "bulenox", "name": "Bulenox", "max_alloc": "$250,000", "split": "100% / 90%", "drawdown": "EOD or Trailing", "platform": "NinjaTrader, Rithmic", "code": "BIBLE15", "affiliate": "https://bulenox.com"},
+    {"slug": "earn2trade", "name": "Earn2Trade", "max_alloc": "$400,000", "split": "80%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Finamark", "code": "BIBLE15", "affiliate": "https://earn2trade.com"},
+    {"slug": "ticktick-trader", "name": "TickTick Trader", "max_alloc": "$100,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE15", "affiliate": "https://tickticktrader.com"},
+    {"slug": "elitetraderfunding", "name": "Elite Trader Funding", "max_alloc": "$300,000", "split": "100% / 90%", "drawdown": "EOD / Static / Trailing", "platform": "NinjaTrader, Tradovate", "code": "BIBLE15", "affiliate": "https://elitetraderfunding.com"},
+    {"slug": "purdia-capital", "name": "Purdia Capital", "max_alloc": "$100,000", "split": "90%", "drawdown": "End-of-Day (EOD)", "platform": "NinjaTrader, Tradovate", "code": "BIBLE15", "affiliate": "https://purdiacapital.com"}
 ]
 
 # Core Bots cleanly categorized to their exact pricing tier
@@ -126,7 +126,7 @@ HERO_SVG = f"""
         </p>
         <div class="flex flex-wrap gap-4 items-center">
             <a href="{STRIPE_PAYMENTS['flash_bot']}" class="bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-black font-black px-7 py-3.5 rounded-xl text-sm shadow-[0_0_25px_rgba(0,255,157,0.35)] transition transform hover:-translate-y-0.5">
-                Unlock $9 Flash Bot &rarr;
+                Unlock $14.99 Flash Bot &rarr;
             </a>
             <a href="{TELEGRAM_LINK}" target="_blank" rel="noopener" class="bg-sky-500/10 hover:bg-sky-500/20 border border-sky-400/40 text-sky-300 font-bold px-6 py-3.5 rounded-xl text-sm transition flex items-center gap-2">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
@@ -201,7 +201,7 @@ def get_head(title, desc, canonical_slug):
             <span>CL=F <strong class="text-emerald-400">+0.64%</strong></span>
         </div>
         <div class="hidden sm:block text-slate-300">
-            PROP CODE: <span class="text-amber-300 font-bold bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded ml-1">BIBLE80</span>
+            PROP CODE: <span class="text-amber-300 font-bold bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded ml-1">BIBLE15</span>
         </div>
     </div>
 
@@ -234,17 +234,17 @@ PRICING_SECTION = f"""
     <div class="text-center mb-12">
         <div class="mono text-xs text-cyan-400 uppercase tracking-widest mb-2">INSTANT DIGITAL DELIVERY</div>
         <h2 class="text-3xl md:text-5xl font-bold text-white">Choose Your Edge</h2>
-        <p class="text-slate-400 mt-2">Zero monthly fees. Code BIBLE80 auto-applied at checkout.</p>
+        <p class="text-slate-400 mt-2">Zero monthly fees. Code BIBLE15 auto-applied at checkout.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
             <div>
                 <div class="mono text-xs text-cyan-400 font-bold">STARTER EDGE</div>
                 <h3 class="text-xl font-bold text-white mt-1">Flash FVG Bot</h3>
-                <div class="text-4xl font-black text-white my-4">$9 <span class="text-xs text-slate-400 font-normal">one-time</span></div>
+                <div class="text-4xl font-black text-white my-4">$14.99 <span class="text-xs text-slate-400 font-normal">one-time</span></div>
                 <p class="text-xs text-slate-400 mb-6">NQ & ES Fair Value Gap Indicator + Drawdown Protector ATM preset.</p>
             </div>
-            <a href="{STRIPE_PAYMENTS['flash_bot']}" class="w-full text-center bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition block">Unlock For $9 &rarr;</a>
+            <a href="{STRIPE_PAYMENTS['flash_bot']}" class="w-full text-center bg-white/10 hover:bg-cyan-400 hover:text-black text-white font-bold py-3 rounded-xl transition block">Unlock For $14.99 &rarr;</a>
         </div>
 
         <div class="card-glow rounded-2xl p-6 flex flex-col justify-between border-2 border-emerald-400 relative shadow-[0_0_35px_rgba(0,255,157,0.15)]">
@@ -253,7 +253,7 @@ PRICING_SECTION = f"""
                 <div class="mono text-xs text-emerald-400 font-bold">PRO PACK</div>
                 <h3 class="text-xl font-bold text-white mt-1">Master Bundle</h3>
                 <div class="text-4xl font-black text-emerald-400 my-4">$19 <span class="text-xs text-slate-300 font-normal">one-time</span></div>
-                <p class="text-xs text-slate-300 mb-6">Everything in $9 + Liquidity Sweep bot, London/NY Killzones & 20 ATM templates.</p>
+                <p class="text-xs text-slate-300 mb-6">Everything in $14.99 + Liquidity Sweep bot, London/NY Killzones & 20 ATM templates.</p>
             </div>
             <a href="{STRIPE_PAYMENTS['master_bundle']}" class="w-full text-center bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-black py-3 rounded-xl transition block">Unlock Master Pack ($19) &rarr;</a>
         </div>
