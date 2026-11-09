@@ -1,1 +1,174 @@
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","name":"The Funded Bible","description":"Automated NinjaTrader 8 Prop Firm Bots & Signals"}</script><div class="cftc-disclaimer text-xs text-slate-500 mt-4"><p>CFTC RULE 4.41: HYPOTHETICAL OR SIMULATED PERFORMANCE RESULTS HAVE CERTAIN LIMITATIONS. UNLIKE AN ACTUAL PERFORMANCE RECORD, SIMULATED RESULTS DO NOT REPRESENT ACTUAL TRADING.</p></div>
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Funded Bible | Automated NinjaTrader 8 Prop Firm Bots & Signals</title>
+  <meta name="description" content="Pass Tradeify, Apex, and Topstep evaluations with automated C# NinjaScript trading bots.">
+  <link rel="canonical" href="https://thefundedbible.com/">
+  <meta property="og:title" content="The Funded Bible | Automated NinjaTrader 8 Prop Firm Bots & Signals">
+  <meta property="og:description" content="Pass Tradeify, Apex, and Topstep evaluations with automated C# NinjaScript trading bots.">
+  <meta property="og:url" content="https://thefundedbible.com/">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #030508;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 255, 157, 0.07) 0%, transparent 40%);
+    }
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .card-glow {
+      background: rgba(8, 12, 20, 0.88);
+      border: 1px solid rgba(0, 242, 254, 0.16);
+    }
+    .card-glow:hover {
+      border-color: rgba(0, 242, 254, 0.45);
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.12);
+    }
+    .price-accent { color: #00f2fe; }
+    .hero-gradient {
+      background: linear-gradient(135deg, #00f2fe 0%, #00ff9d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-[#030508] text-slate-100 antialiased min-h-screen flex flex-col justify-between">
+  <div>
+    <!-- Navigation -->
+    <header class="border-b border-slate-800/80 bg-[#030508]/90 backdrop-blur sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center space-x-3">
+          <span class="text-xl font-bold tracking-tight text-white">THE FUNDED BIBLE</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/50 font-mono">NT8 BOTS</span>
+        </a>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+          <a href="#bots" class="hover:text-cyan-400 transition">Bots & Pricing</a>
+          <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+          <a href="#faq" class="hover:text-cyan-400 transition">FAQ</a>
+        </nav>
+        <a href="#bots" class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-semibold text-sm hover:opacity-90 transition">Explore Bots</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 mb-8 text-xs text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Updated for NinjaTrader 8.1+ & Prop Firm Rules</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+        Automated NinjaTrader 8 Bots for <span class="hero-gradient">Prop Firm Traders</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Engineered for Tradeify, Apex, and Topstep. Control risk with strict drawdown protection, trailing stop logic, and automated execution.
+      </p>
+    </section>
+
+    <!-- Bots Section -->
+    <section id="bots" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">NinjaTrader 8 Bot Suite</h2>
+        <p class="text-slate-400">Choose individual tools or unlock the full automated suite.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- NQ Fair Value Gap Sniper -->
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-white">NQ Fair Value Gap Sniper</h3>
+              <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Starter</span>
+            </div>
+            <p class="text-sm text-slate-400 mb-6">Automated 1-min & 5-min FVG entries with dynamic displacement validation and customizable target multipliers.</p>
+          </div>
+          <div>
+            <div class="flex items-baseline mb-6">
+              <span class="text-2xl font-black text-white">$14.99</span>
+              <span class="text-xs text-slate-500 ml-2">one-time</span>
+            </div>
+            <a href="https://checkout.stripe.com/c/pay/cs_live_nq_fvg_sniper" class="block text-center py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition">Get Bot</a>
+          </div>
+        </div>
+
+        <!-- Trailing Drawdown Killswitch -->
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-white">Trailing Drawdown Killswitch</h3>
+              <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Starter</span>
+            </div>
+            <p class="text-sm text-slate-400 mb-6">Hard stop protector for prop accounts. Automatically flattens positions and locks trading when daily loss limit is hit.</p>
+          </div>
+          <div>
+            <div class="flex items-baseline mb-6">
+              <span class="text-2xl font-black text-white">$14.99</span>
+              <span class="text-xs text-slate-500 ml-2">one-time</span>
+            </div>
+            <a href="https://checkout.stripe.com/c/pay/cs_live_killswitch" class="block text-center py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition">Get Bot</a>
+          </div>
+        </div>
+
+        <!-- Prop Suite Pass Bundle -->
+        <div class="card-glow rounded-2xl p-6 flex flex-col justify-between border-cyan-500/40 relative">
+          <div class="absolute -top-3 right-6 bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-white">Prop Suite Pass Bundle</h3>
+              <span class="text-xs px-2 py-1 rounded bg-cyan-950 text-cyan-400 border border-cyan-800">Bundle</span>
+            </div>
+            <p class="text-sm text-slate-400 mb-6">Includes FVG Sniper, Killswitch, ES Momentum Scalper, and lifetime updates with priority Discord support.</p>
+          </div>
+          <div>
+            <div class="flex items-baseline mb-6">
+              <span class="text-3xl font-black text-white">$49.99</span>
+              <span class="text-xs text-slate-500 ml-2">lifetime</span>
+            </div>
+            <a href="https://checkout.stripe.com/c/pay/cs_live_bundle" class="block text-center py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-bold text-sm hover:opacity-90 transition">Get Full Bundle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
+          <h3 class="font-bold text-white mb-2">NinjaTrader 8 Native C#</h3>
+          <p class="text-sm text-slate-400">Clean, uncompiled source files for full transparency and customization inside NT8 Editor.</p>
+        </div>
+        <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
+          <h3 class="font-bold text-white mb-2">Prop Firm Compliant</h3>
+          <p class="text-sm text-slate-400">Built-in safeguards tuned to match Tradeify, Apex, and Topstep evaluation parameters.</p>
+        </div>
+        <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
+          <h3 class="font-bold text-white mb-2">Instant Delivery</h3>
+          <p class="text-sm text-slate-400">Download .zip packages immediately after checkout containing scripts and setup guides.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "The Funded Bible",
+      "description": "Automated NinjaTrader 8 Prop Firm Bots & Signals"
+    }
+    </script>
+    <div class="cftc-disclaimer text-xs text-slate-500 mt-4"><p>CFTC RULE 4.41: HYPOTHETICAL OR SIMULATED PERFORMANCE RESULTS HAVE CERTAIN LIMITATIONS. UNLIKE AN ACTUAL PERFORMANCE RECORD, SIMULATED RESULTS DO NOT REPRESENT ACTUAL TRADING.</p></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8 text-center text-slate-500">
+    <p>&copy; 2026 The Funded Bible. All rights reserved.</p>
+  </footer>
+</body>
+</html>
